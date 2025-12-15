@@ -4,55 +4,146 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>La Wun Shun Lett | Portfolio</title>
+  <meta name="description" content="Portfolio of La Wun Shun Lett — Computer Engineering | Web | IoT | DevOps" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <header class="hero">
-    <h1>La Wun Shun Lett</h1>
-    <p>Computer Engineering | Web | IoT | DevOps</p>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top">Shun</a>
+
+      <nav class="menu" id="menu">
+        <a href="#about" class="navlink">About</a>
+        <a href="#projects" class="navlink">Projects</a>
+        <a href="#skills" class="navlink">Skills</a>
+        <a href="#contact" class="navlink">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn ghost" id="themeBtn" type="button" aria-label="Toggle theme">🌙</button>
+        <button class="btn ghost mobile" id="menuBtn" type="button" aria-label="Open menu">☰</button>
+      </div>
+    </div>
   </header>
 
-  <section class="container">
-    <h2>About Me</h2>
-    <p>
-      Final-year Computer Engineering student at Singapore Polytechnic.
-      Experienced in web development, IoT systems, Docker deployment,
-      and real-world engineering projects.
-    </p>
-  </section>
+  <!-- HERO -->
+  <main id="top">
+    <section class="hero section">
+      <div class="hero-inner">
+        <p class="badge">Computer Engineering • Singapore</p>
+        <h1 class="title">La Wun Shun Lett</h1>
+        <p class="subtitle">
+          I build clean web apps, IoT systems, and practical deployments (Docker/NAS).
+        </p>
 
-  <section class="container">
-    <h2>Projects</h2>
+        <div class="cta">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
 
-    <div class="card">
-      <h3>GatePass Tracking System</h3>
-      <p>
-        PHP & MySQL web application with image upload, Excel import/export,
-        and Docker deployment on Synology NAS.
+        <div class="quick">
+          <a href="https://github.com/LaWunShunLett" target="_blank" rel="noreferrer">GitHub</a>
+          <span>•</span>
+          <a href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+          <span>•</span>
+          <a href="#" target="_blank" rel="noreferrer">Resume (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section container reveal">
+      <h2>About</h2>
+      <p class="lead">
+        Final-year Computer Engineering student at Singapore Polytechnic. I’ve built real systems like a
+        GatePass Tracking Web App with image handling + Excel import/export + Docker deployment.
       </p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section container reveal">
+      <div class="row">
+        <h2>Projects</h2>
+
+        <div class="filters" id="filters">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="web">Web</button>
+          <button class="chip" data-filter="iot">IoT</button>
+          <button class="chip" data-filter="devops">DevOps</button>
+        </div>
+      </div>
+
+      <div class="grid" id="projectGrid">
+        <!-- Card 1 -->
+        <article class="card" data-tags="web,devops"
+          data-title="GatePass Tracking System"
+          data-desc="PHP + MySQL web system with image upload, Excel import/export, and deployment on NAS with Docker."
+          data-stack="PHP, MySQL/MariaDB, HTML/CSS, JavaScript, Docker, Synology NAS"
+        >
+          <h3>GatePass Tracking System</h3>
+          <p>PHP + MySQL • Images • Excel import/export • Docker</p>
+          <div class="meta">
+            <span class="tag">Web</span>
+            <span class="tag">DevOps</span>
+            <button class="btn small" type="button">Details</button>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card" data-tags="iot"
+          data-title="Line-Following Robot"
+          data-desc="Microcontroller robot using sensors + control logic. Built, tuned, and tested end-to-end."
+          data-stack="Arduino/PIC/STM32, Sensors, Control logic"
+        >
+          <h3>Line-Following Robot</h3>
+          <p>Microcontroller • Sensors • Control</p>
+          <div class="meta">
+            <span class="tag">IoT</span>
+            <button class="btn small" type="button">Details</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section container reveal">
+      <h2>Skills</h2>
+      <div class="pillbox">
+        <span class="pill">PHP</span><span class="pill">MySQL/MariaDB</span><span class="pill">HTML</span>
+        <span class="pill">CSS</span><span class="pill">JavaScript</span><span class="pill">Docker</span>
+        <span class="pill">IoT</span><span class="pill">Arduino</span><span class="pill">Raspberry Pi</span>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section container reveal">
+      <h2>Contact</h2>
+      <div class="contact">
+        <a class="btn primary" href="mailto:YOUR_EMAIL_HERE">Email me</a>
+        <a class="btn" href="https://github.com/LaWunShunLett" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+      <p class="tiny">Tip: replace “LinkedIn” + “Resume” links in the hero when ready.</p>
+    </section>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> La Wun Shun Lett</p>
+    </footer>
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <div class="modal-top">
+        <h3 id="mTitle">Title</h3>
+        <button class="btn ghost" id="closeModal" type="button">✕</button>
+      </div>
+      <p id="mDesc"></p>
+      <p class="tiny"><b>Stack:</b> <span id="mStack"></span></p>
     </div>
+  </div>
 
-    <div class="card">
-      <h3>Line-Following Robot</h3>
-      <p>
-        Microcontroller-based robot using sensors and control algorithms.
-      </p>
-    </div>
-  </section>
-
-  <section class="container">
-    <h2>Contact</h2>
-    <p>
-      GitHub:
-      <a href="https://github.com/LaWunShunLett" target="_blank">
-        github.com/LaWunShunLett
-      </a>
-    </p>
-  </section>
-
-  <footer>
-    © 2025 La Wun Shun Lett
-  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
