@@ -1,25 +1,25 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  font-family: Arial, sans-serif;
   background: #0f172a;
   color: #e5e7eb;
 }
 
-header {
-  background: #020617;
-  padding: 40px 20px;
+.hero {
   text-align: center;
+  padding: 60px 20px;
+  background: #020617;
 }
 
-section {
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.container {
   max-width: 900px;
   margin: 40px auto;
   padding: 0 20px;
-}
-
-h1 {
-  margin-bottom: 10px;
 }
 
 h2 {
@@ -27,11 +27,11 @@ h2 {
   padding-bottom: 6px;
 }
 
-.project {
+.card {
   background: #020617;
   padding: 20px;
+  border-radius: 10px;
   margin-top: 20px;
-  border-radius: 8px;
 }
 
 a {
