@@ -42,7 +42,6 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: nowrap;
   gap: 14px;
 }
 
@@ -86,7 +85,6 @@ body{
   align-items: center;
 }
 
-/* Headline format */
 .hero-title{
   margin: 0 0 22px;
 }
@@ -108,21 +106,19 @@ body{
 }
 
 .hero-title .nickname{
-  display: block;
+  display: block;              /* NEXT LINE */
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--accent);
   margin-top: 10px;
 }
 
 .inline-link{
   color: var(--accent);
-  font-weight: 700;
+  font-weight: 800;
   text-decoration: none;
 }
-.inline-link:hover{
-  text-decoration: underline;
-}
+.inline-link:hover{ text-decoration: underline; }
 
 .hero-desc{
   max-width: 560px;
@@ -283,14 +279,15 @@ body:not(.preload) .anim{
 }
 
 /* ---------- HAMBURGER (MOBILE ONLY) ---------- */
-/* IMPORTANT: hidden by default (desktop) */
+/* Hidden by default (desktop) */
 .hamburger-mobile{
   display: none;
-  width: 52px;
-  height: 52px;
-  border-radius: 999px; /* round like your sample */
-  background: transparent;
-  border: 3px solid var(--accent); /* BLUE ring highlight */
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.75);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 22px rgba(31,41,55,.08);
   cursor: pointer;
 
   padding: 0;
@@ -300,24 +297,27 @@ body:not(.preload) .anim{
   flex-direction: column;
 }
 
-/* black rounded stripes */
 .hamburger-mobile span{
   display: block;
-  width: 28px;
+  width: 26px;
   height: 5px;
-  background: #111111;
-  border-radius: 999px;
+  background: #111;
+  border-radius: 999px; /* rounded stripe */
 }
 
-/* show ONLY on mobile */
-@media (max-width: 768px){
+/* nice focus ring (blue) when tapped/keyboard */
+.hamburger-mobile:focus-visible{
+  outline: 3px solid rgba(37,99,235,.35);
+  outline-offset: 3px;
+}
+
+/* SHOW ONLY on real touch/mobile devices (prevents laptop showing it) */
+@media (max-width: 768px) and (hover: none) and (pointer: coarse){
   .desktop-nav{ display: none; }
   .hamburger-mobile{ display: inline-flex; }
 
-  /* Mobile menu open */
   .mobile-nav.active{ display: flex; }
 
-  /* headline responsive */
   .hero{
     grid-template-columns: 1fr;
     gap: 34px;
@@ -327,21 +327,6 @@ body:not(.preload) .anim{
   .hero-title .name{ font-size: 46px; }
   .hero-title .nickname{ font-size: 22px; }
   .hero-title .intro{ font-size: 26px; }
-}
-
-/* optional: animate to X when active */
-.hamburger-mobile span{
-  transition: transform .2s ease, opacity .2s ease;
-}
-
-.hamburger-mobile.active span:nth-child(1){
-  transform: translateY(12px) rotate(45deg);
-}
-.hamburger-mobile.active span:nth-child(2){
-  opacity: 0;
-}
-.hamburger-mobile.active span:nth-child(3){
-  transform: translateY(-12px) rotate(-45deg);
 }
 
 /* Mobile menu */
@@ -356,7 +341,7 @@ body:not(.preload) .anim{
   padding: 14px 22px;
   text-decoration: none;
   color: var(--text);
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .mobile-nav a:hover{
