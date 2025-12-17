@@ -5,60 +5,84 @@
   <title>La Wun Shun Lett</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- MUST MATCH EXACT FILE NAME -->
   <link rel="stylesheet" href="./style.css" />
 </head>
-<body>
 
+<!-- Add class "preload" so we can animate into view -->
+<body class="preload">
+
+  <!-- HEADER -->
   <header class="topbar">
     <div class="topbar-inner">
-      <div class="logo">LA WUN SHUN LETT</div>
+      <div class="logo anim anim-pop">LA WUN SHUN LETT</div>
 
       <nav class="nav" aria-label="Primary navigation">
-        <a href="#projects">Projects</a>
-        <a href="#about">About Me</a>
-        <a href="#contact">Contact</a>
+        <a class="anim anim-pop delay-1" href="#projects">Projects</a>
+        <a class="anim anim-pop delay-2" href="#about">About Me</a>
+        <a class="anim anim-pop delay-3" href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
+  <!-- HERO -->
   <main class="hero-wrap">
     <section class="hero">
       <div class="hero-left">
-        <h1 class="hero-title">Hi, I’m<br>La Wun Shun Lett</h1>
+        <h1 class="hero-title anim anim-up">
+          Hi, I’m<br>
+          La Wun Shun Lett
+        </h1>
 
-        <p class="hero-desc">
+        <p class="hero-desc anim anim-up delay-1">
           Singapore-based Computer Engineering student focused on building
           clean web applications and practical IoT systems.
           I enjoy shipping reliable features and improving UI/UX.
         </p>
 
         <div class="hero-actions">
-          <a href="#contact" class="btn primary">
+          <a href="#contact" class="btn primary anim anim-up delay-2">
             Contact Me <span class="dot"></span>
           </a>
 
-          <a href="https://www.linkedin.com" target="_blank" class="icon-btn" rel="noreferrer">in</a>
-          <a href="https://github.com/LaWunShunLett" target="_blank" class="icon-btn" rel="noreferrer">GH</a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer"
+             class="icon-btn anim anim-up delay-3">in</a>
+          <a href="https://github.com/LaWunShunLett" target="_blank" rel="noreferrer"
+             class="icon-btn anim anim-up delay-4">GH</a>
         </div>
       </div>
 
       <div class="hero-right">
-        <div class="photo-card">
+        <div class="photo-card anim anim-fade delay-2">
           <div class="portrait-label">Portrait</div>
+          <!-- Later you can put your image here:
+               <img src="portrait.jpg" alt="Portrait of La Wun Shun Lett" />
+          -->
         </div>
       </div>
     </section>
 
-    <!-- dummy sections so nav links don't feel broken -->
-    <section id="projects" class="spacer"></section>
-    <section id="about" class="spacer"></section>
-    <section id="contact" class="spacer"></section>
+    <!-- sections so navbar works -->
+    <section id="projects" class="section">
+      <h2 class="section-title anim anim-up">Projects</h2>
+      <p class="section-text anim anim-up delay-1">Add your projects here.</p>
+    </section>
+
+    <section id="about" class="section">
+      <h2 class="section-title anim anim-up">About Me</h2>
+      <p class="section-text anim anim-up delay-1">Add your bio here.</p>
+    </section>
+
+    <section id="contact" class="section">
+      <h2 class="section-title anim anim-up">Contact</h2>
+      <p class="section-text anim anim-up delay-1">Add your email + links here.</p>
+    </section>
   </main>
 
+  <script src="./scripts.js"></script>
 </body>
 </html>
