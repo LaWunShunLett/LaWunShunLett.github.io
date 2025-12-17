@@ -25,7 +25,7 @@ body{
     linear-gradient(180deg, var(--bg-soft), var(--bg-main));
 }
 
-/* HEADER */
+/* ---------- HEADER ---------- */
 .topbar{
   position: sticky;
   top: 0;
@@ -71,7 +71,7 @@ body{
 
 .nav a:hover{ color: var(--text); }
 
-/* HERO */
+/* ---------- HERO ---------- */
 .hero-wrap{
   padding: 70px 0 70px;
 }
@@ -86,7 +86,7 @@ body{
   align-items: center;
 }
 
-/* Headline format you wanted */
+/* Headline format */
 .hero-title{
   margin: 0 0 22px;
 }
@@ -105,14 +105,23 @@ body{
   font-weight: 800;
   line-height: 1.05;
   color: var(--text);
-  white-space: nowrap; /* desktop one line */
 }
 
 .hero-title .nickname{
-  font-size: 32px;
-  font-weight: 600;
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
   color: var(--accent);
-  margin-left: 8px;
+  margin-top: 10px;
+}
+
+.inline-link{
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+.inline-link:hover{
+  text-decoration: underline;
 }
 
 .hero-desc{
@@ -123,7 +132,7 @@ body{
   margin: 0 0 32px;
 }
 
-/* BUTTONS */
+/* Buttons */
 .hero-actions{
   display: flex;
   gap: 14px;
@@ -184,7 +193,7 @@ body{
   transform: translateY(-1px);
 }
 
-/* PHOTO CARD */
+/* Photo card */
 .hero-right{
   display: flex;
   justify-content: flex-end;
@@ -215,7 +224,7 @@ body{
   border: 1px solid rgba(0,0,0,.06);
 }
 
-/* SECTIONS */
+/* Sections */
 .section{
   max-width: 1120px;
   margin: 70px auto 0;
@@ -235,8 +244,6 @@ body{
 }
 
 /* ---------- ANIMATIONS ---------- */
-
-/* start hidden ONLY when body has preload */
 body.preload .anim{
   opacity: 0;
   transform: translateY(14px);
@@ -261,7 +268,6 @@ body:not(.preload) .anim{
   filter: blur(0);
 }
 
-/* stagger delays */
 .delay-1{ transition-delay: .08s; }
 .delay-2{ transition-delay: .16s; }
 .delay-3{ transition-delay: .24s; }
@@ -276,56 +282,69 @@ body:not(.preload) .anim{
   }
 }
 
-/* ---------- HAMBURGER BUTTON ---------- */
-/* Default: HIDE on desktop (so it won't affect your website view) */
+/* ---------- HAMBURGER (MOBILE ONLY) ---------- */
+/* IMPORTANT: hidden by default (desktop) */
 .hamburger-mobile{
   display: none;
   width: 52px;
   height: 52px;
-  border-radius: 16px;              /* rounded square like your screenshot */
-  border: 1px solid rgba(0,0,0,.10);
-  background: rgba(255,255,255,.75);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  border-radius: 999px; /* round like your sample */
+  background: transparent;
+  border: 3px solid var(--accent); /* BLUE ring highlight */
   cursor: pointer;
 
   padding: 0;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 7px;
   flex-direction: column;
 }
 
-/* The 3 stripes */
+/* black rounded stripes */
 .hamburger-mobile span{
   display: block;
-  width: 22px;
-  height: 3px;
-  background: #111111;              /* ✅ BLACK stripes */
+  width: 28px;
+  height: 5px;
+  background: #111111;
   border-radius: 999px;
 }
 
-/* ✅ ONLY show on mobile */
+/* show ONLY on mobile */
 @media (max-width: 768px){
-  .hamburger-mobile{
-    display: inline-flex;
+  .desktop-nav{ display: none; }
+  .hamburger-mobile{ display: inline-flex; }
+
+  /* Mobile menu open */
+  .mobile-nav.active{ display: flex; }
+
+  /* headline responsive */
+  .hero{
+    grid-template-columns: 1fr;
+    gap: 34px;
   }
+  .hero-right{ justify-content: center; }
+
+  .hero-title .name{ font-size: 46px; }
+  .hero-title .nickname{ font-size: 22px; }
+  .hero-title .intro{ font-size: 26px; }
 }
 
-/* Optional: Animate to X when active */
-.hamburger-mobile.active span{
+/* optional: animate to X when active */
+.hamburger-mobile span{
   transition: transform .2s ease, opacity .2s ease;
 }
+
 .hamburger-mobile.active span:nth-child(1){
-  transform: translateY(9px) rotate(45deg);
+  transform: translateY(12px) rotate(45deg);
 }
 .hamburger-mobile.active span:nth-child(2){
   opacity: 0;
 }
 .hamburger-mobile.active span:nth-child(3){
-  transform: translateY(-9px) rotate(-45deg);
+  transform: translateY(-12px) rotate(-45deg);
 }
 
+/* Mobile menu */
 .mobile-nav{
   display: none;
   flex-direction: column;
@@ -337,44 +356,18 @@ body:not(.preload) .anim{
   padding: 14px 22px;
   text-decoration: none;
   color: var(--text);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .mobile-nav a:hover{
   background: rgba(37,99,235,.08);
 }
 
-/* Responsive */
+/* General responsive */
 @media (max-width: 900px){
   .hero{
     grid-template-columns: 1fr;
     gap: 34px;
   }
   .hero-right{ justify-content: center; }
-}
-
-@media (max-width: 768px){
-  .desktop-nav{ display: none; }
-  .hamburger{ display: inline-flex; }
-
-  /* Name wraps on small screens to prevent overflow */
-  .hero-title .name{
-    white-space: normal;
-    font-size: 46px;
-  }
-  .hero-title .nickname{ font-size: 24px; }
-  .hero-title .intro{ font-size: 26px; }
-
-  .mobile-nav.active{ display: flex; }
-}
-
-/* hamburger -> X */
-.hamburger.active span:nth-child(1){
-  transform: translateY(6px) rotate(45deg);
-}
-.hamburger.active span:nth-child(2){
-  opacity: 0;
-}
-.hamburger.active span:nth-child(3){
-  transform: translateY(-6px) rotate(-45deg);
 }

@@ -1,21 +1,23 @@
 // Page-load reveal
 window.addEventListener("DOMContentLoaded", () => {
-  requestAnimationFrame(() => document.body.classList.remove("preload"));
+  requestAnimationFrame(() => {
+    document.body.classList.remove("preload");
+  });
 });
 
-// Hamburger toggle (mobile)
-const hamburger = document.getElementById("hamburger"); // <-- matches id="hamburger"
-const mobileNav = document.querySelector(".mobile-nav");
+// Hamburger toggle
+const hamburger = document.getElementById("hamburger");
+const mobileNav = document.getElementById("mobileNav");
 
 if (hamburger && mobileNav) {
   hamburger.addEventListener("click", () => {
     const isOpen = hamburger.classList.toggle("active");
-    mobileNav.classList.toggle("active", isOpen);
+    mobileNav.classList.toggle("active");
     hamburger.setAttribute("aria-expanded", String(isOpen));
   });
 
   // Close menu when clicking a mobile link
-  mobileNav.querySelectorAll("a").forEach((link) => {
+  mobileNav.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       hamburger.classList.remove("active");
       mobileNav.classList.remove("active");
@@ -24,12 +26,10 @@ if (hamburger && mobileNav) {
   });
 }
 
-// Smooth scroll for all internal links (desktop + mobile)
-document.querySelectorAll('a[href^="#"]').forEach((a) => {
+// Smooth scroll for internal links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener("click", (e) => {
     const id = a.getAttribute("href");
-    if (!id || id === "#") return;
-
     const target = document.querySelector(id);
     if (!target) return;
 
@@ -37,3 +37,4 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 });
+
