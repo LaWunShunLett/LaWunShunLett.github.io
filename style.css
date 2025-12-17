@@ -277,50 +277,53 @@ body:not(.preload) .anim{
 }
 
 /* ---------- HAMBURGER BUTTON ---------- */
-.hamburger{
+/* Default: HIDE on desktop (so it won't affect your website view) */
+.hamburger-mobile{
   display: none;
   width: 52px;
   height: 52px;
-  border-radius: 50%;
-  border: 2px solid #E11D48;   /* coral / red outline like image */
-  background: transparent;
+  border-radius: 16px;              /* rounded square like your screenshot */
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   cursor: pointer;
 
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-
   padding: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-direction: column;
 }
 
-/* the 3 stripes */
-.hamburger span{
+/* The 3 stripes */
+.hamburger-mobile span{
   display: block;
   width: 22px;
   height: 3px;
-  background: #F87171;        /* soft coral stripe */
+  background: #111111;              /* ✅ BLACK stripes */
   border-radius: 999px;
-  transition: transform .25s ease, opacity .25s ease;
 }
 
-/* Animate into X */
-.hamburger.active span:nth-child(1){
-  transform: translateY(9px) rotate(45deg);
-}
-.hamburger.active span:nth-child(2){
-  opacity: 0;
-}
-.hamburger.active span:nth-child(3){
-  transform: translateY(-9px) rotate(-45deg);
-}
-
-/* Show only on mobile */
+/* ✅ ONLY show on mobile */
 @media (max-width: 768px){
-  .hamburger{
+  .hamburger-mobile{
     display: inline-flex;
   }
+}
+
+/* Optional: Animate to X when active */
+.hamburger-mobile.active span{
+  transition: transform .2s ease, opacity .2s ease;
+}
+.hamburger-mobile.active span:nth-child(1){
+  transform: translateY(9px) rotate(45deg);
+}
+.hamburger-mobile.active span:nth-child(2){
+  opacity: 0;
+}
+.hamburger-mobile.active span:nth-child(3){
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 .mobile-nav{
