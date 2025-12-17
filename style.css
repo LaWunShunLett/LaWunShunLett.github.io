@@ -35,14 +35,20 @@ body{
   border-bottom: 1px solid rgba(0,0,0,.06);
 }
 
-.topbar-inner{
+/* Shared container width for header & hero */
+.container{
   max-width: 1120px;
   margin: 0 auto;
-  padding: 18px 22px;
+  padding: 0 22px;
+}
+
+/* HEADER */
+.topbar-inner{
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 14px;
+  height: 72px;
 }
 
 .logo{
@@ -76,9 +82,6 @@ body{
 }
 
 .hero{
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 22px;
   display: grid;
   grid-template-columns: 1.1fr .9fr;
   gap: 60px;
