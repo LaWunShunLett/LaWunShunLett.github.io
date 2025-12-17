@@ -5,33 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>La Wun Shun Lett | Portfolio</title>
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=3" />
 </head>
 
 <body>
+  <!-- NAVBAR -->
   <header class="topbar">
     <div class="topbar-inner">
       <div class="logo">LA WUN SHUN LETT</div>
-
       <nav class="nav">
-        <a href="#work" class="navlink">Work</a>
-        <a href="#about" class="navlink">About</a>
-        <a href="#contact" class="navlink">Contact</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
+  <!-- HERO -->
   <main class="hero-wrap">
-    <section class="hero" id="top">
+    <section class="hero">
       <!-- LEFT -->
       <div class="hero-left">
         <h1 class="hero-title">
           HI, I AM<br />
-          <span class="hero-name">LA WUN SHUN LETT.</span>
+          <span>LA WUN SHUN LETT.</span>
         </h1>
 
         <p class="hero-desc">
@@ -40,65 +42,42 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary" href="#contact">
-            CONTACT ME
-            <span class="dot" aria-hidden="true"></span>
+          <a href="#contact" class="btn primary">
+            CONTACT ME <span class="dot"></span>
           </a>
 
-          <a class="icon-btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-            in
-          </a>
-
-          <a class="icon-btn" href="https://github.com/LaWunShunLett" target="_blank" rel="noreferrer" aria-label="GitHub">
-            ⌂
-          </a>
+          <a class="icon-btn" href="https://www.linkedin.com/" target="_blank">in</a>
+          <a class="icon-btn" href="https://github.com/LaWunShunLett" target="_blank">⌂</a>
         </div>
       </div>
 
       <!-- RIGHT -->
       <div class="hero-right">
         <div class="photo-card">
-          <!-- Replace with your own image later: assets/me.jpg -->
-          <img
-            src="https://images.unsplash.com/photo-1520975958225-8f58c6b21f6d?auto=format&fit=crop&w=1200&q=80"
-            alt="Portrait"
-            onerror="this.style.display='none'; this.parentElement.classList.add('img-fallback');"
-          />
-          <div class="fallback-text">Portrait</div>
+          <!-- Replace later with assets/me.jpg -->
+          <div class="portrait-label">Portrait</div>
         </div>
       </div>
     </section>
 
-    <!-- Sections (for nav links) -->
-    <section id="work" class="spacer">
-      <div class="section-box">
-        <h2>Work</h2>
-        <p>
-          Internship projects, case studies, and real deployments will go here.
-          (We can add your GatePass and IoT projects as cards next.)
-        </p>
-      </div>
+    <!-- SECTIONS -->
+    <section id="work" class="section">
+      <h2>Work</h2>
+      <p>Internship projects, web systems, and IoT deployments.</p>
     </section>
 
-    <section id="about" class="spacer">
-      <div class="section-box">
-        <h2>About</h2>
-        <p>
-          Final-year Computer Engineering student at Singapore Polytechnic.
-          Interested in web systems, IoT, and DevOps-style deployment.
-        </p>
-      </div>
+    <section id="about" class="section">
+      <h2>About</h2>
+      <p>
+        Final-year Computer Engineering student at Singapore Polytechnic with interests
+        in web development, IoT, and system deployment.
+      </p>
     </section>
 
-    <section id="contact" class="spacer">
-      <div class="section-box">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:YOUR_EMAIL_HERE">YOUR_EMAIL_HERE</a></p>
-        <p>GitHub: <a href="https://github.com/LaWunShunLett" target="_blank" rel="noreferrer">github.com/LaWunShunLett</a></p>
-      </div>
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
     </section>
   </main>
-
-  <script src="scripts.js"></script>
 </body>
 </html>
