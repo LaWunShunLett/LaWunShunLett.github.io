@@ -176,17 +176,36 @@ body{
   color: var(--muted);
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px){
-  .hero{
-    grid-template-columns: 1fr;
-  }
+/* Keep header nav in ONE line on mobile */
+.nav{
+  display: flex;
+  flex-wrap: nowrap;          /* no wrapping */
+  white-space: nowrap;        /* keep text on one line */
+  align-items: center;
+  gap: 18px;                  /* spacing between links */
+}
 
-  .hero-title{
-    font-size: 48px;
-  }
+/* Remove large left margins used on desktop */
+.nav a{
+  margin-left: 0;
+}
 
-  .hero-right{
-    justify-content: center;
+/* If screen is very small, allow horizontal scroll (still 1 line) */
+@media (max-width: 520px){
+  .nav{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;    /* Firefox hide */
+  }
+  .nav::-webkit-scrollbar{
+    display: none;            /* Chrome/Safari hide */
   }
 }
+@media (max-width: 520px){
+  .logo{
+    font-size: 12px;
+    letter-spacing: .14em;
+    max-width: 160px;
+  }
+}
+
