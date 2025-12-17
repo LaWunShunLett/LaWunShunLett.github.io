@@ -9,13 +9,13 @@
   --accent: #2563EB;
   --accent-hover: #1D4ED8;
 
-  --border: rgba(31,41,55,.08);
+  --border: rgba(31,41,55,.10);
   --shadow: 0 20px 40px rgba(31,41,55,.12);
 }
 
-*{
-  box-sizing: border-box;
-}
+*{ box-sizing: border-box; }
+
+html, body{ height: 100%; }
 
 body{
   margin: 0;
@@ -33,46 +33,56 @@ body{
   z-index: 100;
   background: rgba(245,247,251,.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0,0,0,.05);
+  border-bottom: 1px solid rgba(0,0,0,.06);
 }
 
 .topbar-inner{
   max-width: 1120px;
-  margin: auto;
-  padding: 26px 22px;
+  margin: 0 auto;
+  padding: 20px 22px;
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+
+  /* key: stop wrapping */
+  flex-wrap: nowrap;
+  gap: 16px;
 }
 
 .logo{
   font-size: 14px;
   letter-spacing: .18em;
   font-weight: 700;
-  color: var(--text);
+  white-space: nowrap;
+}
+
+/* NAV — single line always */
+.nav{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .nav a{
-  margin-left: 36px;
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
   color: var(--muted);
 }
 
-.nav a:hover{
-  color: var(--text);
-}
+.nav a:hover{ color: var(--text); }
 
 /* HERO */
-.hero-wrap{
-  padding: 70px 0 110px;
-}
+.hero-wrap{ padding: 70px 0 110px; }
 
 .hero{
   max-width: 1120px;
-  margin: auto;
+  margin: 0 auto;
   padding: 0 22px;
+
   display: grid;
   grid-template-columns: 1.1fr .9fr;
   gap: 60px;
@@ -83,7 +93,7 @@ body{
   font-size: 64px;
   font-weight: 800;
   line-height: 1;
-  margin-bottom: 24px;
+  margin: 0 0 24px;
 }
 
 .hero-desc{
@@ -91,10 +101,9 @@ body{
   font-size: 15px;
   line-height: 1.7;
   color: var(--muted);
-  margin-bottom: 32px;
+  margin: 0 0 32px;
 }
 
-/* BUTTONS */
 .hero-actions{
   display: flex;
   gap: 14px;
@@ -106,16 +115,17 @@ body{
   align-items: center;
   gap: 10px;
   padding: 14px 28px;
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;
+  border: 0;
 }
 
 .btn.primary{
   background: var(--accent);
-  color: #FFFFFF;
-  box-shadow: 0 12px 28px rgba(37,99,235,.35);
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(37,99,235,.28);
 }
 
 .btn.primary:hover{
@@ -126,28 +136,28 @@ body{
 .dot{
   width: 8px;
   height: 8px;
-  background: #FFFFFF;
+  background: #fff;
   border-radius: 50%;
 }
 
 .icon-btn{
   width: 44px;
   height: 44px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid var(--border);
   background: var(--panel);
-  display: flex;
+
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+
   text-decoration: none;
   color: var(--text);
   font-size: 13px;
   font-weight: 600;
 }
 
-.icon-btn:hover{
-  border-color: var(--accent);
-}
+.icon-btn:hover{ border-color: var(--accent); }
 
 /* PHOTO CARD */
 .hero-right{
@@ -176,36 +186,27 @@ body{
   color: var(--muted);
 }
 
-/* Keep header nav in ONE line on mobile */
-.nav{
-  display: flex;
-  flex-wrap: nowrap;          /* no wrapping */
-  white-space: nowrap;        /* keep text on one line */
-  align-items: center;
-  gap: 18px;                  /* spacing between links */
+/* dummy sections */
+.spacer{ height: 60px; }
+
+/* RESPONSIVE */
+@media (max-width: 900px){
+  .hero{ grid-template-columns: 1fr; }
+  .hero-title{ font-size: 48px; }
+  .hero-right{ justify-content: center; }
 }
 
-/* Remove large left margins used on desktop */
-.nav a{
-  margin-left: 0;
-}
-
-/* If screen is very small, allow horizontal scroll (still 1 line) */
-@media (max-width: 520px){
-  .nav{
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;    /* Firefox hide */
-  }
-  .nav::-webkit-scrollbar{
-    display: none;            /* Chrome/Safari hide */
-  }
-}
+/* MOBILE header: still one line; allow scroll instead of wrap */
 @media (max-width: 520px){
   .logo{
     font-size: 12px;
     letter-spacing: .14em;
-    max-width: 160px;
   }
-}
 
+  .nav{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .nav::-webkit-scrollbar{ display: none; }
+}
