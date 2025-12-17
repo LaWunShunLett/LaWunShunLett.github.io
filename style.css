@@ -1,172 +1,211 @@
-/* ===== RESET ===== */
-* {
-  margin: 0;
-  padding: 0;
+:root{
+  --bg-main: #F5F7FB;
+  --bg-soft: #E9EEF6;
+  --panel: #FFFFFF;
+
+  --text: #1F2937;
+  --muted: #6B7280;
+
+  --accent: #2563EB;
+  --accent-hover: #1D4ED8;
+
+  --border: rgba(31,41,55,.08);
+  --shadow: 0 20px 40px rgba(31,41,55,.12);
+}
+
+*{
   box-sizing: border-box;
 }
 
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #f4f7fb;
-  color: #1f2937;
+body{
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(900px 600px at 20% 10%, #FFFFFF 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg-soft), var(--bg-main));
 }
 
-/* ===== HEADER ===== */
-.site-header {
-  background: #f8fafc;
-  border-bottom: 1px solid #e5e7eb;
+/* HEADER */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(245,247,251,.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,.05);
 }
 
-.header-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 16px 20px;
-
+.topbar-inner{
+  max-width: 1120px;
+  margin: auto;
+  padding: 26px 22px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-
-  /* 🚨 THIS PREVENTS STACKING */
-  flex-wrap: nowrap;
-}
-
-.logo {
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  font-size: 14px;
-  white-space: nowrap;
-}
-
-.nav {
-  display: flex;
-  gap: 20px;
-
-  /* 🚨 CORE FIX */
-  flex-wrap: nowrap;
-  white-space: nowrap;
-}
-
-.nav a {
-  text-decoration: none;
-  color: #6b7280;
-  font-weight: 500;
-  font-size: 14px;
-}
-
-.nav a:hover {
-  color: #111827;
-}
-
-/* ===== HERO ===== */
-.hero {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 60px 20px;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-
-.hero-content h1 {
-  font-size: 48px;
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-
-.hero-content p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #4b5563;
-  max-width: 500px;
-}
-
-.hero-actions {
-  margin-top: 28px;
-  display: flex;
   align-items: center;
-  gap: 14px;
 }
 
-.btn-primary {
-  background: #2563eb;
-  color: white;
-  padding: 14px 22px;
-  border-radius: 12px;
+.logo{
+  font-size: 14px;
+  letter-spacing: .18em;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.nav a{
+  margin-left: 36px;
   text-decoration: none;
-  font-weight: 600;
-  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.25);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--muted);
 }
 
-.icon-btn {
+.nav a:hover{
+  color: var(--text);
+}
+
+/* HERO */
+.hero-wrap{
+  padding: 70px 0 110px;
+}
+
+.hero{
+  max-width: 1120px;
+  margin: auto;
+  padding: 0 22px;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-title{
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.hero-desc{
+  max-width: 520px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+/* BUTTONS */
+.hero-actions{
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.btn.primary{
+  background: var(--accent);
+  color: #FFFFFF;
+  box-shadow: 0 12px 28px rgba(37,99,235,.35);
+}
+
+.btn.primary:hover{
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.dot{
+  width: 8px;
+  height: 8px;
+  background: #FFFFFF;
+  border-radius: 50%;
+}
+
+.icon-btn{
   width: 44px;
   height: 44px;
-  border-radius: 50%;
-  border: 1px solid #e5e7eb;
-
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel);
   display: flex;
   align-items: center;
   justify-content: center;
-
   text-decoration: none;
-  color: #111827;
+  color: var(--text);
+  font-size: 13px;
   font-weight: 600;
-  background: white;
 }
 
-/* ===== HERO IMAGE PLACEHOLDER ===== */
-.hero-image {
+.icon-btn:hover{
+  border-color: var(--accent);
+}
+
+/* PHOTO CARD */
+.hero-right{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.photo-card{
+  width: min(460px, 100%);
+  aspect-ratio: 1 / 1.1;
+  background: linear-gradient(160deg, #EEF2FF, #FFFFFF);
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
   position: relative;
-  background: linear-gradient(135deg, #eef2ff, #f8fafc);
-  border-radius: 24px;
-  min-height: 360px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
 }
 
-.tag {
+.portrait-label{
   position: absolute;
   top: 16px;
   left: 16px;
-  background: white;
-  padding: 6px 12px;
+  background: rgba(255,255,255,.9);
+  padding: 6px 14px;
   border-radius: 999px;
-  font-size: 12px;
-  color: #6b7280;
+  font-size: 13px;
+  color: var(--muted);
 }
 
-/* ===== MOBILE FIX ===== */
-@media (max-width: 768px) {
-
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-image {
-    min-height: 260px;
-  }
-
-  .hero-content h1 {
-    font-size: 36px;
-  }
+/* Keep header nav in ONE line on mobile */
+.nav{
+  display: flex;
+  flex-wrap: nowrap;          /* no wrapping */
+  white-space: nowrap;        /* keep text on one line */
+  align-items: center;
+  gap: 18px;                  /* spacing between links */
 }
 
-/* 🚨 HARD MOBILE HEADER FIX */
-@media (max-width: 520px) {
+/* Remove large left margins used on desktop */
+.nav a{
+  margin-left: 0;
+}
 
-  .header-inner {
-    gap: 16px;
-  }
-
-  .logo {
-    font-size: 12px;
-  }
-
-  .nav {
+/* If screen is very small, allow horizontal scroll (still 1 line) */
+@media (max-width: 520px){
+  .nav{
     overflow-x: auto;
-    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;    /* Firefox hide */
   }
-
-  .nav::-webkit-scrollbar {
-    display: none;
+  .nav::-webkit-scrollbar{
+    display: none;            /* Chrome/Safari hide */
   }
 }
+@media (max-width: 520px){
+  .logo{
+    font-size: 12px;
+    letter-spacing: .14em;
+    max-width: 160px;
+  }
+}
+

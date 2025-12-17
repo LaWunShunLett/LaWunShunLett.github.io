@@ -2,45 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>La Wun Shun Lett</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <div class="logo">LA WUN SHUN LETT</div>
-
-    <nav class="nav">
-      <a href="#projects">Projects</a>
-      <a href="#about">About Me</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main class="hero">
-  <div class="hero-content">
-    <h1>Hi, I’m<br>La Wun Shun Lett</h1>
-
-    <p>
-      Singapore-based Computer Engineering student focused on building clean
-      web applications and practical IoT systems. I enjoy shipping reliable
-      features and improving UI/UX.
-    </p>
-
-    <div class="hero-actions">
-      <a class="btn-primary" href="#contact">Contact Me</a>
-      <a class="icon-btn" href="#">in</a>
-      <a class="icon-btn" href="#">GH</a>
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="logo">LA WUN SHUN LETT</div>
+      <nav class="nav">
+        <a href="#projects">Projects</a>
+        <a href="#about">About Me</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <div class="hero-image">
-    <span class="tag">Portrait</span>
-  </div>
-</main>
+  <!-- HERO -->
+  <main class="hero-wrap">
+    <section class="hero">
+      <div class="hero-left">
+        <h1 class="hero-title">
+          Hi, I’m<br>
+          La Wun Shun Lett
+        </h1>
+
+        <p class="hero-desc">
+          Singapore-based Computer Engineering student focused on building
+          clean web applications and practical IoT systems.
+          I enjoy shipping reliable features and improving UI/UX.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn primary">
+            Contact Me <span class="dot"></span>
+          </a>
+
+          <a href="https://www.linkedin.com" target="_blank" class="icon-btn">in</a>
+          <a href="https://github.com/LaWunShunLett" target="_blank" class="icon-btn">GH</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="photo-card">
+          <div class="portrait-label">Portrait</div>
+        </div>
+      </div>
+    </section>
+  </main>
 
 </body>
 </html>
