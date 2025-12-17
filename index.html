@@ -28,16 +28,17 @@
         <a class="anim anim-pop delay-4" href="#contact">Contact</a>
       </nav>
 
-      <!-- Hamburger (mobile) -->
-<button class="hamburger-mobile" id="hamburger" aria-label="Open menu" aria-expanded="false">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+      <!-- Hamburger (mobile only) -->
+      <button class="hamburger-mobile" id="hamburger"
+              aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
 
     <!-- Mobile menu -->
-    <nav class="mobile-nav" aria-label="Mobile navigation">
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
       <a href="#home">Home</a>
       <a href="#projects">Projects</a>
       <a href="#about">About Me</a>
@@ -51,12 +52,16 @@
       <div class="hero-left">
         <h1 class="hero-title anim anim-up">
           <span class="intro">Hello, I’m</span>
-          <span class="name">La Wun Shun Lett <span class="nickname">[Shun]</span></span>
+          <span class="name">La Wun Shun Lett</span>
+          <span class="nickname">[Shun]</span>
         </h1>
 
         <p class="hero-desc anim anim-up delay-1">
-          Singapore-based Computer Engineering student focused on building
-          clean web applications and practical IoT systems.
+          Final-Year Computer Engineering student at
+          <a class="inline-link" href="https://www.sp.edu.sg/" target="_blank" rel="noreferrer">
+            Singapore Polytechnic
+          </a>
+          focused on building clean web applications and practical IoT systems.
           I enjoy shipping reliable features and improving UI/UX.
         </p>
 
@@ -67,6 +72,7 @@
 
           <a href="https://www.linkedin.com" target="_blank" rel="noreferrer"
              class="icon-btn anim anim-up delay-3">in</a>
+
           <a href="https://github.com/LaWunShunLett" target="_blank" rel="noreferrer"
              class="icon-btn anim anim-up delay-4">GH</a>
         </div>
@@ -75,11 +81,14 @@
       <div class="hero-right">
         <div class="photo-card anim anim-fade delay-2">
           <div class="portrait-label">Portrait</div>
+          <!-- Later:
+          <img src="portrait.jpg" alt="Portrait of La Wun Shun Lett" />
+          -->
         </div>
       </div>
     </section>
 
-    <!-- sections so navbar works -->
+    <!-- Sections -->
     <section id="projects" class="section">
       <h2 class="section-title anim anim-up">Projects</h2>
       <p class="section-text anim anim-up delay-1">Add your projects here.</p>
