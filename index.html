@@ -2,24 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>La Wun Shun Lett</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>La Wun Shun Lett | Portfolio</title>
 
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Cache-buster so GitHub Pages shows updates -->
-  <link rel="stylesheet" href="style.css?v=10">
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+
   <!-- NAV -->
   <header class="topbar">
     <div class="topbar-inner">
       <div class="logo">LA WUN SHUN LETT</div>
-
       <nav class="nav">
         <a href="#work">Work</a>
         <a href="#about">About</a>
@@ -29,143 +27,44 @@
   </header>
 
   <!-- HERO -->
-  <main class="page">
-    <section class="hero" id="top">
+  <main class="hero-wrap">
+    <section class="hero">
       <div class="hero-left">
         <h1 class="hero-title">
-          Hi, I’m<br />
-          <span>La Wun Shun Lett</span>
+          Hi, I’m<br>
+          La Wun Shun Lett
         </h1>
 
         <p class="hero-desc">
-          Singapore-based Computer Engineering student focused on building clean web applications
-          and practical IoT systems. I enjoy shipping reliable features and improving UI/UX.
+          Singapore-based Computer Engineering student focused on building
+          clean web applications and practical IoT systems.
+          I enjoy shipping reliable features and improving UI/UX.
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary" href="#contact">
+          <a href="#contact" class="btn primary">
             Contact Me <span class="dot"></span>
           </a>
 
-          <a class="icon-btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">in</a>
-          <a class="icon-btn" href="https://github.com/LaWunShunLett" target="_blank" rel="noreferrer">GH</a>
+          <a href="https://www.linkedin.com" target="_blank" class="icon-btn">in</a>
+          <a href="https://github.com/LaWunShunLett" target="_blank" class="icon-btn">GH</a>
         </div>
 
-        <div class="mini-info">
-          <div class="pill">Singapore</div>
-          <div class="pill">Computer Engineering</div>
-          <div class="pill">Web • IoT • Deployment</div>
+        <div class="tags">
+          <span>Singapore</span>
+          <span>Computer Engineering</span>
+          <span>Web · IoT · Deployment</span>
         </div>
       </div>
 
       <div class="hero-right">
         <div class="photo-card">
           <div class="portrait-label">Portrait</div>
-          <!-- Later replace with: <img class="portrait" src="assets/me.jpg" alt="Portrait of La Wun Shun Lett"> -->
-          <div class="photo-placeholder"></div>
+          <!-- later replace with your photo -->
         </div>
       </div>
     </section>
-
-    <!-- WORK -->
-    <section id="work" class="section">
-      <div class="section-head">
-        <h2>Work</h2>
-        <p>Selected projects and internship work.</p>
-      </div>
-
-      <div class="grid">
-        <article class="card">
-          <h3>GatePass Tracking Web App</h3>
-          <p class="meta">PHP • MySQL • HTML/CSS/JS</p>
-          <p>
-            Built a web system to track service items, upload images, filter records,
-            and export/import Excel data for operations workflow.
-          </p>
-          <div class="card-actions">
-            <a class="link" href="#" target="_blank" rel="noreferrer">View repo</a>
-            <span class="dotline"></span>
-            <a class="link" href="#" target="_blank" rel="noreferrer">Live demo</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>IoT / Smart City Mini Projects</h3>
-          <p class="meta">Sensors • Raspberry Pi • MQTT</p>
-          <p>
-            Designed small IoT prototypes and dashboards focused on practical monitoring
-            and device connectivity.
-          </p>
-          <div class="card-actions">
-            <a class="link" href="#" target="_blank" rel="noreferrer">View repo</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>UI / Visualization (Industrial)</h3>
-          <p class="meta">HMI • Visualization • UI/UX</p>
-          <p>
-            Worked on clean operator UI layouts and improved readability for real-world
-            industrial workflows.
-          </p>
-          <div class="card-actions">
-            <a class="link" href="#" target="_blank" rel="noreferrer">Case study</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="section-head">
-        <h2>About</h2>
-        <p>A quick summary of who I am and what I do.</p>
-      </div>
-
-      <div class="about">
-        <div class="about-card">
-          <h3>What I’m good at</h3>
-          <ul>
-            <li>Building clean web UIs (HTML/CSS/JS)</li>
-            <li>Backend CRUD workflows (PHP / MySQL)</li>
-            <li>Deployment + practical system thinking</li>
-          </ul>
-        </div>
-
-        <div class="about-card">
-          <h3>What I’m learning</h3>
-          <ul>
-            <li>Cloud & DevOps foundations</li>
-            <li>More advanced frontend patterns</li>
-            <li>Better portfolio case studies</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="section-head">
-        <h2>Contact</h2>
-        <p>Let’s connect for internship or project opportunities.</p>
-      </div>
-
-      <div class="contact-card">
-        <div>
-          <p class="contact-line"><strong>Email:</strong> <a href="mailto:your@email.com">your@email.com</a></p>
-          <p class="contact-line"><strong>GitHub:</strong> <a href="https://github.com/LaWunShunLett" target="_blank" rel="noreferrer">github.com/LaWunShunLett</a></p>
-          <p class="contact-line"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">linkedin.com/in/your-link</a></p>
-        </div>
-
-        <a class="btn secondary" href="#top">Back to top</a>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <span>© <span id="year"></span> La Wun Shun Lett</span>
-    </footer>
   </main>
 
-  <script src="scripts.js?v=10"></script>
 </body>
 </html>
