@@ -1,389 +1,166 @@
-:root{
-  --bg-main: #F5F7FB;
-  --bg-soft: #E9EEF6;
-  --panel: #FFFFFF;
+/* =====================
+   ROOT + BASE
+===================== */
+:root {
+  --bg-main: #f5f7fb;
+  --bg-soft: #eef2ff;
+  --panel: #ffffff;
 
-  --text: #111827;     /* black-ish */
-  --muted: #6B7280;
+  --text-main: #111827;
+  --text-muted: #6b7280;
 
-  --accent: #2563EB;
-  --accent-hover: #1D4ED8;
+  --accent: #2563eb;
 
-  --border: rgba(17,24,39,.10);
-  --shadow: 0 20px 40px rgba(17,24,39,.10);
+  --border-soft: rgba(0, 0, 0, 0.06);
 }
 
-*{ box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html{ scroll-behavior: smooth; }
-
-body{
+body {
   margin: 0;
   font-family: "Inter", system-ui, sans-serif;
-  color: var(--text);
+  color: var(--text-main);
   background:
-    radial-gradient(900px 600px at 20% 10%, #FFFFFF 0%, transparent 60%),
+    radial-gradient(900px 600px at 20% 10%, #ffffff 0%, transparent 60%),
     linear-gradient(180deg, var(--bg-soft), var(--bg-main));
 }
 
-/* =========================
-   HEADER
-   ========================= */
-.topbar{
+/* =====================
+   HEADER / TOPBAR
+===================== */
+.topbar {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(245,247,251,.92);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(17,24,39,.06);
+  background: rgba(245, 247, 251, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-soft);
 }
 
-.topbar-inner{
-  max-width: 1120px;         /* key: aligns with hero */
+.topbar-inner {
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 18px 22px;
+  padding: 22px 22px; /* spacing aligned with Portrait */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
 }
 
-.logo{
+/* Logo */
+.logo {
   font-size: 14px;
-  letter-spacing: .18em;
-  font-weight: 800;
-  color: var(--text);
-  white-space: nowrap;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-main);
 }
 
-/* Desktop nav spacing + black + underline hover */
-.desktop-nav{
+/* =====================
+   DESKTOP NAV
+===================== */
+.desktop-nav {
   display: flex;
   align-items: center;
-  gap: 28px;
-  margin-left: auto;
+  gap: 10px;
 }
 
-.desktop-nav a{
+/* Desktop nav links */
+.desktop-nav a {
   position: relative;
-  color: var(--text);
+  padding: 10px 14px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main);
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+/* Hover (soft glass highlight) */
+.desktop-nav a:hover {
+  background: rgba(17, 24, 39, 0.06);
+}
+
+/* Active page */
+.desktop-nav a.active {
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--accent);
+}
+
+/* =====================
+   HAMBURGER (MOBILE ONLY)
+===================== */
+.hamburger-mobile {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 6px;
+}
+
+/* 3 simple black stripes */
+.hamburger-mobile span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #111827;
+  border-radius: 2px;
+}
+
+.hamburger-mobile span + span {
+  margin-top: 6px;
+}
+
+/* =====================
+   MOBILE NAV MENU
+===================== */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  padding: 12px;
+  background: rgba(245, 247, 251, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+/* Mobile links */
+.mobile-nav a {
+  padding: 14px 16px;
+  border-radius: 12px;
   text-decoration: none;
   font-size: 16px;
   font-weight: 600;
-  padding: 10px 2px;
-  transition: opacity .2s ease;
+  color: var(--text-main);
+  transition: background 0.2s ease;
 }
 
-.desktop-nav a:hover{ opacity: .85; }
-
-.desktop-nav a::after{
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 4px;
-  width: 100%;
-  height: 2px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .25s ease;
-  border-radius: 999px;
+/* Mobile hover */
+.mobile-nav a:hover {
+  background: rgba(17, 24, 39, 0.06);
 }
 
-.desktop-nav a:hover::after{ transform: scaleX(1); }
-
-/* =========================
-   HERO
-   ========================= */
-.hero-wrap{
-  padding: 70px 0 110px;
-}
-
-.hero{
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 22px;
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.hero-title{
-  margin: 0 0 18px;
-  line-height: 1.05;
-}
-
-.hero-title .intro{
-  display: block;
-  font-size: 40px;
-  font-weight: 700;
-  color: var(--muted);
-  margin-bottom: 10px;
-}
-
-.hero-title .name{
-  display: block;
-  font-size: 64px;
-  font-weight: 800;
-  color: var(--text);
-}
-
-.hero-title .nickname{
-  display: block;           /* [Shun] next line */
-  margin-top: 8px;
-  font-size: 34px;
-  font-weight: 800;
+/* Mobile active */
+.mobile-nav a.active {
+  background: rgba(37, 99, 235, 0.12);
   color: var(--accent);
 }
 
-.hero-desc{
-  max-width: 560px;
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--muted);
-  margin: 0 0 28px;
-}
-
-.sp-link{
-  color: var(--accent);
-  font-weight: 700;
-  text-decoration: none;
-  position: relative;
-}
-
-.sp-link:hover{ text-decoration: underline; }
-
-/* Buttons */
-.hero-actions{
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.btn{
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 28px;
-  border-radius: 12px;
-  font-size: 14px;
-  font-weight: 800;
-  text-decoration: none;
-  transition: transform .2s ease, background .2s ease;
-}
-
-.btn.primary{
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 12px 28px rgba(37,99,235,.25);
-}
-
-.btn.primary:hover{
-  background: var(--accent-hover);
-  transform: translateY(-1px);
-}
-
-.dot{
-  width: 8px;
-  height: 8px;
-  background: #fff;
-  border-radius: 50%;
-}
-
-.icon-btn{
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.9);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  color: var(--text);
-  font-size: 13px;
-  font-weight: 800;
-  transition: transform .2s ease, border-color .2s ease;
-}
-
-.icon-btn:hover{
-  border-color: rgba(37,99,235,.35);
-  transform: translateY(-1px);
-}
-
-/* Portrait card */
-.hero-right{
-  display: flex;
-  justify-content: flex-end;
-}
-
-.photo-card{
-  width: min(520px, 100%);
-  aspect-ratio: 1 / 1.15;
-  background: linear-gradient(160deg, #EEF2FF, #FFFFFF);
-  border-radius: 26px;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  position: relative;
-  overflow: hidden;
-}
-
-.photo-card::after{
-  content:"";
-  position:absolute;
-  inset:-40%;
-  background: radial-gradient(circle at 30% 30%, rgba(37,99,235,.18), transparent 60%);
-  transform: rotate(10deg);
-}
-
-.portrait-label{
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  background: rgba(255,255,255,.92);
-  padding: 7px 14px;
-  border-radius: 999px;
-  font-size: 13px;
-  color: var(--muted);
-  z-index: 2;
-}
-
-/* Sections */
-.section{
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 80px 22px 0;
-}
-
-.section-title{
-  margin: 0 0 12px;
-  font-size: 34px;
-  font-weight: 800;
-}
-
-.section-text{
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.8;
-}
-
-/* =========================
-   PAGE LOAD ANIMATIONS
-   ========================= */
-.preload .anim{
-  opacity: 0;
-  transform: translateY(12px);
-}
-
-.anim{
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity .6s ease, transform .6s ease;
-}
-
-.anim-pop{
-  transform: translateY(0);
-}
-
-.anim-up{
-  transform: translateY(0);
-}
-
-.anim-fade{
-  transition: opacity .7s ease;
-}
-
-.delay-1{ transition-delay: .08s; }
-.delay-2{ transition-delay: .16s; }
-.delay-3{ transition-delay: .24s; }
-.delay-4{ transition-delay: .32s; }
-
-/* =========================
-   HAMBURGER (MOBILE ONLY)
-   - simple 3 black stripes
-   - no extra circle animation
-   ========================= */
-.hamburger-mobile{
-  display: none; /* hidden on desktop */
-}
-
-.mobile-nav{
-  display: none;
-}
-
-/* Mobile layout */
-@media (max-width: 820px){
-  .desktop-nav{ display: none; }
-  .hamburger-mobile{
-    display: inline-flex;
-    width: 44px;
-    height: 44px;
-    border: 1px solid rgba(17,24,39,.12);
-    border-radius: 12px;
-    background: rgba(255,255,255,.75);
-    backdrop-filter: blur(10px);
-    cursor: pointer;
-    padding: 0;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-  }
-
-  .hamburger-mobile span{
-    display: block;
-    width: 22px;
-    height: 3px;
-    background: #111827;   /* BLACK stripes */
-    border-radius: 999px;
-  }
-
-  .mobile-nav{
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 900px) {
+  .desktop-nav {
     display: none;
-    flex-direction: column;
-    gap: 8px;
-    padding: 14px 22px 18px;
-    border-top: 1px solid rgba(17,24,39,.08);
-    background: rgba(245,247,251,.95);
-    backdrop-filter: blur(10px);
   }
 
-  .mobile-nav a{
-    color: #111827;
-    text-decoration: none;
-    font-weight: 700;
-    padding: 12px 12px;
-    border-radius: 12px;
+  .hamburger-mobile {
+    display: block;
   }
 
-  .mobile-nav a:hover{
-    background: rgba(37,99,235,.10);
-  }
-
-  .mobile-nav.active{
+  .mobile-nav.active {
     display: flex;
-  }
-
-  /* Make hero stack */
-  .hero{
-    grid-template-columns: 1fr;
-    gap: 26px;
-  }
-
-  .hero-right{
-    justify-content: flex-start;
-  }
-
-  .hero-title .name{
-    font-size: 46px;
-  }
-}
-
-/* Very small screens */
-@media (max-width: 420px){
-  .logo{
-    font-size: 12px;
-    letter-spacing: .14em;
   }
 }
