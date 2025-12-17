@@ -213,16 +213,13 @@ body{
 }
 
 /* ---------- ANIMATIONS (page-load + scroll) ---------- */
+/* ---------- GLOBAL PAGE LOAD ANIMATION (ALL ELEMENTS) ---------- */
 
-/* start hidden ONLY when body has preload */
-body.preload .anim{
-  opacity: 0;
-  transform: translateY(14px);
-  filter: blur(4px);
-}
-
-/* when JS removes preload, animate in */
-.anim{
+/* what will animate */
+.topbar-inner > *,
+.hero-left > *,
+.hero-right > *,
+.section > * {
   transition:
     opacity .70s ease,
     transform .70s cubic-bezier(.2,.8,.2,1),
@@ -230,25 +227,47 @@ body.preload .anim{
   will-change: opacity, transform, filter;
 }
 
-.anim-up{ transform: translateY(14px); }
-.anim-fade{ transform: none; }
-.anim-pop{ transform: translateY(-6px); }
+/* initial hidden state (only before reveal) */
+body.preload .topbar-inner > *,
+body.preload .hero-left > *,
+body.preload .hero-right > *,
+body.preload .section > * {
+  opacity: 0;
+  transform: translateY(14px);
+  filter: blur(4px);
+}
 
-body:not(.preload) .anim{
+/* revealed state */
+body:not(.preload) .topbar-inner > *,
+body:not(.preload) .hero-left > *,
+body:not(.preload) .hero-right > *,
+body:not(.preload) .section > * {
   opacity: 1;
   transform: none;
   filter: blur(0);
 }
 
-/* stagger delays */
-.delay-1{ transition-delay: .08s; }
-.delay-2{ transition-delay: .16s; }
-.delay-3{ transition-delay: .24s; }
-.delay-4{ transition-delay: .32s; }
+/* Stagger effect (auto delay by order) */
+.topbar-inner > *:nth-child(1) { transition-delay: .05s; }
+.topbar-inner > *:nth-child(2) { transition-delay: .12s; }
 
-/* Reduce motion for accessibility */
+.hero-left > *:nth-child(1) { transition-delay: .10s; }
+.hero-left > *:nth-child(2) { transition-delay: .18s; }
+.hero-left > *:nth-child(3) { transition-delay: .26s; }
+.hero-left > *:nth-child(4) { transition-delay: .34s; }
+
+.hero-right > *:nth-child(1) { transition-delay: .22s; }
+
+.section > *:nth-child(1) { transition-delay: .10s; }
+.section > *:nth-child(2) { transition-delay: .18s; }
+.section > *:nth-child(3) { transition-delay: .26s; }
+
+/* Reduce motion accessibility */
 @media (prefers-reduced-motion: reduce){
-  .anim, body.preload .anim{
+  .topbar-inner > *,
+  .hero-left > *,
+  .hero-right > *,
+  .section > *{
     transition: none !important;
     transform: none !important;
     filter: none !important;
@@ -256,26 +275,3 @@ body:not(.preload) .anim{
   }
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px){
-  .hero{
-    grid-template-columns: 1fr;
-    gap: 34px;
-  }
-  .hero-title{ font-size: 50px; }
-  .hero-right{ justify-content: center; }
-}
-
-@media (max-width: 520px){
-  .topbar-inner{ padding: 16px 14px; }
-  .logo{
-    font-size: 12px;
-    letter-spacing: .14em;
-  }
-  .nav{
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  .nav::-webkit-scrollbar{ display: none; }
-}
