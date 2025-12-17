@@ -6,7 +6,7 @@
   --text: #1F2937;
   --muted: #6B7280;
 
-  --accent: #2563EB;      /* steel blue */
+  --accent: #2563EB;
   --accent-hover: #1D4ED8;
 
   --border: rgba(31,41,55,.08);
@@ -26,36 +26,38 @@ body{
     linear-gradient(180deg, var(--bg-soft), var(--bg-main));
 }
 
-/* NAV */
+/* HEADER */
 .topbar{
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(245,247,251,.92);
+  background: rgba(245,247,251,.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(0,0,0,.05);
 }
 
 .topbar-inner{
   max-width: 1120px;
   margin: auto;
-  padding: 18px 22px;
+  padding: 26px 22px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .logo{
-  font-size: 12px;
-  letter-spacing: .14em;
-  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: .18em;
+  font-weight: 700;
+  color: var(--text);
 }
 
 .nav a{
-  margin-left: 28px;
+  margin-left: 36px;
   text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
   color: var(--muted);
-  font-size: 14px;
 }
 
 .nav a:hover{
@@ -64,7 +66,7 @@ body{
 
 /* HERO */
 .hero-wrap{
-  padding: 60px 0 100px;
+  padding: 70px 0 110px;
 }
 
 .hero{
@@ -73,7 +75,7 @@ body{
   padding: 0 22px;
   display: grid;
   grid-template-columns: 1.1fr .9fr;
-  gap: 50px;
+  gap: 60px;
   align-items: center;
 }
 
@@ -81,7 +83,7 @@ body{
   font-size: 64px;
   font-weight: 800;
   line-height: 1;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
 .hero-desc{
@@ -89,10 +91,10 @@ body{
   font-size: 15px;
   line-height: 1.7;
   color: var(--muted);
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 
-/* ACTIONS */
+/* BUTTONS */
 .hero-actions{
   display: flex;
   gap: 14px;
@@ -103,7 +105,7 @@ body{
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 26px;
+  padding: 14px 28px;
   border-radius: 10px;
   font-size: 14px;
   font-weight: 700;
@@ -147,23 +149,6 @@ body{
   border-color: var(--accent);
 }
 
-/* TAGS */
-.tags{
-  margin-top: 26px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.tags span{
-  background: #FFFFFF;
-  border: 1px solid var(--border);
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 13px;
-  color: var(--muted);
-}
-
 /* PHOTO CARD */
 .hero-right{
   display: flex;
@@ -174,7 +159,7 @@ body{
   width: min(460px, 100%);
   aspect-ratio: 1 / 1.1;
   background: linear-gradient(160deg, #EEF2FF, #FFFFFF);
-  border-radius: 20px;
+  border-radius: 22px;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   position: relative;
