@@ -10,75 +10,92 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
-<body>
 
-<!-- ================= HEADER ================= -->
-<header class="topbar">
-  <div class="topbar-inner">
-    <div class="logo">LA WUN SHUN LETT</div>
+<body class="preload">
 
-    <!-- Desktop Navigation -->
-    <nav class="nav desktop-nav">
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="logo anim anim-pop">LA WUN SHUN LETT</div>
+
+      <!-- Desktop nav -->
+      <nav class="nav desktop-nav" aria-label="Primary navigation">
+        <a class="anim anim-pop delay-1" href="#home">Home</a>
+        <a class="anim anim-pop delay-2" href="#projects">Projects</a>
+        <a class="anim anim-pop delay-3" href="#about">About Me</a>
+        <a class="anim anim-pop delay-4" href="#contact">Contact</a>
+      </nav>
+
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger anim anim-pop delay-4" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <nav class="mobile-nav" aria-label="Mobile navigation">
       <a href="#home">Home</a>
       <a href="#projects">Projects</a>
       <a href="#about">About Me</a>
       <a href="#contact">Contact</a>
     </nav>
+  </header>
 
-    <!-- Hamburger Button -->
-    <button class="hamburger" aria-label="Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
+  <!-- HERO -->
+  <main class="hero-wrap" id="home">
+    <section class="hero">
+      <div class="hero-left">
+        <h1 class="hero-title anim anim-up">
+          <span class="intro">Hello, I’m</span>
+          <span class="name">La Wun Shun Lett <span class="nickname">[Shun]</span></span>
+        </h1>
 
-  <!-- Mobile Navigation -->
-  <nav class="mobile-nav">
-    <a href="#home">Home</a>
-    <a href="#projects">Projects</a>
-    <a href="#about">About Me</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+        <p class="hero-desc anim anim-up delay-1">
+          Singapore-based Computer Engineering student focused on building
+          clean web applications and practical IoT systems.
+          I enjoy shipping reliable features and improving UI/UX.
+        </p>
 
-<!-- ================= HERO ================= -->
-<main class="hero-wrap" id="home">
-  <section class="hero">
-    <div class="hero-left">
-      <h1 class="hero-title">
-        <span class="intro">Hello, I’m</span>
-        <span class="name">
-          La Wun Shun Lett <span class="nickname">[Shun]</span>
-        </span>
-      </h1>
+        <div class="hero-actions">
+          <a href="#contact" class="btn primary anim anim-up delay-2">
+            Contact Me <span class="dot"></span>
+          </a>
 
-      <p class="hero-desc">
-        Singapore-based Computer Engineering student focused on building
-        clean web applications and practical IoT systems.
-        I enjoy shipping reliable features and improving UI/UX.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#contact" class="btn primary">
-          Contact Me <span class="dot"></span>
-        </a>
-
-        <a href="https://www.linkedin.com" target="_blank" class="icon-btn">in</a>
-        <a href="https://github.com/LaWunShunLett" target="_blank" class="icon-btn">GH</a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer"
+             class="icon-btn anim anim-up delay-3">in</a>
+          <a href="https://github.com/LaWunShunLett" target="_blank" rel="noreferrer"
+             class="icon-btn anim anim-up delay-4">GH</a>
+        </div>
       </div>
-    </div>
 
-    <div class="hero-right">
-      <div class="photo-card">
-        <div class="portrait-label">Portrait</div>
+      <div class="hero-right">
+        <div class="photo-card anim anim-fade delay-2">
+          <div class="portrait-label">Portrait</div>
+        </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
 
-<script src="scripts.js"></script>
+    <!-- sections so navbar works -->
+    <section id="projects" class="section">
+      <h2 class="section-title anim anim-up">Projects</h2>
+      <p class="section-text anim anim-up delay-1">Add your projects here.</p>
+    </section>
+
+    <section id="about" class="section">
+      <h2 class="section-title anim anim-up">About Me</h2>
+      <p class="section-text anim anim-up delay-1">Add your bio here.</p>
+    </section>
+
+    <section id="contact" class="section">
+      <h2 class="section-title anim anim-up">Contact</h2>
+      <p class="section-text anim anim-up delay-1">Add your email + links here.</p>
+    </section>
+  </main>
+
+  <script src="./scripts.js"></script>
 </body>
 </html>
