@@ -346,74 +346,77 @@ body{
 }
 
 /* ===== CTA buttons: bounce one after another ===== */
+/* ===== CTA buttons: slow, sequential bounce ===== */
 .cta-pop{
-  /* subtle bounce */
-  animation: ctaBounce 2.8s ease-in-out infinite;
+  animation: ctaBounce 6s ease-in-out infinite;
   will-change: transform;
 }
 
-/* sequence delays (you already used p1..p5) */
+/* sequence order */
 .p1{ animation-delay: 0s; }
-.p2{ animation-delay: .15s; }
-.p3{ animation-delay: .30s; }
-.p4{ animation-delay: .45s; }
-.p5{ animation-delay: .60s; }
+.p2{ animation-delay: .6s; }
+.p3{ animation-delay: 1.2s; }
+.p4{ animation-delay: 1.8s; }
+.p5{ animation-delay: 2.4s; }
 
 @keyframes ctaBounce{
-  0%, 70%, 100% { transform: translateY(0); }
-  78% { transform: translateY(-6px); }
-  86% { transform: translateY(0); }
-  92% { transform: translateY(-3px); }
-  100% { transform: translateY(0); }
+  0%, 85%, 100% { transform: translateY(0); }
+  90% { transform: translateY(-6px); }
+  95% { transform: translateY(0); }
 }
 
-/* accessibility: stop animations if user prefers */
+/* accessibility */
 @media (prefers-reduced-motion: reduce){
   .cta-pop{ animation: none !important; }
 }
-/* ===== Scroll hint (NOT clickable) ===== */
-.scroll-hint{
-  margin-top: 26px;
-}
 
-.scroll-hint-inner{
-  display: inline-flex;
+/* ===== Scroll hint (NOT clickable) ===== */
+/* ===== Scroll indicator (centered, slow, 3 arrows) ===== */
+.scroll-hint{
+  margin: 40px auto 0;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 12px;
-  color: #6b7280;
-  font-weight: 800;
+  gap: 10px;
+  pointer-events: none; /* NOT clickable */
   user-select: none;
 }
 
-.chevrons{
-  position: relative;
-  width: 28px;
-  height: 22px;
-  display: inline-block;
+.scroll-text{
+  font-size: 14px;
+  font-weight: 700;
+  color: #6b7280;
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
 
-.chev{
-  position: absolute;
-  left: 50%;
-  width: 10px;
-  height: 10px;
-  border-right: 3px solid rgba(17,24,39,.65);
-  border-bottom: 3px solid rgba(17,24,39,.65);
-  transform: translateX(-50%) rotate(45deg);
+.scroll-arrows{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.scroll-arrows span{
+  width: 14px;
+  height: 14px;
+  border-right: 2px solid rgba(17,24,39,.55);
+  border-bottom: 2px solid rgba(17,24,39,.55);
+  transform: rotate(45deg);
   opacity: 0;
-  animation: chevDown 1.2s ease-in-out infinite;
+  animation: scrollArrow 2.4s ease-in-out infinite;
 }
 
-.chev:nth-child(1){ top: 0px;  animation-delay: 0s; }
-.chev:nth-child(2){ top: 8px;  animation-delay: .18s; }
+/* stagger */
+.scroll-arrows span:nth-child(1){ animation-delay: 0s; }
+.scroll-arrows span:nth-child(2){ animation-delay: .35s; }
+.scroll-arrows span:nth-child(3){ animation-delay: .7s; }
 
-@keyframes chevDown{
-  0%   { opacity: 0; transform: translateX(-50%) translateY(-2px) rotate(45deg); }
-  35%  { opacity: 1; }
-  70%  { opacity: 1; transform: translateX(-50%) translateY(8px) rotate(45deg); }
-  100% { opacity: 0; transform: translateX(-50%) translateY(12px) rotate(45deg); }
+@keyframes scrollArrow{
+  0%   { opacity: 0; transform: translateY(-6px) rotate(45deg); }
+  30%  { opacity: 1; }
+  60%  { opacity: 0; transform: translateY(10px) rotate(45deg); }
+  100% { opacity: 0; }
 }
-
 /* Mobile layout */
 @media (max-width: 820px){
   .desktop-nav{ display: none; }
