@@ -345,52 +345,73 @@ body{
   70%      { transform: translateY(0) scale(1); }
 }
 
+/* ===== CTA buttons: bounce one after another ===== */
 .cta-pop{
-  animation: ctaPop 2.8s ease-in-out infinite;
+  /* subtle bounce */
+  animation: ctaBounce 2.8s ease-in-out infinite;
+  will-change: transform;
 }
 
-.cta-pop.p1{ animation-delay: 0s; }
-.cta-pop.p2{ animation-delay: .15s; }
-.cta-pop.p3{ animation-delay: .30s; }
-.cta-pop.p4{ animation-delay: .45s; }
-.cta-pop.p5{ animation-delay: .60s; }
+/* sequence delays (you already used p1..p5) */
+.p1{ animation-delay: 0s; }
+.p2{ animation-delay: .15s; }
+.p3{ animation-delay: .30s; }
+.p4{ animation-delay: .45s; }
+.p5{ animation-delay: .60s; }
 
-/* Respect user settings */
+@keyframes ctaBounce{
+  0%, 70%, 100% { transform: translateY(0); }
+  78% { transform: translateY(-6px); }
+  86% { transform: translateY(0); }
+  92% { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+
+/* accessibility: stop animations if user prefers */
 @media (prefers-reduced-motion: reduce){
   .cta-pop{ animation: none !important; }
-  .scroll-arrow{ animation: none !important; }
 }
-
-/* ===== Scroll hint with arrow bounce ===== */
+/* ===== Scroll hint (NOT clickable) ===== */
 .scroll-hint{
   margin-top: 26px;
 }
 
-.scroll-link{
+.scroll-hint-inner{
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  text-decoration: none;
+  gap: 12px;
   color: #6b7280;
   font-weight: 800;
+  user-select: none;
 }
 
-.scroll-arrow{
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  border: 1px solid rgba(0,0,0,.12);
-  background: rgba(255,255,255,.75);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #111827;
-  animation: arrowBounce 1.2s ease-in-out infinite;
+.chevrons{
+  position: relative;
+  width: 28px;
+  height: 22px;
+  display: inline-block;
 }
 
-@keyframes arrowBounce{
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(6px); }
+.chev{
+  position: absolute;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-right: 3px solid rgba(17,24,39,.65);
+  border-bottom: 3px solid rgba(17,24,39,.65);
+  transform: translateX(-50%) rotate(45deg);
+  opacity: 0;
+  animation: chevDown 1.2s ease-in-out infinite;
+}
+
+.chev:nth-child(1){ top: 0px;  animation-delay: 0s; }
+.chev:nth-child(2){ top: 8px;  animation-delay: .18s; }
+
+@keyframes chevDown{
+  0%   { opacity: 0; transform: translateX(-50%) translateY(-2px) rotate(45deg); }
+  35%  { opacity: 1; }
+  70%  { opacity: 1; transform: translateX(-50%) translateY(8px) rotate(45deg); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(12px) rotate(45deg); }
 }
 
 /* Mobile layout */
