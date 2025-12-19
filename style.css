@@ -346,39 +346,42 @@ body{
 }
 
 /* ===== CTA buttons: bounce one after another ===== */
-/* ===== CTA wave animation (subtle + one after another) ===== */
+/* Slow wave bounce for CTA buttons */
 .cta-pop{
-  animation: ctaWave 5.5s ease-in-out infinite;
+  animation: ctaWave 6s ease-in-out infinite;
   will-change: transform;
 }
 
-/* wave timing */
+/* each button gets its own delay (your p1..p5 classes) */
 .p1{ animation-delay: 0s; }
-.p2{ animation-delay: .25s; }
-.p3{ animation-delay: .50s; }
-.p4{ animation-delay: .75s; }
-.p5{ animation-delay: 1.0s; }
+.p2{ animation-delay: .35s; }
+.p3{ animation-delay: .70s; }
+.p4{ animation-delay: 1.05s; }
+.p5{ animation-delay: 1.40s; }
 
+/* one wave per cycle (subtle) */
 @keyframes ctaWave{
-  0%, 72%, 100% { transform: translateY(0); }
-  78% { transform: translateY(-4px); }  /* subtle lift */
-  84% { transform: translateY(0); }
+  0%, 10%   { transform: translateY(0); }
+  16%       { transform: translateY(-6px); }
+  22%       { transform: translateY(0); }
+  100%      { transform: translateY(0); }
 }
-
 /* accessibility */
 @media (prefers-reduced-motion: reduce){
   .cta-pop{ animation: none !important; }
 }
 /* ===== Scroll indicator (centered, slow, 3 arrows) ===== */
 /* Center the Scroll hint under the hero-left content */
+/* Scroll hint centered across the full hero width */
 .scroll-hint{
-  margin-top: 26px;
+  grid-column: 1 / -1;
+  margin-top: 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  text-align: center;
 }
-
 .scroll-text{
   font-size: 14px;
   font-weight: 700;
