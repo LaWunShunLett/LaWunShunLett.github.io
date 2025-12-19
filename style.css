@@ -208,8 +208,8 @@ body{
 }
 
 .photo-card{
-  width: min(520px, 100%);
-  aspect-ratio: 1 / 1.15;
+  width: min(460px, 100%);     /* was 520px */
+  aspect-ratio: 1 / 1.05;      /* was 1 / 1.15 (less tall) */
   background: linear-gradient(160deg, #EEF2FF, #FFFFFF);
   border-radius: 26px;
   border: 1px solid var(--border);
@@ -346,40 +346,37 @@ body{
 }
 
 /* ===== CTA buttons: bounce one after another ===== */
-/* ===== CTA buttons: slow, sequential bounce ===== */
+/* ===== CTA wave animation (subtle + one after another) ===== */
 .cta-pop{
-  animation: ctaBounce 6s ease-in-out infinite;
+  animation: ctaWave 5.5s ease-in-out infinite;
   will-change: transform;
 }
 
-/* sequence order */
+/* wave timing */
 .p1{ animation-delay: 0s; }
-.p2{ animation-delay: .6s; }
-.p3{ animation-delay: 1.2s; }
-.p4{ animation-delay: 1.8s; }
-.p5{ animation-delay: 2.4s; }
+.p2{ animation-delay: .25s; }
+.p3{ animation-delay: .50s; }
+.p4{ animation-delay: .75s; }
+.p5{ animation-delay: 1.0s; }
 
-@keyframes ctaBounce{
-  0%, 85%, 100% { transform: translateY(0); }
-  90% { transform: translateY(-6px); }
-  95% { transform: translateY(0); }
+@keyframes ctaWave{
+  0%, 72%, 100% { transform: translateY(0); }
+  78% { transform: translateY(-4px); }  /* subtle lift */
+  84% { transform: translateY(0); }
 }
 
 /* accessibility */
 @media (prefers-reduced-motion: reduce){
   .cta-pop{ animation: none !important; }
 }
-
-/* ===== Scroll hint (NOT clickable) ===== */
 /* ===== Scroll indicator (centered, slow, 3 arrows) ===== */
+/* Center the Scroll hint under the hero-left content */
 .scroll-hint{
-  margin: 40px auto 0;
+  margin-top: 26px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  pointer-events: none; /* NOT clickable */
-  user-select: none;
+  width: 100%;
 }
 
 .scroll-text{
@@ -476,7 +473,7 @@ body{
     grid-template-columns: 1fr;
     gap: 26px;
   }
-
+  
   .hero-right{
     justify-content: flex-start;
   }
@@ -484,8 +481,16 @@ body{
   .hero-title .name{
     font-size: 46px;
   }
+  @media (min-width: 821px){
+  .photo-card{
+    width: min(460px, 100%);
+    aspect-ratio: 1 / 1.05;
+  }
 }
-
+  .hero-left .scroll-hint{
+    transform: translateX(40%);
+  }
+}
 /* Very small screens */
 @media (max-width: 420px){
   .logo{
