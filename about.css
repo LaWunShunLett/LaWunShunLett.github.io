@@ -196,30 +196,21 @@
   color: #2563eb;
   font-weight: 800;
 }
-/* ✅ FIX: prevent the right sidebar blocks from overlapping anything while scrolling */
 @media (min-width: 921px){
-  .about-grid{
-    align-items: start; /* ensures columns start from top nicely */
-  }
-
   .about-side{
     position: sticky;
-    top: 88px;                 /* match your header height */
+    top: 88px;
     align-self: start;
 
-    /* IMPORTANT: sidebar becomes its own scroll container */
-    max-height: calc(100vh - 110px);
-    overflow: auto;
-
-    /* small padding so last card doesn’t clip */
-    padding-bottom: 10px;
-  }
-
-  /* ensure cards themselves are NOT sticky */
-  .about-side .about-block{
-    position: static;
+    /* IMPORTANT: no internal scrolling */
+    max-height: none;
+    overflow: visible;
   }
 }
+.about-grid{
+  align-items: start;
+}
+.about-col{ min-width: 0; }
 
 /* -------------------------
    Responsive
