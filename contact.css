@@ -1,0 +1,128 @@
+/* CONTACT PAGE */
+.contact-wrap{
+  padding: 90px 0 120px;
+}
+
+.contact-hero,
+.contact-grid{
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+.contact-title{
+  font-size: 46px;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+  color: #111827;
+}
+
+.contact-subtitle{
+  margin: 0 0 28px;
+  color: #6b7280;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.contact-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.contact-card{
+  border-radius: 22px;
+  padding: 22px 22px;
+
+  background: rgba(255,255,255,.62);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(37,99,235,.18);
+
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, .08),
+    inset 0 0 0 1px rgba(255,255,255,.35);
+
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.contact-card:hover{
+  transform: translateY(-4px);
+  border-color: rgba(37,99,235,.40);
+  box-shadow:
+    0 24px 60px rgba(37,99,235,.12),
+    0 18px 45px rgba(15, 23, 42, .10),
+    inset 0 0 0 1px rgba(255,255,255,.45);
+}
+
+.contact-card-title{
+  margin: 0 0 14px;
+  font-size: 22px;
+  color: #111827;
+}
+
+.contact-row{
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  margin: 10px 0;
+}
+
+.contact-label{
+  font-weight: 800;
+  color: #111827;
+  min-width: 74px;
+}
+
+.contact-link{
+  color: #2563eb;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.contact-link:hover{
+  text-decoration: underline;
+}
+
+.contact-value{
+  color: #374151;
+}
+
+.contact-social{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.contact-pill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 14px;
+  border-radius: 999px;
+
+  font-weight: 800;
+  color: #111827;
+  text-decoration: none;
+
+  background: rgba(255,255,255,.70);
+  border: 1px solid rgba(17,24,39,.10);
+  box-shadow: 0 10px 25px rgba(15,23,42,.06);
+
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.contact-pill:hover{
+  transform: translateY(-3px);
+  border-color: rgba(37,99,235,.35);
+  box-shadow: 0 18px 40px rgba(37,99,235,.14);
+}
+
+/* Responsive */
+@media (max-width: 820px){
+  .contact-grid{
+    grid-template-columns: 1fr;
+  }
+}

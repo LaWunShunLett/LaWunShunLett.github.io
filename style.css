@@ -276,6 +276,18 @@ body{
 
   transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
 }
+/* Highlighted keywords (same tone as SP link) */
+.highlight{
+  color: #2563eb;              /* Tailwind blue-600 (matches your link) */
+  font-weight: 600;
+  position: relative;
+  transition: color .25s ease;
+}
+
+/* subtle emphasis on hover (NOT glowing too much) */
+.highlight:hover{
+  color: #1d4ed8;              /* slightly darker blue */
+}
 
 /* remove the heavy glow layer */
 .about-glow-box::before{
