@@ -1,9 +1,13 @@
-/* ABOUT PAGE (uses your existing style.css theme) */
+/* =========================
+   ABOUT PAGE (clean + no “boxed left side”)
+   Paste into about.css (or style.css section)
+   ========================= */
 
 .about-wrap{
   padding: 90px 0 120px;
 }
 
+/* Keep same container width as your theme */
 .about-hero,
 .about-grid{
   max-width: 1120px;
@@ -11,6 +15,7 @@
   padding: 0 22px;
 }
 
+/* Heading + lead */
 .about-title{
   margin: 0 0 14px;
   font-size: 50px;
@@ -26,6 +31,7 @@
   max-width: 78ch;
 }
 
+/* 2-column layout */
 .about-grid{
   display: grid;
   grid-template-columns: 1.2fr .8fr;
@@ -33,24 +39,21 @@
   align-items: start;
 }
 
-/* Blocks (soft card look but NOT the same as your reference) */
-.about-block{
-  border-radius: 22px;
-  padding: 18px 18px;
+/* -------------------------
+   LEFT SIDE: NO boxes
+   ------------------------- */
+.about-main{}
 
-  background: rgba(255,255,255,.62);
-  backdrop-filter: blur(10px);
-
-  border: 1px solid rgba(37,99,235,.16);
-  box-shadow: 0 18px 45px rgba(15, 23, 42, .06);
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  margin-bottom: 14px;
+/* Plain “sections” (Background, Working on, Project, Goals etc.) */
+.about-section{
+  padding: 8px 0 18px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid rgba(17,24,39,.08);
 }
 
-.about-block:hover{
-  transform: translateY(-3px);
-  border-color: rgba(37,99,235,.32);
-  box-shadow: 0 24px 60px rgba(37,99,235,.10), 0 18px 45px rgba(15, 23, 42, .08);
+.about-section:last-child{
+  border-bottom: none;
+  margin-bottom: 0;
 }
 
 .about-h2{
@@ -72,17 +75,9 @@
   line-height: 1.75;
 }
 
-/* Project mini-card */
-.project-card{
-  margin: 14px 0 12px;
-  padding: 14px 14px;
-  border-radius: 18px;
-  background: rgba(245,247,251,.85);
-  border: 1px solid rgba(17,24,39,.08);
-}
-
+/* Bullet list */
 .about-list{
-  margin: 0;
+  margin: 10px 0 0;
   padding-left: 18px;
   color: #374151;
   line-height: 1.65;
@@ -90,13 +85,64 @@
 
 .about-list li{ margin: 6px 0; }
 
-/* Right side style */
-.about-side .about-block{
-  position: sticky;
-  top: 88px; /* keeps it readable when scrolling on desktop */
+/* Optional: keep project area NOT boxed */
+.project-card{
+  margin: 10px 0 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
 }
 
-/* Pills + chips */
+/* -------------------------
+   RIGHT SIDE: boxed blocks
+   ------------------------- */
+.about-side{
+  position: sticky;
+  max-height: calc(100vh - 110px);
+  overflow: auto;
+}
+/* ONLY the right column gets card blocks */
+.about-side .about-block{
+  border-radius: 22px;
+  padding: 18px;
+
+  background: rgba(255,255,255,.62);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(37,99,235,.16);
+
+  /* softer shadow to prevent “overlap look” */
+  box-shadow: 0 12px 28px rgba(15, 23, 42, .06);
+
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  margin-bottom: 14px;
+}
+
+.about-side .about-block:hover{
+  transform: translateY(-3px);
+  border-color: rgba(37,99,235,.32);
+  box-shadow:
+    0 18px 44px rgba(37,99,235,.10),
+    0 14px 30px rgba(15, 23, 42, .08);
+}
+
+/* Sticky sidebar (wide screens only) */
+@media (min-width: 921px){
+  .about-side{
+    position: sticky;
+    top: 88px;
+    align-self: start;
+
+    max-height: calc(100vh - 110px);
+    overflow: auto;
+    padding-bottom: 6px;
+  }
+}
+
+/* -------------------------
+   Pills / chips (right side)
+   ------------------------- */
 .pill-list{
   display: flex;
   flex-wrap: wrap;
@@ -117,13 +163,11 @@
 .pill:hover{
   transform: translateY(-3px);
   border-color: rgba(37,99,235,.35);
-  box-shadow: 0 18px 40px rgba(37,99,235,.14);
+  box-shadow: 0 16px 34px rgba(37,99,235,.12);
 }
 
 /* Skill groups */
-.skill-group{
-  margin-top: 14px;
-}
+.skill-group{ margin-top: 14px; }
 
 .skill-title{
   font-weight: 900;
@@ -147,19 +191,46 @@
   box-shadow: 0 10px 25px rgba(15,23,42,.06);
 }
 
-/* Highlight text color like your SP link blue */
+/* Highlight text color (same as your SP link blue) */
 .highlight{
   color: #2563eb;
   font-weight: 800;
 }
+/* ✅ FIX: prevent the right sidebar blocks from overlapping anything while scrolling */
+@media (min-width: 921px){
+  .about-grid{
+    align-items: start; /* ensures columns start from top nicely */
+  }
 
-/* Responsive */
+  .about-side{
+    position: sticky;
+    top: 88px;                 /* match your header height */
+    align-self: start;
+
+    /* IMPORTANT: sidebar becomes its own scroll container */
+    max-height: calc(100vh - 110px);
+    overflow: auto;
+
+    /* small padding so last card doesn’t clip */
+    padding-bottom: 10px;
+  }
+
+  /* ensure cards themselves are NOT sticky */
+  .about-side .about-block{
+    position: static;
+  }
+}
+
+/* -------------------------
+   Responsive
+   ------------------------- */
 @media (max-width: 920px){
   .about-grid{
     grid-template-columns: 1fr;
   }
-  .about-side .about-block{
+  .about-side{
     position: static;
-    top: auto;
+    max-height: none;
+    overflow: visible;
   }
 }
