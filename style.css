@@ -208,7 +208,7 @@ body{
 }
 
 .photo-card{
-  width: min(460px, 100%);     /* was 520px */
+  width: min(400px, 100%);     /* was 520px */
   aspect-ratio: 1 / 1.05;      /* was 1 / 1.15 (less tall) */
   background: linear-gradient(160deg, #EEF2FF, #FFFFFF);
   border-radius: 26px;
