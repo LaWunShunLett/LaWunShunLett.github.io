@@ -185,6 +185,55 @@
 .exp-list li{
   margin: 6px 0;
 }
+/* Work Experience */
+.work-exp {
+  margin-bottom: 18px;
+}
+
+.exp-role {
+  margin-top: 14px;
+}
+
+.exp-title {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 900;
+  color: #111827;
+}
+
+.exp-meta {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.exp-meta a {
+  color: #2563eb;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.exp-meta a:hover {
+  text-decoration: underline;
+}
+
+.exp-period {
+  margin-left: 6px;
+  font-weight: 700;
+  color: #374151;
+}
+
+.exp-list {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  color: #374151;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+.exp-list li {
+  margin: 6px 0;
+}
 
 /* Responsive: stack */
 @media (max-width: 920px){
