@@ -1,13 +1,10 @@
-/* =========================
-   ABOUT PAGE (clean + no “boxed left side”)
-   Paste into about.css (or style.css section)
-   ========================= */
+/* ABOUT PAGE */
 
+/* Layout container */
 .about-wrap{
   padding: 90px 0 120px;
 }
 
-/* Keep same container width as your theme */
 .about-hero,
 .about-grid{
   max-width: 1120px;
@@ -15,7 +12,6 @@
   padding: 0 22px;
 }
 
-/* Heading + lead */
 .about-title{
   margin: 0 0 14px;
   font-size: 50px;
@@ -31,128 +27,96 @@
   max-width: 78ch;
 }
 
-/* 2-column layout */
+/* 2-column grid */
 .about-grid{
   display: grid;
   grid-template-columns: 1.2fr .8fr;
-  gap: 18px;
+  gap: 22px;
   align-items: start;
 }
 
-/* -------------------------
-   LEFT SIDE: NO boxes
-   ------------------------- */
-.about-main{}
-
-/* Plain “sections” (Background, Working on, Project, Goals etc.) */
-.about-section{
-  padding: 8px 0 18px;
-  margin-bottom: 18px;
-  border-bottom: 1px solid rgba(17,24,39,.08);
-}
-.about-section-title{
-  margin-top: 12px;
-  margin-bottom: 14px;
-}
-.about-section:last-child{
-  border-bottom: none;
-  margin-bottom: 0;
+/* LEFT side (NO boxes) */
+.about-main .about-section{
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
 }
 
+/* faint divider between left sections */
+.about-main .about-section + .about-section{
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(17, 24, 39, 0.10);
+}
+
+/* headings & text */
 .about-h2{
   margin: 0 0 10px;
-  font-size: 20px;
-  color: #111827;
-}
-
-.about-h3{
-  margin: 0 0 10px;
-  font-size: 16px;
+  font-size: 26px;
   color: #111827;
 }
 
 .about-text{
-  margin: 0;
+  margin: 0 0 12px;
   color: #374151;
   font-size: 16.5px;
   line-height: 1.75;
+  max-width: 78ch; /* keeps it clean */
 }
 
-/* Bullet list */
-.about-list{
-  margin: 10px 0 0;
-  padding-left: 18px;
-  color: #374151;
-  line-height: 1.65;
+/* Link + Highlight (same blue feel) */
+.highlight{
+  color: #2563eb;
+  font-weight: 800;
 }
 
-.about-list li{ margin: 6px 0; }
-
-/* Optional: keep project area NOT boxed */
-.project-card{
-  margin: 10px 0 0;
-  padding: 0;
-  border-radius: 0;
-  background: transparent;
-  border: none;
+.sp-link{
+  color: #2563eb;
+  font-weight: 800;
+  text-decoration: none;
 }
 
-/* -------------------------
-   RIGHT SIDE: boxed blocks
-   ------------------------- */
+.sp-link:hover{
+  text-decoration: underline;
+}
+
+/* RIGHT side cards (keep nice, but prevent overlap + NO inner scroll bar) */
 .about-side{
-  position: sticky;
-  max-height: calc(100vh - 110px);
-  overflow: auto;
-}
-/* ONLY the right column gets card blocks */
-.about-side .about-block{
-  border-radius: 22px;
-  padding: 18px;
-
-  background: rgba(255,255,255,.62);
-  backdrop-filter: blur(10px);
-
-  border: 1px solid rgba(37,99,235,.16);
-
-  /* softer shadow to prevent “overlap look” */
-  box-shadow: 0 12px 28px rgba(15, 23, 42, .06);
-
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  margin-bottom: 14px;
+  align-self: start;
 }
 
-.about-side .about-block:hover{
-  transform: translateY(-3px);
-  border-color: rgba(37,99,235,.32);
-  box-shadow:
-    0 18px 44px rgba(37,99,235,.10),
-    0 14px 30px rgba(15, 23, 42, .08);
-}
-
-/* Sticky sidebar (wide screens only) */
+/* sticky on desktop ONLY, but do not set overflow/max-height (prevents internal scrollbar) */
 @media (min-width: 921px){
   .about-side{
     position: sticky;
     top: 88px;
-    align-self: start;
-
-    max-height: calc(100vh - 110px);
-    overflow: auto;
-    padding-bottom: 6px;
   }
 }
 
-/* -------------------------
-   Pills / chips (right side)
-   ------------------------- */
-.pill-list{
+/* right blocks */
+.about-block{
+  border-radius: 22px;
+  padding: 18px 18px;
+  background: rgba(255,255,255,.62);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(37,99,235,.16);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, .06);
+  margin-bottom: 14px;
+}
+
+/* pills + chips */
+.pill-list,
+.skill-items{
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.pill{
+/* pill / chip style */
+.pill, .chip{
   padding: 10px 14px;
   border-radius: 999px;
   font-weight: 800;
@@ -160,17 +124,18 @@
   background: rgba(255,255,255,.70);
   border: 1px solid rgba(17,24,39,.10);
   box-shadow: 0 10px 25px rgba(15,23,42,.06);
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 
+/* keep hover subtle */
 .pill:hover{
-  transform: translateY(-3px);
-  border-color: rgba(37,99,235,.35);
-  box-shadow: 0 16px 34px rgba(37,99,235,.12);
+  transform: translateY(-2px);
+  transition: transform .2s ease;
 }
 
-/* Skill groups */
-.skill-group{ margin-top: 14px; }
+/* skill group spacing */
+.skill-group{
+  margin-top: 14px;
+}
 
 .skill-title{
   font-weight: 900;
@@ -178,64 +143,13 @@
   margin-bottom: 10px;
 }
 
-.skill-items{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.chip{
-  padding: 9px 12px;
-  border-radius: 999px;
-  font-weight: 800;
-  color: #111827;
-  background: rgba(255,255,255,.70);
-  border: 1px solid rgba(17,24,39,.10);
-  box-shadow: 0 10px 25px rgba(15,23,42,.06);
-}
-
-/* Highlight text color (same as your SP link blue) */
-.highlight{
-  color: #2563eb;
-  font-weight: 800;
-}
-@media (min-width: 921px){
-  .about-side{
-    position: sticky;
-    top: 88px;
-    align-self: start;
-
-    /* IMPORTANT: no internal scrolling */
-    max-height: none;
-    overflow: visible;
-  }
-}
-.about-grid{
-  align-items: start;
-}
-.about-col{ min-width: 0; }
-.about-divider{
-  margin: 36px 0;
-  height: 1px;
-  width: 100%;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(17, 24, 39, 0.12),
-    transparent
-  );
-}
-
-/* -------------------------
-   Responsive
-   ------------------------- */
+/* Responsive: stack */
 @media (max-width: 920px){
   .about-grid{
     grid-template-columns: 1fr;
   }
   .about-side{
     position: static;
-    max-height: none;
-    overflow: visible;
+    top: auto;
   }
 }
