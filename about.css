@@ -5,7 +5,12 @@
   padding: 90px 0 120px;
 }
 
-.about-hero,
+.about-hero{
+  max-width: 1280px;   /* or 1320px */
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
 .about-grid{
   max-width: 1120px;
   margin: 0 auto;
@@ -106,6 +111,19 @@
   box-shadow: 0 18px 45px rgba(15, 23, 42, .06);
   margin-bottom: 14px;
 }
+.about-block{
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  will-change: transform, box-shadow;
+}
+
+.about-block:hover{
+  transform: translateY(-4px);
+  border-color: rgba(37,99,235,.35);
+  box-shadow:
+    0 26px 60px rgba(37,99,235,.12),
+    0 18px 45px rgba(15, 23, 42, .10),
+    0 0 0 3px rgba(37,99,235,.14); /* blue ring */
+}
 
 /* pills + chips */
 .pill-list,
@@ -142,49 +160,7 @@
   color: #111827;
   margin-bottom: 10px;
 }
-/* Work Experience (right column) */
-.exp-item{
-  margin-top: 8px;
-}
 
-.exp-role{
-  margin: 0 0 6px;
-  font-size: 17px;
-  font-weight: 900;
-  color: #111827;
-}
-
-.exp-meta{
-  margin: 0 0 10px;
-  font-size: 14.5px;
-  color: #6b7280;
-}
-
-.exp-company{
-  color: #2563eb;
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.exp-company:hover{
-  text-decoration: underline;
-}
-
-.exp-sep{
-  margin: 0 6px;
-  opacity: .6;
-}
-
-.exp-list{
-  margin: 0;
-  padding-left: 18px;
-  color: #374151;
-  line-height: 1.65;
-}
-
-.exp-list li{
-  margin: 6px 0;
-}
 /* Work Experience */
 .work-exp {
   margin-bottom: 18px;
@@ -233,6 +209,60 @@
 
 .exp-list li {
   margin: 6px 0;
+}
+/* Highlight text (blue like your screenshot) */
+.highlight{
+  color: #2563eb;
+  font-weight: 800;
+}
+
+/* Make BOTH left and right sections animate the same way */
+.about-block,
+.about-section{
+  border-radius: 22px;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  will-change: transform, box-shadow;
+}
+
+/* Default subtle border (no crazy glow) */
+.about-block{
+  border: 1px solid rgba(37,99,235,.14);
+  background: rgba(255,255,255,.62);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, .06);
+}
+
+.about-section{
+  /* left side is NOT boxed, so keep it clean */
+  border: 1px solid transparent;
+  padding: 0;            /* keep your left layout */
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Hover: blue ring + gentle pop */
+.about-block:hover,
+.about-section:hover{
+  transform: translateY(-4px);
+  border-color: rgba(37,99,235,.35);
+
+  /* Ring effect + soft lift shadow */
+  box-shadow:
+    0 26px 60px rgba(37,99,235,.12),
+    0 18px 45px rgba(15, 23, 42, .10),
+    0 0 0 3px rgba(37,99,235,.14);  /* <— blue ring */
+}
+
+/* Optional: slightly reduce motion if user prefers */
+@media (prefers-reduced-motion: reduce){
+  .about-block,
+  .about-section{
+    transition: none;
+  }
+  .about-block:hover,
+  .about-section:hover{
+    transform: none;
+  }
 }
 
 /* Responsive: stack */
