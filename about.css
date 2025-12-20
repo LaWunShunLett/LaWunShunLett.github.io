@@ -240,96 +240,58 @@
     0 18px 45px rgba(15, 23, 42, .10),
     0 0 0 3px rgba(37,99,235,.14); /* blue ring */
 }
-/* Bottom row: two blocks side-by-side inside RIGHT column */
-.about-row-two{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-top: 14px;
-}
+/* ===== Technical Skills Section Slider (slides, not chips) ===== */
 
-@media (max-width: 920px){
-  .about-row-two{
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Right side titles */
-.side-title{
-  margin: 0 0 12px;
-  font-size: 30px;
-  font-weight: 900;
-  color: #111827;
-}
-
-/* ===== Marquee sections (auto swiping) ===== */
-
-.skill-marquee{
-  margin-top: 14px;
-}
-
-.skill-marquee-head{
-  font-weight: 900;
-  color: #111827;
-  margin-bottom: 10px;
-}
-
-/* The scrolling viewport */
-.marquee{
-  position: relative;
+.tech-slider{
   overflow: hidden;
+  position: relative;
   border-radius: 16px;
-  padding: 10px 6px;
+  padding: 6px 0;
 }
 
-/* fade edges (nice look) */
-.marquee::before,
-.marquee::after{
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 40px;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
+/* The moving strip that holds slides */
+.tech-track{
+  display: flex;
+  width: max-content;
+  animation: techSlide 18s linear infinite;
 }
 
-.marquee::before{
-  left: 0;
-  background: linear-gradient(to right, rgba(245,247,251,1), rgba(245,247,251,0));
-}
-
-.marquee::after{
-  right: 0;
-  background: linear-gradient(to left, rgba(245,247,251,1), rgba(245,247,251,0));
-}
-
-/* Track that moves */
-.marquee-track{
-  display: inline-flex;
-  gap: 10px;
-  align-items: center;
-  white-space: nowrap;
-
-  animation: marqueeScroll 18s linear infinite;
-}
-
-/* Pause when user hovers the section */
-.marquee:hover .marquee-track{
+/* Pause when hovering the whole skills box/slider */
+.about-block:hover .tech-track{
   animation-play-state: paused;
 }
 
-/* Different speed per section if you want */
-.skill-marquee:nth-of-type(1) .marquee-track{ animation-duration: 18s; }
-.skill-marquee:nth-of-type(2) .marquee-track{ animation-duration: 16s; }
-.skill-marquee:nth-of-type(3) .marquee-track{ animation-duration: 20s; }
-
-@keyframes marqueeScroll{
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* because we duplicated the chips */
+/* Each slide takes the full width of the box */
+.tech-slide{
+  flex: 0 0 100%;
+  min-width: 100%;
+  padding: 6px 2px 4px;
 }
 
-/* Chip hover pop (you already have .chip styles, so just add hover) */
+/* Slide heading */
+.tech-h4{
+  margin: 6px 0 10px;
+  font-size: 18px;
+  font-weight: 900;
+  color: #111827;
+}
+
+/* chips layout inside slide */
+.chip-wrap{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Slide animation:
+   We have 3 real slides + 3 duplicates => total 6 slides
+   Move by 300% to loop exactly after 3 slides */
+@keyframes techSlide{
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-300%); }
+}
+
+/* Chip hover pop (keep if you already have) */
 .chip{
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
