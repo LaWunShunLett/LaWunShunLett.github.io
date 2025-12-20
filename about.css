@@ -50,7 +50,10 @@
   margin-bottom: 18px;
   border-bottom: 1px solid rgba(17,24,39,.08);
 }
-
+.about-section-title{
+  margin-top: 12px;
+  margin-bottom: 14px;
+}
 .about-section:last-child{
   border-bottom: none;
   margin-bottom: 0;
@@ -211,6 +214,17 @@
   align-items: start;
 }
 .about-col{ min-width: 0; }
+.about-divider{
+  margin: 36px 0;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(17, 24, 39, 0.12),
+    transparent
+  );
+}
 
 /* -------------------------
    Responsive
