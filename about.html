@@ -18,7 +18,7 @@
 
 <body class="preload">
 
-  <!-- HEADER (same structure as your other pages) -->
+  <!-- HEADER -->
   <header class="topbar">
     <div class="topbar-inner">
       <div class="logo">LA WUN SHUN LETT</div>
@@ -58,10 +58,10 @@
       </p>
     </section>
 
-    <!-- 2-column layout (not copying your reference, but similar “story + facts”) -->
+    <!-- 2-column layout -->
     <section class="about-grid">
 
-      <!-- Left: Story blocks -->
+      <!-- Left: Story -->
       <div class="about-col about-main">
         <section class="about-section">
           <h2 class="about-h2">Background</h2>
@@ -74,21 +74,22 @@
           </p>
         </section>
 
-<section class="about-section">
-  <h2 class="about-h2">What I’m working on now</h2>
-  <p class="about-text">
-    Building a <span class="highlight">5G-enabled AIoT door access system</span> that performs
-    <span class="highlight">AI-based facial recognition</span> on live video streams from a
-    Raspberry Pi camera. The system uses <span class="highlight">edge AI processing</span>
-    to validate users in real time and trigger hardware access indicators, focusing on
-    low latency and end-to-end system integration.
-  </p>
-  <p class="about-text">
-    I also work on <span class="highlight">secured end-to-end IoT</span> (door entry systems),
-    <span class="highlight">Smart City architecture</span>, and <span class="highlight">data analysis</span>
-    for making decisions from real datasets.
-  </p>
-</section>
+        <section class="about-section">
+          <h2 class="about-h2">What I’m working on now</h2>
+          <p class="about-text">
+            Building a <span class="highlight">5G-enabled AIoT door access system</span> that performs
+            <span class="highlight">AI-based facial recognition</span> on live video streams from a
+            Raspberry Pi camera. The system uses <span class="highlight">edge AI processing</span>
+            to validate users in real time and trigger hardware access indicators, focusing on
+            low latency and end-to-end system integration.
+          </p>
+          <p class="about-text">
+            I also work on <span class="highlight">secured end-to-end IoT</span> (door entry systems),
+            <span class="highlight">Smart City architecture</span>, and <span class="highlight">data analysis</span>
+            for making decisions from real datasets.
+          </p>
+        </section>
+
         <section class="about-section">
           <h2 class="about-h2">My direction</h2>
           <p class="about-text">
@@ -100,162 +101,114 @@
         </section>
       </div>
 
-      <!-- Right: Skills / Focus (clean list, LinkedIn-style inspiration but not copied) -->
+      <!-- Right: boxed cards ONLY -->
       <aside class="about-col about-side">
-          <!-- Work Experience (TOP RIGHT) -->
- <section class="about-block experience-block">
-    <h2 class="about-h2">Work Experience</h2>
 
-    <!-- Internship -->
-    <div class="experience-item">
-      <h3 class="experience-role">
-        Software-Engineering Intern
-        <span class="experience-period">(Mar 2025 – Oct 2025)</span>
-      </h3>
+        <!-- Work Experience -->
+        <section class="about-block experience-block">
+          <h2 class="about-h2">Work Experience</h2>
 
-      <ul class="experience-list">
-        <li>Enhanced <span class="highlight">UI/UX</span> and <span class="highlight">real-time monitoring</span> using <span class="highlight">SCADA</span> tools.</li>
-        <li>Built a <span class="highlight">full-stack</span> tracking web app for service and item management.</li>
-        <li>Supported <span class="highlight">testing</span>, deployment preparation, and delivery coordination.</li>
-        <li>Assisted with <span class="highlight">reliability checks</span> and performance validation for equipment.</li>
-        <li>Maintained <span class="highlight">inventory records</span> and supported troubleshooting during maintenance.</li>
-      </ul>
-    </div>
+          <div class="experience-item">
+            <h3 class="experience-role">
+              Software-Engineering Intern
+              <span class="experience-period">(Mar 2025 – Oct 2025)</span>
+            </h3>
 
-    <!-- Divider -->
-    <div class="experience-divider"></div>
-    <!-- Part-time -->
-<div class="experience-item">
-  <h3 class="experience-role">
-    Part-Time Technical Assistant
-    <span class="experience-period">(Jun 2023 – Mar 2024)</span>
-  </h3>
+            <ul class="experience-list">
+              <li>Enhanced <span class="highlight">UI/UX</span> and <span class="highlight">real-time monitoring</span> with <span class="highlight">SCADA</span> tools.</li>
+              <li>Built a <span class="highlight">full-stack</span> tracking web app for service and item management.</li>
+              <li>Supported <span class="highlight">testing</span>, deployment preparation, and delivery coordination.</li>
+              <li>Assisted with <span class="highlight">reliability checks</span> and performance validation.</li>
+              <li>Maintained <span class="highlight">inventory records</span> and helped troubleshooting during maintenance.</li>
+            </ul>
+          </div>
 
-  <ul class="experience-list">
-    <li>
-      Worked with <span class="highlight">motor controllers, Servo Motors</span>,
-      <span class="highlight">microcontrollers</span>, and
-      <span class="highlight">G-code</span> for CNC demonstrations.
-    </li>
-    <li>
-      Designed <span class="highlight">circuit layouts</span> and supported
-      <span class="highlight">CNC</span> and <span class="highlight">PCB milling</span>
-      for prototyping.
-    </li>
-    <li>
-      Developed <span class="highlight">data-visualisation User Interfaces</span> using <span class="highlight">C#</span> for
-      <span class="highlight">predictive maintenance</span> insights.
-    </li>
-    <li>
-      Created <span class="highlight">simulation animations</span> to demonstrate
-      <span class="highlight">wafer transfer logic</span>.
-    </li>
-  </ul>
-</div>
-  </section>
+          <div class="experience-divider"></div>
+
+          <div class="experience-item">
+            <h3 class="experience-role">
+              Part-Time Technical Assistant
+              <span class="experience-period">(Jun 2023 – Mar 2024)</span>
+            </h3>
+
+            <ul class="experience-list">
+              <li>Worked with <span class="highlight">motor control</span>, <span class="highlight">microcontrollers</span>, and <span class="highlight">G-code</span> for CNC demos.</li>
+              <li>Designed <span class="highlight">circuit layouts</span> and supported <span class="highlight">CNC</span> + <span class="highlight">PCB milling</span> for prototyping.</li>
+              <li>Built <span class="highlight">data-visualisation UI</span> (C#) for predictive maintenance insights.</li>
+              <li>Created <span class="highlight">simulation animations</span> for wafer transfer logic demos.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Bottom row: Focus + Technical (same size, side-by-side) -->
+        <section class="about-row-two" aria-label="Focus areas and technical skills">
+
+          <!-- Focus areas -->
+          <section class="about-block about-mini">
+            <h3 class="side-title">Focus areas</h3>
+
+            <div class="pill-list">
+              <span class="pill">Full-Stack Development</span>
+              <span class="pill">IoT / Smart City</span>
+              <span class="pill">5G &amp; AIoT</span>
+              <span class="pill">Embedded Systems</span>
+              <span class="pill">System Architecture</span>
+              <span class="pill">Data Analytics</span>
+              <span class="pill">DevOps Basics</span>
+              <span class="pill">Cloud (Basics)</span>
+            </div>
+          </section>
+
+          <!-- Technical skills (ONE slide at a time) -->
+          <section class="about-block about-mini">
+            <h3 class="side-title">Technical skills</h3>
+
+            <div class="tech-slider" aria-label="Technical skills slider">
+              <div class="tech-track">
+
+                <section class="tech-slide">
+                  <h4 class="tech-h4">Programming</h4>
+                  <div class="chip-wrap">
+                    <span class="chip">C#</span>
+                    <span class="chip">Python</span>
+                    <span class="chip">C++</span>
+                    <span class="chip">JavaScript</span>
+                    <span class="chip">PHP</span>
+                    <span class="chip">HTML</span>
+                    <span class="chip">CSS</span>
+                  </div>
+                </section>
+
+                <section class="tech-slide">
+                  <h4 class="tech-h4">IoT / Embedded</h4>
+                  <div class="chip-wrap">
+                    <span class="chip">Arduino</span>
+                    <span class="chip">PIC</span>
+                    <span class="chip">STM32</span>
+                    <span class="chip">Raspberry Pi</span>
+                    <span class="chip">MQTT</span>
+                  </div>
+                </section>
+
+                <section class="tech-slide">
+                  <h4 class="tech-h4">Data &amp; Tools</h4>
+                  <div class="chip-wrap">
+                    <span class="chip">Power BI</span>
+                    <span class="chip">KNIME</span>
+                    <span class="chip">Data Analysis</span>
+                    <span class="chip">MySQL / MariaDB</span>
+                    <span class="chip">Docker</span>
+                  </div>
+                </section>
+
+              </div>
+            </div>
+          </section>
+
+        </section>
       </aside>
 
     </section>
-    <div class="about-row-two">
-      <!-- Focus areas (your existing content can stay, just wrap it) -->
-  <div class="about-block">
-    <h3 class="side-title">Focus areas</h3>
-
-    <div class="pill-list">
-      <span class="pill">Full-Stack Development</span>
-      <span class="pill">IoT / Smart City</span>
-      <span class="pill">5G &amp; AIoT</span>
-      <span class="pill">Embedded Systems</span>
-      <span class="pill">System Architecture</span>
-      <span class="pill">Data Analytics</span>
-      <span class="pill">DevOps Basics</span>
-      <span class="pill">Cloud (Basics)</span>
-    </div>
-  </div>
-          <div class="about-block">
-  <h3 class="side-title">Technical skills</h3>
-
-  <div class="tech-slider" aria-label="Technical skills slider">
-    <div class="tech-track">
-
-      <!-- Slide 1 -->
-      <section class="tech-slide">
-        <h4 class="tech-h4">Programming</h4>
-        <div class="chip-wrap">
-          <span class="chip">C#</span>
-          <span class="chip">Python</span>
-          <span class="chip">C++</span>
-          <span class="chip">JavaScript</span>
-          <span class="chip">PHP</span>
-          <span class="chip">HTML</span>
-          <span class="chip">CSS</span>
-        </div>
-      </section>
-
-      <!-- Slide 2 -->
-      <section class="tech-slide">
-        <h4 class="tech-h4">IoT / Embedded</h4>
-        <div class="chip-wrap">
-          <span class="chip">Arduino</span>
-          <span class="chip">PIC</span>
-          <span class="chip">STM32</span>
-          <span class="chip">Raspberry Pi</span>
-          <span class="chip">MQTT</span>
-        </div>
-      </section>
-
-      <!-- Slide 3 -->
-      <section class="tech-slide">
-        <h4 class="tech-h4">Data &amp; Tools</h4>
-        <div class="chip-wrap">
-          <span class="chip">Power BI</span>
-          <span class="chip">KNIME</span>
-          <span class="chip">Data Analysis</span>
-          <span class="chip">MySQL / MariaDB</span>
-          <span class="chip">Docker</span>
-        </div>
-      </section>
-
-      <!-- Duplicate slides for seamless loop (IMPORTANT) -->
-      <section class="tech-slide" aria-hidden="true">
-        <h4 class="tech-h4">Programming</h4>
-        <div class="chip-wrap">
-          <span class="chip">C#</span>
-          <span class="chip">Python</span>
-          <span class="chip">C++</span>
-          <span class="chip">JavaScript</span>
-          <span class="chip">PHP</span>
-          <span class="chip">HTML</span>
-          <span class="chip">CSS</span>
-        </div>
-      </section>
-
-      <section class="tech-slide" aria-hidden="true">
-        <h4 class="tech-h4">IoT / Embedded</h4>
-        <div class="chip-wrap">
-          <span class="chip">Arduino</span>
-          <span class="chip">PIC</span>
-          <span class="chip">STM32</span>
-          <span class="chip">Raspberry Pi</span>
-          <span class="chip">MQTT</span>
-        </div>
-      </section>
-
-      <section class="tech-slide" aria-hidden="true">
-        <h4 class="tech-h4">Data &amp; Tools</h4>
-        <div class="chip-wrap">
-          <span class="chip">Power BI</span>
-          <span class="chip">KNIME</span>
-          <span class="chip">Data Analysis</span>
-          <span class="chip">MySQL / MariaDB</span>
-          <span class="chip">Docker</span>
-        </div>
-      </section>
-
-    </div>
-  </div>
-</div>
-</div>
   </main>
 
   <script src="./scripts.js"></script>
