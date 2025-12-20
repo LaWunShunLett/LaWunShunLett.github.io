@@ -142,6 +142,49 @@
   color: #111827;
   margin-bottom: 10px;
 }
+/* Work Experience (right column) */
+.exp-item{
+  margin-top: 8px;
+}
+
+.exp-role{
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 900;
+  color: #111827;
+}
+
+.exp-meta{
+  margin: 0 0 10px;
+  font-size: 14.5px;
+  color: #6b7280;
+}
+
+.exp-company{
+  color: #2563eb;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.exp-company:hover{
+  text-decoration: underline;
+}
+
+.exp-sep{
+  margin: 0 6px;
+  opacity: .6;
+}
+
+.exp-list{
+  margin: 0;
+  padding-left: 18px;
+  color: #374151;
+  line-height: 1.65;
+}
+
+.exp-list li{
+  margin: 6px 0;
+}
 
 /* Responsive: stack */
 @media (max-width: 920px){
