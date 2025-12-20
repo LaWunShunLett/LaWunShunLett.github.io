@@ -241,78 +241,81 @@
     0 0 0 3px rgba(37,99,235,.14); /* blue ring */
 }
 /* ===== Technical Skills Section Slider (slides, not chips) ===== */
-/* --- TECH SLIDER FIX --- */
-.tech-slider{
-  position: relative;
-  overflow: hidden;      /* IMPORTANT: hide the extra slides */
-  width: 100%;
-  margin-top: 10px;
+/* ---------- Bottom row (Focus + Technical) ---------- */
+.about-row-two{
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* same size */
+  gap: 18px;
+  margin-top: 14px;
 }
 
-/* track moves left */
+@media (max-width: 920px){
+  .about-row-two{
+    grid-template-columns: 1fr; /* stack on small screens */
+  }
+}
+
+/* make these bottom blocks visually consistent */
+.about-mini{
+  margin-bottom: 0;
+}
+
+/* ---------- Focus pill hover ring (blue glow) ---------- */
+.pill, .chip{
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.pill:hover, .chip:hover{
+  transform: translateY(-2px);
+  border-color: rgba(37,99,235,.35);
+  box-shadow:
+    0 18px 40px rgba(37,99,235,.12),
+    0 0 0 3px rgba(37,99,235,.14);
+}
+
+/* ---------- Technical slider (ONE slide at a time) ---------- */
+.tech-slider{
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+/* slide track: 3 slides, each 100% width */
 .tech-track{
   display: flex;
-  gap: 16px;
-  width: max-content;    /* prevents stretching to full page */
-  animation: techScroll 18s linear infinite;
+  width: 300%;
+  animation: techSlide 12s infinite;
 }
 
-/* each slide is a "card inside the card" */
-.tech-slide{
-  flex: 0 0 280px;       /* fixed slide width (adjust if you want wider) */
-  background: rgba(255,255,255,.55);
-  border: 1px solid rgba(17,24,39,.08);
-  border-radius: 16px;
-  padding: 12px 12px;
-}
-
-/* pause when user hovers the slider area */
+/* pause when hover on the whole technical box area */
 .tech-slider:hover .tech-track{
   animation-play-state: paused;
 }
 
-/* chips layout inside each slide */
+.tech-slide{
+  width: 100%;
+  flex: 0 0 100%;
+}
+
+/* spacing inside each slide */
+.tech-h4{
+  margin: 8px 0 12px;
+  font-size: 16px;
+  font-weight: 900;
+  color: #111827;
+}
+
 .chip-wrap{
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 10px;
 }
 
-/* optional: chip hover pop (won't override your existing .chip much) */
-.chip{
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-}
-.chip:hover{
-  transform: translateY(-2px);
-  border-color: rgba(37,99,235,.35);
-  box-shadow: 0 14px 28px rgba(37,99,235,.14);
-}
-
-/* animation: move track left by half its content (because you duplicated slides) */
-@keyframes techScroll{
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-/* Row that holds Focus + Technical */
-.about-row-two{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  align-items: stretch; /* forces same height */
-}
-
-/* both cards same height */
-.about-row-two .about-block{
-  height: 100%;
-}
-
-/* responsive */
-@media (max-width: 920px){
-  .about-row-two{
-    grid-template-columns: 1fr;
-  }
+/* 0%->33% slide1, 33%->66% slide2, 66%->100% slide3 */
+@keyframes techSlide{
+  0%, 30%   { transform: translateX(0%); }
+  33%, 63%  { transform: translateX(-100%); }
+  66%, 96%  { transform: translateX(-200%); }
+  100%      { transform: translateX(0%); }
 }
 
 /* Optional: slightly reduce motion if user prefers */
