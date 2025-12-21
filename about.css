@@ -203,12 +203,7 @@
    Bottom row: Focus + Technical (same width, same size)
    THIS fixes the "spilling" you showed
    ========================= */
-
 .about-row-two{
-  max-width: 1120px;
-  margin: 18px auto 0;
-  padding: 0 22px;
-
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 22px;
@@ -219,7 +214,13 @@
 .about-row-two .about-block{
   margin-bottom: 0;
 }
-
+.about-row-two .about-mini{
+  width: 100%;
+  min-width: 0; /* IMPORTANT: stops overflow */
+}
+@media (max-width: 920px){
+  .about-row-two{ grid-template-columns: 1fr; }
+}
 .side-title{
   margin: 0 0 10px;
   font-size: 22px;
@@ -229,8 +230,8 @@
 
 /* =========================
    Technical skills slider (ONE slide at a time)
-   - continuous
-   - no jump back (uses duplicated slides)
+   - continuous loop
+   - no chip overlap
    - pause on hover
    ========================= */
 
@@ -243,14 +244,14 @@
   padding: 14px;
 }
 
-/* Fade edges (optional, looks nicer) */
+/* (Optional) fade edges */
 .tech-slider::before,
 .tech-slider::after{
   content:"";
   position:absolute;
   top:0;
   bottom:0;
-  width: 42px;
+  width: 44px;
   pointer-events:none;
   z-index:2;
 }
@@ -262,30 +263,38 @@
   right:0;
   background: linear-gradient(to left, rgba(245,247,251,.95), rgba(245,247,251,0));
 }
+
+/* Track holds TWO identical sets of slides in your HTML (you already duplicated) */
 .tech-track{
   display: flex;
-  width: max-content;          /* ❗ important */
+  width: max-content;
   will-change: transform;
-  animation: techLoop 22s linear infinite;
+  animation: techLoop 28s linear infinite; /* slow + continuous */
 }
-/* Pause loop when user hovers the slider */
+
+/* Pause when hover the whole slider */
 .tech-slider:hover .tech-track{
   animation-play-state: paused;
 }
-.tech-slide{
-  flex: 0 0 auto;              /* ❗ allow natural width */
-  min-width: 420px;            /* ✅ wide enough for chips */
-  max-width: 520px;            /* ✅ prevents over-stretch */
-  padding: 16px;
-  margin-right: 18px;          /* spacing between slides */
 
-  background: rgba(255,255,255,.70);
+/* Each slide takes the FULL visible width -> "one thing at a time" */
+.tech-slide{
+  flex: 0 0 100%;
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 16px;
   border-radius: 18px;
+  background: rgba(255,255,255,.72);
   border: 1px solid rgba(37,99,235,.14);
   box-shadow: 0 14px 32px rgba(15,23,42,.06);
 }
 
-/* Slide title */
+/* Make sure content never clips */
+.tech-slide *{
+  box-sizing: border-box;
+}
+
 .tech-h4{
   margin: 0 0 10px;
   font-size: 18px;
@@ -293,20 +302,25 @@
   color: #111827;
 }
 
-/* Chips wrap inside slide */
+/* Chips layout */
 .chip-wrap{
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-/* Keyframes:
-   We will translate by the width of the first "set" of slides.
-   This requires duplicated slides in HTML (explained below). */
+/* Prevent long labels from breaking ugly / overlapping */
+.chip{
+  white-space: nowrap;
+}
+
+/* Continuous loop:
+   Move exactly HALF of the track (the first set) -> seamless because 2nd set is identical */
 @keyframes techLoop{
   from { transform: translateX(0); }
-  to   { transform: translateX(-300%); } /* 3 slides => move by 3 full widths */
+  to   { transform: translateX(-300%); }
 }
+
 
 /* =========================
    Responsive
