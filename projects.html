@@ -1,205 +1,309 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Projects | LA WUN SHUN LETT</title>
+  <meta charset="UTF-8" />
+  <title>Projects | La Wun Shun Lett</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="stylesheet" href="./style.css" />
-<link rel="stylesheet" href="./projects.css" />
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- KEEP your global css -->
+  <link rel="stylesheet" href="./style.css" />
+
+  <!-- Projects page css MUST come after style.css (so header override works) -->
+  <link rel="stylesheet" href="./projects.css" />
 </head>
 
-<body class="preload">
+<body class="preload projects-page">
 
-  <!-- HEADER -->
+  <!-- HEADER (same on every page) -->
   <header class="topbar">
     <div class="topbar-inner">
       <div class="logo anim anim-pop">LA WUN SHUN LETT</div>
 
       <!-- Desktop nav -->
       <nav class="nav desktop-nav" aria-label="Primary navigation">
-        <a class="anim anim-pop delay-1" href="index.html">Home</a>
-        <a class="anim anim-pop delay-2" href="projects.html">Projects</a>
+        <a class="anim anim-pop delay-1" href="index.html#home">Home</a>
+        <a class="anim anim-pop delay-2 is-active" href="projects.html">Projects</a>
         <a class="anim anim-pop delay-3" href="about.html">About Me</a>
         <a class="anim anim-pop delay-4" href="contact.html">Contact</a>
       </nav>
 
       <!-- Hamburger (mobile only) -->
       <button class="hamburger-mobile" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
 
     <!-- Mobile menu -->
     <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
+      <a href="index.html#home">Home</a>
+      <a class="is-active" href="projects.html">Projects</a>
       <a href="about.html">About Me</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="projects-hero">
-    <div class="container">
-      <h1 class="projects-title">Projects</h1>
-      <p class="projects-sub">
-        A curated selection of work that represents my interests and skills.
-      </p>
+  <!-- HERO -->
+  <main class="projects-main">
+    <section class="projects-hero">
+      <div class="container">
+        <h1 class="projects-title">Featured Projects</h1>
+        <p class="projects-subtitle">
+          A curated selection of work that represents my interests and skills.
+        </p>
 
-      <!-- Optional filter pills -->
-      <div class="projects-filters" aria-label="Project filters">
-        <button class="filter-pill is-active" data-filter="all" type="button">All</button>
-        <button class="filter-pill" data-filter="iot" type="button">IoT</button>
-        <button class="filter-pill" data-filter="web" type="button">Web</button>
-        <button class="filter-pill" data-filter="data" type="button">Data</button>
-        <button class="filter-pill" data-filter="mobile" type="button">Mobile</button>
+        <!-- Filters -->
+        <div class="filters" role="tablist" aria-label="Project categories">
+          <button class="filter-pill is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter-pill" data-filter="iot" role="tab">IoT</button>
+          <button class="filter-pill" data-filter="web" role="tab">Web</button>
+          <button class="filter-pill" data-filter="data" role="tab">Data</button>
+          <button class="filter-pill" data-filter="mobile" role="tab">Mobile</button>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects grid -->
-  <main class="container">
-    <section class="projects-grid" id="projectsGrid">
+    <!-- GRID -->
+    <section class="projects-section">
+      <div class="container">
 
-      <!-- Card 1 -->
-      <article class="proj-card" data-tags="iot,embedded">
-        <a class="proj-card-link" href="project-safeStride.html" aria-label="Open SafeStride project">
-          <div class="proj-media">
-            <img src="images/projects/safestride.jpg" alt="SafeStride project cover" />
-          </div>
+        <div class="projects-grid" id="projectsGrid">
 
-          <div class="proj-body">
-            <h3 class="proj-name">SafeStride — Smart Obstacle Detection Add-On</h3>
-            <p class="proj-meta">2024 • Prototype Builder | Microcontroller Developer</p>
-
-            <p class="proj-desc">
-              A detachable ultrasonic-based smart cane attachment that improves obstacle detection for visually impaired users.
-            </p>
-
-            <div class="proj-tags" aria-label="Project tags">
-              <span class="tag">Hardware</span>
-              <span class="tag">Assistive Tech</span>
-              <span class="tag">IoT</span>
-              <span class="tag">Prototype</span>
+          <!-- CARD 1 -->
+          <article class="project-card" data-category="iot" tabindex="0"
+            data-title="SafeStride — Smart Obstacle Detection Add-On"
+            data-year="2024"
+            data-role="Prototype Builder | Microcontroller Developer | Embedded Programmer"
+            data-desc="A detachable ultrasonic-based smart cane attachment that enhances obstacle detection for visually impaired users."
+            data-tech="Ultrasonic Sensor, Microcontroller, Prototyping, User Testing, Embedded C"
+          >
+            <div class="project-media">
+              <img src="./images/projects/safestride.jpg" alt="SafeStride project cover" loading="lazy">
             </div>
 
-            <div class="proj-cta">View details <span aria-hidden="true">→</span></div>
-          </div>
+            <div class="project-body">
+              <h3 class="project-name">SafeStride — Smart Obstacle Detection Add-On</h3>
+              <p class="project-meta">2024 · Prototype Builder · Embedded</p>
 
-          <!-- hover popup (appears on hover) -->
-          <div class="proj-pop" aria-hidden="true">
-            <div class="proj-pop-inner">
-              <div class="pop-title">Highlights</div>
-              <ul class="pop-list">
-                <li>Ultrasonic sensing + embedded logic</li>
-                <li>Prototype testing + demo flow</li>
-                <li>Built for real-world accessibility use</li>
-              </ul>
-            </div>
-          </div>
-        </a>
-      </article>
+              <div class="project-tags">
+                <span class="tag">Hardware</span>
+                <span class="tag">Assistive Tech</span>
+                <span class="tag">IoT</span>
+                <span class="tag">Prototype</span>
+              </div>
 
-      <!-- Card 2 -->
-      <article class="proj-card" data-tags="mobile,uiux">
-        <a class="proj-card-link" href="project-habiTrack.html" aria-label="Open HabiTrack project">
-          <div class="proj-media">
-            <img src="images/projects/habitrack.jpg" alt="HabiTrack project cover" />
-          </div>
-
-          <div class="proj-body">
-            <h3 class="proj-name">HabiTrack — Youth Habit & Fitness App</h3>
-            <p class="proj-meta">2024 • Prototype & Research Lead</p>
-
-            <p class="proj-desc">
-              A habit-tracking concept designed to help youths build consistent fitness routines through gamified goals.
-            </p>
-
-            <div class="proj-tags">
-              <span class="tag">Mobile App</span>
-              <span class="tag">Health</span>
-              <span class="tag">Gamification</span>
+              <button class="link-btn" type="button">View details →</button>
             </div>
 
-            <div class="proj-cta">View details <span aria-hidden="true">→</span></div>
-          </div>
-
-          <div class="proj-pop" aria-hidden="true">
-            <div class="proj-pop-inner">
-              <div class="pop-title">Highlights</div>
-              <ul class="pop-list">
-                <li>Gamified habit loop + goal system</li>
-                <li>User research + prototype iteration</li>
-                <li>Clean UI/UX framing</li>
-              </ul>
+            <!-- Hover pop overlay -->
+            <div class="hover-pop" aria-hidden="true">
+              <div class="hover-title">SafeStride — Smart Obstacle Detection Add-On</div>
+              <div class="hover-sub">Detachable smart cane attachment for obstacle detection.</div>
+              <div class="hover-tech">
+                <span class="mini-tag">Ultrasonic</span>
+                <span class="mini-tag">Embedded C</span>
+                <span class="mini-tag">Prototype</span>
+              </div>
+              <div class="hover-cta">View details →</div>
             </div>
-          </div>
-        </a>
-      </article>
+          </article>
 
-      <!-- Card 3 -->
-      <article class="proj-card" data-tags="mobile,web">
-        <a class="proj-card-link" href="project-uniCycle.html" aria-label="Open UniCycle project">
-          <div class="proj-media">
-            <img src="images/projects/unicycle.jpg" alt="UniCycle project cover" />
-          </div>
-
-          <div class="proj-body">
-            <h3 class="proj-name">UniCycle — Campus Marketplace & Peer Support</h3>
-            <p class="proj-meta">2024 • Android Developer (Marketplace, Camera, Messaging)</p>
-
-            <p class="proj-desc">
-              A student-driven app enabling buy/sell materials, connect with seniors, and exchange study advice.
-            </p>
-
-            <div class="proj-tags">
-              <span class="tag">Android</span>
-              <span class="tag">Marketplace</span>
-              <span class="tag">Messaging</span>
+          <!-- CARD 2 -->
+          <article class="project-card" data-category="data" tabindex="0"
+            data-title="HabiTrack — Youth Habit & Fitness Tracking App"
+            data-year="2024"
+            data-role="Prototype & Research Lead"
+            data-desc="A gamified habit-tracking concept designed to help youths build consistent fitness routines."
+            data-tech="Figma, UI/UX Prototyping, User Research, Gamification"
+          >
+            <div class="project-media">
+              <img src="./images/projects/habitrack.jpg" alt="HabiTrack project cover" loading="lazy">
             </div>
 
-            <div class="proj-cta">View details <span aria-hidden="true">→</span></div>
-          </div>
+            <div class="project-body">
+              <h3 class="project-name">HabiTrack — Youth Habit & Fitness Tracking App</h3>
+              <p class="project-meta">2024 · Research · UI/UX</p>
 
-          <div class="proj-pop" aria-hidden="true">
-            <div class="proj-pop-inner">
-              <div class="pop-title">Highlights</div>
-              <ul class="pop-list">
-                <li>Marketplace listing + posting flow</li>
-                <li>Messaging + student support concept</li>
-                <li>Mobile-first UI layout</li>
-              </ul>
+              <div class="project-tags">
+                <span class="tag">Mobile App</span>
+                <span class="tag">Health</span>
+                <span class="tag">Gamification</span>
+              </div>
+
+              <button class="link-btn" type="button">View details →</button>
             </div>
-          </div>
-        </a>
-      </article>
 
+            <div class="hover-pop" aria-hidden="true">
+              <div class="hover-title">HabiTrack — Habit & Fitness</div>
+              <div class="hover-sub">Gamified habit-tracking to build consistency.</div>
+              <div class="hover-tech">
+                <span class="mini-tag">Figma</span>
+                <span class="mini-tag">UX</span>
+                <span class="mini-tag">Research</span>
+              </div>
+              <div class="hover-cta">View details →</div>
+            </div>
+          </article>
+
+          <!-- CARD 3 -->
+          <article class="project-card" data-category="mobile" tabindex="0"
+            data-title="UniCycle — Campus Marketplace & Peer Support App"
+            data-year="2024"
+            data-role="Android Developer (Marketplace, Camera, Messaging)"
+            data-desc="A student-driven app to buy/sell materials, connect with seniors, and exchange study advice."
+            data-tech="Java, Android Studio, SQLite/MySQL, Camera API, Messaging"
+          >
+            <div class="project-media">
+              <img src="./images/projects/unicycle.jpg" alt="UniCycle project cover" loading="lazy">
+            </div>
+
+            <div class="project-body">
+              <h3 class="project-name">UniCycle — Campus Marketplace & Peer Support</h3>
+              <p class="project-meta">2024 · Android · Marketplace</p>
+
+              <div class="project-tags">
+                <span class="tag">Mobile App</span>
+                <span class="tag">Marketplace</span>
+                <span class="tag">Android</span>
+              </div>
+
+              <button class="link-btn" type="button">View details →</button>
+            </div>
+
+            <div class="hover-pop" aria-hidden="true">
+              <div class="hover-title">UniCycle — Campus Marketplace</div>
+              <div class="hover-sub">Buy/sell materials + peer support in one app.</div>
+              <div class="hover-tech">
+                <span class="mini-tag">Android</span>
+                <span class="mini-tag">Camera API</span>
+                <span class="mini-tag">SQLite</span>
+              </div>
+              <div class="hover-cta">View details →</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
     </section>
   </main>
 
+  <!-- MODAL -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true"></div>
+
+  <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <button class="modal-close" id="modalClose" aria-label="Close modal">✕</button>
+
+    <div class="modal-content">
+      <div class="modal-top">
+        <h2 class="modal-title" id="modalTitle">Project Title</h2>
+        <p class="modal-meta" id="modalMeta">Year · Role</p>
+      </div>
+
+      <p class="modal-desc" id="modalDesc"></p>
+
+      <div class="modal-block">
+        <h4>Tech / Tools</h4>
+        <p class="modal-tech" id="modalTech"></p>
+      </div>
+
+      <div class="modal-actions">
+        <a class="modal-btn" href="#" id="modalLink" target="_blank" rel="noopener">Open project link</a>
+        <button class="modal-btn ghost" id="modalOk" type="button">Okay</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS (inline, simple) -->
   <script>
-    // Simple filtering (optional)
-    const filterBtns = document.querySelectorAll(".filter-pill");
-    const cards = document.querySelectorAll(".proj-card");
+    // remove preload class
+    window.addEventListener("load", () => document.body.classList.remove("preload"));
 
-    filterBtns.forEach(btn => {
-      btn.addEventListener("click", () => {
-        filterBtns.forEach(b => b.classList.remove("is-active"));
-        btn.classList.add("is-active");
+    // mobile menu
+    const hamburger = document.getElementById("hamburger");
+    const mobileNav = document.getElementById("mobileNav");
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener("click", () => {
+        const expanded = hamburger.getAttribute("aria-expanded") === "true";
+        hamburger.setAttribute("aria-expanded", String(!expanded));
+        mobileNav.classList.toggle("open");
+      });
+    }
 
-        const f = btn.dataset.filter;
+    // filter
+    const pills = document.querySelectorAll(".filter-pill");
+    const cards = document.querySelectorAll(".project-card");
+
+    pills.forEach(p => {
+      p.addEventListener("click", () => {
+        pills.forEach(x => x.classList.remove("is-active"));
+        p.classList.add("is-active");
+
+        const f = p.dataset.filter;
         cards.forEach(card => {
-          if (f === "all") { card.style.display = ""; return; }
-          const tags = (card.dataset.tags || "").split(",");
-          card.style.display = tags.includes(f) ? "" : "none";
+          const cat = card.dataset.category;
+          const show = (f === "all") || (cat === f);
+          card.style.display = show ? "" : "none";
         });
       });
     });
-  </script>
 
+    // modal
+    const modal = document.getElementById("projectModal");
+    const backdrop = document.getElementById("modalBackdrop");
+    const closeBtn = document.getElementById("modalClose");
+    const okBtn = document.getElementById("modalOk");
+
+    const t = document.getElementById("modalTitle");
+    const meta = document.getElementById("modalMeta");
+    const desc = document.getElementById("modalDesc");
+    const tech = document.getElementById("modalTech");
+    const link = document.getElementById("modalLink");
+
+    function openModalFromCard(card){
+      t.textContent = card.dataset.title || "Project";
+      meta.textContent = `${card.dataset.year || ""} · ${card.dataset.role || ""}`.trim();
+      desc.textContent = card.dataset.desc || "";
+      tech.textContent = card.dataset.tech || "";
+
+      // optional link (set later if you want)
+      link.href = "#";
+      link.textContent = "Open project link";
+      link.style.pointerEvents = "none";
+      link.style.opacity = "0.6";
+
+      modal.setAttribute("aria-hidden", "false");
+      backdrop.setAttribute("aria-hidden", "false");
+      modal.classList.add("open");
+      backdrop.classList.add("open");
+    }
+
+    function closeModal(){
+      modal.setAttribute("aria-hidden", "true");
+      backdrop.setAttribute("aria-hidden", "true");
+      modal.classList.remove("open");
+      backdrop.classList.remove("open");
+    }
+
+    document.querySelectorAll(".project-card .link-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        const card = e.target.closest(".project-card");
+        if(card) openModalFromCard(card);
+      });
+    });
+
+    // also open modal if click card itself
+    document.querySelectorAll(".project-card").forEach(card => {
+      card.addEventListener("keydown", (e) => {
+        if(e.key === "Enter") openModalFromCard(card);
+      });
+    });
+
+    [closeBtn, okBtn, backdrop].forEach(el => el && el.addEventListener("click", closeModal));
+    document.addEventListener("keydown", (e) => { if(e.key === "Escape") closeModal(); });
+  </script>
 </body>
 </html>
