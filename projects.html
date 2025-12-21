@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects | LA WUN SHUN LETT</title>
+
+  <link rel="stylesheet" href="projects.css" />
+</head>
+
+<body class="projects-body">
+
+  <!-- Keep your existing navbar HTML if you have one.
+       This is a simple placeholder structure. -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="brand">LA WUN SHUN LETT</div>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a class="active" href="projects.html">Projects</a>
+        <a href="about.html">About Me</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="projects-hero">
+    <div class="container">
+      <h1 class="projects-title">Featured Projects</h1>
+      <p class="projects-sub">
+        A curated selection of work that represents my interests and skills.
+      </p>
+
+      <!-- Optional filter pills -->
+      <div class="projects-filters" aria-label="Project filters">
+        <button class="filter-pill is-active" data-filter="all" type="button">All</button>
+        <button class="filter-pill" data-filter="iot" type="button">IoT</button>
+        <button class="filter-pill" data-filter="web" type="button">Web</button>
+        <button class="filter-pill" data-filter="data" type="button">Data</button>
+        <button class="filter-pill" data-filter="mobile" type="button">Mobile</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects grid -->
+  <main class="container">
+    <section class="projects-grid" id="projectsGrid">
+
+      <!-- Card 1 -->
+      <article class="proj-card" data-tags="iot,embedded">
+        <a class="proj-card-link" href="project-safeStride.html" aria-label="Open SafeStride project">
+          <div class="proj-media">
+            <img src="images/projects/safestride.jpg" alt="SafeStride project cover" />
+          </div>
+
+          <div class="proj-body">
+            <h3 class="proj-name">SafeStride — Smart Obstacle Detection Add-On</h3>
+            <p class="proj-meta">2024 • Prototype Builder | Microcontroller Developer</p>
+
+            <p class="proj-desc">
+              A detachable ultrasonic-based smart cane attachment that improves obstacle detection for visually impaired users.
+            </p>
+
+            <div class="proj-tags" aria-label="Project tags">
+              <span class="tag">Hardware</span>
+              <span class="tag">Assistive Tech</span>
+              <span class="tag">IoT</span>
+              <span class="tag">Prototype</span>
+            </div>
+
+            <div class="proj-cta">View details <span aria-hidden="true">→</span></div>
+          </div>
+
+          <!-- hover popup (appears on hover) -->
+          <div class="proj-pop" aria-hidden="true">
+            <div class="proj-pop-inner">
+              <div class="pop-title">Highlights</div>
+              <ul class="pop-list">
+                <li>Ultrasonic sensing + embedded logic</li>
+                <li>Prototype testing + demo flow</li>
+                <li>Built for real-world accessibility use</li>
+              </ul>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="proj-card" data-tags="mobile,uiux">
+        <a class="proj-card-link" href="project-habiTrack.html" aria-label="Open HabiTrack project">
+          <div class="proj-media">
+            <img src="images/projects/habitrack.jpg" alt="HabiTrack project cover" />
+          </div>
+
+          <div class="proj-body">
+            <h3 class="proj-name">HabiTrack — Youth Habit & Fitness App</h3>
+            <p class="proj-meta">2024 • Prototype & Research Lead</p>
+
+            <p class="proj-desc">
+              A habit-tracking concept designed to help youths build consistent fitness routines through gamified goals.
+            </p>
+
+            <div class="proj-tags">
+              <span class="tag">Mobile App</span>
+              <span class="tag">Health</span>
+              <span class="tag">Gamification</span>
+            </div>
+
+            <div class="proj-cta">View details <span aria-hidden="true">→</span></div>
+          </div>
+
+          <div class="proj-pop" aria-hidden="true">
+            <div class="proj-pop-inner">
+              <div class="pop-title">Highlights</div>
+              <ul class="pop-list">
+                <li>Gamified habit loop + goal system</li>
+                <li>User research + prototype iteration</li>
+                <li>Clean UI/UX framing</li>
+              </ul>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="proj-card" data-tags="mobile,web">
+        <a class="proj-card-link" href="project-uniCycle.html" aria-label="Open UniCycle project">
+          <div class="proj-media">
+            <img src="images/projects/unicycle.jpg" alt="UniCycle project cover" />
+          </div>
+
+          <div class="proj-body">
+            <h3 class="proj-name">UniCycle — Campus Marketplace & Peer Support</h3>
+            <p class="proj-meta">2024 • Android Developer (Marketplace, Camera, Messaging)</p>
+
+            <p class="proj-desc">
+              A student-driven app enabling buy/sell materials, connect with seniors, and exchange study advice.
+            </p>
+
+            <div class="proj-tags">
+              <span class="tag">Android</span>
+              <span class="tag">Marketplace</span>
+              <span class="tag">Messaging</span>
+            </div>
+
+            <div class="proj-cta">View details <span aria-hidden="true">→</span></div>
+          </div>
+
+          <div class="proj-pop" aria-hidden="true">
+            <div class="proj-pop-inner">
+              <div class="pop-title">Highlights</div>
+              <ul class="pop-list">
+                <li>Marketplace listing + posting flow</li>
+                <li>Messaging + student support concept</li>
+                <li>Mobile-first UI layout</li>
+              </ul>
+            </div>
+          </div>
+        </a>
+      </article>
+
+    </section>
+  </main>
+
+  <script>
+    // Simple filtering (optional)
+    const filterBtns = document.querySelectorAll(".filter-pill");
+    const cards = document.querySelectorAll(".proj-card");
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach(b => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+
+        const f = btn.dataset.filter;
+        cards.forEach(card => {
+          if (f === "all") { card.style.display = ""; return; }
+          const tags = (card.dataset.tags || "").split(",");
+          card.style.display = tags.includes(f) ? "" : "none";
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

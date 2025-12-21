@@ -458,8 +458,8 @@ body{
 .scroll-arrows span{
   width: 14px;
   height: 14px;
-  border-right: 2px solid rgba(17,24,39,.55);
-  border-bottom: 2px solid rgba(17,24,39,.55);
+  border-right: 2px solid rgba(37,99,235,.55);
+  border-bottom: 2px solid rgba(37,99,235,55);
   transform: rotate(45deg);
   opacity: 0;
   animation: scrollArrow 2.4s ease-in-out infinite;
