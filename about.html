@@ -1,23 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About Me</title>
-  <link rel="stylesheet" href="about.css" />
+  <meta charset="UTF-8" />
+  <title>About | La Wun Shun Lett</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Your existing site theme -->
+  <link rel="stylesheet" href="./style.css" />
+  <!-- Page-specific styles -->
+  <link rel="stylesheet" href="./about.css" />
 </head>
 
-<body>
-  <header class="nav">
-    <div class="nav-inner">
-      <div class="brand">LA WUN SHUN LETT</div>
-      <nav class="nav-links">
+<body class="preload">
+
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="logo">LA WUN SHUN LETT</div>
+
+      <nav class="nav desktop-nav" aria-label="Primary navigation">
         <a href="index.html#home">Home</a>
         <a href="index.html#projects">Projects</a>
         <a href="about.html" aria-current="page">About Me</a>
         <a href="contact.html">Contact</a>
       </nav>
+
+      <button class="hamburger-mobile" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="about.html" aria-current="page">About Me</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
   <main class="about-wrap">
@@ -38,13 +61,16 @@
     <!-- 2-column layout -->
     <section class="about-grid">
 
-      <!-- Left -->
+      <!-- Left: Story -->
       <div class="about-col about-main">
-
         <section class="about-section">
           <h2 class="about-h2">Background</h2>
           <p class="about-text">
-            <!-- your content -->
+            I’m originally from <span class="highlight">Myanmar</span>. My interest in engineering started early —
+            I was inspired by my <span class="highlight">second eldest sister</span> through her engineering projects,
+            electronics, and programming. That curiosity became a goal, and I moved to Singapore to grow my skills by
+            specializing in <span class="highlight">Computer Engineering</span> at
+            <a class="sp-link" href="https://www.sp.edu.sg/" target="_blank" rel="noreferrer">Singapore Polytechnic</a>.
           </p>
         </section>
 
@@ -52,11 +78,11 @@
           <h2 class="about-h2">What I’m working on now</h2>
           <p class="about-text">
             Building a <span class="highlight">5G-enabled AIoT door access system</span> that performs
-            <span class="highlight">AI-based facial recognition</span> on live video streams from a Raspberry Pi camera.
-            The system uses <span class="highlight">edge AI processing</span> to validate users in real time and trigger
-            hardware access indicators, focusing on low latency and end-to-end system integration.
+            <span class="highlight">AI-based facial recognition</span> on live video streams from a
+            Raspberry Pi camera. The system uses <span class="highlight">edge AI processing</span>
+            to validate users in real time and trigger hardware access indicators, focusing on
+            low latency and end-to-end system integration.
           </p>
-
           <p class="about-text">
             I also work on <span class="highlight">secured end-to-end IoT</span> (door entry systems),
             <span class="highlight">Smart City architecture</span>, and <span class="highlight">data analysis</span>
@@ -73,143 +99,116 @@
             to projects that matter.
           </p>
         </section>
-
       </div>
 
-      <!-- Right -->
+      <!-- Right: boxed cards ONLY -->
       <aside class="about-col about-side">
 
         <!-- Work Experience -->
         <section class="about-block experience-block">
           <h2 class="about-h2">Work Experience</h2>
 
-          <!-- Internship -->
           <div class="experience-item">
             <h3 class="experience-role">
-              Software-Engineering Intern at
-              <a class="exp-company" href="https://applied-i.com/" target="_blank" rel="noreferrer">
-                Applied Instruments Pte Ltd
-              </a>
+              Software-Engineering Intern at Applied Instruments Pte Ltd
               <span class="experience-period">(Mar 2025 – Oct 2025)</span>
             </h3>
 
             <ul class="experience-list">
-              <li>Enhanced <span class="highlight">UI/UX</span> and <span class="highlight">real-time monitoring</span> using <span class="highlight">SCADA</span> tools.</li>
+              <li>Enhanced <span class="highlight">UI/UX</span> and <span class="highlight">real-time monitoring</span> with <span class="highlight">SCADA</span> tools.</li>
               <li>Built a <span class="highlight">full-stack</span> tracking web app for service and item management.</li>
               <li>Supported <span class="highlight">testing</span>, deployment preparation, and delivery coordination.</li>
-              <li>Assisted with <span class="highlight">reliability checks</span> and performance validation for equipment.</li>
-              <li>Maintained <span class="highlight">inventory records</span> and supported troubleshooting during maintenance.</li>
+              <li>Assisted with <span class="highlight">reliability checks</span> and performance validation.</li>
+              <li>Maintained <span class="highlight">inventory records</span> and helped troubleshooting during maintenance.</li>
             </ul>
           </div>
 
           <div class="experience-divider"></div>
 
-          <!-- Part-time -->
           <div class="experience-item">
             <h3 class="experience-role">
-              Part-Time Technical Assistant at
-              <a class="exp-company" href="https://applied-i.com/" target="_blank" rel="noreferrer">
-                Applied Instruments Pte Ltd
-              </a>
+              Part-Time Technical Assistant at Applied Instruments Pte Ltd
               <span class="experience-period">(Jun 2023 – Mar 2024)</span>
             </h3>
 
             <ul class="experience-list">
-              <li>Worked with <span class="highlight">motor controllers</span>, <span class="highlight">microcontrollers</span>, and <span class="highlight">G-code</span> for CNC demonstrations.</li>
+              <li>Worked with <span class="highlight">motor control</span>, <span class="highlight">microcontrollers</span>, and <span class="highlight">G-code</span> for CNC demos.</li>
               <li>Designed <span class="highlight">circuit layouts</span> and supported <span class="highlight">CNC</span> + <span class="highlight">PCB milling</span> for prototyping.</li>
-              <li>Developed <span class="highlight">data-visualisation UI</span> using <span class="highlight">C#</span> for <span class="highlight">predictive maintenance</span> insights.</li>
-              <li>Created <span class="highlight">simulation animations</span> to demonstrate <span class="highlight">wafer transfer logic</span>.</li>
+              <li>Built <span class="highlight">data-visualisation UI</span> (C#) for predictive maintenance insights.</li>
+              <li>Created <span class="highlight">simulation animations</span> for wafer transfer logic demos.</li>
             </ul>
           </div>
         </section>
 
       </aside>
+      
     </section>
+            <!-- Bottom row: Focus + Technical (same size, side-by-side) -->
+        <section class="about-row-two" aria-label="Focus areas and technical skills">
 
-    <!-- Bottom row (same width as About container) -->
-    <section class="about-row-two" aria-label="Focus areas and technical skills">
+          <!-- Focus areas -->
+          <section class="about-block about-mini">
+            <h3 class="side-title">Focus areas</h3>
 
-      <!-- Focus areas -->
-      <section class="about-block about-mini">
-        <h3 class="side-title">Focus areas</h3>
+            <div class="pill-list">
+              <span class="pill">Full-Stack Development</span>
+              <span class="pill">IoT / Smart City</span>
+              <span class="pill">5G &amp; AIoT</span>
+              <span class="pill">Embedded Systems</span>
+              <span class="pill">System Architecture</span>
+              <span class="pill">Data Analytics</span>
+              <span class="pill">DevOps Basics</span>
+              <span class="pill">Cloud (Basics)</span>
+            </div>
+          </section>
 
-        <div class="pill-list">
-          <span class="pill">Full-Stack Development</span>
-          <span class="pill">IoT / Smart City</span>
-          <span class="pill">5G &amp; AIoT</span>
-          <span class="pill">Embedded Systems</span>
-          <span class="pill">System Architecture</span>
-          <span class="pill">Data Analytics</span>
-          <span class="pill">DevOps Basics</span>
-          <span class="pill">Cloud (Basics)</span>
-        </div>
-      </section>
+          <!-- Technical skills (ONE slide at a time) -->
+          <section class="about-block about-mini">
+            <h3 class="side-title">Technical skills</h3>
 
-      <!-- Technical skills (ONE slide at a time) -->
-      <section class="about-block about-mini">
-        <h3 class="side-title">Technical skills</h3>
+            <div class="tech-slider" aria-label="Technical skills slider">
+              <div class="tech-track">
 
-        <div class="tech-slider" aria-label="Technical skills slider">
-          <div class="tech-track">
+                <section class="tech-slide">
+                  <h4 class="tech-h4">Programming</h4>
+                  <div class="chip-wrap">
+                    <span class="chip">C#</span>
+                    <span class="chip">Python</span>
+                    <span class="chip">C++</span>
+                    <span class="chip">JavaScript</span>
+                    <span class="chip">PHP</span>
+                    <span class="chip">HTML</span>
+                    <span class="chip">CSS</span>
+                  </div>
+                </section>
 
-            <!-- 1 -->
-            <section class="tech-slide">
-              <h4 class="tech-h4">Programming</h4>
-              <div class="chip-wrap">
-                <span class="chip">C#</span>
-                <span class="chip">Python</span>
-                <span class="chip">C++</span>
-                <span class="chip">JavaScript</span>
-                <span class="chip">PHP</span>
-                <span class="chip">HTML</span>
-                <span class="chip">CSS</span>
+                <section class="tech-slide">
+                  <h4 class="tech-h4">IoT / Embedded</h4>
+                  <div class="chip-wrap">
+                    <span class="chip">Arduino</span>
+                    <span class="chip">PIC</span>
+                    <span class="chip">STM32</span>
+                    <span class="chip">Raspberry Pi</span>
+                    <span class="chip">MQTT</span>
+                  </div>
+                </section>
+
+                <section class="tech-slide">
+                  <h4 class="tech-h4">Data &amp; Tools</h4>
+                  <div class="chip-wrap">
+                    <span class="chip">Power BI</span>
+                    <span class="chip">KNIME</span>
+                    <span class="chip">Data Analysis</span>
+                    <span class="chip">MySQL / MariaDB</span>
+                    <span class="chip">Docker</span>
+                  </div>
+                </section>
+
               </div>
-            </section>
+            </div>
+          </section>
 
-            <!-- 2 -->
-            <section class="tech-slide">
-              <h4 class="tech-h4">IoT / Embedded</h4>
-              <div class="chip-wrap">
-                <span class="chip">Arduino</span>
-                <span class="chip">PIC</span>
-                <span class="chip">STM32</span>
-                <span class="chip">Raspberry Pi</span>
-                <span class="chip">MQTT</span>
-              </div>
-            </section>
-
-            <!-- 3 -->
-            <section class="tech-slide">
-              <h4 class="tech-h4">Data &amp; Tools</h4>
-              <div class="chip-wrap">
-                <span class="chip">Power BI</span>
-                <span class="chip">KNIME</span>
-                <span class="chip">Data Analysis</span>
-                <span class="chip">MySQL / MariaDB</span>
-                <span class="chip">Docker</span>
-              </div>
-            </section>
-
-            <!-- duplicate #1 so loop feels circular -->
-            <section class="tech-slide" aria-hidden="true">
-              <h4 class="tech-h4">Programming</h4>
-              <div class="chip-wrap">
-                <span class="chip">C#</span>
-                <span class="chip">Python</span>
-                <span class="chip">C++</span>
-                <span class="chip">JavaScript</span>
-                <span class="chip">PHP</span>
-                <span class="chip">HTML</span>
-                <span class="chip">CSS</span>
-              </div>
-            </section>
-
-          </div>
-        </div>
-      </section>
-
-    </section>
-
+        </section>
   </main>
 
   <script src="./scripts.js"></script>
