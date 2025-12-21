@@ -1,6 +1,7 @@
-/* ABOUT PAGE */
+/* =========================
+   ABOUT PAGE (fixed layout + smooth slider)
+   ========================= */
 
-/* Layout container */
 .about-wrap{
   padding: 90px 0 120px;
 }
@@ -24,7 +25,7 @@
   color: #374151;
   font-size: 18px;
   line-height: 1.75;
-  max-width: 100%;;
+  max-width: 100%;
 }
 
 /* 2-column grid */
@@ -64,10 +65,10 @@
   color: #374151;
   font-size: 16.5px;
   line-height: 1.75;
-  max-width: 78ch; /* keeps it clean */
+  max-width: 78ch;
 }
 
-/* Link + Highlight (same blue feel) */
+/* Link + Highlight */
 .highlight{
   color: #2563eb;
   font-weight: 800;
@@ -78,21 +79,18 @@
   font-weight: 800;
   text-decoration: none;
 }
+.sp-link:hover{ text-decoration: underline; }
 
-.sp-link:hover{
-  text-decoration: underline;
-}
-
-/* RIGHT side cards (keep nice, but prevent overlap + NO inner scroll bar) */
+/* RIGHT side cards */
 .about-side{
   align-self: start;
 }
 
-/* sticky on desktop ONLY, but do not set overflow/max-height (prevents internal scrollbar) */
+/* IMPORTANT: Work experience should NOT stick */
 @media (min-width: 921px){
   .about-side{
-    position: sticky;
-    top: 88px;
+    position: static; /* was sticky before */
+    top: auto;
   }
 }
 
@@ -105,22 +103,24 @@
   border: 1px solid rgba(37,99,235,.16);
   box-shadow: 0 18px 45px rgba(15, 23, 42, .06);
   margin-bottom: 14px;
-}
-.about-block{
   transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
   will-change: transform, box-shadow;
 }
 
+/* Hover: blue ring + gentle pop (RIGHT SIDE ONLY) */
 .about-block:hover{
   transform: translateY(-4px);
   border-color: rgba(37,99,235,.35);
   box-shadow:
     0 26px 60px rgba(37,99,235,.12),
     0 18px 45px rgba(15, 23, 42, .10),
-    0 0 0 3px rgba(37,99,235,.14); /* blue ring */
+    0 0 0 3px rgba(37,99,235,.14);
 }
 
-/* pills + chips */
+/* =========================
+   Pills / Chips (add ring glow to BOTH)
+   ========================= */
+
 .pill-list,
 .skill-items{
   display: flex;
@@ -128,8 +128,8 @@
   gap: 10px;
 }
 
-/* pill / chip style */
-.pill, .chip{
+.pill,
+.chip{
   padding: 10px 14px;
   border-radius: 999px;
   font-weight: 800;
@@ -137,150 +137,7 @@
   background: rgba(255,255,255,.70);
   border: 1px solid rgba(17,24,39,.10);
   box-shadow: 0 10px 25px rgba(15,23,42,.06);
-}
-
-/* keep hover subtle */
-.pill:hover{
-  transform: translateY(-2px);
-  transition: transform .2s ease;
-}
-
-/* skill group spacing */
-.skill-group{
-  margin-top: 14px;
-}
-
-.skill-title{
-  font-weight: 900;
-  color: #111827;
-  margin-bottom: 10px;
-}
-
-/* Work Experience */
-.work-exp {
-  margin-bottom: 18px;
-}
-
-.exp-role {
-  margin-top: 14px;
-}
-
-.exp-title {
-  margin: 0 0 4px;
-  font-size: 16px;
-  font-weight: 900;
-  color: #111827;
-}
-
-.exp-meta {
-  margin: 0 0 8px;
-  font-size: 14px;
-  color: #6b7280;
-}
-
-.exp-meta a {
-  color: #2563eb;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.exp-meta a:hover {
-  text-decoration: underline;
-}
-
-.exp-period {
-  margin-left: 6px;
-  font-weight: 700;
-  color: #374151;
-}
-
-.exp-list {
-  margin: 6px 0 0;
-  padding-left: 18px;
-  color: #374151;
-  font-size: 14.5px;
-  line-height: 1.6;
-}
-
-.exp-list li {
-  margin: 6px 0;
-}
-/* Highlight text (blue like your screenshot) */
-.highlight{
-  color: #2563eb;
-  font-weight: 800;
-}
-
-/* Make right sections animate the same way */
-.about-block{
-  border-radius: 22px;
-  border: 1px solid rgba(37,99,235,.14);
-  background: rgba(255,255,255,.62);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 18px 45px rgba(15, 23, 42, .06);
-
-  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-  will-change: transform, box-shadow;
-}
-
-/* LEFT side — NO animation, NO box */
-.about-section{
-  border: 0;
-  padding: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
-/* Hover animation — RIGHT SIDE ONLY */
-.about-block:hover{
-  transform: translateY(-4px);
-  border-color: rgba(37,99,235,.35);
-  box-shadow:
-    0 26px 60px rgba(37,99,235,.12),
-    0 18px 45px rgba(15, 23, 42, .10),
-    0 0 0 3px rgba(37,99,235,.14); /* blue ring */
-}
-/* ===== Technical Skills Section Slider (slides, not chips) ===== */
-/* ===========================
-   FIX: Bottom row width/align
-   =========================== */
-.about-row-two{
-  max-width: 1120px;
-  margin: 22px auto 0;
-  padding: 0 22px;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-  align-items: stretch; /* equal height look */
-}
-
-.about-row-two .about-mini{
-  margin-bottom: 0; /* prevent weird extra spacing */
-}
-
-/* stack on small screens */
-@media (max-width: 920px){
-  .about-row-two{
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ===========================
-   FIX: Remove sticky right col
-   =========================== */
-@media (min-width: 921px){
-  .about-side{
-    position: static !important;
-    top: auto !important;
-  }
-}
-
-/* ===========================
-   Focus pills: same “ring glow” as chips
-   =========================== */
-.pill, .chip{
-  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 
 .pill:hover,
@@ -288,78 +145,176 @@
   transform: translateY(-2px);
   border-color: rgba(37,99,235,.35);
   box-shadow:
-    0 26px 60px rgba(37,99,235,.10),
-    0 18px 45px rgba(15, 23, 42, .08),
+    0 18px 40px rgba(37,99,235,.12),
+    0 10px 25px rgba(15,23,42,.08),
     0 0 0 3px rgba(37,99,235,.12);
 }
 
-/* ===========================
-   Technical slider: ONE slide at a time + circular feel
-   =========================== */
+/* skill group spacing */
+.skill-group{ margin-top: 14px; }
+.skill-title{
+  font-weight: 900;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   Work Experience styles (company link)
+   ========================= */
+
+.experience-role{
+  margin: 0 0 10px;
+  font-size: 17px;
+  font-weight: 900;
+  color: #111827;
+}
+
+.experience-period{
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #6b7280;
+}
+
+.experience-list{
+  margin: 0;
+  padding-left: 18px;
+  color: #374151;
+  line-height: 1.65;
+}
+.experience-list li{ margin: 6px 0; }
+
+.experience-divider{
+  height: 1px;
+  background: rgba(17, 24, 39, 0.10);
+  margin: 16px 0;
+}
+
+/* If you want the company name as a LINK (recommended): */
+.experience-company{
+  color: #2563eb;
+  font-weight: 800;
+  text-decoration: none;
+}
+.experience-company:hover{ text-decoration: underline; }
+
+/* =========================
+   Bottom row: Focus + Technical (same width, same size)
+   THIS fixes the "spilling" you showed
+   ========================= */
+
+.about-row-two{
+  max-width: 1120px;
+  margin: 18px auto 0;
+  padding: 0 22px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* Remove extra bottom spacing on these two cards */
+.about-row-two .about-block{
+  margin-bottom: 0;
+}
+
+.side-title{
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-weight: 900;
+  color: #111827;
+}
+
+/* =========================
+   Technical skills slider (ONE slide at a time)
+   - continuous
+   - no jump back (uses duplicated slides)
+   - pause on hover
+   ========================= */
+
 .tech-slider{
+  position: relative;
   overflow: hidden;
-  width: 100%;
+  border-radius: 18px;
+  border: 1px solid rgba(17,24,39,.08);
+  background: rgba(245,247,251,.85);
+  padding: 14px;
+}
+
+/* Fade edges (optional, looks nicer) */
+.tech-slider::before,
+.tech-slider::after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  width: 42px;
+  pointer-events:none;
+  z-index:2;
+}
+.tech-slider::before{
+  left:0;
+  background: linear-gradient(to right, rgba(245,247,251,.95), rgba(245,247,251,0));
+}
+.tech-slider::after{
+  right:0;
+  background: linear-gradient(to left, rgba(245,247,251,.95), rgba(245,247,251,0));
 }
 
 .tech-track{
   display: flex;
-  width: 400%; /* 3 slides + duplicate first */
-  animation: techCarousel 24s ease-in-out infinite;
+  width: max-content;
+  will-change: transform;
+  animation: techLoop 18s linear infinite; /* slow + continuous */
 }
 
+/* Pause loop when user hovers the slider */
 .tech-slider:hover .tech-track{
   animation-play-state: paused;
 }
 
-/* Each slide takes full width of the box */
+/* ONE full slide visible at a time */
 .tech-slide{
-  flex: 0 0 25%;     /* because track is 400% */
-  padding-top: 6px;
+  flex: 0 0 100%;
+  min-width: 100%;
+  padding: 10px 10px;
 }
 
-/* If you want the slide content to feel like a “card inside the box” */
-.tech-slide{
-  border-radius: 18px;
-  padding: 14px 14px;
-  border: 1px solid rgba(17,24,39,.08);
-  background: rgba(255,255,255,.55);
-  box-shadow: 0 14px 34px rgba(15,23,42,.05);
+/* Slide title */
+.tech-h4{
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 900;
+  color: #111827;
 }
 
-/* Slow + hold each slide + smooth transition */
-@keyframes techCarousel{
-  /* slide 1 hold */
-  0%, 22%   { transform: translateX(0%); }
-
-  /* move to slide 2 */
-  30%, 52%  { transform: translateX(-25%); }
-
-  /* move to slide 3 */
-  60%, 82%  { transform: translateX(-50%); }
-
-  /* move to duplicate slide 1 */
-  90%, 100% { transform: translateX(-75%); }
+/* Chips wrap inside slide */
+.chip-wrap{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-/* Optional: slightly reduce motion if user prefers */
-@media (prefers-reduced-motion: reduce){
-  .about-block,
-  .about-section{
-    transition: none;
-  }
-  .about-block:hover,
-  .about-section:hover{
-    transform: none;
-  }
+/* Keyframes:
+   We will translate by the width of the first "set" of slides.
+   This requires duplicated slides in HTML (explained below). */
+@keyframes techLoop{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-300%); } /* 3 slides => move by 3 full widths */
 }
 
-/* Responsive: stack */
+/* =========================
+   Responsive
+   ========================= */
+
 @media (max-width: 920px){
   .about-grid{
     grid-template-columns: 1fr;
   }
-  .about-side{
-    position: static;
-    top: auto;
+
+  .about-row-two{
+    grid-template-columns: 1fr;
   }
 }
