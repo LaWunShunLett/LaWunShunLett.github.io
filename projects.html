@@ -6,23 +6,39 @@
   <title>Projects | LA WUN SHUN LETT</title>
 
   <link rel="stylesheet" href="projects.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 
-<body class="projects-body">
+<body class="preload">
 
-  <!-- Keep your existing navbar HTML if you have one.
-       This is a simple placeholder structure. -->
-  <header class="site-header">
-    <div class="site-header-inner">
-      <div class="brand">LA WUN SHUN LETT</div>
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="logo anim anim-pop">LA WUN SHUN LETT</div>
 
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a class="active" href="projects.html">Projects</a>
-        <a href="about.html">About Me</a>
-        <a href="contact.html">Contact</a>
+      <!-- Desktop nav -->
+      <nav class="nav desktop-nav" aria-label="Primary navigation">
+        <a class="anim anim-pop delay-1" href="#home">Home</a>
+        <a class="anim anim-pop delay-2" href="projects.html">Projects</a>
+        <a class="anim anim-pop delay-3" href="about.html">About Me</a>
+        <a class="anim anim-pop delay-4" href="contact.html">Contact</a>
       </nav>
+
+      <!-- Hamburger (mobile only) -->
+      <button class="hamburger-mobile" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+
+    <!-- Mobile menu -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <a href="#home">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About Me</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
   <!-- Hero -->
