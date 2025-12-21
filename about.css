@@ -200,39 +200,57 @@
 .experience-company:hover{ text-decoration: underline; }
 
 /* =========================
-   Bottom row: Focus + Technical (same width, same size)
-   THIS fixes the "spilling" you showed
+   Bottom row: Focus + Technical
+   - SAME width as the about content
+   - 50/50 split
+   - NO spilling
    ========================= */
+
+/* IMPORTANT: if .about-row-two is INSIDE .about-grid, do NOT use max-width/margin auto here */
 .about-row-two{
+  grid-column: 1 / -1;              /* span full width of about-grid */
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;    /* equal split */
   gap: 22px;
-  align-items: stretch;
+  margin-top: 22px;
+  width: 100%;
+  min-width: 0;
 }
 
-/* Remove extra bottom spacing on these two cards */
-.about-row-two .about-block{
-  margin-bottom: 0;
-}
 .about-row-two .about-mini{
   width: 100%;
-  min-width: 0; /* IMPORTANT: stops overflow */
+  min-width: 0;                     /* prevents overflow */
 }
+
 @media (max-width: 920px){
-  .about-row-two{ grid-template-columns: 1fr; }
-}
-.side-title{
-  margin: 0 0 10px;
-  font-size: 22px;
-  font-weight: 900;
-  color: #111827;
+  .about-row-two{
+    grid-template-columns: 1fr;
+  }
 }
 
 /* =========================
-   Technical skills slider (ONE slide at a time)
-   - continuous loop
-   - no chip overlap
-   - pause on hover
+   Focus pills: add same ring glow as chips
+   ========================= */
+.pill, .chip{
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.pill:hover,
+.chip:hover{
+  transform: translateY(-2px);
+  border-color: rgba(37,99,235,.35);
+  box-shadow:
+    0 26px 60px rgba(37,99,235,.10),
+    0 18px 45px rgba(15, 23, 42, .08),
+    0 0 0 3px rgba(37,99,235,.12);
+}
+
+/* =========================
+   Technical skills slider
+   - ONE slide at a time (full width)
+   - Smooth, slow, continuous loop
+   - No "reverse back" feeling
+   - Uses your duplicated slides (A+B) for seamless looping
    ========================= */
 
 .tech-slider{
@@ -244,7 +262,7 @@
   padding: 14px;
 }
 
-/* (Optional) fade edges */
+/* optional fade edges */
 .tech-slider::before,
 .tech-slider::after{
   content:"";
@@ -264,20 +282,18 @@
   background: linear-gradient(to left, rgba(245,247,251,.95), rgba(245,247,251,0));
 }
 
-/* Track holds TWO identical sets of slides in your HTML (you already duplicated) */
 .tech-track{
   display: flex;
-  width: max-content;
   will-change: transform;
-  animation: techLoop 28s linear infinite; /* slow + continuous */
+  animation: techStepLoop 24s infinite;  /* slow */
 }
 
-/* Pause when hover the whole slider */
+/* pause on hover */
 .tech-slider:hover .tech-track{
   animation-play-state: paused;
 }
 
-/* Each slide takes the FULL visible width -> "one thing at a time" */
+/* each slide fills the slider width (one at a time) */
 .tech-slide{
   flex: 0 0 100%;
   width: 100%;
@@ -290,11 +306,7 @@
   box-shadow: 0 14px 32px rgba(15,23,42,.06);
 }
 
-/* Make sure content never clips */
-.tech-slide *{
-  box-sizing: border-box;
-}
-
+/* title */
 .tech-h4{
   margin: 0 0 10px;
   font-size: 18px;
@@ -302,26 +314,39 @@
   color: #111827;
 }
 
-/* Chips layout */
+/* chips wrap nicely */
 .chip-wrap{
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-/* Prevent long labels from breaking ugly / overlapping */
 .chip{
   white-space: nowrap;
 }
 
-/* Continuous loop:
-   Move exactly HALF of the track (the first set) -> seamless because 2nd set is identical */
-@keyframes techLoop{
-  from { transform: translateX(0); }
-  to   { transform: translateX(-300%); }
+/*
+  You have 6 slides total because you duplicated A+B.
+  We move 0% -> -300% (3 full slides) and loop back to 0.
+  At -300% we are showing the duplicated first slide, so the jump is invisible.
+*/
+@keyframes techStepLoop{
+  /* Slide 1 hold */
+  0%, 18% { transform: translateX(0%); }
+
+  /* Slide 2 hold */
+  28%, 46% { transform: translateX(-100%); }
+
+  /* Slide 3 hold */
+  56%, 74% { transform: translateX(-200%); }
+
+  /* Duplicate Slide 1 hold (seamless loop point) */
+  84%, 100% { transform: translateX(-300%); }
 }
 
-
+@media (prefers-reduced-motion: reduce){
+  .tech-track{ animation: none; }
+}
 /* =========================
    Responsive
    ========================= */
