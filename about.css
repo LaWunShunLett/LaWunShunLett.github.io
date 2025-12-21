@@ -1,4 +1,7 @@
-/* ABOUT PAGE */
+/* =========================
+   ABOUT PAGE — CLEAN CSS
+   (no duplicates, no fighting rules)
+   ========================= */
 
 /* Layout container */
 .about-wrap{
@@ -24,10 +27,10 @@
   color: #374151;
   font-size: 18px;
   line-height: 1.75;
-  max-width: 100%;;
+  max-width: 100%;
 }
 
-/* 2-column grid */
+/* 2-column grid (main layout) */
 .about-grid{
   display: grid;
   grid-template-columns: 1.2fr .8fr;
@@ -35,7 +38,14 @@
   align-items: start;
 }
 
-/* LEFT side (NO boxes) */
+/* RIGHT column container (NOT sticky by default) */
+.about-side{
+  align-self: start;
+}
+
+/* =========================
+   LEFT side (NO boxes)
+   ========================= */
 .about-main .about-section{
   padding: 0;
   margin: 0;
@@ -64,10 +74,10 @@
   color: #374151;
   font-size: 16.5px;
   line-height: 1.75;
-  max-width: 78ch; /* keeps it clean */
+  max-width: 78ch;
 }
 
-/* Link + Highlight (same blue feel) */
+/* Link + Highlight */
 .highlight{
   color: #2563eb;
   font-weight: 800;
@@ -78,35 +88,24 @@
   font-weight: 800;
   text-decoration: none;
 }
-
 .sp-link:hover{
   text-decoration: underline;
 }
 
-/* RIGHT side cards (keep nice, but prevent overlap + NO inner scroll bar) */
-.about-side{
-  align-self: start;
-}
-
-/* sticky on desktop ONLY, but do not set overflow/max-height (prevents internal scrollbar) */
-@media (min-width: 921px){
-  .about-side{
-    position: sticky;
-    top: 88px;
-  }
-}
-
-/* right blocks */
+/* =========================
+   RIGHT side cards (boxed)
+   + hover pop + blue ring
+   ========================= */
 .about-block{
   border-radius: 22px;
   padding: 18px 18px;
   background: rgba(255,255,255,.62);
   backdrop-filter: blur(10px);
+
   border: 1px solid rgba(37,99,235,.16);
   box-shadow: 0 18px 45px rgba(15, 23, 42, .06);
   margin-bottom: 14px;
-}
-.about-block{
+
   transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
   will-change: transform, box-shadow;
 }
@@ -120,7 +119,10 @@
     0 0 0 3px rgba(37,99,235,.14); /* blue ring */
 }
 
-/* pills + chips */
+/* =========================
+   Focus areas pills + Skill chips
+   (both should glow on hover)
+   ========================= */
 .pill-list,
 .skill-items{
   display: flex;
@@ -128,8 +130,8 @@
   gap: 10px;
 }
 
-/* pill / chip style */
-.pill, .chip{
+.pill,
+.chip{
   padding: 10px 14px;
   border-radius: 999px;
   font-weight: 800;
@@ -137,15 +139,23 @@
   background: rgba(255,255,255,.70);
   border: 1px solid rgba(17,24,39,.10);
   box-shadow: 0 10px 25px rgba(15,23,42,.06);
+
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  will-change: transform, box-shadow;
 }
 
-/* keep hover subtle */
-.pill:hover{
-  transform: translateY(-2px);
-  transition: transform .2s ease;
+/* Glow ring + pop (same feel as your “Python” box) */
+.pill:hover,
+.chip:hover{
+  transform: translateY(-3px);
+  border-color: rgba(37,99,235,.35);
+  box-shadow:
+    0 18px 40px rgba(37,99,235,.14),
+    0 10px 25px rgba(15,23,42,.08),
+    0 0 0 3px rgba(37,99,235,.14);
 }
 
-/* skill group spacing */
+/* Skill group spacing */
 .skill-group{
   margin-top: 14px;
 }
@@ -156,181 +166,75 @@
   margin-bottom: 10px;
 }
 
-/* Work Experience */
-.work-exp {
+/* =========================
+   Work Experience (right column)
+   Keep your highlight-blue words using .highlight
+   Company name link style
+   ========================= */
+.work-exp{
   margin-bottom: 18px;
 }
 
-.exp-role {
-  margin-top: 14px;
+.exp-item{
+  margin-top: 10px;
 }
 
-.exp-title {
+.exp-title{
   margin: 0 0 4px;
   font-size: 16px;
   font-weight: 900;
   color: #111827;
 }
 
-.exp-meta {
-  margin: 0 0 8px;
+.exp-period{
+  margin-left: 6px;
+  font-weight: 700;
+  color: #374151;
+  font-size: 14px;
+}
+
+.exp-meta{
+  margin: 0 0 10px;
   font-size: 14px;
   color: #6b7280;
 }
 
-.exp-meta a {
+.exp-company{
   color: #2563eb;
-  font-weight: 700;
+  font-weight: 800;
   text-decoration: none;
 }
-
-.exp-meta a:hover {
+.exp-company:hover{
   text-decoration: underline;
 }
 
-.exp-period {
-  margin-left: 6px;
-  font-weight: 700;
-  color: #374151;
-}
-
-.exp-list {
+.exp-list{
   margin: 6px 0 0;
   padding-left: 18px;
   color: #374151;
   font-size: 14.5px;
   line-height: 1.6;
 }
-
-.exp-list li {
+.exp-list li{
   margin: 6px 0;
 }
-/* Highlight text (blue like your screenshot) */
-.highlight{
-  color: #2563eb;
-  font-weight: 800;
-}
 
-/* Make right sections animate the same way */
-.about-block{
-  border-radius: 22px;
-  border: 1px solid rgba(37,99,235,.14);
-  background: rgba(255,255,255,.62);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 18px 45px rgba(15, 23, 42, .06);
-
-  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-  will-change: transform, box-shadow;
-}
-
-/* LEFT side — NO animation, NO box */
-.about-section{
-  border: 0;
-  padding: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
-/* Hover animation — RIGHT SIDE ONLY */
-.about-block:hover{
-  transform: translateY(-4px);
-  border-color: rgba(37,99,235,.35);
-  box-shadow:
-    0 26px 60px rgba(37,99,235,.12),
-    0 18px 45px rgba(15, 23, 42, .10),
-    0 0 0 3px rgba(37,99,235,.14); /* blue ring */
-}
-/* ===== Technical Skills Section Slider (slides, not chips) ===== */
-/* ---------- Bottom row (Focus + Technical) ---------- */
-.about-row-two{
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* same size */
-  gap: 18px;
-  margin-top: 14px;
-}
-
-@media (max-width: 920px){
-  .about-row-two{
-    grid-template-columns: 1fr; /* stack on small screens */
+/* =========================
+   OPTIONAL: If you want sticky right side later,
+   uncomment this block.
+   ========================= */
+/*
+@media (min-width: 921px){
+  .about-side{
+    position: sticky;
+    top: 88px;
   }
 }
+*/
 
-/* make these bottom blocks visually consistent */
-.about-mini{
-  margin-bottom: 0;
-}
-
-/* ---------- Focus pill hover ring (blue glow) ---------- */
-.pill, .chip{
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-}
-
-.pill:hover, .chip:hover{
-  transform: translateY(-2px);
-  border-color: rgba(37,99,235,.35);
-  box-shadow:
-    0 18px 40px rgba(37,99,235,.12),
-    0 0 0 3px rgba(37,99,235,.14);
-}
-
-/* ---------- Technical slider (ONE slide at a time) ---------- */
-.tech-slider{
-  overflow: hidden;
-  border-radius: 18px;
-}
-
-/* slide track: 3 slides, each 100% width */
-.tech-track{
-  display: flex;
-  width: 300%;
-  animation: techSlide 12s infinite;
-}
-
-/* pause when hover on the whole technical box area */
-.tech-slider:hover .tech-track{
-  animation-play-state: paused;
-}
-
-.tech-slide{
-  width: 100%;
-  flex: 0 0 100%;
-}
-
-/* spacing inside each slide */
-.tech-h4{
-  margin: 8px 0 12px;
-  font-size: 16px;
-  font-weight: 900;
-  color: #111827;
-}
-
-.chip-wrap{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-/* 0%->33% slide1, 33%->66% slide2, 66%->100% slide3 */
-@keyframes techSlide{
-  0%, 30%   { transform: translateX(0%); }
-  33%, 63%  { transform: translateX(-100%); }
-  66%, 96%  { transform: translateX(-200%); }
-  100%      { transform: translateX(0%); }
-}
-
-/* Optional: slightly reduce motion if user prefers */
-@media (prefers-reduced-motion: reduce){
-  .about-block,
-  .about-section{
-    transition: none;
-  }
-  .about-block:hover,
-  .about-section:hover{
-    transform: none;
-  }
-}
-
-/* Responsive: stack */
+/* =========================
+   Responsive: stack columns
+   ========================= */
 @media (max-width: 920px){
   .about-grid{
     grid-template-columns: 1fr;
