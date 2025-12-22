@@ -1,10 +1,7 @@
 // projects.js
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Remove preload if you use it in your global animations
-  document.body.classList.remove("preload");
-
-  // ---------- Mobile hamburger (same behavior as your other pages) ----------
+  // ---------- Mobile hamburger (same IDs you already use) ----------
   const hamburger = document.getElementById("hamburger");
   const mobileNav = document.getElementById("mobileNav");
 
@@ -16,90 +13,69 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ---------- Filter ----------
-  const filterButtons = Array.from(document.querySelectorAll(".filter-btn"));
-  const cards = Array.from(document.querySelectorAll(".project-card"));
+  // ---------- Filter logic ----------
+  const pills = document.querySelectorAll(".filter-pill");
+  const cards = document.querySelectorAll(".project-card");
 
-  function setActiveFilter(btn) {
-    filterButtons.forEach(b => {
-      b.classList.remove("is-active");
-      b.setAttribute("aria-selected", "false");
-    });
-    btn.classList.add("is-active");
-    btn.setAttribute("aria-selected", "true");
-  }
+  pills.forEach((pill) => {
+    pill.addEventListener("click", () => {
+      // active state
+      pills.forEach(p => {
+        p.classList.remove("is-active");
+        p.setAttribute("aria-selected", "false");
+      });
+      pill.classList.add("is-active");
+      pill.setAttribute("aria-selected", "true");
 
-  function applyFilter(filter) {
-    cards.forEach(card => {
-      const cat = (card.dataset.category || "").toLowerCase();
-      const show = (filter === "all") || (cat === filter);
-      card.style.display = show ? "" : "none";
-    });
-  }
+      const filter = pill.dataset.filter;
 
-  filterButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const filter = (btn.dataset.filter || "all").toLowerCase();
-      setActiveFilter(btn);
-      applyFilter(filter);
-    });
-  });
+      cards.forEach((card) => {
+        const category = card.dataset.category;
+        const show = (filter === "all") || (category === filter);
 
-  // ---------- Modal ----------
-  const modal = document.getElementById("projectModal");
-  const modalClose = document.getElementById("modalClose");
+        card.classList.toggle("is-hidden", !show);
 
-  const modalTitle = document.getElementById("modalTitle");
-  const modalMeta = document.getElementById("modalMeta");
-  const modalDesc = document.getElementById("modalDesc");
-  const modalTech = document.getElementById("modalTech");
-
-  function openModal(card) {
-    if (!modal) return;
-
-    modalTitle.textContent = card.dataset.title || "Project";
-    modalMeta.textContent = `${card.dataset.year || ""} · ${card.dataset.role || ""}`.trim();
-    modalDesc.textContent = card.dataset.desc || "";
-    modalTech.textContent = card.dataset.tech || "—";
-
-    modal.classList.add("is-open");
-    modal.setAttribute("aria-hidden", "false");
-
-    // accessibility
-    modalClose?.focus();
-  }
-
-  function closeModal() {
-    if (!modal) return;
-    modal.classList.remove("is-open");
-    modal.setAttribute("aria-hidden", "true");
-  }
-
-  // open by button or card click
-  cards.forEach(card => {
-    const btn = card.querySelector(".project-cta");
-    btn?.addEventListener("click", (e) => {
-      e.stopPropagation();
-      openModal(card);
-    });
-
-    card.addEventListener("click", () => openModal(card));
-
-    // open with Enter key
-    card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") openModal(card);
-      if (e.key === "Escape") closeModal();
+        // also close popups when filtering
+        card.classList.remove("is-open");
+      });
     });
   });
 
-  // close modal
-  modalClose?.addEventListener("click", closeModal);
-  modal?.addEventListener("click", (e) => {
-    const target = e.target;
-    if (target && target.dataset && target.dataset.close === "true") closeModal();
-  });
+  // ---------- Mobile tap-to-open popup ----------
+  // On small screens, tapping the card opens preview overlay.
+  const isTouch = window.matchMedia("(max-width: 680px)").matches;
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeModal();
-  });
+  if (isTouch) {
+    cards.forEach((card) => {
+      const closeBtn = card.querySelector(".pop-close");
+      const link = card.querySelector(".project-link");
+
+      // tap card opens pop
+      card.addEventListener("click", (e) => {
+        // if they clicked the close button, handle below
+        if (e.target === closeBtn) return;
+
+        // allow normal link clicks
+        if (link && (e.target === link || link.contains(e.target))) return;
+
+        // toggle open
+        cards.forEach(c => { if (c !== card) c.classList.remove("is-open"); });
+        card.classList.toggle("is-open");
+      });
+
+      // close button
+      if (closeBtn) {
+        closeBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          card.classList.remove("is-open");
+        });
+      }
+    });
+
+    // tapping outside closes
+    document.addEventListener("click", (e) => {
+      const inside = e.target.closest(".project-card");
+      if (!inside) cards.forEach(c => c.classList.remove("is-open"));
+    });
+  }
 });
