@@ -1,80 +1,88 @@
-// projects.js
-
-document.addEventListener("DOMContentLoaded", () => {
-  // ----- Mobile hamburger -----
+// Mobile hamburger (same behavior across pages)
+(function () {
   const hamburger = document.getElementById("hamburger");
   const mobileNav = document.getElementById("mobileNav");
 
   if (hamburger && mobileNav) {
     hamburger.addEventListener("click", () => {
-      const expanded = hamburger.getAttribute("aria-expanded") === "true";
-      hamburger.setAttribute("aria-expanded", String(!expanded));
-      mobileNav.classList.toggle("open");
+      const isOpen = hamburger.getAttribute("aria-expanded") === "true";
+      hamburger.setAttribute("aria-expanded", String(!isOpen));
+      mobileNav.classList.toggle("open", !isOpen);
+    });
+  }
+})();
+
+// Filter buttons
+(function () {
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const cards = document.querySelectorAll(".project-card");
+
+  function setActive(btn) {
+    filterBtns.forEach(b => b.classList.remove("is-active"));
+    btn.classList.add("is-active");
+  }
+
+  function applyFilter(filter) {
+    cards.forEach(card => {
+      const tags = (card.getAttribute("data-tags") || "").toLowerCase();
+      const show = filter === "all" || tags.includes(filter);
+      card.classList.toggle("is-hidden", !show);
     });
   }
 
-  // ----- Filter -----
-  const pills = document.querySelectorAll(".filter-pill");
-  const cards = document.querySelectorAll(".project-card");
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const filter = btn.getAttribute("data-filter");
+      setActive(btn);
+      applyFilter(filter);
+    });
+  });
+})();
 
-  pills.forEach((pill) => {
-    pill.addEventListener("click", () => {
-      pills.forEach(p => {
-        p.classList.remove("is-active");
-        p.setAttribute("aria-selected", "false");
-      });
-      pill.classList.add("is-active");
-      pill.setAttribute("aria-selected", "true");
+// Modal details
+(function () {
+  const modal = document.getElementById("projectModal");
+  if (!modal) return;
 
-      const filter = pill.dataset.filter;
+  const titleEl = document.getElementById("pmTitle");
+  const metaEl = document.getElementById("pmMeta");
+  const descEl = document.getElementById("pmDesc");
+  const techEl = document.getElementById("pmTech");
 
-      cards.forEach((card) => {
-        const category = card.dataset.category;
-        const show = (filter === "all") || (category === filter);
-        card.classList.toggle("is-hidden", !show);
+  function openModal(data) {
+    titleEl.textContent = data.title || "Project";
+    metaEl.textContent = `${data.year || ""}${data.year ? " · " : ""}${data.role || ""}`.trim();
+    descEl.textContent = data.desc || "";
+    techEl.textContent = data.tech || "";
 
-        // close popup if filtering
-        card.classList.remove("is-open");
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  document.querySelectorAll(".project-cta").forEach(btn => {
+    btn.addEventListener("click", () => {
+      openModal({
+        title: btn.dataset.title,
+        year: btn.dataset.year,
+        role: btn.dataset.role,
+        desc: btn.dataset.desc,
+        tech: btn.dataset.tech,
       });
     });
   });
 
-  // ----- Mobile tap popup -----
-  const isMobile = window.matchMedia("(max-width: 680px)").matches;
+  modal.addEventListener("click", (e) => {
+    if (e.target.matches("[data-close]")) closeModal();
+  });
 
-  if (isMobile) {
-    cards.forEach((card) => {
-      const closeBtn = card.querySelector(".pop-close");
-      const links = card.querySelectorAll("a");
-
-      // open on tap
-      card.addEventListener("click", (e) => {
-        // allow normal link click
-        for (const a of links) {
-          if (a === e.target || a.contains(e.target)) return;
-        }
-        // if close button clicked, ignore here
-        if (e.target === closeBtn) return;
-
-        // toggle
-        cards.forEach(c => { if (c !== card) c.classList.remove("is-open"); });
-        card.classList.toggle("is-open");
-      });
-
-      // close
-      if (closeBtn) {
-        closeBtn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          card.classList.remove("is-open");
-        });
-      }
-    });
-
-    // tap outside closes
-    document.addEventListener("click", (e) => {
-      if (!e.target.closest(".project-card")) {
-        cards.forEach(c => c.classList.remove("is-open"));
-      }
-    });
-  }
-});
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+})();

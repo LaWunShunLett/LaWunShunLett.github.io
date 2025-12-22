@@ -10,16 +10,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Global (DON'T TOUCH) -->
+  <!-- KEEP your global styles -->
   <link rel="stylesheet" href="./style.css" />
 
-  <!-- Projects page only -->
+  <!-- Projects-only -->
   <link rel="stylesheet" href="./projects.css" />
 </head>
 
 <body class="preload">
 
-  <!-- HEADER (same on every page) -->
+  <!-- HEADER (same on all pages) -->
   <header class="topbar">
     <div class="topbar-inner">
       <div class="logo anim anim-pop">LA WUN SHUN LETT</div>
@@ -44,148 +44,156 @@
     </nav>
   </header>
 
+  <!-- PAGE -->
   <main class="projects-page">
 
-    <!-- HERO -->
+    <!-- HERO (NO fixed overlay that can cover header) -->
     <section class="projects-hero">
-      <div class="projects-hero-inner">
+      <div class="projects-wrap">
         <h1 class="projects-title">Featured Projects</h1>
-        <p class="projects-subtitle">
+        <p class="projects-sub">
           A curated selection of work that represents my interests and skills.
         </p>
 
-        <!-- FILTERS -->
         <div class="projects-filters" role="tablist" aria-label="Project filters">
-          <button class="filter-pill is-active" type="button" data-filter="all" aria-selected="true">All</button>
-          <button class="filter-pill" type="button" data-filter="iot" aria-selected="false">IoT</button>
-          <button class="filter-pill" type="button" data-filter="web" aria-selected="false">Web</button>
-          <button class="filter-pill" type="button" data-filter="data" aria-selected="false">Data</button>
-          <button class="filter-pill" type="button" data-filter="mobile" aria-selected="false">Mobile</button>
+          <button class="filter-btn is-active" type="button" data-filter="all">All</button>
+          <button class="filter-btn" type="button" data-filter="iot">IoT</button>
+          <button class="filter-btn" type="button" data-filter="web">Web</button>
+          <button class="filter-btn" type="button" data-filter="data">Data</button>
+          <button class="filter-btn" type="button" data-filter="mobile">Mobile</button>
         </div>
       </div>
     </section>
 
     <!-- GRID -->
     <section class="projects-section">
-      <div class="projects-grid" id="projectsGrid">
+      <div class="projects-wrap">
 
-        <!-- 1 -->
-        <article class="project-card" data-category="iot">
-          <div class="project-cover">
-            <img src="./assets/projects/safestride.jpg" alt="SafeStride project cover" loading="lazy">
-          </div>
+        <div class="projects-grid">
 
-          <div class="project-body">
-            <h3 class="project-name">SafeStride — Smart Obstacle Detection Add-On</h3>
-            <p class="project-meta">2024 · Prototype Builder | Microcontroller Developer</p>
-            <p class="project-desc">
-              A detachable ultrasonic-based smart cane attachment that enhances obstacle detection for visually impaired users.
-            </p>
-
-            <div class="project-tags">
-              <span class="tag">Hardware</span>
-              <span class="tag">Assistive Tech</span>
-              <span class="tag">IoT</span>
-              <span class="tag">Prototype</span>
+          <!-- CARD 1 -->
+          <article class="project-card" data-tags="iot,embedded">
+            <div class="project-media">
+              <!-- Put your real path here -->
+              <img src="./images/safestride.jpg" alt="SafeStride project cover" loading="lazy">
             </div>
 
-            <a class="project-link" href="project-safestride.html">View details →</a>
-          </div>
+            <div class="project-body">
+              <h3 class="project-name">SafeStride — Smart Obstacle Detection Add-On</h3>
+              <p class="project-meta">2024 · Prototype Builder | Microcontroller Developer</p>
 
-          <div class="project-pop" aria-hidden="true">
-            <div class="project-pop-inner">
-              <div class="pop-title">Tech stack</div>
-              <div class="pop-text">Ultrasonic Sensor · Microcontroller · Prototyping · User Testing · Embedded C</div>
+              <p class="project-desc">
+                A detachable ultrasonic-based smart cane attachment that enhances obstacle detection for visually impaired users.
+              </p>
 
-              <div class="pop-title">Highlight</div>
-              <div class="pop-text">Designed for real-world assistive usage and rapid prototyping iterations.</div>
+              <div class="project-tags">
+                <span class="tag">Hardware</span>
+                <span class="tag">Assistive Tech</span>
+                <span class="tag">IoT</span>
+                <span class="tag">Prototype</span>
+              </div>
 
-              <a class="pop-cta" href="project-safestride.html">Open project →</a>
+              <button class="project-cta" type="button"
+                data-title="SafeStride — Smart Obstacle Detection Add-On"
+                data-year="2024"
+                data-role="Prototype Builder | Microcontroller Developer"
+                data-desc="A detachable ultrasonic-based smart cane attachment that enhances obstacle detection for visually impaired users."
+                data-tech="Ultrasonic Sensor, Microcontroller, Embedded C, Prototyping, User Testing"
+              >
+                View details →
+              </button>
             </div>
-          </div>
+          </article>
 
-          <button class="pop-close" type="button" aria-label="Close project preview">×</button>
-        </article>
-
-        <!-- 2 -->
-        <article class="project-card" data-category="mobile">
-          <div class="project-cover">
-            <img src="./assets/projects/habitrack.jpg" alt="HabiTrack project cover" loading="lazy">
-          </div>
-
-          <div class="project-body">
-            <h3 class="project-name">HabiTrack — Youth Habit & Fitness Tracking</h3>
-            <p class="project-meta">2024 · Prototype & Research Lead</p>
-            <p class="project-desc">
-              A gamified habit-tracking concept designed to help youths build consistent fitness routines.
-            </p>
-
-            <div class="project-tags">
-              <span class="tag">Mobile App</span>
-              <span class="tag">Health</span>
-              <span class="tag">Gamification</span>
+          <!-- CARD 2 -->
+          <article class="project-card" data-tags="mobile,uiux">
+            <div class="project-media">
+              <img src="./images/habitrack.jpg" alt="HabiTrack project cover" loading="lazy">
             </div>
 
-            <a class="project-link" href="project-habitrack.html">View details →</a>
-          </div>
+            <div class="project-body">
+              <h3 class="project-name">HabiTrack — Youth Habit & Fitness Tracking App</h3>
+              <p class="project-meta">2024 · Prototype & Research Lead</p>
 
-          <div class="project-pop" aria-hidden="true">
-            <div class="project-pop-inner">
-              <div class="pop-title">Tech stack</div>
-              <div class="pop-text">Figma · UI/UX Prototyping · User Research · Wireframes</div>
+              <p class="project-desc">
+                A gamified habit-tracking concept designed to help youths build consistent fitness routines.
+              </p>
 
-              <div class="pop-title">Highlight</div>
-              <div class="pop-text">Led research and prototype direction for motivation loops and clear user goals.</div>
+              <div class="project-tags">
+                <span class="tag">Mobile App</span>
+                <span class="tag">Health</span>
+                <span class="tag">Gamification</span>
+              </div>
 
-              <a class="pop-cta" href="project-habitrack.html">Open project →</a>
+              <button class="project-cta" type="button"
+                data-title="HabiTrack — Youth Habit & Fitness Tracking App"
+                data-year="2024"
+                data-role="Prototype & Research Lead"
+                data-desc="A gamified habit-tracking concept designed to help youths build consistent fitness routines."
+                data-tech="Figma, UI/UX Prototyping, User Research"
+              >
+                View details →
+              </button>
             </div>
-          </div>
+          </article>
 
-          <button class="pop-close" type="button" aria-label="Close project preview">×</button>
-        </article>
-
-        <!-- 3 -->
-        <article class="project-card" data-category="mobile">
-          <div class="project-cover">
-            <img src="./assets/projects/unicycle.jpg" alt="UniCycle project cover" loading="lazy">
-          </div>
-
-          <div class="project-body">
-            <h3 class="project-name">UniCycle — Campus Marketplace & Peer Support</h3>
-            <p class="project-meta">2024 · Android Developer (Marketplace, Camera, Messaging)</p>
-            <p class="project-desc">
-              A student-driven app to buy/sell academic materials, connect with seniors, and exchange study advice.
-            </p>
-
-            <div class="project-tags">
-              <span class="tag">Mobile App</span>
-              <span class="tag">Marketplace</span>
-              <span class="tag">Android</span>
+          <!-- CARD 3 -->
+          <article class="project-card" data-tags="mobile,web">
+            <div class="project-media">
+              <img src="./images/unicycle.jpg" alt="UniCycle project cover" loading="lazy">
             </div>
 
-            <a class="project-link" href="project-unicycle.html">View details →</a>
-          </div>
+            <div class="project-body">
+              <h3 class="project-name">UniCycle — Campus Marketplace & Peer Support App</h3>
+              <p class="project-meta">2024 · Android Developer (Marketplace, Camera, Messaging)</p>
 
-          <div class="project-pop" aria-hidden="true">
-            <div class="project-pop-inner">
-              <div class="pop-title">Tech stack</div>
-              <div class="pop-text">Java · Android Studio · MySQL · SQLite · Camera API</div>
+              <p class="project-desc">
+                A student-driven app to buy/sell academic materials, connect with seniors, and exchange study advice.
+              </p>
 
-              <div class="pop-title">Highlight</div>
-              <div class="pop-text">Implemented marketplace flow, camera integration, and in-app messaging.</div>
+              <div class="project-tags">
+                <span class="tag">Mobile App</span>
+                <span class="tag">Marketplace</span>
+                <span class="tag">Android</span>
+              </div>
 
-              <a class="pop-cta" href="project-unicycle.html">Open project →</a>
+              <button class="project-cta" type="button"
+                data-title="UniCycle — Campus Marketplace & Peer Support App"
+                data-year="2024"
+                data-role="Android Developer (Marketplace, Camera, Messaging)"
+                data-desc="A student-driven app to buy/sell academic materials, connect with seniors, and exchange study advice."
+                data-tech="Java, Android Studio, MySQL/SQLite, Camera API"
+              >
+                View details →
+              </button>
             </div>
-          </div>
+          </article>
 
-          <button class="pop-close" type="button" aria-label="Close project preview">×</button>
-        </article>
-
+        </div>
       </div>
     </section>
 
+    <!-- MODAL -->
+    <div class="project-modal" id="projectModal" aria-hidden="true">
+      <div class="project-modal-backdrop" data-close></div>
+
+      <div class="project-modal-card" role="dialog" aria-modal="true" aria-label="Project details">
+        <button class="project-modal-close" type="button" aria-label="Close" data-close>✕</button>
+
+        <h3 class="pm-title" id="pmTitle">Title</h3>
+        <p class="pm-meta" id="pmMeta">Meta</p>
+        <p class="pm-desc" id="pmDesc">Description</p>
+
+        <div class="pm-tech">
+          <div class="pm-tech-label">Tech:</div>
+          <div class="pm-tech-value" id="pmTech">Tech list</div>
+        </div>
+      </div>
+    </div>
+
   </main>
 
-  <script src="./projects.js" defer></script>
+  <!-- JS separate -->
+  <script src="./projects.js"></script>
 </body>
 </html>
