@@ -1,7 +1,7 @@
 // projects.js
 
 document.addEventListener("DOMContentLoaded", () => {
-  // ---------- Mobile hamburger (same IDs you already use) ----------
+  // ----- Mobile hamburger -----
   const hamburger = document.getElementById("hamburger");
   const mobileNav = document.getElementById("mobileNav");
 
@@ -13,13 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ---------- Filter logic ----------
+  // ----- Filter -----
   const pills = document.querySelectorAll(".filter-pill");
   const cards = document.querySelectorAll(".project-card");
 
   pills.forEach((pill) => {
     pill.addEventListener("click", () => {
-      // active state
       pills.forEach(p => {
         p.classList.remove("is-active");
         p.setAttribute("aria-selected", "false");
@@ -32,38 +31,37 @@ document.addEventListener("DOMContentLoaded", () => {
       cards.forEach((card) => {
         const category = card.dataset.category;
         const show = (filter === "all") || (category === filter);
-
         card.classList.toggle("is-hidden", !show);
 
-        // also close popups when filtering
+        // close popup if filtering
         card.classList.remove("is-open");
       });
     });
   });
 
-  // ---------- Mobile tap-to-open popup ----------
-  // On small screens, tapping the card opens preview overlay.
-  const isTouch = window.matchMedia("(max-width: 680px)").matches;
+  // ----- Mobile tap popup -----
+  const isMobile = window.matchMedia("(max-width: 680px)").matches;
 
-  if (isTouch) {
+  if (isMobile) {
     cards.forEach((card) => {
       const closeBtn = card.querySelector(".pop-close");
-      const link = card.querySelector(".project-link");
+      const links = card.querySelectorAll("a");
 
-      // tap card opens pop
+      // open on tap
       card.addEventListener("click", (e) => {
-        // if they clicked the close button, handle below
+        // allow normal link click
+        for (const a of links) {
+          if (a === e.target || a.contains(e.target)) return;
+        }
+        // if close button clicked, ignore here
         if (e.target === closeBtn) return;
 
-        // allow normal link clicks
-        if (link && (e.target === link || link.contains(e.target))) return;
-
-        // toggle open
+        // toggle
         cards.forEach(c => { if (c !== card) c.classList.remove("is-open"); });
         card.classList.toggle("is-open");
       });
 
-      // close button
+      // close
       if (closeBtn) {
         closeBtn.addEventListener("click", (e) => {
           e.stopPropagation();
@@ -72,10 +70,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // tapping outside closes
+    // tap outside closes
     document.addEventListener("click", (e) => {
-      const inside = e.target.closest(".project-card");
-      if (!inside) cards.forEach(c => c.classList.remove("is-open"));
+      if (!e.target.closest(".project-card")) {
+        cards.forEach(c => c.classList.remove("is-open"));
+      }
     });
   }
 });

@@ -1,27 +1,23 @@
-/* projects.css - page-only styles (DO NOT override .topbar rules from style.css) */
+/* projects.css (page-only) — DO NOT touch .topbar styles in style.css */
 
 :root{
-  --p-bg: #f6f9ff;
-  --p-ink: #0b1220;
-  --p-muted: rgba(11,18,32,.65);
+  --bg: #f6f9ff;
+  --ink: #0b1220;
+  --muted: rgba(11,18,32,.65);
 
-  --p-border: rgba(120, 160, 255, .35);
-  --p-card: rgba(255,255,255,.62);
+  --border: rgba(120,160,255,.35);
+  --card: rgba(255,255,255,.62);
 
-  --p-glowA: rgba(120, 240, 255, .28);
-  --p-glowB: rgba(120, 160, 255, .22);
-  --p-glowC: rgba(190, 235, 255, .32);
+  --glowA: rgba(120,240,255,.28);
+  --glowB: rgba(120,160,255,.22);
+  --glowC: rgba(190,235,255,.32);
 }
 
-/* Important:
-   Your header is visible in About/Contact because their pages DO NOT add weird padding.
-   So here we use a normal top padding for the main content (not huge). */
+/* Make sure content starts below your header (if topbar is sticky/fixed in style.css) */
 .projects-page{
-  background: var(--p-bg);
+  background: var(--bg);
   min-height: 100vh;
-
-  /* This prevents content hiding under fixed/sticky topbar if your style.css uses it */
-  padding-top: 96px;
+  padding-top: 96px; /* important for header visibility */
 }
 
 /* HERO */
@@ -38,10 +34,9 @@
   inset: -120px -120px auto -120px;
   height: 420px;
   background:
-    radial-gradient(closest-side, var(--p-glowA), transparent 70%),
-    radial-gradient(closest-side, var(--p-glowB), transparent 70%),
-    radial-gradient(closest-side, var(--p-glowC), transparent 70%);
-  filter: blur(2px);
+    radial-gradient(closest-side, var(--glowA), transparent 70%),
+    radial-gradient(closest-side, var(--glowB), transparent 70%),
+    radial-gradient(closest-side, var(--glowC), transparent 70%);
   opacity: .9;
   pointer-events:none;
 }
@@ -56,14 +51,14 @@
   margin: 0 0 10px;
   font-size: clamp(44px, 6vw, 72px);
   letter-spacing: -0.02em;
-  color: var(--p-ink);
+  color: var(--ink);
   font-weight: 800;
 }
 
 .projects-subtitle{
   margin: 0 0 18px;
   max-width: 720px;
-  color: var(--p-muted);
+  color: var(--muted);
   font-size: 18px;
   line-height: 1.55;
 }
@@ -98,7 +93,7 @@
   outline: 2px solid rgba(120,160,255,.20);
 }
 
-/* SECTION + GRID */
+/* GRID */
 .projects-section{
   padding: 26px 20px 70px;
 }
@@ -106,7 +101,6 @@
 .projects-grid{
   max-width: 1200px;
   margin: 0 auto;
-
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
@@ -116,11 +110,10 @@
 .project-card{
   position: relative;
   border-radius: 28px;
-  border: 1px solid var(--p-border);
-  background: var(--p-card);
+  border: 1px solid var(--border);
+  background: var(--card);
   box-shadow: 0 24px 60px rgba(20,40,90,.14);
   overflow: hidden;
-
   transform: translateZ(0);
   transition: transform .18s ease, box-shadow .18s ease;
 }
@@ -152,7 +145,7 @@
   margin: 0 0 8px;
   font-size: 22px;
   line-height: 1.2;
-  color: var(--p-ink);
+  color: var(--ink);
   font-weight: 800;
   letter-spacing: -0.01em;
 }
@@ -194,14 +187,13 @@
   text-decoration: none;
   color: rgba(35, 105, 255, .95);
   font-weight: 750;
-  padding-top: 2px;
 }
 
 .project-link:hover{
   text-decoration: underline;
 }
 
-/* HOVER POPUP (desktop hover + mobile open) */
+/* POPUP */
 .project-pop{
   position: absolute;
   inset: 0;
@@ -209,7 +201,6 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(120,160,255,.20);
   border-radius: 28px;
-
   opacity: 0;
   transform: translateY(10px);
   pointer-events: none;
@@ -234,10 +225,9 @@
 .pop-title{
   font-weight: 850;
   color: rgba(11,18,32,.92);
-  letter-spacing: -0.01em;
 }
 
-.pop-list{
+.pop-text{
   color: rgba(11,18,32,.72);
   line-height: 1.45;
   font-size: 14px;
@@ -256,27 +246,23 @@
   text-decoration: underline;
 }
 
-/* Close button only needed on mobile (tap to open) */
+/* Mobile close */
 .pop-close{
   position: absolute;
   top: 12px;
   right: 14px;
-
   width: 38px;
   height: 38px;
   border-radius: 999px;
-
   border: 1px solid rgba(120,160,255,.30);
   background: rgba(255,255,255,.70);
   font-size: 24px;
-  line-height: 1;
   cursor: pointer;
-
   opacity: 0;
   pointer-events: none;
 }
 
-/* Mobile behavior: use JS "is-open" */
+/* JS open state (mobile) */
 .project-card.is-open .project-pop{
   opacity: 1;
   transform: translateY(0);
@@ -288,12 +274,12 @@
   pointer-events: auto;
 }
 
-/* FILTER hide animation */
+/* Filter hide */
 .project-card.is-hidden{
   display: none;
 }
 
-/* RESPONSIVE */
+/* Responsive */
 @media (max-width: 1100px){
   .projects-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -302,10 +288,9 @@
   .projects-page{ padding-top: 86px; }
   .projects-hero{ padding: 36px 16px 20px; }
   .projects-section{ padding: 20px 16px 60px; }
-
   .projects-grid{ grid-template-columns: 1fr; }
 
-  /* On touch screens, hover doesn't exist, so don't force hover pop to show */
+  /* Disable hover behavior on touch */
   .project-card:hover .project-pop{
     opacity: 0;
     transform: translateY(10px);
