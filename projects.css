@@ -48,10 +48,10 @@ header.topbar{
 }
 
 .projects-title{
-  font-size: clamp(44px, 6vw, 76px);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  margin: 0 0 10px;
+  margin: 0 0 14px;
+  font-size: 50px;
+  letter-spacing: -0.02em;
+  color: #111827;
 }
 
 .projects-sub{
