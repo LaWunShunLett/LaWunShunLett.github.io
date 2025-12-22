@@ -1,18 +1,24 @@
-// Mobile hamburger (same behavior across pages)
+// 1) Make animations visible (IMPORTANT)
+// If body keeps class="preload", elements with .anim stay hidden.
+window.addEventListener("load", () => {
+  document.body.classList.remove("preload");
+});
+
+// 2) Mobile hamburger
 (function () {
   const hamburger = document.getElementById("hamburger");
   const mobileNav = document.getElementById("mobileNav");
 
-  if (hamburger && mobileNav) {
-    hamburger.addEventListener("click", () => {
-      const isOpen = hamburger.getAttribute("aria-expanded") === "true";
-      hamburger.setAttribute("aria-expanded", String(!isOpen));
-      mobileNav.classList.toggle("open", !isOpen);
-    });
-  }
+  if (!hamburger || !mobileNav) return;
+
+  hamburger.addEventListener("click", () => {
+    const isOpen = hamburger.getAttribute("aria-expanded") === "true";
+    hamburger.setAttribute("aria-expanded", String(!isOpen));
+    mobileNav.classList.toggle("open", !isOpen);
+  });
 })();
 
-// Filter buttons
+// 3) Filter buttons
 (function () {
   const filterBtns = document.querySelectorAll(".filter-btn");
   const cards = document.querySelectorAll(".project-card");
@@ -32,14 +38,13 @@
 
   filterBtns.forEach(btn => {
     btn.addEventListener("click", () => {
-      const filter = btn.getAttribute("data-filter");
       setActive(btn);
-      applyFilter(filter);
+      applyFilter(btn.getAttribute("data-filter"));
     });
   });
 })();
 
-// Modal details
+// 4) Modal
 (function () {
   const modal = document.getElementById("projectModal");
   if (!modal) return;
