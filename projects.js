@@ -1,102 +1,133 @@
 // projects.js
 
-// Remove preload class for animations (same pattern you use)
-window.addEventListener("load", () => {
-  document.body.classList.remove("preload");
-});
+// ---------- Mobile hamburger ----------
+(function () {
+  const btn = document.getElementById("hamburger");
+  const mobileNav = document.getElementById("mobileNav");
+  if (!btn || !mobileNav) return;
 
-// ===== Mobile hamburger =====
-const hamburger = document.getElementById("hamburger");
-const mobileNav = document.getElementById("mobileNav");
-
-if (hamburger && mobileNav) {
-  hamburger.addEventListener("click", () => {
-    const expanded = hamburger.getAttribute("aria-expanded") === "true";
-    hamburger.setAttribute("aria-expanded", String(!expanded));
+  btn.addEventListener("click", () => {
+    const expanded = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", String(!expanded));
     mobileNav.classList.toggle("open");
   });
-}
 
-// ===== Filters =====
-const pills = document.querySelectorAll(".filter-pill");
-const cards = document.querySelectorAll(".project-card");
-
-pills.forEach(p => {
-  p.addEventListener("click", () => {
-    pills.forEach(x => {
-      x.classList.remove("is-active");
-      x.setAttribute("aria-selected", "false");
-    });
-
-    p.classList.add("is-active");
-    p.setAttribute("aria-selected", "true");
-
-    const f = p.dataset.filter;
-
-    cards.forEach(card => {
-      const cat = card.dataset.category;
-      const show = (f === "all") || (cat === f);
-      card.style.display = show ? "" : "none";
+  // close menu after click
+  mobileNav.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", () => {
+      btn.setAttribute("aria-expanded", "false");
+      mobileNav.classList.remove("open");
     });
   });
-});
+})();
 
-// ===== Modal =====
-const modal = document.getElementById("projectModal");
-const backdrop = document.getElementById("modalBackdrop");
-const closeBtn = document.getElementById("modalClose");
-const okBtn = document.getElementById("modalOk");
+// ---------- Filters ----------
+(function () {
+  const filters = document.querySelectorAll(".proj-filter");
+  const cards = document.querySelectorAll(".proj-card");
+  if (!filters.length || !cards.length) return;
 
-const t = document.getElementById("modalTitle");
-const meta = document.getElementById("modalMeta");
-const desc = document.getElementById("modalDesc");
-const tech = document.getElementById("modalTech");
-const link = document.getElementById("modalLink");
+  function setActive(btn) {
+    filters.forEach(b => {
+      b.classList.remove("is-active");
+      b.setAttribute("aria-selected", "false");
+    });
+    btn.classList.add("is-active");
+    btn.setAttribute("aria-selected", "true");
+  }
 
-function openModalFromCard(card) {
-  t.textContent = card.dataset.title || "Project";
-  meta.textContent = `${card.dataset.year || ""} · ${card.dataset.role || ""}`.trim();
-  desc.textContent = card.dataset.desc || "";
-  tech.textContent = card.dataset.tech || "";
+  function matches(card, filter) {
+    if (filter === "all") return true;
+    const tags = (card.getAttribute("data-tags") || "").toLowerCase();
+    return tags.includes(filter);
+  }
 
-  // Optional link (disabled by default)
-  link.href = "#";
-  link.textContent = "Open project link";
-  link.style.pointerEvents = "none";
-  link.style.opacity = "0.6";
+  filters.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const filter = btn.dataset.filter;
+      setActive(btn);
 
-  modal.setAttribute("aria-hidden", "false");
-  backdrop.setAttribute("aria-hidden", "false");
-
-  modal.classList.add("open");
-  backdrop.classList.add("open");
-}
-
-function closeModal() {
-  modal.setAttribute("aria-hidden", "true");
-  backdrop.setAttribute("aria-hidden", "true");
-
-  modal.classList.remove("open");
-  backdrop.classList.remove("open");
-}
-
-// "View details" button opens modal
-document.querySelectorAll(".project-card .link-btn").forEach(btn => {
-  btn.addEventListener("click", (e) => {
-    const card = e.target.closest(".project-card");
-    if (card) openModalFromCard(card);
+      cards.forEach(card => {
+        card.style.display = matches(card, filter) ? "" : "none";
+      });
+    });
   });
-});
+})();
 
-// Keyboard accessibility: Enter on card opens modal
-document.querySelectorAll(".project-card").forEach(card => {
-  card.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") openModalFromCard(card);
+// ---------- Modal (hover pop-up + click to open details) ----------
+(function () {
+  const modal = document.getElementById("projModal");
+  const titleEl = document.getElementById("projModalTitle");
+  const metaEl = document.getElementById("projModalMeta");
+  const descEl = document.getElementById("projModalDesc");
+  const listEl = document.getElementById("projModalList");
+  const btnEl = document.getElementById("projModalBtn");
+
+  if (!modal) return;
+
+  function openModal(data) {
+    titleEl.textContent = data.title || "Project";
+    metaEl.textContent = `${data.year || ""} • ${data.role || ""}`.replace(/^ • | • $/g, "");
+    descEl.textContent = data.desc || "";
+
+    // highlights -> bullet list
+    listEl.innerHTML = "";
+    const highlights = (data.highlights || "")
+      .split(",")
+      .map(s => s.trim())
+      .filter(Boolean);
+
+    if (highlights.length) {
+      highlights.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        listEl.appendChild(li);
+      });
+    } else {
+      const li = document.createElement("li");
+      li.textContent = "More details coming soon.";
+      listEl.appendChild(li);
+    }
+
+    // later you can point this to a real detail page
+    btnEl.href = "#";
+    btnEl.textContent = "Open project page";
+
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+
+    // lock background scroll
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+  }
+
+  // open on card click
+  document.querySelectorAll(".proj-card-link").forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      openModal({
+        title: link.dataset.title,
+        year: link.dataset.year,
+        role: link.dataset.role,
+        desc: link.dataset.desc,
+        highlights: link.dataset.highlights
+      });
+    });
   });
-});
 
-[closeBtn, okBtn, backdrop].forEach(el => el && el.addEventListener("click", closeModal));
+  // close handlers
+  modal.addEventListener("click", (e) => {
+    if (e.target && e.target.hasAttribute("data-close")) closeModal();
+  });
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeModal();
-});
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
+  });
+})();
