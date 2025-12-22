@@ -31,9 +31,12 @@ header.topbar{
 }
 
 /* 3) HERO (soft blue glow, but NOT fixed) */
-.projects-hero{
-  padding: 64px 0 28px;
-  border-bottom: 1px solid rgba(35, 80, 200, 0.10);
+.projects-hero {
+  position: relative;
+  background:
+    radial-gradient(900px 400px at 15% 30%, rgba(120, 180, 255, 0.35), transparent 60%),
+    radial-gradient(700px 350px at 85% 45%, rgba(150, 220, 255, 0.30), transparent 65%),
+    linear-gradient(180deg, #f7fbff 0%, #eef5ff 100%);
 }
 
 .projects-hero::before{
