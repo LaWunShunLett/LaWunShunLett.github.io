@@ -13,7 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
       mobileNav.classList.toggle("open", !isOpen);
     };
 
-    hamburger.addEventListener("click", toggleMenu);
+    hamburger.addEventListener("click", () => {
+  console.count("hamburger click");
+  toggleMenu();
+});
 
     // close menu when a link is clicked
     mobileNav.querySelectorAll("a").forEach(a => {

@@ -41,21 +41,11 @@ header.topbar{
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(700px 380px at 70% 45%, rgba(70, 180, 255, 0.35), transparent 60%),
-    radial-gradient(520px 320px at 28% 55%, rgba(120, 140, 255, 0.22), transparent 60%),
-    radial-gradient(900px 500px at 50% 100%, rgba(140, 255, 245, 0.12), transparent 65%),
-    repeating-linear-gradient(
-      90deg,
-      rgba(40, 120, 255, 0.06) 0px,
-      rgba(40, 120, 255, 0.06) 1px,
-      transparent 1px,
-      transparent 18px
-    );
-  filter: saturate(1.05);
+    radial-gradient(600px 280px at 62% 55%, rgba(90, 180, 255, 0.35), transparent 60%),
+    radial-gradient(460px 240px at 28% 35%, rgba(120, 160, 255, 0.18), transparent 55%);
   pointer-events: none;
-  z-index: -1;
+  z-index: -1; /* glow BEHIND content */
 }
-
 
 .projects-title{
   margin: 0 0 14px;
