@@ -91,3 +91,17 @@ window.addEventListener("load", () => {
     if (e.key === "Escape") closeModal();
   });
 })();
+window.addEventListener("load", () => {
+  // make .anim elements visible (if you use body.preload)
+  document.body.classList.remove("preload");
+
+  const hamburger = document.getElementById("hamburger");
+  const mobileNav = document.getElementById("mobileNav");
+  if (!hamburger || !mobileNav) return;
+
+  hamburger.addEventListener("click", () => {
+    const isOpen = hamburger.getAttribute("aria-expanded") === "true";
+    hamburger.setAttribute("aria-expanded", String(!isOpen));
+    mobileNav.classList.toggle("open", !isOpen);
+  });
+});
