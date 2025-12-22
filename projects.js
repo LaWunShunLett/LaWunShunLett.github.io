@@ -6,6 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById("hamburger");
   const mobileNav = document.getElementById("mobileNav");
 
+  const closeMenu = () => {
+    if (!hamburger || !mobileNav) return;
+    hamburger.setAttribute("aria-expanded", "false");
+    mobileNav.classList.remove("open");
+  };
+
   if (hamburger && mobileNav) {
     const toggleMenu = () => {
       const isOpen = hamburger.getAttribute("aria-expanded") === "true";
@@ -13,17 +19,16 @@ document.addEventListener("DOMContentLoaded", () => {
       mobileNav.classList.toggle("open", !isOpen);
     };
 
-    hamburger.addEventListener("click", () => {
-  console.count("hamburger click");
-  toggleMenu();
-});
+    hamburger.addEventListener("click", toggleMenu);
 
     // close menu when a link is clicked
     mobileNav.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => {
-        hamburger.setAttribute("aria-expanded", "false");
-        mobileNav.classList.remove("open");
-      });
+      a.addEventListener("click", closeMenu);
+    });
+
+    // optional: click outside to close (clicking header area won't close unless you add a backdrop)
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
     });
   }
 
@@ -68,6 +73,9 @@ document.addEventListener("DOMContentLoaded", () => {
       modal.classList.add("is-open");
       modal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
+
+      // also close mobile menu if it was open
+      closeMenu();
     };
 
     const closeModal = () => {

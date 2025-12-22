@@ -7,7 +7,7 @@
 header.topbar{
   position: sticky;
   top: 0;
-  z-index: 99999;
+  z-index: 999999;
 }
 
 /* Prevent any Projects layers from covering header */
@@ -34,6 +34,8 @@ header.topbar{
 .projects-hero{
   padding: 64px 0 28px;
   border-bottom: 1px solid rgba(35, 80, 200, 0.10);
+  position: relative;
+  z-index: 0;
 }
 
 .projects-hero::before{
@@ -211,7 +213,7 @@ header.topbar{
   background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(45, 110, 255, 0.20);
   border-radius: 22px;
-  box-shadow: 0 40px 120px rgba(10, 20, 60, 0.25);
+  box-shadow: 0 40px 120px rgba(10, 20, 60,  0.25);
   padding: 22px 22px 20px;
 }
 
@@ -236,7 +238,7 @@ header.topbar{
 .pm-meta{
   margin: 0 0 14px;
   font-weight: 700;
-  color: rgba(20, 25, 35, 0.65);
+  color: rgba(20, 25, 35,  0.65);
 }
 
 .pm-desc{
@@ -261,58 +263,54 @@ header.topbar{
 .pm-tech-value{
   color: rgba(20, 25, 35, 0.75);
 }
-/* === FIX: header + hamburger always clickable === */
-.topbar,
-.topbar * {
-  pointer-events: auto;
-}
 
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 999999; /* higher than any hero/background */
-}
+/* ============================
+   NAV FIX (desktop vs mobile)
+   ============================ */
 
-/* prevent hero/background layers from sitting above header */
-.projects-hero,
-.projects-hero::before,
-.projects-hero::after,
-.projects-page,
-.projects-section {
-  z-index: 0 !important;
-}
+/* Desktop default: show desktop nav, hide hamburger + mobile nav */
+.desktop-nav { display: flex; }
+.hamburger-mobile { display: none; }
+.mobile-nav { display: none; }
 
-.projects-hero::before,
-.projects-hero::after {
-  pointer-events: none !important;
-}
-
-/* button must be above everything */
-.hamburger-mobile {
-  position: relative;
-  z-index: 1000000;
-  pointer-events: auto;
-}
-
-/* mobile menu overlay */
-.mobile-nav {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 100%;
-  z-index: 1000000;
-  display: none;
-  pointer-events: none;
-}
-
-.mobile-nav.open {
-  display: block;
-  pointer-events: auto;
-}
-
-/* Responsive */
+/* Mobile: show hamburger and dropdown menu */
 @media (max-width: 980px){
   .projects-grid{ grid-template-columns: 1fr 1fr; }
+
+  .desktop-nav { display: none; }
+  .hamburger-mobile { 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    z-index: 1000000;
+  }
+
+  /* dropdown container */
+  .mobile-nav{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 1000000;
+
+    background: rgba(255, 255, 255, 0.95);
+    border-top: 1px solid rgba(0,0,0,0.08);
+    backdrop-filter: blur(10px);
+
+    display: none; /* hidden until open */
+  }
+
+  .mobile-nav.open{
+    display: block;
+  }
+
+  .mobile-nav a{
+    display: block;
+    padding: 14px 18px;
+    text-decoration: none;
+  }
 }
 
 @media (max-width: 620px){
