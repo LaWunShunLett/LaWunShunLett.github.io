@@ -1,34 +1,27 @@
 // projects.js
 
-// ---------- Mobile hamburger ----------
-(function () {
-  const btn = document.getElementById("hamburger");
+document.addEventListener("DOMContentLoaded", () => {
+  // Remove preload if you use it in your global animations
+  document.body.classList.remove("preload");
+
+  // ---------- Mobile hamburger (same behavior as your other pages) ----------
+  const hamburger = document.getElementById("hamburger");
   const mobileNav = document.getElementById("mobileNav");
-  if (!btn || !mobileNav) return;
 
-  btn.addEventListener("click", () => {
-    const expanded = btn.getAttribute("aria-expanded") === "true";
-    btn.setAttribute("aria-expanded", String(!expanded));
-    mobileNav.classList.toggle("open");
-  });
-
-  // close menu after click
-  mobileNav.querySelectorAll("a").forEach(a => {
-    a.addEventListener("click", () => {
-      btn.setAttribute("aria-expanded", "false");
-      mobileNav.classList.remove("open");
+  if (hamburger && mobileNav) {
+    hamburger.addEventListener("click", () => {
+      const expanded = hamburger.getAttribute("aria-expanded") === "true";
+      hamburger.setAttribute("aria-expanded", String(!expanded));
+      mobileNav.classList.toggle("open");
     });
-  });
-})();
+  }
 
-// ---------- Filters ----------
-(function () {
-  const filters = document.querySelectorAll(".proj-filter");
-  const cards = document.querySelectorAll(".proj-card");
-  if (!filters.length || !cards.length) return;
+  // ---------- Filter ----------
+  const filterButtons = Array.from(document.querySelectorAll(".filter-btn"));
+  const cards = Array.from(document.querySelectorAll(".project-card"));
 
-  function setActive(btn) {
-    filters.forEach(b => {
+  function setActiveFilter(btn) {
+    filterButtons.forEach(b => {
       b.classList.remove("is-active");
       b.setAttribute("aria-selected", "false");
     });
@@ -36,98 +29,77 @@
     btn.setAttribute("aria-selected", "true");
   }
 
-  function matches(card, filter) {
-    if (filter === "all") return true;
-    const tags = (card.getAttribute("data-tags") || "").toLowerCase();
-    return tags.includes(filter);
+  function applyFilter(filter) {
+    cards.forEach(card => {
+      const cat = (card.dataset.category || "").toLowerCase();
+      const show = (filter === "all") || (cat === filter);
+      card.style.display = show ? "" : "none";
+    });
   }
 
-  filters.forEach(btn => {
+  filterButtons.forEach(btn => {
     btn.addEventListener("click", () => {
-      const filter = btn.dataset.filter;
-      setActive(btn);
-
-      cards.forEach(card => {
-        card.style.display = matches(card, filter) ? "" : "none";
-      });
+      const filter = (btn.dataset.filter || "all").toLowerCase();
+      setActiveFilter(btn);
+      applyFilter(filter);
     });
   });
-})();
 
-// ---------- Modal (hover pop-up + click to open details) ----------
-(function () {
-  const modal = document.getElementById("projModal");
-  const titleEl = document.getElementById("projModalTitle");
-  const metaEl = document.getElementById("projModalMeta");
-  const descEl = document.getElementById("projModalDesc");
-  const listEl = document.getElementById("projModalList");
-  const btnEl = document.getElementById("projModalBtn");
+  // ---------- Modal ----------
+  const modal = document.getElementById("projectModal");
+  const modalClose = document.getElementById("modalClose");
 
-  if (!modal) return;
+  const modalTitle = document.getElementById("modalTitle");
+  const modalMeta = document.getElementById("modalMeta");
+  const modalDesc = document.getElementById("modalDesc");
+  const modalTech = document.getElementById("modalTech");
 
-  function openModal(data) {
-    titleEl.textContent = data.title || "Project";
-    metaEl.textContent = `${data.year || ""} • ${data.role || ""}`.replace(/^ • | • $/g, "");
-    descEl.textContent = data.desc || "";
+  function openModal(card) {
+    if (!modal) return;
 
-    // highlights -> bullet list
-    listEl.innerHTML = "";
-    const highlights = (data.highlights || "")
-      .split(",")
-      .map(s => s.trim())
-      .filter(Boolean);
-
-    if (highlights.length) {
-      highlights.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        listEl.appendChild(li);
-      });
-    } else {
-      const li = document.createElement("li");
-      li.textContent = "More details coming soon.";
-      listEl.appendChild(li);
-    }
-
-    // later you can point this to a real detail page
-    btnEl.href = "#";
-    btnEl.textContent = "Open project page";
+    modalTitle.textContent = card.dataset.title || "Project";
+    modalMeta.textContent = `${card.dataset.year || ""} · ${card.dataset.role || ""}`.trim();
+    modalDesc.textContent = card.dataset.desc || "";
+    modalTech.textContent = card.dataset.tech || "—";
 
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
 
-    // lock background scroll
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.overflow = "hidden";
+    // accessibility
+    modalClose?.focus();
   }
 
   function closeModal() {
+    if (!modal) return;
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
-    document.documentElement.style.overflow = "";
-    document.body.style.overflow = "";
   }
 
-  // open on card click
-  document.querySelectorAll(".proj-card-link").forEach(link => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      openModal({
-        title: link.dataset.title,
-        year: link.dataset.year,
-        role: link.dataset.role,
-        desc: link.dataset.desc,
-        highlights: link.dataset.highlights
-      });
+  // open by button or card click
+  cards.forEach(card => {
+    const btn = card.querySelector(".project-cta");
+    btn?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      openModal(card);
+    });
+
+    card.addEventListener("click", () => openModal(card));
+
+    // open with Enter key
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") openModal(card);
+      if (e.key === "Escape") closeModal();
     });
   });
 
-  // close handlers
-  modal.addEventListener("click", (e) => {
-    if (e.target && e.target.hasAttribute("data-close")) closeModal();
+  // close modal
+  modalClose?.addEventListener("click", closeModal);
+  modal?.addEventListener("click", (e) => {
+    const target = e.target;
+    if (target && target.dataset && target.dataset.close === "true") closeModal();
   });
 
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
   });
-})();
+});
