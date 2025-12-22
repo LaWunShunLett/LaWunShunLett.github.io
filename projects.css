@@ -1,4 +1,26 @@
 /* projects.css (page-only) — DO NOT touch .topbar styles in style.css */
+/* ===== FIX: keep global header visible on Projects page (no style.css edits) ===== */
+header.topbar{
+  position: sticky;       /* keeps it visible */
+  top: 0;
+  z-index: 9999;          /* above hero/glow/cards */
+  background: rgba(246, 249, 255, 0.92); /* match page */
+  backdrop-filter: blur(10px);
+}
+
+/* stop the hero glow layer from covering the header */
+.projects-hero{
+  position: relative;
+  z-index: 1;
+}
+.projects-hero::before{
+  z-index: -1;            /* keep glow behind content */
+}
+
+/* Make sure the page content starts below header */
+.projects-page{
+  padding-top: 0;         /* sticky header already occupies space */
+}
 
 :root{
   --bg: #f6f9ff;
