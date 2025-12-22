@@ -505,15 +505,14 @@ body{
     border-radius: 999px;
   }
 
-  .mobile-nav{
-    display: none;
-    flex-direction: column;
-    gap: 8px;
-    padding: 14px 22px 18px;
-    border-top: 1px solid rgba(17,24,39,.08);
-    background: rgba(245,247,251,.95);
-    backdrop-filter: blur(10px);
-  }
+.mobile-nav{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 1000;
+}
+
 
   .mobile-nav a{
     color: #111827;
@@ -551,12 +550,14 @@ body{
 }
 
 /* Desktop layout */
-@media (min-width: 821px){
+/* Desktop layout (match your mobile breakpoint) */
+@media (min-width: 981px){
   .photo-card{
     width: min(460px, 100%);
     aspect-ratio: 1 / 1.05;
   }
 }
+
 /* Very small screens */
 @media (max-width: 420px){
   .logo{
