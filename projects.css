@@ -261,6 +261,36 @@ header.topbar{
 .pm-tech-value{
   color: rgba(20, 25, 35, 0.75);
 }
+/* Keep header above hero section */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+/* Mobile menu should overlay content */
+.mobile-nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 9999;
+
+  display: none;
+  pointer-events: none;
+}
+
+.mobile-nav.open {
+  display: block;
+  pointer-events: auto;
+}
+
+/* Make sure the button is clickable */
+.hamburger-mobile {
+  position: relative;
+  z-index: 10000;
+  pointer-events: auto;
+}
 
 /* Responsive */
 @media (max-width: 980px){
