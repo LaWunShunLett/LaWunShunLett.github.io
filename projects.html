@@ -1,1 +1,210 @@
- <script src="./projects.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Projects | La Wun Shun Lett</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Keep your global style (DO NOT EDIT style.css) -->
+  <link rel="stylesheet" href="./style.css" />
+
+  <!-- Projects page styles -->
+  <link rel="stylesheet" href="./projects.css" />
+</head>
+
+<body class="preload">
+
+  <!-- HEADER (same structure as your other pages) -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="logo anim anim-pop">LA WUN SHUN LETT</div>
+
+      <!-- Desktop nav -->
+      <nav class="nav desktop-nav" aria-label="Primary navigation">
+        <a class="anim anim-pop delay-1" href="index.html#home">Home</a>
+        <a class="anim anim-pop delay-2 is-active" href="projects.html">Projects</a>
+        <a class="anim anim-pop delay-3" href="about.html">About Me</a>
+        <a class="anim anim-pop delay-4" href="contact.html">Contact</a>
+      </nav>
+
+      <!-- Hamburger (mobile only) -->
+      <button class="hamburger-mobile" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <a href="index.html#home">Home</a>
+      <a class="is-active" href="projects.html">Projects</a>
+      <a href="about.html">About Me</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- PAGE -->
+  <main class="proj-page">
+
+    <!-- HERO -->
+    <section class="proj-hero">
+      <div class="proj-container">
+        <h1 class="proj-title">Featured Projects</h1>
+        <p class="proj-subtitle">A curated selection of work that represents my interests and skills.</p>
+
+        <!-- FILTERS -->
+        <div class="proj-filters" role="tablist" aria-label="Project filters">
+          <button class="proj-filter is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="proj-filter" data-filter="iot" role="tab" aria-selected="false">IoT</button>
+          <button class="proj-filter" data-filter="web" role="tab" aria-selected="false">Web</button>
+          <button class="proj-filter" data-filter="data" role="tab" aria-selected="false">Data</button>
+          <button class="proj-filter" data-filter="mobile" role="tab" aria-selected="false">Mobile</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRID -->
+    <section class="proj-section">
+      <div class="proj-container">
+        <div class="proj-grid" id="projGrid">
+
+          <!-- CARD 1 -->
+          <article class="proj-card" data-tags="iot,embedded">
+            <a class="proj-card-link"
+               href="#"
+               data-title="SafeStride — Smart Obstacle Detection Add-On"
+               data-year="2024"
+               data-role="Prototype Builder | Microcontroller Developer | Embedded Programmer"
+               data-tagslabel="Hardware • Assistive Tech • IoT • Prototype"
+               data-desc="A detachable ultrasonic-based smart cane attachment that enhances obstacle detection for visually impaired users."
+               data-highlights="Ultrasonic sensing, microcontroller integration, prototyping, user testing.">
+              <div class="proj-media">
+                <!-- Put your real image path here -->
+                <img src="./assets/projects/safestride.jpg" alt="SafeStride project cover" loading="lazy">
+              </div>
+
+              <div class="proj-body">
+                <h3 class="proj-h3">SafeStride — Smart Obstacle Detection Add-On</h3>
+                <p class="proj-meta"><span>2024</span><span class="dot"></span><span>IoT / Embedded</span></p>
+                <p class="proj-text">
+                  A detachable ultrasonic-based smart cane attachment that enhances obstacle detection for visually impaired users.
+                </p>
+
+                <div class="proj-tags">
+                  <span class="tag">Hardware</span>
+                  <span class="tag">Assistive Tech</span>
+                  <span class="tag">IoT</span>
+                  <span class="tag">Prototype</span>
+                </div>
+
+                <span class="proj-cta">View details →</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- CARD 2 -->
+          <article class="proj-card" data-tags="mobile,uiux">
+            <a class="proj-card-link"
+               href="#"
+               data-title="HabiTrack — Youth Habit & Fitness Tracking App"
+               data-year="2024"
+               data-role="Prototype & Research Lead"
+               data-tagslabel="Mobile App • Health • Gamification"
+               data-desc="A gamified habit-tracking concept designed to help youths build consistent fitness routines."
+               data-highlights="Figma prototype, UI/UX flows, user research, gamification design.">
+              <div class="proj-media">
+                <img src="./assets/projects/habitrack.jpg" alt="HabiTrack project cover" loading="lazy">
+              </div>
+
+              <div class="proj-body">
+                <h3 class="proj-h3">HabiTrack — Youth Habit & Fitness Tracking App</h3>
+                <p class="proj-meta"><span>2024</span><span class="dot"></span><span>Mobile</span></p>
+                <p class="proj-text">
+                  A gamified habit-tracking concept designed to help youths build consistent fitness routines.
+                </p>
+
+                <div class="proj-tags">
+                  <span class="tag">Mobile App</span>
+                  <span class="tag">Health</span>
+                  <span class="tag">Gamification</span>
+                </div>
+
+                <span class="proj-cta">View details →</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- CARD 3 -->
+          <article class="proj-card" data-tags="mobile,web">
+            <a class="proj-card-link"
+               href="#"
+               data-title="UniCycle — Campus Marketplace & Peer Support App"
+               data-year="2024"
+               data-role="Android Developer (Marketplace, Camera, Messaging)"
+               data-tagslabel="Mobile App • Marketplace • Android"
+               data-desc="A student-driven app enabling SP students to buy/sell academic materials and connect with seniors."
+               data-highlights="Android app modules, camera integration, messaging, database design.">
+              <div class="proj-media">
+                <img src="./assets/projects/unicycle.jpg" alt="UniCycle project cover" loading="lazy">
+              </div>
+
+              <div class="proj-body">
+                <h3 class="proj-h3">UniCycle — Campus Marketplace & Peer Support App</h3>
+                <p class="proj-meta"><span>2024</span><span class="dot"></span><span>Mobile / Web</span></p>
+                <p class="proj-text">
+                  A student-driven app enabling SP students to buy/sell academic materials and connect with seniors.
+                </p>
+
+                <div class="proj-tags">
+                  <span class="tag">Mobile App</span>
+                  <span class="tag">Marketplace</span>
+                  <span class="tag">Android</span>
+                </div>
+
+                <span class="proj-cta">View details →</span>
+              </div>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="proj-modal" id="projModal" aria-hidden="true">
+      <div class="proj-modal-backdrop" data-close></div>
+
+      <div class="proj-modal-card" role="dialog" aria-modal="true" aria-labelledby="projModalTitle">
+        <button class="proj-modal-close" type="button" aria-label="Close" data-close>✕</button>
+
+        <h3 class="proj-modal-title" id="projModalTitle">Title</h3>
+
+        <div class="proj-modal-meta" id="projModalMeta"></div>
+
+        <p class="proj-modal-desc" id="projModalDesc"></p>
+
+        <div class="proj-modal-section">
+          <h4>Highlights</h4>
+          <ul class="pop-list" id="projModalList"></ul>
+        </div>
+
+        <div class="proj-modal-actions">
+          <!-- later you can link to a real detail page -->
+          <a class="proj-btn" id="projModalBtn" href="#" target="_self" rel="noopener">Open project page</a>
+          <button class="proj-btn ghost" type="button" data-close>Close</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- JS (separate) -->
+  <script src="./projects.js"></script>
+</body>
+</html>
