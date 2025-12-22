@@ -1,0 +1,35 @@
+[
+  {
+    "title": "SafeStride — Smart Obstacle Detection Add-On",
+    "year": "2024",
+    "role": "Prototype Builder | Microcontroller Developer",
+    "desc": "A detachable ultrasonic-based smart cane attachment that enhances obstacle detection for visually impaired users.",
+    "tech": "Ultrasonic Sensor, Microcontroller, Embedded C, Prototyping, User Testing",
+    "image": "./images/safestride.jpg",
+    "imageAlt": "SafeStride project cover",
+    "filter": ["iot"],
+    "tags": ["Hardware", "Assistive Tech", "IoT", "Prototype"]
+  },
+  {
+    "title": "HabiTrack — Youth Habit & Fitness Tracking App",
+    "year": "2024",
+    "role": "Prototype & Research Lead",
+    "desc": "A gamified habit-tracking concept designed to help youths build consistent fitness routines.",
+    "tech": "Figma, UI/UX Prototyping, User Research",
+    "image": "./images/habitrack.jpg",
+    "imageAlt": "HabiTrack project cover",
+    "filter": ["mobile"],
+    "tags": ["Mobile App", "Health", "Gamification"]
+  },
+  {
+    "title": "UniCycle — Campus Marketplace & Peer Support App",
+    "year": "2024",
+    "role": "Android Developer (Marketplace, Camera, Messaging)",
+    "desc": "A student-driven app to buy/sell academic materials, connect with seniors, and exchange study advice.",
+    "tech": "Java, Android Studio, MySQL/SQLite, Camera API",
+    "image": "./images/unicycle.jpg",
+    "imageAlt": "UniCycle project cover",
+    "filter": ["mobile", "web"],
+    "tags": ["Mobile App", "Marketplace", "Android"]
+  }
+]

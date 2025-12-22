@@ -60,7 +60,7 @@
       <div class="projects-wrap">
         <h1 class="projects-title">Projects</h1>
         <p class="projects-sub">
-          A curated selection of work that represents my interests and skills.
+        A selected collection of projects demonstrating my technical skills and areas of interest.
         </p>
 
         <div class="projects-filters" role="tablist" aria-label="Project filters">
@@ -77,106 +77,34 @@
     <!-- GRID -->
     <section class="projects-section">
       <div class="projects-wrap">
-        <div class="projects-grid">
+<div class="projects-grid" id="projectsGrid"></div>
 
-          <!-- CARD 1 -->
-          <article class="project-card" data-tags="iot,embedded">
-            <div class="project-media">
-              <img src="./images/safestride.jpg" alt="SafeStride project cover" loading="lazy">
-            </div>
+<template id="projectCardTpl">
+  <article class="project-card" data-tags="">
+    <div class="project-media">
+      <img src="" alt="" loading="lazy">
+    </div>
 
-            <div class="project-body">
-              <h3 class="project-name">SafeStride — Smart Obstacle Detection Add-On</h3>
-              <p class="project-meta">2024 · Prototype Builder | Microcontroller Developer</p>
+    <div class="project-body">
+      <h3 class="project-name"></h3>
+      <p class="project-meta"></p>
+      <p class="project-desc"></p>
 
-              <p class="project-desc">
-                A detachable ultrasonic-based smart cane attachment that enhances obstacle detection for visually impaired users.
-              </p>
+      <div class="project-tags"></div>
 
-              <div class="project-tags">
-                <span class="tag">Hardware</span>
-                <span class="tag">Assistive Tech</span>
-                <span class="tag">IoT</span>
-                <span class="tag">Prototype</span>
-              </div>
+      <button class="project-cta" type="button"
+        data-title=""
+        data-year=""
+        data-role=""
+        data-desc=""
+        data-tech=""
+      >
+        View details →
+      </button>
+    </div>
+  </article>
+</template>
 
-              <button class="project-cta" type="button"
-                data-title="SafeStride — Smart Obstacle Detection Add-On"
-                data-year="2024"
-                data-role="Prototype Builder | Microcontroller Developer"
-                data-desc="A detachable ultrasonic-based smart cane attachment that enhances obstacle detection for visually impaired users."
-                data-tech="Ultrasonic Sensor, Microcontroller, Embedded C, Prototyping, User Testing"
-              >
-                View details →
-              </button>
-            </div>
-          </article>
-
-          <!-- CARD 2 -->
-          <article class="project-card" data-tags="mobile,uiux">
-            <div class="project-media">
-              <img src="./images/habitrack.jpg" alt="HabiTrack project cover" loading="lazy">
-            </div>
-
-            <div class="project-body">
-              <h3 class="project-name">HabiTrack — Youth Habit & Fitness Tracking App</h3>
-              <p class="project-meta">2024 · Prototype & Research Lead</p>
-
-              <p class="project-desc">
-                A gamified habit-tracking concept designed to help youths build consistent fitness routines.
-              </p>
-
-              <div class="project-tags">
-                <span class="tag">Mobile App</span>
-                <span class="tag">Health</span>
-                <span class="tag">Gamification</span>
-              </div>
-
-              <button class="project-cta" type="button"
-                data-title="HabiTrack — Youth Habit & Fitness Tracking App"
-                data-year="2024"
-                data-role="Prototype & Research Lead"
-                data-desc="A gamified habit-tracking concept designed to help youths build consistent fitness routines."
-                data-tech="Figma, UI/UX Prototyping, User Research"
-              >
-                View details →
-              </button>
-            </div>
-          </article>
-
-          <!-- CARD 3 -->
-          <article class="project-card" data-tags="mobile,web">
-            <div class="project-media">
-              <img src="./images/unicycle.jpg" alt="UniCycle project cover" loading="lazy">
-            </div>
-
-            <div class="project-body">
-              <h3 class="project-name">UniCycle — Campus Marketplace & Peer Support App</h3>
-              <p class="project-meta">2024 · Android Developer (Marketplace, Camera, Messaging)</p>
-
-              <p class="project-desc">
-                A student-driven app to buy/sell academic materials, connect with seniors, and exchange study advice.
-              </p>
-
-              <div class="project-tags">
-                <span class="tag">Mobile App</span>
-                <span class="tag">Marketplace</span>
-                <span class="tag">Android</span>
-              </div>
-
-              <button class="project-cta" type="button"
-                data-title="UniCycle — Campus Marketplace & Peer Support App"
-                data-year="2024"
-                data-role="Android Developer (Marketplace, Camera, Messaging)"
-                data-desc="A student-driven app to buy/sell academic materials, connect with seniors, and exchange study advice."
-                data-tech="Java, Android Studio, MySQL/SQLite, Camera API"
-              >
-                View details →
-              </button>
-            </div>
-          </article>
-
-        </div>
       </div>
     </section>
 
