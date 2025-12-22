@@ -34,19 +34,10 @@ header.topbar{
 .projects-hero{
   padding: 64px 0 28px;
   border-bottom: none;
-  position: relative;
-  z-index: 0;
 }
 
 .projects-hero::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(600px 280px at 62% 55%, rgba(90, 180, 255, 0.35), transparent 60%),
-    radial-gradient(460px 240px at 28% 35%, rgba(120, 160, 255, 0.18), transparent 55%);
-  pointer-events: none;
-  z-index: -1; /* glow BEHIND content */
+  content: none;
 }
 
 .projects-title{
