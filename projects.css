@@ -41,11 +41,21 @@ header.topbar{
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(600px 280px at 62% 55%, rgba(90, 180, 255, 0.35), transparent 60%),
-    radial-gradient(460px 240px at 28% 35%, rgba(120, 160, 255, 0.18), transparent 55%);
+    radial-gradient(700px 380px at 70% 45%, rgba(70, 180, 255, 0.35), transparent 60%),
+    radial-gradient(520px 320px at 28% 55%, rgba(120, 140, 255, 0.22), transparent 60%),
+    radial-gradient(900px 500px at 50% 100%, rgba(140, 255, 245, 0.12), transparent 65%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(40, 120, 255, 0.06) 0px,
+      rgba(40, 120, 255, 0.06) 1px,
+      transparent 1px,
+      transparent 18px
+    );
+  filter: saturate(1.05);
   pointer-events: none;
-  z-index: -1; /* glow BEHIND content */
+  z-index: -1;
 }
+
 
 .projects-title{
   margin: 0 0 14px;
@@ -94,7 +104,7 @@ header.topbar{
 }
 
 .projects-grid{
-  
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;
 }
@@ -261,34 +271,52 @@ header.topbar{
 .pm-tech-value{
   color: rgba(20, 25, 35, 0.75);
 }
-/* Keep header above hero section */
+/* === FIX: header + hamburger always clickable === */
+.topbar,
+.topbar * {
+  pointer-events: auto;
+}
+
 .topbar {
   position: sticky;
   top: 0;
-  z-index: 9999;
+  z-index: 999999; /* higher than any hero/background */
 }
 
-/* Mobile menu should overlay content */
+/* prevent hero/background layers from sitting above header */
+.projects-hero,
+.projects-hero::before,
+.projects-hero::after,
+.projects-page,
+.projects-section {
+  z-index: 0 !important;
+}
+
+.projects-hero::before,
+.projects-hero::after {
+  pointer-events: none !important;
+}
+
+/* button must be above everything */
+.hamburger-mobile {
+  position: relative;
+  z-index: 1000000;
+  pointer-events: auto;
+}
+
+/* mobile menu overlay */
 .mobile-nav {
   position: absolute;
   left: 0;
   right: 0;
   top: 100%;
-  z-index: 9999;
-
+  z-index: 1000000;
   display: none;
   pointer-events: none;
 }
 
 .mobile-nav.open {
   display: block;
-  pointer-events: auto;
-}
-
-/* Make sure the button is clickable */
-.hamburger-mobile {
-  position: relative;
-  z-index: 10000;
   pointer-events: auto;
 }
 
