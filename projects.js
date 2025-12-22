@@ -105,3 +105,43 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+document.addEventListener("DOMContentLoaded", async () => {
+  const grid = document.getElementById("projectsGrid");
+  const tpl = document.getElementById("projectCardTpl");
+
+  const res = await fetch("./projects.json");
+  const projects = await res.json(); // loads JSON [web:289]
+
+  projects.forEach(p => {
+    const frag = tpl.content.cloneNode(true); // clones template [web:261]
+
+    const card = frag.querySelector(".project-card");
+    card.setAttribute("data-tags", (p.filter || []).join(","));
+
+    const img = frag.querySelector("img");
+    img.src = p.image;
+    img.alt = p.imageAlt || p.title;
+
+    frag.querySelector(".project-name").textContent = p.title;
+    frag.querySelector(".project-meta").textContent = `${p.year} · ${p.role}`;
+    frag.querySelector(".project-desc").textContent = p.desc;
+
+    const tagsWrap = frag.querySelector(".project-tags");
+    tagsWrap.innerHTML = "";
+    (p.tags || []).forEach(t => {
+      const span = document.createElement("span");
+      span.className = "tag";
+      span.textContent = t;
+      tagsWrap.appendChild(span);
+    });
+
+    const btn = frag.querySelector(".project-cta");
+    btn.dataset.title = p.title;
+    btn.dataset.year = p.year;
+    btn.dataset.role = p.role;
+    btn.dataset.desc = p.desc;
+    btn.dataset.tech = p.tech;
+
+    grid.appendChild(frag);
+  });
+});
