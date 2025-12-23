@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const tech = detail.tech || base.tech || "";
   const heroImage = detail.heroImage || base.image || "";
   const heroAlt = detail.heroAlt || base.imageAlt || title;
+  const tags = detail.tags || base.tags || [];
 
   const titleEl = document.getElementById("pdTitle");
   const metaEl = document.getElementById("pdMeta");
@@ -45,6 +46,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (titleEl) titleEl.textContent = title;
   if (metaEl) metaEl.textContent =
     `${year}${year && role ? " · " : ""}${role}`;
+    const tagsWrap = document.getElementById("pdTags");
+if (tagsWrap) {
+  tagsWrap.innerHTML = "";
+  tags.forEach(t => {
+    const span = document.createElement("span");
+    span.className = "pd-tag";
+    span.textContent = t;
+    tagsWrap.appendChild(span);
+  });
+}
   if (summaryEl) summaryEl.textContent = summary;
   if (problemEl) problemEl.textContent = detail.problem || "";
   if (solutionEl) solutionEl.textContent = detail.solution || "";
