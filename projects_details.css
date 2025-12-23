@@ -1,6 +1,39 @@
 .project-detail-page {
   padding-bottom: 4rem;
 }
+/* Back button – pill style */
+.pd-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  color: #111827;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.12s ease;
+}
+
+.pd-back:hover {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+  box-shadow: 0 6px 14px rgba(148, 163, 184, 0.4);
+  transform: translateY(-1px);
+}
+
+.pd-back:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(148, 163, 184, 0.45);
+}
 
 .pd-hero {
   padding: 3rem 0 1.5rem;
