@@ -74,3 +74,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // --- 3) modal + other stuff (optional) ---
 });
+const btn = frag.querySelector(".project-cta");
+btn.textContent = "View details →";
+
+btn.addEventListener("click", () => {
+  if (p.id) {
+    window.location.href = `project-details.html?id=${encodeURIComponent(p.id)}`;
+  }
+});
