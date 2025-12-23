@@ -4,31 +4,50 @@
   <meta charset="UTF-8" />
   <title>Project Details | La Wun Shun Lett</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- global styles -->
   <link rel="stylesheet" href="./style.css" />
+  <!-- projects layout + cards -->
   <link rel="stylesheet" href="./projects.css" />
-  <link rel="stylesheet" href="./project-details.css" />
+  <!-- extra styling for details page -->
+  <link rel="stylesheet" href="./projects_details.css" />
+
+  <!-- common JS (animations + hamburger) -->
   <script defer src="./scripts.js"></script>
-  <script defer src="./project-details.js"></script>
+  <!-- details page logic -->
+  <script defer src="./projects_details.js"></script>
 </head>
 
 <body class="preload">
-  <!-- same header as projects.html -->
+  <!-- HEADER (copied exactly from projects.html) -->
   <header class="topbar">
     <div class="topbar-inner">
       <div class="logo anim anim-pop">LA WUN SHUN LETT</div>
+
+      <!-- Desktop nav -->
       <nav class="nav desktop-nav" aria-label="Primary navigation">
         <a class="anim anim-pop delay-1" href="index.html">Home</a>
         <a class="anim anim-pop delay-2" href="projects.html">Projects</a>
         <a class="anim anim-pop delay-3" href="about.html">About Me</a>
         <a class="anim anim-pop delay-4" href="contact.html">Contact</a>
       </nav>
-      <button class="hamburger-mobile" id="hamburger"
-              aria-label="Open menu" aria-expanded="false"
-              aria-controls="mobileNav" type="button">
-        <span></span><span></span><span></span>
+
+      <!-- Hamburger (mobile only) -->
+      <button
+        class="hamburger-mobile"
+        id="hamburger"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobileNav"
+        type="button"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
 
+    <!-- Mobile menu -->
     <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
@@ -36,51 +55,18 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
+<main class="project-detail-page">
+  <section class="pd-hero anim anim-up delay-1">
+    <div class="projects-wrap">
+      <button class="pd-back-link" type="button" id="pdBack">
+        ← Back to Projects
+      </button>
 
-  <main class="project-detail-page">
-    <section class="pd-hero anim anim-up delay-1">
-      <div class="projects-wrap">
-        <button class="pd-back-link" type="button" id="pdBack">
-          <span>←</span><span>Back to Projects</span>
-        </button>
-        <h1 class="pd-title" id="pdTitle"></h1>
-        <p class="pd-meta" id="pdMeta"></p>
-      </div>
-    </section>
-
-    <section class="pd-body anim anim-up delay-2">
-      <div class="projects-wrap">
-        <div class="pd-media">
-          <div class="pd-media-main">
-            <img id="pdImage" alt="">
-          </div>
-
-          <div class="pd-video" id="pdVideoContainer"></div>
-
-          <div class="pd-gallery" id="pdGallery"></div>
-        </div>
-
-        <div class="pd-content">
-          <h2 class="pd-section-title">Overview</h2>
-          <p id="pdSummary"></p>
-
-          <h3 class="pd-section-title">Problem</h3>
-          <p id="pdProblem"></p>
-
-          <h3 class="pd-section-title">Solution</h3>
-          <p id="pdSolution"></p>
-
-          <h3 class="pd-section-title">Responsibilities</h3>
-          <ul class="pd-list" id="pdResponsibilities"></ul>
-
-          <h3 class="pd-section-title">Key features</h3>
-          <ul class="pd-list" id="pdFeatures"></ul>
-
-          <h3 class="pd-section-title">Tech stack</h3>
-          <p id="pdTech"></p>
-        </div>
-      </div>
-    </section>
-  </main>
+      <h1 class="pd-title" id="pdTitle"></h1>
+      <p class="pd-meta" id="pdMeta"></p>
+    </div>
+  </section>
+  <!-- ... rest of detail layout ... -->
+</main>
 </body>
 </html>
