@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       fetch("./projects.json"),
       fetch("./projects_details.json")
     ]);
+
     projects = await pRes.json();
     details = await dRes.json();
   } catch (err) {
@@ -33,63 +34,83 @@ document.addEventListener("DOMContentLoaded", async () => {
   const heroImage = detail.heroImage || base.image || "";
   const heroAlt = detail.heroAlt || base.imageAlt || title;
 
-  document.getElementById("pdTitle").textContent = title;
-  document.getElementById("pdMeta").textContent =
-    `${year}${year && role ? " · " : ""}${role}`;
-  document.getElementById("pdSummary").textContent = summary;
-  document.getElementById("pdProblem").textContent = detail.problem || "";
-  document.getElementById("pdSolution").textContent = detail.solution || "";
-  document.getElementById("pdTech").textContent = tech;
-
+  const titleEl = document.getElementById("pdTitle");
+  const metaEl = document.getElementById("pdMeta");
+  const summaryEl = document.getElementById("pdSummary");
+  const problemEl = document.getElementById("pdProblem");
+  const solutionEl = document.getElementById("pdSolution");
+  const techEl = document.getElementById("pdTech");
   const imgEl = document.getElementById("pdImage");
-  imgEl.src = heroImage;
-  imgEl.alt = heroAlt;
 
-  // responsibilities list
+  if (titleEl) titleEl.textContent = title;
+  if (metaEl) metaEl.textContent =
+    `${year}${year && role ? " · " : ""}${role}`;
+  if (summaryEl) summaryEl.textContent = summary;
+  if (problemEl) problemEl.textContent = detail.problem || "";
+  if (solutionEl) solutionEl.textContent = detail.solution || "";
+  if (techEl) techEl.textContent = tech;
+
+  if (imgEl) {
+    imgEl.src = heroImage;
+    imgEl.alt = heroAlt;
+  }
+
+  // responsibilities
   const respUl = document.getElementById("pdResponsibilities");
-  (detail.responsibilities || []).forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = item;
-    respUl.appendChild(li);
-  });
+  if (respUl) {
+    (detail.responsibilities || []).forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      respUl.appendChild(li);
+    });
+  }
 
-  // features list
+  // features
   const featUl = document.getElementById("pdFeatures");
-  (detail.features || []).forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = item;
-    featUl.appendChild(li);
-  });
+  if (featUl) {
+    (detail.features || []).forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      featUl.appendChild(li);
+    });
+  }
 
   // gallery
   const galleryEl = document.getElementById("pdGallery");
-  (detail.gallery || []).forEach(src => {
-    const img = document.createElement("img");
-    img.src = src;
-    img.alt = title;
-    galleryEl.appendChild(img);
-  });
+  if (galleryEl) {
+    (detail.gallery || []).forEach(src => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = title;
+      galleryEl.appendChild(img);
+    });
+  }
 
   // YouTube
   if (detail.youtube) {
     const container = document.getElementById("pdVideoContainer");
-    container.innerHTML = `
-      <div class="pd-video-frame">
-        <iframe
-          src="${detail.youtube}"
-          title="${title}"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
-      </div>
-    `;
+    if (container) {
+      container.innerHTML = `
+        <div class="pd-video-frame">
+          <iframe
+            src="${detail.youtube}"
+            title="${title}"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      `;
+    }
   }
 
-  // back button
+  // Back button
   const backBtn = document.getElementById("pdBack");
-  backBtn.addEventListener("click", () => {
-    window.location.href = "projects.html#projectsGrid";
-  });
+  if (backBtn) {
+    backBtn.addEventListener("click", () => {
+      window.location.href = "projects.html#projectsGrid";
+    });
+  }
 });
+
