@@ -43,6 +43,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     btn.dataset.role = p.role;
     btn.dataset.desc = p.desc;
     btn.dataset.tech = p.tech;
+    btn.addEventListener("click", () => {
+  if (p.id) {
+    window.location.href = `projects_details.html?id=${encodeURIComponent(p.id)}`;
+  }
+});
 
     grid.appendChild(frag);
   });
