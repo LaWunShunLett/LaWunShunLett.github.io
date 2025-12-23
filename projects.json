@@ -69,19 +69,5 @@
   "imageAlt": "SP Pal social media app interface for Singapore Polytechnic students",
   "filter": ["mobile"],
   "tags": ["Mobile App", "Social Media", "UI/UX", "Front-End"]
-},
-{
-  "id": "supermarket-self-checkout",
-  "title": "Supermarket Self-Checkout System — IoT Kiosk + Web Platform",
-  "year": "2025",
-  "role": "Product Operations, DevOps & System Troubleshooting",
-  "desc": "A team-based supermarket self-checkout system...",
-  "tech": "Python Backend, SQL / MariaDB, Raspberry Pi, Docker, ...",
-  "image": "./images/SuperMarket.jpg",
-  "imageAlt": "Supermarket self-checkout kiosk...",
-  "videoUrl": "https://www.youtube.com/embed/XXXXXXXXXXX",
-  "filter": ["iot", "web"],
-  "tags": ["IoT", "Web App", "Docker & DevOps", "Backend Development"]
 }
-
 ]
