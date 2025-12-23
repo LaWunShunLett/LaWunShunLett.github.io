@@ -145,3 +145,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     grid.appendChild(frag);
   });
 });
+// Disable right-click on all images (soft protection)
+document.addEventListener("contextmenu", (e) => {
+  if (e.target.tagName === "IMG") {
+    e.preventDefault();
+  }
+});
