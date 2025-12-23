@@ -35,9 +35,4 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 });
-// Disable right-click on all images (soft protection)
-document.addEventListener("contextmenu", (e) => {
-  if (e.target.tagName === "IMG") {
-    e.preventDefault();
-  }
-});
+
