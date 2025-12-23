@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", async () => {
   // make animations visible
   document.body.classList.remove("preload");
-
+    requestAnimationFrame(() => {
+    document.body.classList.remove("preload");
+  });
   // --- hamburger toggle ---
   const hamburger = document.getElementById("hamburger");
   const mobileNav = document.getElementById("mobileNav");
