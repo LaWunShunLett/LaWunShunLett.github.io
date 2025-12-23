@@ -1,35 +1,68 @@
 [
-  {
-    "title": "SafeStride — Smart Obstacle Detection Add-On",
-    "year": "2024",
-    "role": "Prototype Builder | Microcontroller Developer",
-    "desc": "A detachable ultrasonic-based smart cane attachment that enhances obstacle detection for visually impaired users.",
-    "tech": "Ultrasonic Sensor, Microcontroller, Embedded C, Prototyping, User Testing",
-    "image": "./images/safestride.jpg",
-    "imageAlt": "SafeStride project cover",
-    "filter": ["iot"],
-    "tags": ["Hardware", "Assistive Tech", "IoT", "Prototype"]
-  },
-  {
-    "title": "HabiTrack — Youth Habit & Fitness Tracking App",
-    "year": "2024",
-    "role": "Prototype & Research Lead",
-    "desc": "A gamified habit-tracking concept designed to help youths build consistent fitness routines.",
-    "tech": "Figma, UI/UX Prototyping, User Research",
-    "image": "./images/habitrack.jpg",
-    "imageAlt": "HabiTrack project cover",
-    "filter": ["mobile"],
-    "tags": ["Mobile App", "Health", "Gamification"]
-  },
-  {
-    "title": "UniCycle — Campus Marketplace & Peer Support App",
-    "year": "2024",
-    "role": "Android Developer (Marketplace, Camera, Messaging)",
-    "desc": "A student-driven app to buy/sell academic materials, connect with seniors, and exchange study advice.",
-    "tech": "Java, Android Studio, MySQL/SQLite, Camera API",
-    "image": "./images/unicycle.jpg",
-    "imageAlt": "UniCycle project cover",
-    "filter": ["mobile", "web"],
-    "tags": ["Mobile App", "Marketplace", "Android"]
-  }
+{
+  "title": "Smart Pill Dispenser — STM32-Based Medication Management System",
+  "year": "2024",
+  "role": "Embedded Firmware Developer | Microcontroller Systems",
+  "desc": "A smart pill dispenser that automatically releases the correct medication at scheduled times using an STM32 microcontroller, sensors, and a servo-based mechanism.",
+  "tech": "STM32, Embedded C++, RFID, RTC, IR Sensor, PIR Sensor, Servo Motor, OLED Display, Keypad, Interrupts, Hardware Debugging",
+  "image": "./images/SmartPill.jpeg",
+  "imageAlt": "Smart pill dispenser prototype with STM32 and pill slots",
+  "filter": ["iot", "microcontroller"],
+  "tags": ["Embedded System", "Microcontroller", "Sensors & Actuators", "Prototype"]
+},
+{
+  "title": "Supermarket Self-Checkout System — IoT Kiosk + Web Platform",
+  "year": "2025",
+  "role": "Product Operations, DevOps & System Troubleshooting",
+  "desc": "A team-based supermarket self-checkout system that combines a Raspberry Pi–powered kiosk with a full web application, allowing customers to scan items, manage their cart, and complete payment in-store or online.",
+  "tech": "Python Backend, SQL / MariaDB, Raspberry Pi, Docker, Container Orchestration, REST APIs, Web Application Development, IoT Hardware Integration, System Monitoring & Troubleshooting",
+  "image": "./images/SuperMarket.jpg",
+  "imageAlt": "Supermarket self-checkout kiosk built with Raspberry Pi and web interface",
+  "filter": ["iot", "web"],
+  "tags": ["IoT", "Web App", "Docker & DevOps", "Backend Development"]
+},
+{
+  "title": "Self-Navigating Soil Tiller Robot — Arduino-Based Field Prototype",
+  "year": "2024",
+  "role": "Electronics Integration, Troubleshooting & Arduino Programming",
+  "desc": "A self-navigating soil tiller robot on a 4WD Arduino platform that follows a line, measures soil and environmental conditions with multiple sensors, and displays live readings to the user.",
+  "tech": "Arduino (C/C++), Soil Moisture Sensor, Humidity/Temperature Sensor, IR Line Sensors, Ultrasonic Sensor, 4WD Robotics Platform, Circuit Wiring & Testing, Embedded Debugging",
+  "image": "./images/SoilTiller.jpeg",
+  "imageAlt": "Self-navigating soil tiller robot prototype on 4WD chassis",
+  "filter": ["iot", "microcontroller"],
+  "tags": ["Arduino", "Sensors & Robotics", "Circuit Debugging", "Team Project"]
+},
+{
+  "title": "StockPulse — Stock Trading Simulation Web App",
+  "year": "2024",
+  "role": "Front-End Developer & UI/UX Designer",
+  "desc": "A multi-page stock trading simulation web app with dashboards, stock detail views, watchlists, and history pages, focused on smooth navigation, clear layouts, and responsive interactions.",
+  "tech": "Front-End Development, UI/UX Design, JavaScript, HTML/CSS, Web Application Layout, Interaction Design, Basic SQL / MariaDB Integration, Team Collaboration",
+  "image": "./images/StockPulse.jpg",
+  "imageAlt": "StockPulse stock trading simulation dashboard interface",
+  "filter": ["web"],
+  "tags": ["Web App", "Front-End", "UI/UX", "Team Project"]
+},
+{
+  "title": "Trash Segregator — IoT Waste Monitoring & Sorting Prototype",
+  "year": "2024",
+  "role": "End-to-End IoT Developer (Hardware, Firmware & Dashboard)",
+  "desc": "An Arduino-based smart trash segregator that uses ultrasonic sensors and a laser–light sensor pair to distinguish transparent plastic from general waste, monitor bin fill levels, and send live data to a ThingSpeak dashboard for remote tracking.",
+  "tech": "Arduino (C/C++), Ultrasonic Sensors, Laser + Light Sensor Pair for Material Detection, Servo Motor, Custom PCB / Shield, ThingSpeak IoT Cloud, HTTP API Integration, Serial Debugging, Circuit Wiring & Testing",
+  "image": "./images/TrashSegregator.jpeg",
+  "imageAlt": "Trash segregator prototype with Arduino shield, ultrasonic modules, and ThingSpeak dashboard on laptop",
+  "filter": ["iot", "microcontroller"],
+  "tags": ["IoT", "Arduino", "Sensors & Actuators", "End-to-End Build"]
+},
+{
+  "title": "SP Pal — Social Media App for Singapore Polytechnic Students",
+  "year": "2024",
+  "role": "Mobile UI Developer, UX Designer & System Flow",
+  "desc": "A mobile social platform designed for Singapore Polytechnic students that centralizes campus announcements, events, CCAs, lost-and-found posts, and peer interactions in one dedicated app.",
+  "tech": "Mobile Front-End Development, UI/UX Design, Navigation & Screen Flows, Post & Comment Interfaces, Notification & Feed Layouts, Integration with Backend APIs (no direct DB handling)",
+  "image": "./images/SPpals.jpg",
+  "imageAlt": "SP Pal social media app interface for Singapore Polytechnic students",
+  "filter": ["mobile"],
+  "tags": ["Mobile App", "Social Media", "UI/UX", "Front-End"]
+}
 ]
