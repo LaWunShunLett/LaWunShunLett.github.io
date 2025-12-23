@@ -7,7 +7,7 @@
   "tech": "STM32, Embedded C++, RFID, RTC, IR Sensor, PIR Sensor, Servo Motor, OLED Display, Keypad, Interrupts, Hardware Debugging",
   "image": "./images/SmartPill.jpeg",
   "imageAlt": "Smart pill dispenser prototype with STM32 and pill slots",
-  "filter": ["iot", "microcontroller"],
+  "filter": ["microcontroller"],
   "tags": ["Embedded System", "Microcontroller", "Sensors & Actuators", "Prototype"]
 },
 {
