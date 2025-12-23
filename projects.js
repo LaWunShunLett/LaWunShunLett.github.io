@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  // 1) hamburger extra behavior if you need it, or skip if scripts.js already covers
-
-  // 2) build cards from projects.json
+  // --- 1) build cards from projects.json ---
   const grid = document.getElementById("projectsGrid");
   const tpl = document.getElementById("projectCardTpl");
 
@@ -49,5 +47,30 @@ document.addEventListener("DOMContentLoaded", async () => {
     grid.appendChild(frag);
   });
 
-  // 3) filters & modal logic (unchanged)
+  // --- 2) filters (AFTER cards exist) ---
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const cards = document.querySelectorAll(".project-card");
+
+  const setActive = (btn) => {
+    filterBtns.forEach(b => b.classList.remove("is-active"));
+    btn.classList.add("is-active");
+  };
+
+  const applyFilter = (filter) => {
+    const f = (filter || "").toLowerCase();
+    cards.forEach(card => {
+      const tags = (card.getAttribute("data-tags") || "").toLowerCase();
+      const show = f === "all" || tags.includes(f);
+      card.classList.toggle("is-hidden", !show);
+    });
+  };
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      setActive(btn);
+      applyFilter(btn.getAttribute("data-filter"));
+    });
+  });
+
+  // --- 3) modal + other stuff (optional) ---
 });
