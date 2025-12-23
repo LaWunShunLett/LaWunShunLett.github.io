@@ -1,0 +1,54 @@
+[
+  {
+    "id": "smart-pill-dispenser",
+    "title": "Smart Pill Dispenser — STM32-Based Medication Management System",
+    "year": "2024",
+    "role": "Embedded Firmware Developer | Microcontroller Systems",
+    "summary": "A smart pill dispenser that automatically releases the correct medication at scheduled times.",
+    "tech": "STM32, Embedded C++, RFID, RTC, IR Sensor, PIR Sensor, Servo Motor, OLED Display, Keypad",
+    "heroImage": "./images/SmartPill.jpeg",
+    "heroAlt": "Smart pill dispenser prototype with STM32 and pill slots",
+    "youtube": "https://www.youtube.com/embed/XXXXXXXXXXX",
+    "problem": "Patients, especially elderly users, often miss or double-take medication doses when relying on manual pill organisers.",
+    "solution": "The system schedules multiple medication times, authenticates via RFID, and dispenses the correct slot using a servo-driven carousel.",
+    "responsibilities": [
+      "Designed and implemented STM32 firmware for scheduling, timing, and servo control.",
+      "Integrated RFID authentication and sensor inputs for safe dispensing.",
+      "Debugged hardware issues and validated timing accuracy over multi-day runs."
+    ],
+    "features": [
+      "Multi-slot pill carousel with scheduled dispensing.",
+      "OLED UI with keypad-based configuration.",
+      "Sensor checks for door open/close and pill retrieval."
+    ],
+    "gallery": [
+      "./images/SmartPill.jpeg"
+    ]
+  },
+  {
+    "id": "supermarket-self-checkout",
+    "title": "Supermarket Self-Checkout System — IoT Kiosk + Web Platform",
+    "year": "2025",
+    "role": "Product Operations, DevOps & System Troubleshooting",
+    "summary": "A Raspberry Pi–powered self-checkout kiosk paired with a full web app for cart management and payment.",
+    "tech": "Python Backend, SQL / MariaDB, Raspberry Pi, Docker, REST APIs, Web Frontend",
+    "heroImage": "./images/SuperMarket.jpg",
+    "heroAlt": "Supermarket self-checkout kiosk with keypad and LCD",
+    "youtube": "https://www.youtube.com/embed/YYYYYYYYYYY",
+    "problem": "Conventional manned checkout counters create queues and require more staff during peak hours.",
+    "solution": "Built a kiosk that lets customers scan items, manage their cart locally, then sync to a web backend for payment and receipt.",
+    "responsibilities": [
+      "Maintained the Dockerised backend and database.",
+      "Monitored Raspberry Pi kiosk health and performed on-site troubleshooting.",
+      "Coordinated integration testing between kiosk and web interfaces."
+    ],
+    "features": [
+      "Item scanning and cart management on the kiosk.",
+      "Persistent cart synced to a web application.",
+      "Containerised backend for easy deployment and rollback."
+    ],
+    "gallery": [
+      "./images/SuperMarket.jpg"
+    ]
+  }
+]
