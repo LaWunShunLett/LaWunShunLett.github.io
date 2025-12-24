@@ -14,7 +14,7 @@
 </head>
 
 <body class="preload">
-  <!-- Header (your existing header/nav can stay) -->
+  <!-- Header (keep your own if you want) -->
   <header class="topbar">
     <div class="topbar-inner">
       <div class="logo">LA WUN SHUN LETT</div>
@@ -35,76 +35,53 @@
 
         <h1 class="pd-title" id="pdTitle"></h1>
         <p class="pd-meta" id="pdMeta"></p>
-
         <div class="pd-tags" id="pdTags"></div>
       </div>
     </section>
 
-    <!-- IMAGE -->
+    <!-- LOADING -->
     <section class="pd-section">
       <div class="projects-wrap">
-        <img id="pdImage" class="pd-image" src="" alt="" />
-      </div>
-    </section>
+        <div id="pdLoading" class="pd-loading">Loading…</div>
 
-    <!-- SUMMARY -->
-    <section class="pd-section">
-      <div class="projects-wrap">
-        <h2 class="pd-h2">Summary</h2>
-        <p id="pdSummary"></p>
-      </div>
-    </section>
+        <!-- EVERYTHING below is hidden until data loads -->
+        <div id="pdContent" class="is-hidden">
+          <!-- IMAGE -->
+          <div class="pd-media">
+            <img id="pdImage" class="pd-image" src="" alt="" />
+          </div>
 
-    <!-- PROBLEM / SOLUTION -->
-    <section class="pd-section">
-      <div class="projects-wrap pd-two-col">
-        <div>
+          <!-- SUMMARY -->
+          <h2 class="pd-h2">Summary</h2>
+          <p id="pdSummary"></p>
+
+          <!-- PROBLEM -->
           <h2 class="pd-h2">Problem</h2>
           <p id="pdProblem"></p>
-        </div>
-        <div>
+
+          <!-- SOLUTION -->
           <h2 class="pd-h2">Solution</h2>
           <p id="pdSolution"></p>
+
+          <!-- TECH -->
+          <h2 class="pd-h2">Tech</h2>
+          <p id="pdTech"></p>
+
+          <!-- RESPONSIBILITIES -->
+          <h2 class="pd-h2">Responsibilities</h2>
+          <ul id="pdResponsibilities" class="pd-list"></ul>
+
+          <!-- FEATURES -->
+          <h2 class="pd-h2">Features</h2>
+          <ul id="pdFeatures" class="pd-list"></ul>
+
+          <!-- GALLERY -->
+          <h2 class="pd-h2">Gallery</h2>
+          <div id="pdGallery" class="pd-gallery"></div>
+
+          <!-- VIDEO -->
+          <div id="pdVideoContainer"></div>
         </div>
-      </div>
-    </section>
-
-    <!-- TECH -->
-    <section class="pd-section">
-      <div class="projects-wrap">
-        <h2 class="pd-h2">Tech</h2>
-        <p id="pdTech"></p>
-      </div>
-    </section>
-
-    <!-- RESPONSIBILITIES -->
-    <section class="pd-section">
-      <div class="projects-wrap">
-        <h2 class="pd-h2">Responsibilities</h2>
-        <ul id="pdResponsibilities"></ul>
-      </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section class="pd-section">
-      <div class="projects-wrap">
-        <h2 class="pd-h2">Features</h2>
-        <ul id="pdFeatures"></ul>
-      </div>
-    </section>
-
-    <!-- GALLERY -->
-    <section class="pd-section">
-      <div class="projects-wrap">
-        <h2 class="pd-h2">Gallery</h2>
-        <div id="pdGallery" class="pd-gallery"></div>
-      </div>
-    </section>
-
-    <!-- VIDEO -->
-    <section class="pd-section">
-      <div class="projects-wrap">
-        <div id="pdVideoContainer"></div>
       </div>
     </section>
   </main>
