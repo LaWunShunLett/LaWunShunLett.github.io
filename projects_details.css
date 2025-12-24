@@ -2,18 +2,22 @@
    Project Details Page CSS
    ========================= */
 
-.project-detail-page {
+/* Shared width for image + text (matches hero image) */
+:root{
+  --pd-col: 980px; /* tweak 900–1100 */
+}
+
+.project-detail-page{
   padding-bottom: 4rem;
 }
 
 /* ===== HERO / TOP AREA ===== */
-
-.pd-hero {
+.pd-hero{
   padding: 3rem 0 1.5rem;
 }
 
-/* Back button – text by default, turns into pill on hover */
-.pd-back {
+/* Back button */
+.pd-back{
   border: none;
   background: transparent;
   color: #111827;
@@ -29,42 +33,40 @@
     padding 0.18s ease;
 }
 
-.pd-back:hover {
+.pd-back:hover{
   padding: 0.4rem 1rem;
   background: #e5edff;
   border: 1px solid #c7d2fe;
   box-shadow: 0 4px 10px rgba(148, 163, 184, 0.45);
 }
 
-.pd-back:active {
+.pd-back:active{
   transform: translateY(0);
   box-shadow: 0 3px 8px rgba(148, 163, 184, 0.45);
 }
 
-.pd-title {
+.pd-title{
   font-size: 2rem;
   font-weight: 800;
   margin-top: 1rem;
   margin-bottom: 0.4rem;
 }
 
-.pd-meta {
+.pd-meta{
   font-size: 0.95rem;
   color: #6b7280;
 }
 
 /* Tags */
-.pd-tags {
+.pd-tags{
   margin-top: 0.9rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-
-  /* Default (body tags if any) can be centered */
   justify-content: center;
 }
 
-.pd-tag {
+.pd-tag{
   display: inline-flex;
   align-items: center;
   border-radius: 999px;
@@ -76,98 +78,99 @@
   border: 1px solid #d4ddff;
 }
 
-/* IMPORTANT: Hero should NOT be centered */
-.pd-hero .projects-wrap {
+/* Hero should NOT be centered */
+.pd-hero .projects-wrap{
+  max-width: var(--pd-col);
+  margin: 0 auto;
+  padding: 0 24px;
   text-align: left;
 }
 
-.pd-hero .pd-tags {
+.pd-hero .pd-tags{
   justify-content: flex-start;
 }
 
-/* ===== LOADING (for pdLoading/pdContent approach) ===== */
-.is-hidden {
-  display: none;
-}
+/* ===== LOADING ===== */
+.is-hidden{ display: none; }
 
-.pd-loading {
+.pd-loading{
   padding: 1.25rem 0;
   color: #6b7280;
   font-size: 0.95rem;
 }
 
-/* ===== BODY LAYOUT (CENTERED CONTAINER) ===== */
-
-/* Center the body container on the page */
-.pd-body .projects-wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px;
-  padding-top: 1.5rem;
-
-  /* One-column layout */
-  display: block;
-}
-
-/* “SafeStride-style”: center the block but keep text left aligned + nice line length */
-.pd-body {
+/* ===== BODY LAYOUT ===== */
+.pd-body{
   text-align: left;
 }
 
+.pd-body .projects-wrap{
+  max-width: var(--pd-col);
+  margin: 0 auto;
+  padding: 0 24px;
+  padding-top: 1.5rem;
+  display: block;
+}
+
+/* Make all content blocks follow the same column width */
+#pdContent{
+  max-width: 100%;
+}
+
+.pd-section-title,
+.pd-content,
+.pd-body p,
+.pd-list,
+.pd-gallery,
+.pd-video,
+.pd-actions{
+  max-width: 100%;
+}
+
 /* Headings */
-.pd-section-title {
+.pd-section-title{
   font-size: 1.35rem;
   font-weight: 800;
   margin: 2.25rem 0 0.75rem;
   color: #111827;
-
-  max-width: 100%;   /* was 72ch */
 }
 
 /* Paragraph blocks */
 .pd-content,
-.pd-body p {
-  line-height: 1.75;
-  color: #111827;
-
-  max-width: 100%;   /* was 72ch */
+.pd-body p{
+  line-height: 1.85;
+  color: rgba(15, 23, 42, 0.78);
 }
 
-/* ===== MAIN IMAGE (BIG + CONSISTENT HEIGHT) ===== */
+/* ===== MAIN IMAGE ===== */
 .pd-media-main img,
-#pdImage {
+#pdImage{
   width: 100%;
-
-  /* “Exact length” but responsive (big on desktop, smaller on mobile) */
   height: clamp(260px, 40vw, 520px);
-
   object-fit: cover;
   border-radius: 1.25rem;
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.35);
   display: block;
-
-  /* Space under image */
   margin: 0 0 1rem;
 }
 
 /* ===== LISTS ===== */
-.pd-list {
-  max-width: 100%;     /* instead of 1100px */
+.pd-list{
   margin: 0.5rem 0 1rem;
   padding-left: 1.25rem;
 }
 
-.pd-list li {
+.pd-list li{
   margin-bottom: 0.35rem;
   line-height: 1.7;
 }
 
 /* ===== VIDEO ===== */
-.pd-video {
+.pd-video{
   margin-top: 1.5rem;
 }
 
-.pd-video-frame {
+.pd-video-frame{
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
@@ -176,7 +179,7 @@
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.4);
 }
 
-.pd-video-frame iframe {
+.pd-video-frame iframe{
   position: absolute;
   inset: 0;
   width: 100%;
@@ -185,20 +188,22 @@
 }
 
 /* ===== GALLERY ===== */
-.pd-gallery {
+.pd-gallery{
   margin-top: 1.5rem;
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
 }
 
-.pd-gallery img {
+.pd-gallery img{
   width: 140px;
   height: 90px;
   object-fit: cover;
   border-radius: 0.75rem;
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
 }
+
+/* ===== ACTIONS ===== */
 .pd-actions{
   margin-top: 2rem;
 }
@@ -221,17 +226,24 @@
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
-  .pd-body .projects-wrap {
+@media (max-width: 900px){
+  :root{ --pd-col: 100%; }
+
+  .pd-hero .projects-wrap,
+  .pd-body .projects-wrap{
     padding: 0 18px;
+    max-width: 100%;
+  }
+
+  .pd-body .projects-wrap{
     padding-top: 1.25rem;
   }
 
-  .pd-title {
+  .pd-title{
     font-size: 1.7rem;
   }
 
-  .pd-section-title {
+  .pd-section-title{
     font-size: 1.2rem;
   }
 }
