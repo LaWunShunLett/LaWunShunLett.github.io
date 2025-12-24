@@ -121,8 +121,7 @@
   margin: 2.25rem 0 0.75rem;
   color: #111827;
 
-  /* readable width */
-  max-width: 72ch;
+  max-width: 100%;   /* was 72ch */
 }
 
 /* Paragraph blocks */
@@ -130,7 +129,8 @@
 .pd-body p {
   line-height: 1.75;
   color: #111827;
-  max-width: 72ch;
+
+  max-width: 100%;   /* was 72ch */
 }
 
 /* ===== MAIN IMAGE (BIG + CONSISTENT HEIGHT) ===== */
@@ -152,7 +152,7 @@
 
 /* ===== LISTS ===== */
 .pd-list {
-  max-width: 72ch;
+  max-width: 100%;     /* instead of 1100px */
   margin: 0.5rem 0 1rem;
   padding-left: 1.25rem;
 }
@@ -198,6 +198,26 @@
   object-fit: cover;
   border-radius: 0.75rem;
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
+}
+.pd-actions{
+  margin-top: 2rem;
+}
+
+.pd-source-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid #c7d2fe;
+  background: #e5edff;
+  color: #111827;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pd-source-btn:hover{
+  filter: brightness(0.98);
 }
 
 /* ===== RESPONSIVE ===== */
