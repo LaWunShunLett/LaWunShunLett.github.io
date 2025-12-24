@@ -5,7 +5,7 @@
     "year": "2024",
     "role": "Embedded Firmware Developer | Microcontroller Systems",
 
-    "overview": "An STM32-based smart pill dispenser for home-care medication routines. After one-time setup, it automatically dispenses at scheduled times and helps caregivers track whether dispensing happened.",
+    "overview": "A school project: an STM32-based smart pill dispenser designed for both hospital and home-care medication routines. After one-time setup, it automatically dispenses at scheduled times to reduce missed or double doses. In hospitals, it supports staff by making routine dispensing more consistent; at home, it helps elderly patients and caregivers follow daily medication schedules more easily and track whether dispensing happened.",
     "overviewPoints": [
       "One-time schedule setup (supports multiple dispensing times per day).",
       "RFID-controlled access for authorised users.",
@@ -14,8 +14,6 @@
       "IR/PIR sensing to confirm dispensing activity and detect presence.",
       "OLED + keypad for setup and status."
     ],
-
-    "summary": "A smart pill dispenser built on an STM32 that helps patients take the correct medication on time. It automates dispensing based on a schedule and makes it easier for caregivers to manage daily medication routines.",
 
     "problem": "Some patients (especially elderly users) may forget to take medication or accidentally take it twice when relying on memory or manual pill boxes. In home-care settings, caregivers can also misread the schedule or give a dose at the wrong time, especially when managing multiple medications and busy routines.",
 
@@ -64,7 +62,6 @@
     "year": "2025",
     "role": "Product Operations, DevOps & System Troubleshooting",
 
-    "summary": "A Raspberry Pi–powered self-checkout kiosk paired with a full web app for cart management and payment.",
     "tech": "Python Backend, SQL / MariaDB, Raspberry Pi, Docker, REST APIs, Web Frontend",
 
     "heroImage": "./images/SuperMarket.jpg",

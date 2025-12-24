@@ -1,8 +1,8 @@
 /* =========================
    Project Details Page CSS
+   Clean + JSON-media ready
    ========================= */
 
-/* Shared width for image + text (matches hero image) */
 :root{
   --pd-col: 980px; /* tweak 900–1100 */
 }
@@ -90,13 +90,22 @@
   justify-content: flex-start;
 }
 
-/* ===== LOADING ===== */
+/* ===== LOADING / VISIBILITY ===== */
 .is-hidden{ display: none; }
 
 .pd-loading{
-  padding: 1.25rem 0;
+  display: block;
+  padding: 18px 0;
   color: #6b7280;
-  font-size: 0.95rem;
+}
+
+/* Prevent “glitch” / flash: show only when JS marks ready */
+#pdContent{
+  visibility: hidden;
+  max-width: 100%;
+}
+#pdContent.is-ready{
+  visibility: visible;
 }
 
 /* ===== BODY LAYOUT ===== */
@@ -112,17 +121,12 @@
   display: block;
 }
 
-/* Make all content blocks follow the same column width */
-#pdContent{
-  max-width: 100%;
-}
-
+/* Make all content blocks follow same column width */
 .pd-section-title,
 .pd-content,
 .pd-body p,
 .pd-list,
 .pd-gallery,
-.pd-video,
 .pd-actions{
   max-width: 100%;
 }
@@ -142,8 +146,14 @@
   color: rgba(15, 23, 42, 0.78);
 }
 
-/* ===== MAIN IMAGE ===== */
-.pd-media-main img,
+/* ===== MAIN (HERO) IMAGE ===== */
+.pd-media-main img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+}
+
 #pdImage{
   width: 100%;
   height: clamp(260px, 40vw, 520px);
@@ -165,11 +175,43 @@
   line-height: 1.7;
 }
 
-/* ===== VIDEO ===== */
-.pd-video{
-  margin-top: 1.5rem;
+/* ===== INLINE MEDIA (JSON SLOTS) ===== */
+.pd-media-slot{
+  margin: 14px 0 6px;
 }
 
+.pd-figure{
+  margin: 1.25rem 0 2rem;
+}
+
+.pd-figure-img,
+.pd-embed,
+.pd-video-player{
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+}
+
+/* YouTube / iframe embeds: reserve space to reduce layout shift */
+.pd-embed{
+  border: 0;
+  aspect-ratio: 16 / 9;
+}
+
+/* Local video: consistent sizing */
+.pd-video-player{
+  background: #000;
+  aspect-ratio: 16 / 9;
+}
+
+.pd-figure-cap{
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+/* ===== LEGACY “BOTTOM VIDEO” (if you still use pdVideoContainer + pd-video-frame) ===== */
 .pd-video-frame{
   position: relative;
   padding-bottom: 56.25%;
