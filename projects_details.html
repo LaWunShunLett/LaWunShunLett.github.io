@@ -2,77 +2,111 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Project Details | La Wun Shun Lett</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Details | La Wun Shun Lett</title>
 
-  <!-- global styles -->
   <link rel="stylesheet" href="./style.css" />
-  <!-- projects layout + cards -->
   <link rel="stylesheet" href="./projects.css" />
-  <!-- extra styling for details page -->
   <link rel="stylesheet" href="./projects_details.css" />
 
-  <!-- common JS (animations + hamburger) -->
   <script defer src="./scripts.js"></script>
-  <!-- details page logic -->
   <script defer src="./projects_details.js"></script>
 </head>
 
 <body class="preload">
-  <!-- HEADER (copied exactly from projects.html) -->
+  <!-- Header (your existing header/nav can stay) -->
   <header class="topbar">
     <div class="topbar-inner">
-      <div class="logo anim anim-pop">LA WUN SHUN LETT</div>
-
-      <!-- Desktop nav -->
+      <div class="logo">LA WUN SHUN LETT</div>
       <nav class="nav desktop-nav" aria-label="Primary navigation">
-        <a class="anim anim-pop delay-1" href="index.html">Home</a>
-        <a class="anim anim-pop delay-2" href="projects.html">Projects</a>
-        <a class="anim anim-pop delay-3" href="about.html">About Me</a>
-        <a class="anim anim-pop delay-4" href="contact.html">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About Me</a>
+        <a href="contact.html">Contact</a>
       </nav>
-
-      <!-- Hamburger (mobile only) -->
-      <button
-        class="hamburger-mobile"
-        id="hamburger"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="mobileNav"
-        type="button"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </div>
-
-    <!-- Mobile menu -->
-    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About Me</a>
-      <a href="contact.html">Contact</a>
-    </nav>
   </header>
-<main class="project-detail-page">
-  <section class="pd-hero anim anim-up delay-1">
-    <div class="projects-wrap">
-<button class="pd-back" type="button" id="pdBack">
-  ← Back to Projects
-</button>
-      <h1 class="pd-title" id="pdTitle"></h1>
-      <p class="pd-meta" id="pdMeta"></p>
-    </div>
-      <div class="projects-wrap">
-    <h1 class="pd-title" id="pdTitle"></h1>
-    <p class="pd-meta" id="pdMeta"></p>
 
-    <!-- NEW: tags row -->
-    <div class="pd-tags" id="pdTags"></div>
-  </div>
-  </section>
-  <!-- ... rest of detail layout ... -->
-</main>
+  <main class="project-detail-page">
+    <!-- HERO -->
+    <section class="pd-hero">
+      <div class="projects-wrap">
+        <button class="pd-back" type="button" id="pdBack">← Back to Projects</button>
+
+        <h1 class="pd-title" id="pdTitle"></h1>
+        <p class="pd-meta" id="pdMeta"></p>
+
+        <div class="pd-tags" id="pdTags"></div>
+      </div>
+    </section>
+
+    <!-- IMAGE -->
+    <section class="pd-section">
+      <div class="projects-wrap">
+        <img id="pdImage" class="pd-image" src="" alt="" />
+      </div>
+    </section>
+
+    <!-- SUMMARY -->
+    <section class="pd-section">
+      <div class="projects-wrap">
+        <h2 class="pd-h2">Summary</h2>
+        <p id="pdSummary"></p>
+      </div>
+    </section>
+
+    <!-- PROBLEM / SOLUTION -->
+    <section class="pd-section">
+      <div class="projects-wrap pd-two-col">
+        <div>
+          <h2 class="pd-h2">Problem</h2>
+          <p id="pdProblem"></p>
+        </div>
+        <div>
+          <h2 class="pd-h2">Solution</h2>
+          <p id="pdSolution"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECH -->
+    <section class="pd-section">
+      <div class="projects-wrap">
+        <h2 class="pd-h2">Tech</h2>
+        <p id="pdTech"></p>
+      </div>
+    </section>
+
+    <!-- RESPONSIBILITIES -->
+    <section class="pd-section">
+      <div class="projects-wrap">
+        <h2 class="pd-h2">Responsibilities</h2>
+        <ul id="pdResponsibilities"></ul>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="pd-section">
+      <div class="projects-wrap">
+        <h2 class="pd-h2">Features</h2>
+        <ul id="pdFeatures"></ul>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="pd-section">
+      <div class="projects-wrap">
+        <h2 class="pd-h2">Gallery</h2>
+        <div id="pdGallery" class="pd-gallery"></div>
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="pd-section">
+      <div class="projects-wrap">
+        <div id="pdVideoContainer"></div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
