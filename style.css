@@ -12,6 +12,7 @@
   --border: rgba(17,24,39,.10);
   --shadow: 0 20px 40px rgba(17,24,39,.10);
 }
+html, body { background: #0b1220; }
 
 *{ box-sizing: border-box; }
 

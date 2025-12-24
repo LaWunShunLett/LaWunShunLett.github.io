@@ -66,7 +66,7 @@
   "role": "Mobile UI Developer, UX Designer & System Flow",
   "desc": "A mobile social platform designed for Singapore Polytechnic students that centralizes campus announcements, events, CCAs, lost-and-found posts, and peer interactions in one dedicated app.",
   "tech": "Mobile Front-End Development, UI/UX Design, Navigation & Screen Flows, Post & Comment Interfaces, Notification & Feed Layouts, Integration with Backend APIs (no direct DB handling)",
-  "image": "./images/SPpals.jpg",
+  "image": "./images/SPpalsProfile.jpeg",
   "imageAlt": "SP Pal social media app interface for Singapore Polytechnic students",
   "filter": ["mobile"],
   "tags": ["Mobile App", "Social Media", "UI/UX", "Front-End"]
