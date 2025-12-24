@@ -23,7 +23,14 @@
 
     "impact": "The prototype improved consistency of scheduled dispensing during testing and helped caregivers check whether dispensing happened as planned.",
 
-    "tech": "STM32, Embedded C++, RFID, RTC, IR Sensor, PIR Sensor, Servo Motor, OLED Display, Keypad",
+    "tech": [
+    "RFID authentication for controlled access.",
+    "RTC-based scheduling (one-time setup) for automatic dispensing at configured times.",
+    "3D-printed housing and custom dispensing parts to guide pills and support the mechanism.",
+    "Servo-driven dispensing mechanism to release pills on schedule.",
+    "Sensors (IR/PIR) to detect dispensing activity and user presence.",
+    "OLED + keypad for setup, status display, and on-device configuration."
+    ],
 
     "responsibilities": [
       "Developed STM32 firmware in C++ to control the full system.",
@@ -33,14 +40,7 @@
       "Worked with teammates to test and verify the prototype end-to-end."
     ],
 
-    "features": [
-      "RFID authentication for controlled access.",
-      "RTC-based scheduling (one-time setup) for automatic dispensing at configured times.",
-      "3D-printed housing and custom dispensing parts to guide pills and support the mechanism.",
-      "Servo-driven dispensing mechanism to release pills on schedule.",
-      "Sensors (IR/PIR) to detect dispensing activity and user presence.",
-      "OLED + keypad for setup, status display, and on-device configuration."
-    ],
+    "features": "STM32, Embedded C++, RFID, RTC, IR Sensor, PIR Sensor, Servo Motor, OLED Display, Keypad",
 
     "learnings": [
       "How to build an embedded prototype from concept to working system (hardware + firmware + testing).",
@@ -50,10 +50,40 @@
       "Troubleshooting both embedded software and hardware issues (wiring connections, timing, sensor noise, mechanical alignment).",
       "Testing the full system to verify real-world behaviour and reliability."
     ],
-
+        "inlineMedia": [
+      {
+        "slot": "afterOverview",
+        "type": "image",
+        "src": "./images/SmartPill_inside.jpg",
+        "alt": "Internal layout and dispensing mechanism",
+        "caption": "Internal layout: dispensing path + key components."
+      },
+      {
+        "slot": "afterProblem",
+        "type": "image",
+        "src": "./images/Pillbox_schedule.jpg",
+        "alt": "Manual pill organiser and schedule",
+        "caption": "Manual schedules can be misread or forgotten."
+      },
+      {
+        "slot": "afterSolution",
+        "type": "image",
+        "id": "./images/SmartPilldiagram.jpeg",
+        "title": "Smart Pill Dispenser Mechanical Diagram",
+        "caption": "Smart Pill Dispenser Mechanical Diagram Operation"
+      },
+      {
+        "slot": "afterFeatures",
+        "type": "image",
+        "id": "./images/SmartPillBlockDiagram.jpeg",
+        "title": "Smart Pill Dispenser Block Diagram",
+        "caption": "Smart Pill Dispenser Block Diagram Operation"
+      }
+    ],
     "sourceCode": "https://github.com/YOUR_USERNAME/YOUR_REPO",
     "heroImage": "./images/SmartPill.jpeg",
     "heroAlt": "Smart pill dispenser prototype with STM32 and pill slots"
+    
   },
 
   {
@@ -62,7 +92,11 @@
     "year": "2025",
     "role": "Product Operations, DevOps & System Troubleshooting",
 
-    "tech": "Python Backend, SQL / MariaDB, Raspberry Pi, Docker, REST APIs, Web Frontend",
+    "tech": [
+      "Item scanning and cart management on the kiosk.",
+      "Persistent cart synced to a web application.",
+      "Containerised backend for easy deployment and rollback."
+    ],
 
     "heroImage": "./images/SuperMarket.jpg",
     "heroAlt": "Supermarket self-checkout kiosk with keypad and LCD",
@@ -77,12 +111,40 @@
       "Coordinated integration testing between kiosk and web interfaces."
     ],
 
-    "features": [
-      "Item scanning and cart management on the kiosk.",
-      "Persistent cart synced to a web application.",
-      "Containerised backend for easy deployment and rollback."
+    "features": "Python Backend, SQL / MariaDB, Raspberry Pi, Docker, REST APIs, Web Frontend",
+    "inlineMedia": [
+      {
+        "slot": "afterOverview",
+        "type": "image",
+        "src": "./images/SmartPill_inside.jpg",
+        "alt": "Internal layout and dispensing mechanism",
+        "caption": "Internal layout: dispensing path + key components."
+      },
+      {
+        "slot": "afterProblem",
+        "type": "image",
+        "src": "./images/Pillbox_schedule.jpg",
+        "alt": "Manual pill organiser and schedule",
+        "caption": "Manual schedules can be misread or forgotten."
+      },
+      {
+        "slot": "afterSolution",
+        "type": "youtube",
+        "id": "M7lc1UVf-VE",
+        "title": "Demo video",
+        "caption": "Demo hosted on YouTube."
+      },
+      {
+        "slot": "afterFeatures",
+        "type": "fileVideo",
+        "poster": "./images/video-poster.jpg",
+        "sources": [
+          { "src": "./videos/pill-demo.mp4", "type": "video/mp4" },
+          { "src": "./videos/pill-demo.webm", "type": "video/webm" }
+        ],
+        "caption": "Offline demo (local video)."
+      }
     ],
-
     "gallery": ["./images/SuperMarket.jpg"],
     "sourceCode": "https://github.com/LaWunShunLett/LaWunShunLett.github.io"
   }

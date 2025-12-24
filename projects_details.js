@@ -256,3 +256,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   showContent();
 });
+window.addEventListener("load", () => {
+  document.documentElement.classList.remove("preload");
+});

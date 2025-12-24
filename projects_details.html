@@ -4,7 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Details | La Wun Shun Lett</title>
-
+  <style>
+    html, body { background: #0b1220; margin: 0; }
+    html.preload body { visibility: hidden; }
+  </style>
+  <script>
+    document.documentElement.classList.add('preload');
+  </script>
   <link rel="stylesheet" href="./style.css" />
   <link rel="stylesheet" href="./projects.css" />
   <link rel="stylesheet" href="./projects_details.css" />
@@ -73,13 +79,13 @@
     <p id="pdSolution" class="pd-content"></p>
     <div id="pdMediaAfterSolution" class="pd-media-slot"></div>
 
-    <h2 class="pd-section-title">Tech</h2>
+    <h2 class="pd-section-title">Technical Details</h2>
     <p id="pdTech" class="pd-content"></p>
-        <div id="pdMediaAfterProblem" class="pd-media-slot"></div>
+    <div id="pdMediaAfterProblem" class="pd-media-slot"></div>
 
-    <h2 class="pd-section-title">Responsibilities</h2>
+    <h2 class="pd-section-title">My Roles</h2>
     <ul id="pdResponsibilities" class="pd-list"></ul>
-        <div id="pdMediaAfterProblem" class="pd-media-slot"></div>
+    <div id="pdMediaAfterProblem" class="pd-media-slot"></div>
 
     <h2 class="pd-section-title">Features</h2>
     <ul id="pdFeatures" class="pd-list"></ul>
