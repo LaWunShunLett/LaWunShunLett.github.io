@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
+  const id = params.get("id"); // [web:245]
 
   const loadingEl = document.getElementById("pdLoading");
   const contentEl = document.getElementById("pdContent");
@@ -10,17 +10,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       loadingEl.style.display = "block";
       loadingEl.textContent = msg;
     }
-    if (contentEl) contentEl.classList.add("is-hidden");
+    if (contentEl) {
+      contentEl.classList.add("is-hidden");
+      contentEl.classList.remove("is-ready");
+    }
   };
 
   const showContent = () => {
     if (loadingEl) loadingEl.style.display = "none";
-    if (contentEl) contentEl.classList.remove("is-hidden");
+    if (contentEl) {
+      contentEl.classList.remove("is-hidden");
+      contentEl.classList.add("is-ready");
+    }
   };
 
   if (!id) {
     showLoading("No project id in URL.");
-    console.error("No project id in URL");
     return;
   }
 
@@ -33,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const [pRes, dRes] = await Promise.all([
       fetch("./projects.json"),
       fetch("./projects_details.json"),
-    ]);
+    ]); // [web:242]
 
     if (!pRes.ok) throw new Error(`projects.json HTTP ${pRes.status}`);
     if (!dRes.ok) throw new Error(`projects_details.json HTTP ${dRes.status}`);
@@ -42,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     details = await dRes.json();
   } catch (err) {
     showLoading("Failed to load project data.");
-    console.error("Failed to load project data", err);
+    console.error(err);
     return;
   }
 
@@ -51,19 +56,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (!base.id && !detail.id) {
     showLoading("Project not found.");
-    console.error("Project not found for id:", id);
     return;
   }
 
-  const title = detail.title || base.title || "Project";
-  const year = detail.year || base.year || "";
-  const role = detail.role || base.role || "";
-  const summary = detail.summary || base.desc || "";
-  const tech = detail.tech || base.tech || "";
-  const heroImage = detail.heroImage || base.image || "";
-  const heroAlt = detail.heroAlt || base.imageAlt || title;
+  // Merge: details override base
+  const proj = { ...base, ...detail };
 
-  let tags = detail.tags || base.tags || [];
+  const title = proj.title || "Project";
+  const year = proj.year || "";
+  const role = proj.role || "";
+  const tech = proj.tech || "";
+  const heroImage = proj.heroImage || proj.image || "";
+  const heroAlt = proj.heroAlt || proj.imageAlt || title;
+
+  let tags = proj.tags || [];
   if (role) tags = [role, ...tags];
 
   const setText = (elId, value) => {
@@ -71,13 +77,96 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (el) el.textContent = value || "";
   };
 
-  // Title + meta
+  const setList = (elId, items) => {
+    const ul = document.getElementById(elId);
+    if (!ul) return;
+    ul.innerHTML = "";
+    (items || []).forEach((item) => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      ul.appendChild(li); // [web:183]
+    });
+  };
+
+  // -------- Inline media slots --------
+  const SLOT_MAP = {
+    afterOverview: "pdMediaAfterOverview",
+    afterProblem: "pdMediaAfterProblem",
+    afterSolution: "pdMediaAfterSolution",
+    afterFeatures: "pdMediaAfterFeatures",
+  };
+
+  function clearInlineMediaSlots() {
+    Object.values(SLOT_MAP).forEach((slotId) => {
+      const el = document.getElementById(slotId);
+      if (el) el.innerHTML = "";
+    });
+  }
+
+  function renderInlineMedia(project) {
+    clearInlineMediaSlots();
+
+    (project.inlineMedia || []).forEach((m) => {
+      const slotId = SLOT_MAP[m.slot];
+      const slotEl = document.getElementById(slotId);
+      if (!slotEl) return;
+
+      const figure = document.createElement("figure");
+      figure.className = "pd-figure";
+
+      if (m.type === "image") {
+        const img = document.createElement("img");
+        img.className = "pd-figure-img";
+        img.src = m.src;
+        img.alt = m.alt || "";
+        figure.appendChild(img); // [web:183]
+      }
+
+      if (m.type === "youtube") {
+        const iframe = document.createElement("iframe");
+        iframe.className = "pd-embed";
+        iframe.src = `https://www.youtube.com/embed/${m.id}`;
+        iframe.title = m.title || title;
+        iframe.allow =
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+        iframe.loading = "lazy";
+        figure.appendChild(iframe); // [web:183]
+      }
+
+      if (m.type === "fileVideo") {
+        const video = document.createElement("video");
+        video.className = "pd-video-player";
+        video.controls = true;
+        if (m.poster) video.poster = m.poster;
+
+        (m.sources || []).forEach((s) => {
+          const source = document.createElement("source");
+          source.src = s.src;
+          source.type = s.type;
+          video.appendChild(source); // [web:183]
+        });
+
+        figure.appendChild(video); // [web:183]
+      }
+
+      if (m.caption) {
+        const cap = document.createElement("figcaption");
+        cap.className = "pd-figure-cap";
+        cap.textContent = m.caption;
+        figure.appendChild(cap); // [web:183]
+      }
+
+      slotEl.appendChild(figure); // [web:183]
+    });
+  }
+
+  // -------- Render page fields --------
   setText("pdTitle", title);
 
   const metaEl = document.getElementById("pdMeta");
   if (metaEl) metaEl.textContent = `${year}${year && role ? " · " : ""}${role}`;
 
-  // Tags
   const tagsWrap = document.getElementById("pdTags");
   if (tagsWrap) {
     tagsWrap.innerHTML = "";
@@ -85,83 +174,56 @@ document.addEventListener("DOMContentLoaded", async () => {
       const span = document.createElement("span");
       span.className = "pd-tag";
       span.textContent = t;
-      tagsWrap.appendChild(span);
+      tagsWrap.appendChild(span); // [web:183]
     });
   }
 
-  // Main text fields
-  setText("pdOverview", detail.overview || "");
-  setText("pdSummary", summary);
-  setText("pdProblem", detail.problem || "");
-  setText("pdSolution", detail.solution || "");
+  setText("pdOverview", proj.overview || "");
+  setText("pdSummary", proj.summary || proj.desc || "");
+  setText("pdProblem", proj.problem || "");
+  setText("pdSolution", proj.solution || "");
   setText("pdTech", tech);
 
-  // Overview points
-  const ovUl = document.getElementById("pdOverviewPoints");
-  if (ovUl) {
-    ovUl.innerHTML = "";
-    (detail.overviewPoints || []).forEach((item) => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      ovUl.appendChild(li);
-    });
-  }
+  setList("pdOverviewPoints", proj.overviewPoints || []);
+  setList("pdResponsibilities", proj.responsibilities || []);
+  setList("pdFeatures", proj.features || []);
 
-  // Image
   const imgEl = document.getElementById("pdImage");
   if (imgEl) {
     imgEl.src = heroImage;
     imgEl.alt = heroAlt;
   }
 
-  // Responsibilities
-  const respUl = document.getElementById("pdResponsibilities");
-  if (respUl) {
-    respUl.innerHTML = "";
-    (detail.responsibilities || []).forEach((item) => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      respUl.appendChild(li);
-    });
-  }
-
-  // Features
-  const featUl = document.getElementById("pdFeatures");
-  if (featUl) {
-    featUl.innerHTML = "";
-    (detail.features || []).forEach((item) => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      featUl.appendChild(li);
-    });
-  }
-
-  // Gallery
+  // Gallery (optional)
   const galleryEl = document.getElementById("pdGallery");
   if (galleryEl) {
     galleryEl.innerHTML = "";
-    (detail.gallery || []).forEach((src) => {
+    (proj.gallery || []).forEach((src) => {
       const img = document.createElement("img");
       img.src = src;
       img.alt = title;
-      galleryEl.appendChild(img);
+      galleryEl.appendChild(img); // [web:183]
     });
   }
 
-  // YouTube
+  // Inline media (NEW)
+  renderInlineMedia(proj);
+
+  // Legacy single YouTube (optional): ONLY show if no inlineMedia videos and youtube exists
   const videoContainer = document.getElementById("pdVideoContainer");
   if (videoContainer) {
     videoContainer.innerHTML = "";
-    if (detail.youtube) {
+    if (proj.youtube && !(proj.inlineMedia || []).some(x => x.type === "youtube" || x.type === "fileVideo")) {
       videoContainer.innerHTML = `
-        <div class="pd-video-frame">
+        <div class="pd-video-frame" style="aspect-ratio:16/9;">
           <iframe
-            src="${detail.youtube}"
+            src="${proj.youtube}"
             title="${title}"
             frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
             loading="lazy"
+            style="width:100%;height:100%;border:0;"
           ></iframe>
         </div>
       `;
@@ -172,7 +234,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const actions = document.getElementById("pdActions");
   if (actions) {
     actions.innerHTML = "";
-    const url = detail.sourceCode || base.sourceCode;
+    const url = proj.sourceCode;
     if (url) {
       const a = document.createElement("a");
       a.href = url;
@@ -180,11 +242,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       a.rel = "noopener noreferrer";
       a.className = "pd-source-btn";
       a.textContent = "Source code";
-      actions.appendChild(a);
+      actions.appendChild(a); // [web:183]
     }
   }
 
-  // Back button
+  // Back button (optional)
   const backBtn = document.getElementById("pdBack");
   if (backBtn) {
     backBtn.addEventListener("click", () => {
@@ -192,6 +254,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  // Finally show the page
   showContent();
 });
