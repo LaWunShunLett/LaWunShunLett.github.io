@@ -2,10 +2,29 @@ document.addEventListener("DOMContentLoaded", async () => {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
 
+  const loadingEl = document.getElementById("pdLoading");
+  const contentEl = document.getElementById("pdContent");
+
+  const showLoading = (msg = "Loading…") => {
+    if (loadingEl) {
+      loadingEl.style.display = "block";
+      loadingEl.textContent = msg;
+    }
+    if (contentEl) contentEl.classList.add("is-hidden");
+  };
+
+  const showContent = () => {
+    if (loadingEl) loadingEl.style.display = "none";
+    if (contentEl) contentEl.classList.remove("is-hidden");
+  };
+
   if (!id) {
+    showLoading("No project id in URL.");
     console.error("No project id in URL");
     return;
   }
+
+  showLoading("Loading…");
 
   let projects = [];
   let details = [];
@@ -22,45 +41,42 @@ document.addEventListener("DOMContentLoaded", async () => {
     projects = await pRes.json();
     details = await dRes.json();
   } catch (err) {
+    showLoading("Failed to load project data.");
     console.error("Failed to load project data", err);
     return;
   }
 
-  const base = projects.find((p) => p.id === id);
-  const detail = details.find((d) => d.id === id);
+  const base = projects.find((p) => p.id === id) || {};
+  const detail = details.find((d) => d.id === id) || {};
 
-  if (!base && !detail) {
+  if (!base.id && !detail.id) {
+    showLoading("Project not found.");
     console.error("Project not found for id:", id);
     return;
   }
 
-  const b = base || {};
-  const d = detail || {};
+  const title = detail.title || base.title || "Project";
+  const year = detail.year || base.year || "";
+  const role = detail.role || base.role || "";
+  const summary = detail.summary || base.desc || "";
+  const tech = detail.tech || base.tech || "";
+  const heroImage = detail.heroImage || base.image || "";
+  const heroAlt = detail.heroAlt || base.imageAlt || title;
 
-  const title = d.title || b.title || "Project";
-  const year = d.year || b.year || "";
-  const role = d.role || b.role || "";
-  const summary = d.summary || b.desc || "";
-  const tech = d.tech || b.tech || "";
-  const heroImage = d.heroImage || b.image || "";
-  const heroAlt = d.heroAlt || b.imageAlt || title;
-
-  // tags from JSON (base or details)
-  let tags = d.tags || b.tags || [];
+  let tags = detail.tags || base.tags || [];
   if (role) tags = [role, ...tags];
 
-  const titleEl = document.getElementById("pdTitle");
-  const metaEl = document.getElementById("pdMeta");
-  const summaryEl = document.getElementById("pdSummary");
-  const problemEl = document.getElementById("pdProblem");
-  const solutionEl = document.getElementById("pdSolution");
-  const techEl = document.getElementById("pdTech");
-  const imgEl = document.getElementById("pdImage");
+  const setText = (id, value) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value || "";
+  };
 
-  if (titleEl) titleEl.textContent = title;
+  setText("pdTitle", title);
+
+  const metaEl = document.getElementById("pdMeta");
   if (metaEl) metaEl.textContent = `${year}${year && role ? " · " : ""}${role}`;
 
-  // render tags row
+  // Tags
   const tagsWrap = document.getElementById("pdTags");
   if (tagsWrap) {
     tagsWrap.innerHTML = "";
@@ -72,43 +88,45 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  if (summaryEl) summaryEl.textContent = summary;
-  if (problemEl) problemEl.textContent = d.problem || "";
-  if (solutionEl) solutionEl.textContent = d.solution || "";
-  if (techEl) techEl.textContent = tech;
+  setText("pdSummary", summary);
+  setText("pdProblem", detail.problem || "");
+  setText("pdSolution", detail.solution || "");
+  setText("pdTech", tech);
 
+  // Image
+  const imgEl = document.getElementById("pdImage");
   if (imgEl) {
     imgEl.src = heroImage;
     imgEl.alt = heroAlt;
   }
 
-  // responsibilities
+  // Responsibilities
   const respUl = document.getElementById("pdResponsibilities");
   if (respUl) {
     respUl.innerHTML = "";
-    (d.responsibilities || []).forEach((item) => {
+    (detail.responsibilities || []).forEach((item) => {
       const li = document.createElement("li");
       li.textContent = item;
       respUl.appendChild(li);
     });
   }
 
-  // features
+  // Features
   const featUl = document.getElementById("pdFeatures");
   if (featUl) {
     featUl.innerHTML = "";
-    (d.features || []).forEach((item) => {
+    (detail.features || []).forEach((item) => {
       const li = document.createElement("li");
       li.textContent = item;
       featUl.appendChild(li);
     });
   }
 
-  // gallery
+  // Gallery
   const galleryEl = document.getElementById("pdGallery");
   if (galleryEl) {
     galleryEl.innerHTML = "";
-    (d.gallery || []).forEach((src) => {
+    (detail.gallery || []).forEach((src) => {
       const img = document.createElement("img");
       img.src = src;
       img.alt = title;
@@ -117,13 +135,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // YouTube
-  if (d.youtube) {
-    const container = document.getElementById("pdVideoContainer");
-    if (container) {
-      container.innerHTML = `
+  const videoContainer = document.getElementById("pdVideoContainer");
+  if (videoContainer) {
+    videoContainer.innerHTML = "";
+    if (detail.youtube) {
+      videoContainer.innerHTML = `
         <div class="pd-video-frame">
           <iframe
-            src="${d.youtube}"
+            src="${detail.youtube}"
             title="${title}"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -142,4 +161,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       window.location.href = "projects.html#projectsGrid";
     });
   }
+
+  showContent();
 });
