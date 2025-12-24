@@ -1,19 +1,19 @@
 /* =========================
    Project Details Page CSS
-   (Hero light, Body dark + serif headings like reference)
    ========================= */
 
-.project-detail-page{
-  padding-bottom: 0; /* body section controls its own padding */
+.project-detail-page {
+  padding-bottom: 4rem;
 }
 
-/* ===== HERO (top stays normal / light) ===== */
+/* ===== HERO / TOP AREA ===== */
 
-.pd-hero{
+.pd-hero {
   padding: 3rem 0 1.5rem;
 }
 
-.pd-back{
+/* Back button – text by default, turns into pill on hover */
+.pd-back {
   border: none;
   background: transparent;
   color: #111827;
@@ -29,42 +29,42 @@
     padding 0.18s ease;
 }
 
-.pd-back:hover{
+.pd-back:hover {
   padding: 0.4rem 1rem;
   background: #e5edff;
   border: 1px solid #c7d2fe;
   box-shadow: 0 4px 10px rgba(148, 163, 184, 0.45);
 }
 
-.pd-back:active{
+.pd-back:active {
   transform: translateY(0);
   box-shadow: 0 3px 8px rgba(148, 163, 184, 0.45);
 }
 
-.pd-title{
+.pd-title {
   font-size: 2rem;
-  font-weight: 850;
-  letter-spacing: -0.02em;
+  font-weight: 800;
   margin-top: 1rem;
   margin-bottom: 0.4rem;
-  color: #0f172a;
 }
 
-.pd-meta{
+.pd-meta {
   font-size: 0.95rem;
   color: #6b7280;
 }
 
 /* Tags */
-.pd-tags{
+.pd-tags {
   margin-top: 0.9rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  justify-content: flex-start;
+
+  /* Default (body tags if any) can be centered */
+  justify-content: center;
 }
 
-.pd-tag{
+.pd-tag {
   display: inline-flex;
   align-items: center;
   border-radius: 999px;
@@ -76,94 +76,107 @@
   border: 1px solid #d4ddff;
 }
 
-/* ===== LOADING (your JS toggles these) ===== */
-
-.is-hidden{ display: none; }
-
-.pd-loading{
-  padding: 1.25rem 0;
-  color: rgba(255,255,255,0.70); /* looks good on dark */
-  font-size: 0.95rem;
-}
-
-/* ===== BODY (dark section like your screenshot) ===== */
-
-.pd-body{
-  background: #070a12;            /* deep navy/black */
-  padding: 4.25rem 0 5.25rem;
-}
-
-/* Center container */
-.pd-body .projects-wrap{
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
-/* Reading column width */
-#pdContent{
-  max-width: 74ch;
+/* IMPORTANT: Hero should NOT be centered */
+.pd-hero .projects-wrap {
   text-align: left;
 }
 
-/* Section headings: serif, bright */
-.pd-body .pd-section-title{
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-weight: 700;
-  font-size: 1.8rem;
-  letter-spacing: -0.01em;
-  color: rgba(255,255,255,0.92);
-  margin: 2.25rem 0 0.85rem;
+.pd-hero .pd-tags {
+  justify-content: flex-start;
 }
 
-/* Paragraphs: light grey, comfy leading */
-.pd-body .pd-content,
-.pd-body p{
-  font-size: 1.05rem;
-  line-height: 1.95;
-  color: rgba(255,255,255,0.72);
+/* ===== LOADING (for pdLoading/pdContent approach) ===== */
+.is-hidden {
+  display: none;
 }
 
-/* Lists: same tone + spacing */
-.pd-body .pd-list{
-  margin: 0.75rem 0 1.5rem;
-  padding-left: 1.6rem;
+.pd-loading {
+  padding: 1.25rem 0;
+  color: #6b7280;
+  font-size: 0.95rem;
 }
 
-.pd-body .pd-list li{
-  margin: 0.55rem 0;
-  line-height: 1.85;
-  color: rgba(255,255,255,0.72);
-}
+/* ===== BODY LAYOUT (CENTERED CONTAINER) ===== */
 
-/* ===== MAIN IMAGE (big + “exact length”) ===== */
-.pd-media-main img,
-#pdImage{
-  width: 100%;
-  height: clamp(320px, 42vw, 620px);
-  object-fit: cover;
-  border-radius: 22px;
+/* Center the body container on the page */
+.pd-body .projects-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  padding-top: 1.5rem;
+
+  /* One-column layout */
   display: block;
-  margin: 0 0 1.75rem;
-  box-shadow: 0 28px 80px rgba(0,0,0,0.55);
+}
+
+/* “SafeStride-style”: center the block but keep text left aligned + nice line length */
+.pd-body {
+  text-align: left;
+}
+
+/* Headings */
+.pd-section-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 2.25rem 0 0.75rem;
+  color: #111827;
+
+  /* readable width */
+  max-width: 72ch;
+}
+
+/* Paragraph blocks */
+.pd-content,
+.pd-body p {
+  line-height: 1.75;
+  color: #111827;
+  max-width: 72ch;
+}
+
+/* ===== MAIN IMAGE (BIG + CONSISTENT HEIGHT) ===== */
+.pd-media-main img,
+#pdImage {
+  width: 100%;
+
+  /* “Exact length” but responsive (big on desktop, smaller on mobile) */
+  height: clamp(260px, 40vw, 520px);
+
+  object-fit: cover;
+  border-radius: 1.25rem;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.35);
+  display: block;
+
+  /* Space under image */
+  margin: 0 0 1rem;
+}
+
+/* ===== LISTS ===== */
+.pd-list {
+  max-width: 72ch;
+  margin: 0.5rem 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.pd-list li {
+  margin-bottom: 0.35rem;
+  line-height: 1.7;
 }
 
 /* ===== VIDEO ===== */
-.pd-video{
-  margin-top: 1.75rem;
-  max-width: 74ch;
+.pd-video {
+  margin-top: 1.5rem;
 }
 
-.pd-video-frame{
+.pd-video-frame {
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
-  border-radius: 18px;
-  box-shadow: 0 22px 60px rgba(0,0,0,0.55);
+  border-radius: 1.25rem;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.4);
 }
 
-.pd-video-frame iframe{
+.pd-video-frame iframe {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -172,49 +185,33 @@
 }
 
 /* ===== GALLERY ===== */
-.pd-gallery{
-  margin-top: 1.2rem;
+.pd-gallery {
+  margin-top: 1.5rem;
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
-  max-width: 74ch;
 }
 
-.pd-gallery img{
-  width: 220px;
-  height: 150px;
+.pd-gallery img {
+  width: 140px;
+  height: 90px;
   object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 18px 55px rgba(0,0,0,0.55);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 900px){
-  .pd-body{
-    padding: 3rem 0 4rem;
-  }
-
-  .pd-body .projects-wrap{
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .pd-body .projects-wrap {
     padding: 0 18px;
+    padding-top: 1.25rem;
   }
 
-  #pdContent{
-    max-width: 100%;
+  .pd-title {
+    font-size: 1.7rem;
   }
 
-  .pd-body .pd-section-title{
-    font-size: 1.45rem;
-    margin: 1.9rem 0 0.7rem;
-  }
-
-  .pd-body .pd-content,
-  .pd-body p{
-    font-size: 1rem;
-    line-height: 1.85;
-  }
-
-  .pd-gallery img{
-    width: 180px;
-    height: 125px;
+  .pd-section-title {
+    font-size: 1.2rem;
   }
 }
