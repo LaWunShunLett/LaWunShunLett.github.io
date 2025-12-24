@@ -1,20 +1,19 @@
 /* =========================
    Project Details Page CSS
-   (Hero left + Body card like reference)
+   (Hero light, Body dark + serif headings like reference)
    ========================= */
 
-.project-detail-page {
-  padding-bottom: 4rem;
+.project-detail-page{
+  padding-bottom: 0; /* body section controls its own padding */
 }
 
-/* ===== HERO / TOP AREA ===== */
+/* ===== HERO (top stays normal / light) ===== */
 
-.pd-hero {
+.pd-hero{
   padding: 3rem 0 1.5rem;
 }
 
-/* Back button – text by default, turns into pill on hover */
-.pd-back {
+.pd-back{
   border: none;
   background: transparent;
   color: #111827;
@@ -30,40 +29,42 @@
     padding 0.18s ease;
 }
 
-.pd-back:hover {
+.pd-back:hover{
   padding: 0.4rem 1rem;
   background: #e5edff;
   border: 1px solid #c7d2fe;
   box-shadow: 0 4px 10px rgba(148, 163, 184, 0.45);
 }
 
-.pd-back:active {
+.pd-back:active{
   transform: translateY(0);
   box-shadow: 0 3px 8px rgba(148, 163, 184, 0.45);
 }
 
-.pd-title {
+.pd-title{
   font-size: 2rem;
-  font-weight: 800;
+  font-weight: 850;
+  letter-spacing: -0.02em;
   margin-top: 1rem;
   margin-bottom: 0.4rem;
+  color: #0f172a;
 }
 
-.pd-meta {
+.pd-meta{
   font-size: 0.95rem;
   color: #6b7280;
 }
 
 /* Tags */
-.pd-tags {
+.pd-tags{
   margin-top: 0.9rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  justify-content: center; /* default */
+  justify-content: flex-start;
 }
 
-.pd-tag {
+.pd-tag{
   display: inline-flex;
   align-items: center;
   border-radius: 999px;
@@ -75,137 +76,94 @@
   border: 1px solid #d4ddff;
 }
 
-/* IMPORTANT: Hero should NOT be centered */
-.pd-hero .projects-wrap {
-  text-align: left;
-}
+/* ===== LOADING (your JS toggles these) ===== */
 
-.pd-hero .pd-tags {
-  justify-content: flex-start;
-}
+.is-hidden{ display: none; }
 
-/* ===== LOADING (for pdLoading/pdContent approach) ===== */
-
-.is-hidden {
-  display: none;
-}
-
-.pd-loading {
+.pd-loading{
   padding: 1.25rem 0;
-  color: #6b7280;
+  color: rgba(255,255,255,0.70); /* looks good on dark */
   font-size: 0.95rem;
 }
 
-/* ===== BODY LAYOUT (reference-like “card”) ===== */
+/* ===== BODY (dark section like your screenshot) ===== */
 
-.pd-body {
-  padding: 2rem 0 4rem;
+.pd-body{
+  background: #070a12;            /* deep navy/black */
+  padding: 4.25rem 0 5.25rem;
 }
 
-/* Center the body container on the page */
-.pd-body .projects-wrap {
-  max-width: 1080px;
+/* Center container */
+.pd-body .projects-wrap{
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 40px;
 }
 
-/* Card container (your HTML must have id="pdContent") */
-#pdContent {
-  background: rgba(255, 255, 255, 0.86);
-  border: 1px solid rgba(15, 23, 42, 0.06);
-  border-radius: 24px;
-  padding: 2.25rem 2.25rem;
-  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
-  backdrop-filter: blur(10px);
-
+/* Reading column width */
+#pdContent{
+  max-width: 74ch;
   text-align: left;
 }
 
-/* Keep content readable like the reference */
-#pdContent .pd-section-title,
-#pdContent .pd-content,
-#pdContent p,
-#pdContent .pd-list {
-  max-width: 70ch;
-}
-
-/* Headings */
-.pd-section-title {
-  font-size: 1.45rem;
-  font-weight: 800;
-  margin: 2.4rem 0 0.85rem;
-  color: #0f172a;
+/* Section headings: serif, bright */
+.pd-body .pd-section-title{
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 700;
+  font-size: 1.8rem;
   letter-spacing: -0.01em;
+  color: rgba(255,255,255,0.92);
+  margin: 2.25rem 0 0.85rem;
 }
 
-/* First section heading smaller top margin */
-#pdContent .pd-section-title:first-of-type {
-  margin-top: 1.25rem;
+/* Paragraphs: light grey, comfy leading */
+.pd-body .pd-content,
+.pd-body p{
+  font-size: 1.05rem;
+  line-height: 1.95;
+  color: rgba(255,255,255,0.72);
 }
 
-/* Paragraph blocks */
-.pd-content,
-#pdContent p {
+/* Lists: same tone + spacing */
+.pd-body .pd-list{
+  margin: 0.75rem 0 1.5rem;
+  padding-left: 1.6rem;
+}
+
+.pd-body .pd-list li{
+  margin: 0.55rem 0;
   line-height: 1.85;
-  font-size: 1.02rem;
-  color: rgba(15, 23, 42, 0.78);
+  color: rgba(255,255,255,0.72);
 }
 
-/* ===== MAIN IMAGE (big + clean) ===== */
+/* ===== MAIN IMAGE (big + “exact length”) ===== */
 .pd-media-main img,
-#pdImage {
+#pdImage{
   width: 100%;
-  height: clamp(280px, 38vw, 540px);
+  height: clamp(320px, 42vw, 620px);
   object-fit: cover;
-  border-radius: 18px;
-  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+  border-radius: 22px;
   display: block;
-  margin: 0 0 1.25rem;
-}
-
-/* ===== LISTS ===== */
-.pd-list {
-  margin: 0.75rem 0 0.25rem;
-  padding-left: 1.4rem;
-}
-
-.pd-list li {
-  margin-bottom: 0.55rem;
-  line-height: 1.8;
-  color: rgba(15, 23, 42, 0.78);
-}
-
-/* ===== GALLERY ===== */
-.pd-gallery {
-  margin-top: 1.2rem;
-  display: flex;
-  gap: 0.85rem;
-  flex-wrap: wrap;
-}
-
-.pd-gallery img {
-  width: 160px;
-  height: 105px;
-  object-fit: cover;
-  border-radius: 14px;
-  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.18);
+  margin: 0 0 1.75rem;
+  box-shadow: 0 28px 80px rgba(0,0,0,0.55);
 }
 
 /* ===== VIDEO ===== */
-.pd-video {
+.pd-video{
   margin-top: 1.75rem;
+  max-width: 74ch;
 }
 
-.pd-video-frame {
+.pd-video-frame{
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
   border-radius: 18px;
-  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.22);
+  box-shadow: 0 22px 60px rgba(0,0,0,0.55);
 }
 
-.pd-video-frame iframe {
+.pd-video-frame iframe{
   position: absolute;
   inset: 0;
   width: 100%;
@@ -213,27 +171,50 @@
   border: 0;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
-  .pd-body .projects-wrap {
+/* ===== GALLERY ===== */
+.pd-gallery{
+  margin-top: 1.2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  max-width: 74ch;
+}
+
+.pd-gallery img{
+  width: 220px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 18px 55px rgba(0,0,0,0.55);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px){
+  .pd-body{
+    padding: 3rem 0 4rem;
+  }
+
+  .pd-body .projects-wrap{
     padding: 0 18px;
   }
 
-  #pdContent {
-    padding: 1.4rem 1.2rem;
-    border-radius: 18px;
+  #pdContent{
+    max-width: 100%;
   }
 
-  .pd-title {
-    font-size: 1.7rem;
+  .pd-body .pd-section-title{
+    font-size: 1.45rem;
+    margin: 1.9rem 0 0.7rem;
   }
 
-  .pd-section-title {
-    font-size: 1.25rem;
+  .pd-body .pd-content,
+  .pd-body p{
+    font-size: 1rem;
+    line-height: 1.85;
   }
 
-  .pd-content,
-  #pdContent p {
-    font-size: 0.98rem;
+  .pd-gallery img{
+    width: 180px;
+    height: 125px;
   }
 }
