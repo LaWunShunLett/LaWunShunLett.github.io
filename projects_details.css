@@ -86,21 +86,18 @@
   color: #6b7280;
 }
 
-.pd-body .projects-wrap {
-  display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 4fr);
-  gap: 2.5rem;
-  padding-top: 1.5rem;
-}
 
 @media (max-width: 900px) {
   .pd-body .projects-wrap {
     grid-template-columns: minmax(0, 1fr);
   }
 }
-
-.pd-media-main img {
+/* Big hero image with exact height */
+.pd-media-main img,
+#pdImage{
   width: 100%;
+  height: 520px;          /* “exact length” — adjust to what you want */
+  object-fit: cover;      /* fills the box without distortion */
   border-radius: 1.25rem;
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.35);
   display: block;
@@ -183,12 +180,24 @@
 
 /* ===== Only body should be centered, hero stays normal ===== */
 /* Remove/avoid centering EVERYTHING if you don't want hero affected */
+/* DETAILS BODY: 1 centered column */
 .pd-body .projects-wrap{
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px;
+
+  display: block;        /* stop the 2-column grid */
+  padding-top: 1.5rem;
 }
 
 /* (Optional) If you keep this, it affects hero too — delete it if you don't want that: */
 /* .project-detail-page .projects-wrap{ max-width:1100px; margin:0 auto; padding:0 24px; } */
 
+.pd-body{
+  text-align: center;
+}
+
+.pd-list{
+  display: inline-block;   /* keep bullets nicely centered as a block */
+  text-align: left;        /* but bullet text stays readable */
+}
