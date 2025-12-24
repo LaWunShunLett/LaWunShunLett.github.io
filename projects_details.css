@@ -1,15 +1,25 @@
+/* =========================
+   Project Details Page CSS
+   ========================= */
+
 .project-detail-page {
   padding-bottom: 4rem;
 }
-/* Back button – pill style */
-/* Text-only look by default */
+
+/* ===== HERO / TOP AREA ===== */
+
+.pd-hero {
+  padding: 3rem 0 1.5rem;
+}
+
+/* Back button – text by default, turns into pill on hover */
 .pd-back {
   border: none;
   background: transparent;
   color: #111827;
   font-size: 0.9rem;
   font-weight: 500;
-  padding: 0;                 /* no pill padding */
+  padding: 0;
   cursor: pointer;
   border-radius: 999px;
   transition:
@@ -19,18 +29,38 @@
     padding 0.18s ease;
 }
 
-/* On hover, grow into a pill like your Home example */
 .pd-back:hover {
   padding: 0.4rem 1rem;
   background: #e5edff;
   border: 1px solid #c7d2fe;
   box-shadow: 0 4px 10px rgba(148, 163, 184, 0.45);
 }
+
+.pd-back:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(148, 163, 184, 0.45);
+}
+
+.pd-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.pd-meta {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+/* Tags */
 .pd-tags {
   margin-top: 0.9rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+
+  /* Default (body tags if any) can be centered */
   justify-content: center;
 }
 
@@ -46,63 +76,93 @@
   border: 1px solid #d4ddff;
 }
 
-.pd-back:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 8px rgba(148, 163, 184, 0.45);
+/* IMPORTANT: Hero should NOT be centered */
+.pd-hero .projects-wrap {
+  text-align: left;
 }
 
-.pd-hero {
-  padding: 3rem 0 1.5rem;
+.pd-hero .pd-tags {
+  justify-content: flex-start;
 }
 
-.pd-breadcrumb {
-  font-size: 0.9rem;
+/* ===== LOADING (for pdLoading/pdContent approach) ===== */
+.is-hidden {
+  display: none;
+}
+
+.pd-loading {
+  padding: 1.25rem 0;
   color: #6b7280;
-  margin-bottom: 0.75rem;
-}
-
-.pd-back-link {
-  border: none;
-  background: transparent;
-  color: #2563eb;
-  font-weight: 500;
   font-size: 0.95rem;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0;
 }
 
-.pd-title {
-  font-size: 2rem;
-  font-weight: 800;
-  margin-top: 1rem;
-  margin-bottom: 0.4rem;
-}
+/* ===== BODY LAYOUT (CENTERED CONTAINER) ===== */
 
-.pd-meta {
-  font-size: 0.95rem;
-  color: #6b7280;
-}
+/* Center the body container on the page */
+.pd-body .projects-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  padding-top: 1.5rem;
 
-
-@media (max-width: 900px) {
-  .pd-body .projects-wrap {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-/* Big hero image with exact height */
-.pd-media-main img,
-#pdImage{
-  width: 100%;
-  height: 520px;          /* “exact length” — adjust to what you want */
-  object-fit: cover;      /* fills the box without distortion */
-  border-radius: 1.25rem;
-  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.35);
+  /* One-column layout */
   display: block;
 }
 
+/* “SafeStride-style”: center the block but keep text left aligned + nice line length */
+.pd-body {
+  text-align: left;
+}
+
+/* Headings */
+.pd-section-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 2.25rem 0 0.75rem;
+  color: #111827;
+
+  /* readable width */
+  max-width: 72ch;
+}
+
+/* Paragraph blocks */
+.pd-content,
+.pd-body p {
+  line-height: 1.75;
+  color: #111827;
+  max-width: 72ch;
+}
+
+/* ===== MAIN IMAGE (BIG + CONSISTENT HEIGHT) ===== */
+.pd-media-main img,
+#pdImage {
+  width: 100%;
+
+  /* “Exact length” but responsive (big on desktop, smaller on mobile) */
+  height: clamp(260px, 40vw, 520px);
+
+  object-fit: cover;
+  border-radius: 1.25rem;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.35);
+  display: block;
+
+  /* Space under image */
+  margin: 0 0 1rem;
+}
+
+/* ===== LISTS ===== */
+.pd-list {
+  max-width: 72ch;
+  margin: 0.5rem 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.pd-list li {
+  margin-bottom: 0.35rem;
+  line-height: 1.7;
+}
+
+/* ===== VIDEO ===== */
 .pd-video {
   margin-top: 1.5rem;
 }
@@ -124,6 +184,7 @@
   border: 0;
 }
 
+/* ===== GALLERY ===== */
 .pd-gallery {
   margin-top: 1.5rem;
   display: flex;
@@ -132,72 +193,25 @@
 }
 
 .pd-gallery img {
-  width: 120px;
-  height: 80px;
+  width: 140px;
+  height: 90px;
   object-fit: cover;
   border-radius: 0.75rem;
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
 }
 
-.pd-section-title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin: 1.5rem 0 0.5rem;
-}
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .pd-body .projects-wrap {
+    padding: 0 18px;
+    padding-top: 1.25rem;
+  }
 
-.pd-content p {
-  line-height: 1.6;
-  color: #111827;
-}
+  .pd-title {
+    font-size: 1.7rem;
+  }
 
-.pd-list {
-  margin: 0.5rem 0 1rem;
-  padding-left: 1.25rem;
-}
-
-.pd-list li {
-  margin-bottom: 0.3rem;
-}
-
-/* Keep hero NOT centered */
-.pd-hero .projects-wrap{
-  text-align: left;
-}
-
-.pd-hero .pd-tags{
-  justify-content: flex-start;
-}
-/* ===== Required for pdLoading/pdContent (JS toggles this) ===== */
-.is-hidden {
-  display: none;
-}
-
-.pd-loading {
-  padding: 1.25rem 0;
-  color: #6b7280;
-  font-size: 0.95rem;
-}
-
-/* ===== Only body should be centered, hero stays normal ===== */
-/* Remove/avoid centering EVERYTHING if you don't want hero affected */
-/* DETAILS BODY: 1 centered column */
-.pd-body .projects-wrap{
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px;
-
-  display: block;        /* stop the 2-column grid */
-  padding-top: 1.5rem;
-}
-
-/* (Optional) If you keep this, it affects hero too — delete it if you don't want that: */
-/* .project-detail-page .projects-wrap{ max-width:1100px; margin:0 auto; padding:0 24px; } */
-
-.pd-body{
-  text-align: center;
-}
-
-.pd-list{
-  display: inline-block;   /* keep bullets nicely centered as a block */
-  text-align: left;        /* but bullet text stays readable */
+  .pd-section-title {
+    font-size: 1.2rem;
+  }
 }
