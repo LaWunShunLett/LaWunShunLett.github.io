@@ -1,75 +1,92 @@
 [
-{
-  "id": "smart-pill-dispenser",
-  "title": "Smart Pill Dispenser — STM32-Based Medication Management System",
-  "year": "2024",
-  "role": "Embedded Firmware Developer | Microcontroller Systems",
+  {
+    "id": "smart-pill-dispenser",
+    "title": "Smart Pill Dispenser — STM32-Based Medication Management System",
+    "year": "2024",
+    "role": "Embedded Firmware Developer | Microcontroller Systems",
 
-  "summary": "A smart pill dispenser that helps patients take the correct medication at the right time, built on an STM32 microcontroller with sensors and motors that automatically dispense pills according to a timing schedule.",
+    "overview": "An STM32-based smart pill dispenser for home-care medication routines. After one-time setup, it automatically dispenses at scheduled times and helps caregivers track whether dispensing happened.",
+    "overviewPoints": [
+      "One-time schedule setup (supports multiple dispensing times per day).",
+      "RFID-controlled access for authorised users.",
+      "RTC timekeeping for accurate scheduled dispensing.",
+      "Servo-driven dispensing with a 3D-printed guiding mechanism.",
+      "IR/PIR sensing to confirm dispensing activity and detect presence.",
+      "OLED + keypad for setup and status."
+    ],
 
-  "problem": "Patients, especially elderly users, can miss or double-take medication doses when they rely on manual pill organisers or memory alone.",
+    "summary": "A smart pill dispenser built on an STM32 that helps patients take the correct medication on time. It automates dispensing based on a schedule and makes it easier for caregivers to manage daily medication routines.",
 
-  "solution": "The dispenser authenticates staff via RFID, schedules doses using an RTC, and uses a servo-driven mechanism plus sensors to release and verify the correct medication at each scheduled time.",
+    "problem": "Some patients (especially elderly users) may forget to take medication or accidentally take it twice when relying on memory or manual pill boxes. In home-care settings, caregivers can also misread the schedule or give a dose at the wrong time, especially when managing multiple medications and busy routines.",
 
-  "targetUsers": "Elderly patients on multiple medications and caregivers who need a reliable way to track adherence.",
+    "solution": "The device uses RFID for authorised access, an RTC to keep time and run scheduled dispensing, and a servo mechanism with sensors to dispense pills and confirm activity at the scheduled time.",
 
-  "impact": "Improved dosing reliability during prototype tests and gave caregivers clearer visibility into whether doses were dispensed and retrieved on time.",
+    "targetUsers": "Elderly patients taking multiple medications, and caregivers/healthcare workers who need a simple way to support medication adherence.",
 
-  "tech": "STM32, Embedded C++, RFID, RTC, IR Sensor, PIR Sensor, Servo Motor, OLED Display, Keypad",
+    "impact": "The prototype improved consistency of scheduled dispensing during testing and helped caregivers check whether dispensing happened as planned.",
 
-  "responsibilities": [
-    "Developed the C++ firmware for the STM32, integrating sensors, motors, and system control logic.",
-    "Implemented RFID access control, RTC-based scheduling, IR/PIR detection, and servo actuation modules.",
-    "Configured STM32 peripherals, sensor inputs, interrupts, and timing functions.",
-    "Performed end-to-end troubleshooting of sensor readings, motor movement, timing accuracy, and firmware behaviour.",
-    "Collaborated with teammates to validate system operation across hardware and firmware components."
-  ],
+    "tech": "STM32, Embedded C++, RFID, RTC, IR Sensor, PIR Sensor, Servo Motor, OLED Display, Keypad",
 
-  "features": [
-    "RFID authentication for secure staff access.",
-    "Real-Time Clock (RTC) for scheduled dispensing.",
-    "IR and motion sensors to verify pill release and detect user presence.",
-    "Servo-based pill dispensing mechanism.",
-    "OLED display with keypad for configuration and status."
-  ],
+    "responsibilities": [
+      "Developed STM32 firmware in C++ to control the full system.",
+      "Integrated RFID authentication, RTC scheduling, sensors (IR/PIR), and servo motor control.",
+      "Configured STM32 peripherals such as GPIO, timers, and interrupts for real-time behaviour.",
+      "Troubleshot firmware logic and electrical wire connections (power, signal, grounding) to stabilise sensor readings and servo operation.",
+      "Worked with teammates to test and verify the prototype end-to-end."
+    ],
 
-  "learnings": [
-    "Building an embedded system from concept to working prototype.",
-    "Writing embedded C++ for STM32 and integrating multiple sensors and actuators.",
-    "Configuring microcontroller peripherals and interrupts for real-time behaviour.",
-    "Debugging timing faults, signal noise, and mechanical alignment issues.",
-    "Testing and validating a complete embedded hardware–software system."
-  ],
+    "features": [
+      "RFID authentication for controlled access.",
+      "RTC-based scheduling (one-time setup) for automatic dispensing at configured times.",
+      "3D-printed housing and custom dispensing parts to guide pills and support the mechanism.",
+      "Servo-driven dispensing mechanism to release pills on schedule.",
+      "Sensors (IR/PIR) to detect dispensing activity and user presence.",
+      "OLED + keypad for setup, status display, and on-device configuration."
+    ],
 
-  "heroImage": "./images/SmartPill.jpeg",
-  "heroAlt": "Smart pill dispenser prototype with STM32 and pill slots",
-  "gallery": ["./images/SmartPill.jpeg"]
-},
+    "learnings": [
+      "How to build an embedded prototype from concept to working system (hardware + firmware + testing).",
+      "Practical STM32 embedded C++ development with multiple sensors and actuators.",
+      "Designing and assembling a dispensing mechanism (including 3D-printed parts) and aligning it for reliable operation.",
+      "Using timers/interrupts (and RTC scheduling) to support real-time, automatic operation.",
+      "Troubleshooting both embedded software and hardware issues (wiring connections, timing, sensor noise, mechanical alignment).",
+      "Testing the full system to verify real-world behaviour and reliability."
+    ],
+
+    "sourceCode": "https://github.com/YOUR_USERNAME/YOUR_REPO",
+    "heroImage": "./images/SmartPill.jpeg",
+    "heroAlt": "Smart pill dispenser prototype with STM32 and pill slots"
+  },
+
   {
     "id": "supermarket-self-checkout",
     "title": "Supermarket Self-Checkout System — IoT Kiosk + Web Platform",
     "year": "2025",
     "role": "Product Operations, DevOps & System Troubleshooting",
+
     "summary": "A Raspberry Pi–powered self-checkout kiosk paired with a full web app for cart management and payment.",
     "tech": "Python Backend, SQL / MariaDB, Raspberry Pi, Docker, REST APIs, Web Frontend",
+
     "heroImage": "./images/SuperMarket.jpg",
     "heroAlt": "Supermarket self-checkout kiosk with keypad and LCD",
     "youtube": "https://www.youtube.com/embed/YYYYYYYYYYY",
+
     "problem": "Conventional manned checkout counters create queues and require more staff during peak hours.",
     "solution": "Built a kiosk that lets customers scan items, manage their cart locally, then sync to a web backend for payment and receipt.",
+
     "responsibilities": [
       "Maintained the Dockerised backend and database.",
       "Monitored Raspberry Pi kiosk health and performed on-site troubleshooting.",
       "Coordinated integration testing between kiosk and web interfaces."
     ],
+
     "features": [
       "Item scanning and cart management on the kiosk.",
       "Persistent cart synced to a web application.",
       "Containerised backend for easy deployment and rollback."
     ],
-    "gallery": [
-      "./images/SuperMarket.jpg"
-    ]
+
+    "gallery": ["./images/SuperMarket.jpg"],
+    "sourceCode": "https://github.com/LaWunShunLett/LaWunShunLett.github.io"
   }
-  
 ]

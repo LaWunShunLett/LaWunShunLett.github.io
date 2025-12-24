@@ -66,11 +66,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   let tags = detail.tags || base.tags || [];
   if (role) tags = [role, ...tags];
 
-  const setText = (id, value) => {
-    const el = document.getElementById(id);
+  const setText = (elId, value) => {
+    const el = document.getElementById(elId);
     if (el) el.textContent = value || "";
   };
 
+  // Title + meta
   setText("pdTitle", title);
 
   const metaEl = document.getElementById("pdMeta");
@@ -88,10 +89,23 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
+  // Main text fields
+  setText("pdOverview", detail.overview || "");
   setText("pdSummary", summary);
   setText("pdProblem", detail.problem || "");
   setText("pdSolution", detail.solution || "");
   setText("pdTech", tech);
+
+  // Overview points
+  const ovUl = document.getElementById("pdOverviewPoints");
+  if (ovUl) {
+    ovUl.innerHTML = "";
+    (detail.overviewPoints || []).forEach((item) => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      ovUl.appendChild(li);
+    });
+  }
 
   // Image
   const imgEl = document.getElementById("pdImage");
@@ -154,6 +168,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
+  // Source code button
+  const actions = document.getElementById("pdActions");
+  if (actions) {
+    actions.innerHTML = "";
+    const url = detail.sourceCode || base.sourceCode;
+    if (url) {
+      const a = document.createElement("a");
+      a.href = url;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.className = "pd-source-btn";
+      a.textContent = "Source code";
+      actions.appendChild(a);
+    }
+  }
+
   // Back button
   const backBtn = document.getElementById("pdBack");
   if (backBtn) {
@@ -162,5 +192,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
+  // Finally show the page
   showContent();
 });
