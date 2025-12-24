@@ -12,7 +12,7 @@
   "tags": ["Embedded System", "Microcontroller", "Sensors & Actuators", "Prototype"]
 },
 {
-  "title": "Supermarket Self-Checkout System — IoT Kiosk + Web Platform",
+  "title": "supermarket-self-checkout",
   "year": "2025",
   "role": "Product Operations, DevOps & System Troubleshooting",
   "desc": "A team-based supermarket self-checkout system that combines a Raspberry Pi–powered kiosk with a full web application, allowing customers to scan items, manage their cart, and complete payment in-store or online.",
