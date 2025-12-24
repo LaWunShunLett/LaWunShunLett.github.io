@@ -12,7 +12,8 @@
   "tags": ["Embedded System", "Microcontroller", "Sensors & Actuators", "Prototype"]
 },
 {
-  "title": "supermarket-self-checkout",
+  "id":"smart-pill-dispenser",
+  "title": "Supermarket Self-Checkout",
   "year": "2025",
   "role": "Product Operations, DevOps & System Troubleshooting",
   "desc": "A team-based supermarket self-checkout system that combines a Raspberry Pi–powered kiosk with a full web application, allowing customers to scan items, manage their cart, and complete payment in-store or online.",
