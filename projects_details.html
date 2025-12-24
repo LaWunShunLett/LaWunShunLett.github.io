@@ -14,73 +14,76 @@
 </head>
 
 <body class="preload">
-  <!-- Header (keep your own if you want) -->
   <header class="topbar">
     <div class="topbar-inner">
-      <div class="logo">LA WUN SHUN LETT</div>
+      <div class="logo anim anim-pop">LA WUN SHUN LETT</div>
+
       <nav class="nav desktop-nav" aria-label="Primary navigation">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="about.html">About Me</a>
-        <a href="contact.html">Contact</a>
+        <a class="anim anim-pop delay-1" href="index.html">Home</a>
+        <a class="anim anim-pop delay-2" href="projects.html">Projects</a>
+        <a class="anim anim-pop delay-3" href="about.html">About Me</a>
+        <a class="anim anim-pop delay-4" href="contact.html">Contact</a>
       </nav>
+
+      <button class="hamburger-mobile" id="hamburger"
+        aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav" type="button">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About Me</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
   <main class="project-detail-page">
-    <!-- HERO -->
-    <section class="pd-hero">
+    <!-- HERO (not centered) -->
+    <section class="pd-hero anim anim-up delay-1">
       <div class="projects-wrap">
         <button class="pd-back" type="button" id="pdBack">← Back to Projects</button>
-
-        <h1 class="pd-title" id="pdTitle"></h1>
+        <h1 class="pd-title" id="pdTitle">Project</h1>
         <p class="pd-meta" id="pdMeta"></p>
         <div class="pd-tags" id="pdTags"></div>
       </div>
     </section>
 
-    <!-- LOADING -->
-    <section class="pd-section">
+    <!-- BODY -->
+    <section class="pd-body">
       <div class="projects-wrap">
+        <!-- Loading -->
         <div id="pdLoading" class="pd-loading">Loading…</div>
 
-        <!-- EVERYTHING below is hidden until data loads -->
+        <!-- Hidden until JS finishes -->
         <div id="pdContent" class="is-hidden">
-          <!-- IMAGE -->
-          <div class="pd-media">
-            <img id="pdImage" class="pd-image" src="" alt="" />
+          <div class="pd-media-main">
+            <img id="pdImage" src="" alt="" />
           </div>
 
-          <!-- SUMMARY -->
-          <h2 class="pd-h2">Summary</h2>
-          <p id="pdSummary"></p>
+          <h2 class="pd-section-title">Summary</h2>
+          <p id="pdSummary" class="pd-content"></p>
 
-          <!-- PROBLEM -->
-          <h2 class="pd-h2">Problem</h2>
-          <p id="pdProblem"></p>
+          <h2 class="pd-section-title">Problem</h2>
+          <p id="pdProblem" class="pd-content"></p>
 
-          <!-- SOLUTION -->
-          <h2 class="pd-h2">Solution</h2>
-          <p id="pdSolution"></p>
+          <h2 class="pd-section-title">Solution</h2>
+          <p id="pdSolution" class="pd-content"></p>
 
-          <!-- TECH -->
-          <h2 class="pd-h2">Tech</h2>
-          <p id="pdTech"></p>
+          <h2 class="pd-section-title">Tech</h2>
+          <p id="pdTech" class="pd-content"></p>
 
-          <!-- RESPONSIBILITIES -->
-          <h2 class="pd-h2">Responsibilities</h2>
+          <h2 class="pd-section-title">Responsibilities</h2>
           <ul id="pdResponsibilities" class="pd-list"></ul>
 
-          <!-- FEATURES -->
-          <h2 class="pd-h2">Features</h2>
+          <h2 class="pd-section-title">Features</h2>
           <ul id="pdFeatures" class="pd-list"></ul>
 
-          <!-- GALLERY -->
-          <h2 class="pd-h2">Gallery</h2>
+          <h2 class="pd-section-title">Gallery</h2>
           <div id="pdGallery" class="pd-gallery"></div>
 
-          <!-- VIDEO -->
-          <div id="pdVideoContainer"></div>
+          <div id="pdVideoContainer" class="pd-video"></div>
         </div>
       </div>
     </section>

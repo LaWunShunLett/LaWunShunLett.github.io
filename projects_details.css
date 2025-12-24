@@ -161,18 +161,34 @@
 .pd-list li {
   margin-bottom: 0.3rem;
 }
-/* Center ALL detail sections container */
-.project-detail-page .projects-wrap{
+
+/* Keep hero NOT centered */
+.pd-hero .projects-wrap{
+  text-align: left;
+}
+
+.pd-hero .pd-tags{
+  justify-content: flex-start;
+}
+/* ===== Required for pdLoading/pdContent (JS toggles this) ===== */
+.is-hidden {
+  display: none;
+}
+
+.pd-loading {
+  padding: 1.25rem 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+/* ===== Only body should be centered, hero stays normal ===== */
+/* Remove/avoid centering EVERYTHING if you don't want hero affected */
+.pd-body .projects-wrap{
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px;
 }
-/* Center text in hero (title/meta/tags) */
-.pd-hero .projects-wrap{
-  text-align: center;
-}
 
-/* Center the tags row because it's flex */
-.pd-tags{
-  justify-content: center;
-}
+/* (Optional) If you keep this, it affects hero too — delete it if you don't want that: */
+/* .project-detail-page .projects-wrap{ max-width:1100px; margin:0 auto; padding:0 24px; } */
+
