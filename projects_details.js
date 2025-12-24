@@ -23,39 +23,50 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  const base = projects.find(p => p.id === id) || {};
+  const base   = projects.find(p => p.id === id) || {};
   const detail = details.find(d => d.id === id) || {};
 
-  const title = detail.title || base.title || "Project";
-  const year = detail.year || base.year || "";
-  const role = detail.role || base.role || "";
-  const summary = detail.summary || base.desc || "";
-  const tech = detail.tech || base.tech || "";
+  const title     = detail.title || base.title || "Project";
+  const year      = detail.year  || base.year  || "";
+  const role      = detail.role  || base.role  || "";
+  const summary   = detail.summary || base.desc || "";
+  const tech      = detail.tech    || base.tech || "";
   const heroImage = detail.heroImage || base.image || "";
-  const heroAlt = detail.heroAlt || base.imageAlt || title;
-  const tags = detail.tags || base.tags || [];
+  const heroAlt   = detail.heroAlt   || base.imageAlt || title;
 
-  const titleEl = document.getElementById("pdTitle");
-  const metaEl = document.getElementById("pdMeta");
+  // tags from JSON (base or details)
+  let tags = detail.tags || base.tags || [];
+
+  // include role as first tag
+  if (role) {
+    tags = [role, ...tags];
+  }
+
+  const titleEl   = document.getElementById("pdTitle");
+  const metaEl    = document.getElementById("pdMeta");
   const summaryEl = document.getElementById("pdSummary");
   const problemEl = document.getElementById("pdProblem");
   const solutionEl = document.getElementById("pdSolution");
-  const techEl = document.getElementById("pdTech");
-  const imgEl = document.getElementById("pdImage");
+  const techEl    = document.getElementById("pdTech");
+  const imgEl     = document.getElementById("pdImage");
 
   if (titleEl) titleEl.textContent = title;
-  if (metaEl) metaEl.textContent =
-    `${year}${year && role ? " · " : ""}${role}`;
-    const tagsWrap = document.getElementById("pdTags");
-if (tagsWrap) {
-  tagsWrap.innerHTML = "";
-  tags.forEach(t => {
-    const span = document.createElement("span");
-    span.className = "pd-tag";
-    span.textContent = t;
-    tagsWrap.appendChild(span);
-  });
-}
+  if (metaEl) {
+    metaEl.textContent = `${year}${year && role ? " · " : ""}${role}`;
+  }
+
+  // render tags row
+  const tagsWrap = document.getElementById("pdTags");
+  if (tagsWrap) {
+    tagsWrap.innerHTML = "";
+    tags.forEach(t => {
+      const span = document.createElement("span");
+      span.className = "pd-tag";
+      span.textContent = t;
+      tagsWrap.appendChild(span);
+    });
+  }
+
   if (summaryEl) summaryEl.textContent = summary;
   if (problemEl) problemEl.textContent = detail.problem || "";
   if (solutionEl) solutionEl.textContent = detail.solution || "";
@@ -124,4 +135,3 @@ if (tagsWrap) {
     });
   }
 });
-

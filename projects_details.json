@@ -1,30 +1,50 @@
 [
-  {
-    "id": "smart-pill-dispenser",
-    "title": "Smart Pill Dispenser — STM32-Based Medication Management System",
-    "year": "2024",
-    "role": "Embedded Firmware Developer | Microcontroller Systems",
-    "summary": "A smart pill dispenser that automatically releases the correct medication at scheduled times.",
-    "tech": "STM32, Embedded C++, RFID, RTC, IR Sensor, PIR Sensor, Servo Motor, OLED Display, Keypad",
-    "heroImage": "./images/SmartPill.jpeg",
-    "heroAlt": "Smart pill dispenser prototype with STM32 and pill slots",
-    "youtube": "https://www.youtube.com/embed/XXXXXXXXXXX",
-    "problem": "Patients, especially elderly users, often miss or double-take medication doses when relying on manual pill organisers.",
-    "solution": "The system schedules multiple medication times, authenticates via RFID, and dispenses the correct slot using a servo-driven carousel.",
-    "responsibilities": [
-      "Designed and implemented STM32 firmware for scheduling, timing, and servo control.",
-      "Integrated RFID authentication and sensor inputs for safe dispensing.",
-      "Debugged hardware issues and validated timing accuracy over multi-day runs."
-    ],
-    "features": [
-      "Multi-slot pill carousel with scheduled dispensing.",
-      "OLED UI with keypad-based configuration.",
-      "Sensor checks for door open/close and pill retrieval."
-    ],
-    "gallery": [
-      "./images/SmartPill.jpeg"
-    ]
-  },
+{
+  "id": "smart-pill-dispenser",
+  "title": "Smart Pill Dispenser — STM32-Based Medication Management System",
+  "year": "2024",
+  "role": "Embedded Firmware Developer | Microcontroller Systems",
+
+  "summary": "A smart pill dispenser that helps patients take the correct medication at the right time, built on an STM32 microcontroller with sensors and motors that automatically dispense pills according to a timing schedule.",
+
+  "problem": "Patients, especially elderly users, can miss or double-take medication doses when they rely on manual pill organisers or memory alone.",
+
+  "solution": "The dispenser authenticates staff via RFID, schedules doses using an RTC, and uses a servo-driven mechanism plus sensors to release and verify the correct medication at each scheduled time.",
+
+  "targetUsers": "Elderly patients on multiple medications and caregivers who need a reliable way to track adherence.",
+
+  "impact": "Improved dosing reliability during prototype tests and gave caregivers clearer visibility into whether doses were dispensed and retrieved on time.",
+
+  "tech": "STM32, Embedded C++, RFID, RTC, IR Sensor, PIR Sensor, Servo Motor, OLED Display, Keypad",
+
+  "responsibilities": [
+    "Developed the C++ firmware for the STM32, integrating sensors, motors, and system control logic.",
+    "Implemented RFID access control, RTC-based scheduling, IR/PIR detection, and servo actuation modules.",
+    "Configured STM32 peripherals, sensor inputs, interrupts, and timing functions.",
+    "Performed end-to-end troubleshooting of sensor readings, motor movement, timing accuracy, and firmware behaviour.",
+    "Collaborated with teammates to validate system operation across hardware and firmware components."
+  ],
+
+  "features": [
+    "RFID authentication for secure staff access.",
+    "Real-Time Clock (RTC) for scheduled dispensing.",
+    "IR and motion sensors to verify pill release and detect user presence.",
+    "Servo-based pill dispensing mechanism.",
+    "OLED display with keypad for configuration and status."
+  ],
+
+  "learnings": [
+    "Building an embedded system from concept to working prototype.",
+    "Writing embedded C++ for STM32 and integrating multiple sensors and actuators.",
+    "Configuring microcontroller peripherals and interrupts for real-time behaviour.",
+    "Debugging timing faults, signal noise, and mechanical alignment issues.",
+    "Testing and validating a complete embedded hardware–software system."
+  ],
+
+  "heroImage": "./images/SmartPill.jpeg",
+  "heroAlt": "Smart pill dispenser prototype with STM32 and pill slots",
+  "gallery": ["./images/SmartPill.jpeg"]
+},
   {
     "id": "supermarket-self-checkout",
     "title": "Supermarket Self-Checkout System — IoT Kiosk + Web Platform",
@@ -51,4 +71,5 @@
       "./images/SuperMarket.jpg"
     ]
   }
+  
 ]
