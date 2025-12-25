@@ -1,83 +1,98 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Details</title>
-  <link rel="stylesheet" href="./projects_details.css" />
-  <script defer src="./scripts.js"></script>
-  <script defer src="./projects_details.js"></script>
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project Details</title>
 
-<body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="logo">LA WUN SHUN LETT</div>
+    <!-- Load the correct stylesheet filename (underscore) -->
+    <link rel="stylesheet" href="./projects_details.css" />
 
-      <nav class="desktop-nav" aria-label="Primary navigation">
+    <!-- Shared + page scripts (underscore) -->
+    <script defer src="./scripts.js"></script>
+    <script defer src="./projects_details.js"></script>
+  </head>
+
+  <!-- Match projects.html behavior: start in preload -->
+  <body class="preload">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="logo">LA WUN SHUN LETT</div>
+
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="about.html">About Me</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <button
+          class="hamburger-mobile"
+          id="hamburger"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobileNav"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
         <a href="about.html">About Me</a>
         <a href="contact.html">Contact</a>
       </nav>
+    </header>
 
-      <button class="hamburger-mobile" id="hamburger" type="button"
-        aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+    <main class="project-detail-page">
+      <section class="pd-hero">
+        <div class="wrap">
+          <button class="pd-back" type="button" id="pdBack">← Back to Projects</button>
 
-    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About Me</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+          <!-- Start neutral so it doesn’t flash “Project” then swap -->
+          <h1 class="pd-title" id="pdTitle">Loading…</h1>
+          <p class="pd-meta" id="pdMeta"></p>
 
-  <main class="project-detail-page">
-    <section class="pd-hero">
-      <div class="wrap">
-        <button class="pd-back" type="button" id="pdBack">← Back to Projects</button>
-        <h1 class="pd-title" id="pdTitle">Project</h1>
-        <p class="pd-meta" id="pdMeta"></p>
-        <div class="pd-tags" id="pdTags"></div>
-        <img id="pdImage" alt="" />
-      </div>
-    </section>
+          <div class="pd-tags" id="pdTags"></div>
 
-    <section class="pd-body">
-      <div class="wrap">
-        <div id="pdLoading" class="pd-loading">Loading…</div>
-
-        <div id="pdContent" class="pd-content-wrap is-hidden">
-          <h2 class="pd-section-title">Overview</h2>
-          <p id="pdOverview" class="pd-text"></p>
-          <ul id="pdOverviewPoints" class="pd-list"></ul>
-          <div id="pdMediaAfterOverview" class="pd-media-slot"></div>
-
-          <h2 class="pd-section-title">Problem</h2>
-          <p id="pdProblem" class="pd-text"></p>
-          <div id="pdMediaAfterProblem" class="pd-media-slot"></div>
-
-          <h2 class="pd-section-title">Solution</h2>
-          <p id="pdSolution" class="pd-text"></p>
-          <div id="pdMediaAfterSolution" class="pd-media-slot"></div>
-
-          <h2 class="pd-section-title">Technical Details</h2>
-          <p id="pdTech" class="pd-text"></p>
-
-          <h2 class="pd-section-title">My Role</h2>
-          <ul id="pdResponsibilities" class="pd-list"></ul>
-
-          <h2 class="pd-section-title">Features</h2>
-          <ul id="pdFeatures" class="pd-list"></ul>
-          <div id="pdMediaAfterFeatures" class="pd-media-slot"></div>
-
-          <div class="pd-actions" id="pdActions"></div>
+          <img id="pdImage" alt="" />
         </div>
-      </div>
-    </section>
-  </main>
-</body>
+      </section>
+
+      <section class="pd-body">
+        <div class="wrap">
+          <div id="pdLoading" class="pd-loading">Loading…</div>
+
+          <div id="pdContent" class="pd-content-wrap is-hidden">
+            <h2 class="pd-section-title">Overview</h2>
+            <p id="pdOverview" class="pd-text"></p>
+            <ul id="pdOverviewPoints" class="pd-list"></ul>
+            <div id="pdMediaAfterOverview" class="pd-media-slot"></div>
+
+            <h2 class="pd-section-title">Problem</h2>
+            <p id="pdProblem" class="pd-text"></p>
+            <div id="pdMediaAfterProblem" class="pd-media-slot"></div>
+
+            <h2 class="pd-section-title">Solution</h2>
+            <p id="pdSolution" class="pd-text"></p>
+            <div id="pdMediaAfterSolution" class="pd-media-slot"></div>
+
+            <h2 class="pd-section-title">Technical Details</h2>
+            <p id="pdTech" class="pd-text"></p>
+
+            <h2 class="pd-section-title">My Role</h2>
+            <ul id="pdResponsibilities" class="pd-list"></ul>
+
+            <h2 class="pd-section-title">Features</h2>
+            <ul id="pdFeatures" class="pd-list"></ul>
+            <div id="pdMediaAfterFeatures" class="pd-media-slot"></div>
+
+            <div class="pd-actions" id="pdActions"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
