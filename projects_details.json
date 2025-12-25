@@ -40,7 +40,7 @@
       "Worked with teammates to test and verify the prototype end-to-end."
     ],
 
-    "features": "STM32, Embedded C++, RFID, RTC, IR Sensor, PIR Sensor, Servo Motor, OLED Display, Keypad",
+    "features": ["STM32, Embedded C++, RFID, RTC, IR Sensor, PIR Sensor, Servo Motor, OLED Display, Keypad"],
 
     "learnings": [
       "How to build an embedded prototype from concept to working system (hardware + firmware + testing).",
@@ -111,7 +111,7 @@
       "Coordinated integration testing between kiosk and web interfaces."
     ],
 
-    "features": "Python Backend, SQL / MariaDB, Raspberry Pi, Docker, REST APIs, Web Frontend",
+    "features": ["Python Backend, SQL / MariaDB, Raspberry Pi, Docker, REST APIs, Web Frontend"],
     "inlineMedia": [
       {
         "slot": "afterOverview",

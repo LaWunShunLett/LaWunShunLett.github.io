@@ -77,17 +77,32 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (el) el.textContent = value || "";
   };
 
-  const setList = (elId, items) => {
-    const ul = document.getElementById(elId);
-    if (!ul) return;
-    ul.innerHTML = "";
-    (items || []).forEach((item) => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      ul.appendChild(li); // [web:183]
-    });
-  };
+const setList = (elId, items) => {
+  const el = document.getElementById(elId);
+  if (!el) return;
 
+  // normalize to array
+  const arr = Array.isArray(items)
+    ? items
+    : (typeof items === "string"
+        ? items.split(",").map(s => s.trim()).filter(Boolean)
+        : []);
+
+  // If the target element is not UL/OL, write plain text instead
+  const tag = el.tagName.toLowerCase();
+  if (tag !== "ul" && tag !== "ol") {
+    el.textContent = arr.join(", ");
+    return;
+  }
+
+  // Render list
+  el.innerHTML = "";
+  arr.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    el.appendChild(li);
+  });
+};
   // -------- Inline media slots --------
   const SLOT_MAP = {
     afterOverview: "pdMediaAfterOverview",
