@@ -3,10 +3,52 @@ document.addEventListener("DOMContentLoaded", async () => {
   const grid = document.getElementById("projectsGrid");
   const tpl = document.getElementById("projectCardTpl");
 
+  const modal = document.getElementById("projectModal");
+  const pmTitle = document.getElementById("pmTitle");
+  const pmMeta = document.getElementById("pmMeta");
+  const pmDesc = document.getElementById("pmDesc");
+  const pmTech = document.getElementById("pmTech");
+
   if (!grid || !tpl) {
     console.error("Missing #projectsGrid or #projectCardTpl in projects.html");
     return;
   }
+
+  // Close handlers (Back button / any [data-close])
+  const closeInlineDetails = () => {
+    if (!modal) return;
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+
+    // Scroll back to the grid
+    grid.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  document.querySelectorAll("[data-close]").forEach((el) => {
+    el.addEventListener("click", closeInlineDetails);
+  });
+
+  // Esc to close (nice UX)
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal?.classList.contains("is-open")) {
+      closeInlineDetails();
+    }
+  });
+
+  const openInlineDetails = (p) => {
+    if (!modal) return;
+
+    if (pmTitle) pmTitle.textContent = p.title || "";
+    if (pmMeta) pmMeta.textContent = `${p.year || ""}${p.year && p.role ? " · " : ""}${p.role || ""}`;
+    if (pmDesc) pmDesc.textContent = p.desc || "";
+    if (pmTech) pmTech.textContent = Array.isArray(p.tech) ? p.tech.join(", ") : (p.tech || "");
+
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+
+    // Scroll to inline details section
+    modal.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   let projects = [];
   try {
@@ -55,14 +97,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const btn = frag.querySelector(".project-cta");
     if (btn) {
       btn.textContent = "View details →";
-      btn.addEventListener("click", () => {
-        if (!p.id) {
-          console.error("No id for project:", p.title);
-          return;
-        }
-        // IMPORTANT: must match your real file name projects_details.html
-        window.location.href = `projects_details.html?id=${encodeURIComponent(p.id)}`;
-      });
+      btn.addEventListener("click", () => openInlineDetails(p));
     }
 
     grid.appendChild(frag);
@@ -78,7 +113,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const applyFilter = (filter) => {
     const f = (filter || "").toLowerCase();
-    const cards = document.querySelectorAll(".project-card"); // re-query after render
+    const cards = document.querySelectorAll(".project-card");
 
     cards.forEach((card) => {
       const tags = (card.getAttribute("data-tags") || "").toLowerCase();

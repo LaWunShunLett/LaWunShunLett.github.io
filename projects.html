@@ -6,21 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- KEEP your global styles -->
-  <link rel="stylesheet" href="./style.css" />
+  <!-- Global styles -->
+  <link rel="stylesheet" href="style.css" />
 
-  <!-- Projects-only -->
-  <link rel="stylesheet" href="./projects.css" />
-  <script defer src="./projects.js"></script>
+  <!-- Projects-only styles -->
+  <link rel="stylesheet" href="projects.css" />
+
+  <!-- Projects JS -->
+  <script defer src="projects.js"></script>
 </head>
 
 <body class="preload">
-  <script defer src="./scripts.js"></script> 
-  <!-- HEADER (same on all pages) -->
+  <script defer src="scripts.js"></script>
+
+  <!-- HEADER -->
   <header class="topbar">
     <div class="topbar-inner">
       <div class="logo anim anim-pop">LA WUN SHUN LETT</div>
@@ -42,25 +45,24 @@
       >
         <span></span><span></span><span></span>
       </button>
-    </div>
 
-    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About Me</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About Me</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <!-- PAGE -->
   <main class="projects-page">
-
     <!-- HERO -->
     <section class="projects-hero anim anim-up delay-1">
       <div class="projects-wrap">
         <h1 class="projects-title">Projects</h1>
         <p class="projects-sub">
-        A selected collection of projects demonstrating my technical skills and areas of interest.
+          A selected collection of projects demonstrating my technical skills and areas of interest.
         </p>
 
         <div class="projects-filters" role="tablist" aria-label="Project filters">
@@ -68,7 +70,7 @@
           <button class="filter-btn" type="button" data-filter="iot">IoT / AIoT</button>
           <button class="filter-btn" type="button" data-filter="web">Websites</button>
           <button class="filter-btn" type="button" data-filter="mobile">Mobile Applications</button>
-          <button class="filter-btn" type="button" data-filter="microcontroller"> Microcontroller Applications</button>
+          <button class="filter-btn" type="button" data-filter="microcontroller">Microcontroller Applications</button>
         </div>
       </div>
     </section>
@@ -76,55 +78,67 @@
     <!-- GRID -->
     <section class="projects-section anim anim-up delay-2">
       <div class="projects-wrap">
-<div class="projects-grid" id="projectsGrid"></div>
+        <div class="projects-grid" id="projectsGrid"></div>
 
-<template id="projectCardTpl">
-  <article class="project-card" data-tags="">
-    <div class="project-media">
-      <img src="" alt="" loading="lazy">
-    </div>
+        <template id="projectCardTpl">
+          <article class="project-card" data-tags="">
+            <div class="project-media">
+              <img src="" alt="" loading="lazy" />
+            </div>
 
-    <div class="project-body">
-      <h3 class="project-name"></h3>
-      <p class="project-meta"></p>
-      <p class="project-desc"></p>
+            <div class="project-body">
+              <h3 class="project-name"></h3>
+              <p class="project-meta"></p>
+              <p class="project-desc"></p>
 
-      <div class="project-tags"></div>
+              <div class="project-tags"></div>
 
-      <button class="project-cta" type="button"
-        data-title=""
-        data-year=""
-        data-role=""
-        data-desc=""
-        data-tech=""
-      >
-        View details →
-      </button>
-    </div>
-  </article>
-</template>
-
+              <button
+                class="project-cta"
+                type="button"
+                data-title=""
+                data-year=""
+                data-role=""
+                data-desc=""
+                data-tech=""
+              >
+                View details
+              </button>
+            </div>
+          </article>
+        </template>
       </div>
     </section>
 
-    <!-- MODAL -->
-    <div class="project-modal" id="projectModal" aria-hidden="true">
-      <div class="project-modal-backdrop" data-close></div>
+    <!-- INLINE DETAILS (NOT FLOATING) -->
+    <!-- Put this AFTER the grid so it appears like a real page section -->
+    <section id="projectDetailsSection" class="projects-section">
+      <div class="projects-wrap">
+        <div class="project-modal" id="projectModal" aria-hidden="true">
+          <!-- no backdrop (we will hide it with CSS / or you can remove it) -->
+          <div class="project-modal-backdrop" data-close></div>
 
-      <div class="project-modal-card" role="dialog" aria-modal="true" aria-label="Project details">
-        <button class="project-modal-close" type="button" aria-label="Close" data-close>✕</button>
+          <div class="project-modal-card" role="region" aria-label="Project details">
+            <!-- Use this as "Back to Projects" -->
+            <button class="project-modal-close" type="button" data-close>
+              ← Back to Projects
+            </button>
 
-        <h3 class="pm-title" id="pmTitle">Title</h3>
-        <p class="pm-meta" id="pmMeta">Meta</p>
-        <p class="pm-desc" id="pmDesc">Description</p>
+            <h3 class="pm-title" id="pmTitle">Title</h3>
+            <p class="pm-meta" id="pmMeta">Meta</p>
+            <p class="pm-desc" id="pmDesc">Description</p>
 
-        <div class="pm-tech">
-          <div class="pm-tech-label">Tech:</div>
-          <div class="pm-tech-value" id="pmTech">Tech list</div>
+            <div class="pm-tech">
+              <div class="pm-tech-label">Tech</div>
+              <div class="pm-tech-value" id="pmTech">Tech list</div>
+            </div>
+
+            <!-- If you later want the full "projects_details" page layout,
+                 replace the block above with your pd-* markup -->
+          </div>
         </div>
       </div>
-    </div>
-
+    </section>
   </main>
 </body>
 </html>

@@ -320,6 +320,54 @@ header.topbar{
 .desktop-nav { display: flex; }
 .hamburger-mobile { display: none; }
 .mobile-nav { display: none; }
+/* 7) INLINE details (NOT floating, keeps cards strict) */
+.project-modal{
+  position: static;       /* was fixed */
+  inset: auto;
+  display: none;          /* hidden until opened */
+  z-index: auto;          /* no overlay stacking */
+}
+
+.project-modal.is-open{
+  display: block;
+}
+
+/* kill the dark overlay completely */
+.project-modal-backdrop{
+  display: none;
+}
+
+/* turn the “modal card” into a normal page block */
+.project-modal-card{
+  position: static;
+  width: 100%;
+  margin: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Make the close button behave like “Back to Projects” link */
+.project-modal-close{
+  position: static;
+  top: auto;
+  right: auto;
+  border: none;
+  background: transparent;
+  border-radius: 999px;
+  padding: 0;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+/* Optional: give “Back to Projects” the same hover feel as pd-back */
+.project-modal-close:hover{
+  padding: 0.4rem 1rem;
+  background: rgba(37,99,235,.10);
+  box-shadow: 0 4px 10px rgba(148,163,184,.35);
+}
 
 /* Mobile: show hamburger and dropdown menu */
 @media (max-width: 980px){
