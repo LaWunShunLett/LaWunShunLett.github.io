@@ -1,31 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Details | La Wun Shun Lett</title>
-  <!-- <link rel="stylesheet" href="./style.css" /> -->
-  <link rel="stylesheet" href="./projects.css" />
-  <link rel="stylesheet" href="./projects_details.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Details</title>
 
+  <!-- Critical background to avoid white flash -->
+  <style>html{background:#F5F7FB;}</style>
+
+  <link rel="stylesheet" href="./projects_details.css" />
   <script defer src="./scripts.js"></script>
   <script defer src="./projects_details.js"></script>
 </head>
 
-<body class=>
+<body>
   <header class="topbar">
     <div class="topbar-inner">
-      <div class="logo anim anim-pop">LA WUN SHUN LETT</div>
+      <div class="logo">LA WUN SHUN LETT</div>
 
-      <nav class="nav desktop-nav" aria-label="Primary navigation">
-        <a class="anim anim-pop delay-1" href="index.html">Home</a>
-        <a class="anim anim-pop delay-2" href="projects.html">Projects</a>
-        <a class="anim anim-pop delay-3" href="about.html">About Me</a>
-        <a class="anim anim-pop delay-4" href="contact.html">Contact</a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About Me</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
-      <button class="hamburger-mobile" id="hamburger"
-        aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav" type="button">
+      <button class="hamburger-mobile" id="hamburger" type="button"
+        aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -39,56 +40,47 @@
   </header>
 
   <main class="project-detail-page">
-    <!-- HERO (not centered) -->
-    <section class="pd-hero anim anim-up delay-1">
-      <div class="projects-wrap">
+    <section class="pd-hero">
+      <div class="wrap">
         <button class="pd-back" type="button" id="pdBack">← Back to Projects</button>
         <h1 class="pd-title" id="pdTitle">Project</h1>
         <p class="pd-meta" id="pdMeta"></p>
         <div class="pd-tags" id="pdTags"></div>
+        <img id="pdImage" alt="" />
       </div>
     </section>
 
-    <!-- BODY -->
-<section class="pd-body">
-<div class="projects-wrap">
-  <div id="pdLoading" class="pd-loading">Loading…</div>
+    <section class="pd-body">
+      <div class="wrap">
+        <div id="pdLoading" class="pd-loading">Loading…</div>
 
-  <div id="pdContent" class="is-hidden">
-    <div class="pd-media-main">
-      <img id="pdImage" src="" alt="" />
-    </div>
+        <div id="pdContent" class="pd-content-wrap is-hidden">
+          <h2 class="pd-section-title">Overview</h2>
+          <p id="pdOverview" class="pd-text"></p>
+          <ul id="pdOverviewPoints" class="pd-list"></ul>
+          <div id="pdMediaAfterOverview" class="pd-media-slot"></div>
 
-    <h2 class="pd-section-title">Overview</h2>
-    <p id="pdOverview" class="pd-content"></p>
-    <ul id="pdOverviewPoints" class="pd-list"></ul>
-    <div id="pdMediaAfterOverview" class="pd-media-slot"></div>
+          <h2 class="pd-section-title">Problem</h2>
+          <p id="pdProblem" class="pd-text"></p>
+          <div id="pdMediaAfterProblem" class="pd-media-slot"></div>
 
-    <h2 class="pd-section-title">Problem</h2>
-    <p id="pdProblem" class="pd-content"></p>
-    <div id="pdMediaAfterProblem" class="pd-media-slot"></div>
+          <h2 class="pd-section-title">Solution</h2>
+          <p id="pdSolution" class="pd-text"></p>
+          <div id="pdMediaAfterSolution" class="pd-media-slot"></div>
 
-    <h2 class="pd-section-title">Solution</h2>
-    <p id="pdSolution" class="pd-content"></p>
-    <div id="pdMediaAfterSolution" class="pd-media-slot"></div>
+          <h2 class="pd-section-title">Technical Details</h2>
+          <p id="pdTech" class="pd-text"></p>
 
-    <h2 class="pd-section-title">Technical Details</h2>
-    <p id="pdTech" class="pd-content"></p>
-    <div id="pdMediaAfterProblem" class="pd-media-slot"></div>
+          <h2 class="pd-section-title">My Role</h2>
+          <ul id="pdResponsibilities" class="pd-list"></ul>
 
-    <h2 class="pd-section-title">My Roles</h2>
-    <ul id="pdResponsibilities" class="pd-list"></ul>
-    <div id="pdMediaAfterProblem" class="pd-media-slot"></div>
+          <h2 class="pd-section-title">Features</h2>
+          <ul id="pdFeatures" class="pd-list"></ul>
+          <div id="pdMediaAfterFeatures" class="pd-media-slot"></div>
 
-    <h2 class="pd-section-title">Features</h2>
-    <ul id="pdFeatures" class="pd-list"></ul>
-    <div id="pdMediaAfterFeatures" class="pd-media-slot"></div>
-    <div id="pdMediaAfterProblem" class="pd-media-slot"></div>
-
-    <div class="pd-actions" id="pdActions"></div>
-  </div>
-</div>
-</section>
+          <div class="pd-actions" id="pdActions"></div>
+        </div>
+      </div>
     </section>
   </main>
 </body>
