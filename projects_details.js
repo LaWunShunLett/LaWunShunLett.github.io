@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
+  requestAnimationFrame(() => document.body.classList.remove("preload"));
+
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
 
@@ -240,7 +242,3 @@ document.addEventListener("DOMContentLoaded", async () => {
   showContent();
 });
 
-/* Remove preload after everything (including images) finishes loading */
-window.addEventListener("load", () => {
-  document.body.classList.remove("preload");
-});
