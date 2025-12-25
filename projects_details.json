@@ -52,22 +52,8 @@
     ],
         "inlineMedia": [
       {
-        "slot": "afterOverview",
-        "type": "image",
-        "src": "./images/SmartPill_inside.jpg",
-        "alt": "Internal layout and dispensing mechanism",
-        "caption": "Internal layout: dispensing path + key components."
-      },
-      {
-        "slot": "afterProblem",
-        "type": "image",
-        "src": "./images/Pillbox_schedule.jpg",
-        "alt": "Manual pill organiser and schedule",
-        "caption": "Manual schedules can be misread or forgotten."
-      },
-      {
         "slot": "afterSolution",
-        "type": "image",
+        "type": "image",        
         "id": "./images/SmartPilldiagram.jpeg",
         "title": "Smart Pill Dispenser Mechanical Diagram",
         "caption": "Smart Pill Dispenser Mechanical Diagram Operation"
@@ -75,7 +61,7 @@
       {
         "slot": "afterFeatures",
         "type": "image",
-        "id": "./images/SmartPillBlockDiagram.jpeg",
+        "id": "./images/SmartPillBlockDiagram",
         "title": "Smart Pill Dispenser Block Diagram",
         "caption": "Smart Pill Dispenser Block Diagram Operation"
       }
