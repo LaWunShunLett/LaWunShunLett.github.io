@@ -1,42 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Projects Details</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Details</title>
   <link rel="stylesheet" href="./projects_details.css" />
-  <link rel="stylesheet" href="./style.css" />
+  <script defer src="./scripts.js"></script>
+  <script defer src="./projects_details.js"></script>
 </head>
 
-<body class="preload">
-  <script defer src="./projects_details.js"></script>
-  <!-- HEADER -->
+<body>
   <header class="topbar">
     <div class="topbar-inner">
-      <div class="logo anim anim-pop">LA WUN SHUN LETT</div>
+      <div class="logo">LA WUN SHUN LETT</div>
 
-      <!-- Desktop nav -->
-      <nav class="nav desktop-nav" aria-label="Primary navigation">
-        <a class="anim anim-pop delay-1" href="index.html">Home</a>
-        <a class="anim anim-pop delay-2" href="projects.html">Projects</a>
-        <a class="anim anim-pop delay-3" href="about.html">About Me</a>
-        <a class="anim anim-pop delay-4" href="contact.html">Contact</a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About Me</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
-      <!-- Hamburger (mobile only) -->
-      <button class="hamburger-mobile" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="hamburger-mobile" id="hamburger" type="button"
+        aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
       </button>
     </div>
 
-    <!-- Mobile menu -->
     <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
