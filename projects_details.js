@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  requestAnimationFrame(() => document.body.classList.remove("preload"));
 
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
