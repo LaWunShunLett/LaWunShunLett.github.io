@@ -129,8 +129,6 @@ html, body{
 /* PROJECT DETAILS */
 .project-detail-page{ padding-bottom: 4rem; }
 
-/* Loading */
-.is-hidden{ display: none; }
 .pd-loading{
   padding: 18px 0;
   color: var(--muted);
