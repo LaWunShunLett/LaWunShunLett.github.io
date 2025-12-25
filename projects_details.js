@@ -129,14 +129,13 @@ const setList = (elId, items) => {
       const figure = document.createElement("figure");
       figure.className = "pd-figure";
 
-      if (m.type === "image") {
-        const img = document.createElement("img");
-        img.className = "pd-figure-img";
-        img.src = m.src;
-        img.alt = m.alt || "";
-        figure.appendChild(img); // [web:183]
-      }
-
+if (m.type === "image") {
+  const img = document.createElement("img");
+  img.className = "pd-figure-img";
+  img.src = m.src || m.id;   // allow old JSON shape too
+  img.alt = m.alt || m.title || "";
+  figure.appendChild(img);
+}
       if (m.type === "youtube") {
         const iframe = document.createElement("iframe");
         iframe.className = "pd-embed";
@@ -175,6 +174,14 @@ const setList = (elId, items) => {
       slotEl.appendChild(figure); // [web:183]
     });
   }
+try {
+  // -------- Render page fields --------
+  // ... (your setText/setList/img/gallery/media code)
+  showContent();
+} catch (e) {
+  console.error(e);
+  showContent(); // still show whatever loaded
+}
 
   // -------- Render page fields --------
   setText("pdTitle", title);
