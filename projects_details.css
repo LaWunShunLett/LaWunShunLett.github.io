@@ -4,9 +4,7 @@
    ========================= */
 
 :root { --pd-col: 980px; }
-
-/* Prevent white flash color mismatch (set to your real background) */
-html, body { background: #0b1220; margin: 0; }
+html, body { margin: 0; background: transparent; }
 
 .project-detail-page { padding-bottom: 4rem; }
 
@@ -18,10 +16,6 @@ html, body { background: #0b1220; margin: 0; }
   padding: 18px 0;
   color: #9ca3af;
 }
-
-/* Hide until JS marks ready */
-#pdContent { visibility: hidden; }
-#pdContent.is-ready { visibility: visible; }
 
 /* ===== HERO / TOP AREA ===== */
 .pd-hero { padding: 3rem 0 1.5rem; }
