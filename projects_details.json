@@ -56,14 +56,14 @@
         "type": "image",        
         "id": "./images/SmartPillBlockDiagram.jpeg",
         "title": "Smart Pill Dispenser Mechanical Diagram",
-        "caption": "Smart Pill Dispenser Mechanical Diagram Operation"
+        "caption": "Smart Pill Dispenser Block Diagram Operation"
       },
       {
         "slot": "afterFeatures",
         "type": "image",
         "id": "./images/SmartPilldiagram.jpeg",
         "title": "Smart Pill Dispenser Block Diagram",
-        "caption": "Smart Pill Dispenser Block Diagram Operation"
+        "caption": "Smart Pill Dispenser Mechanical Diagram Operation"
       }
     ],
     "sourceCode": "https://github.com/YOUR_USERNAME/YOUR_REPO",
