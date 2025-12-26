@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   const loadingEl = document.getElementById("pdLoading");
   const contentEl = document.getElementById("pdContent");
 
+  /* ===============================
+     Loading / Content control
+  =============================== */
   const showLoading = (msg = "Loading…") => {
-    if (loadingEl) {
-      loadingEl.style.display = "block";
-      loadingEl.textContent = msg;
-    }
+    if (loadingEl) loadingEl.style.display = "block";
     if (contentEl) contentEl.classList.add("is-hidden");
   };
 
@@ -19,10 +19,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (contentEl) contentEl.classList.remove("is-hidden");
   };
 
+  /* ===============================
+     Helpers
+  =============================== */
   const setText = (elId, value) => {
     const el = document.getElementById(elId);
-    if (!el) return;
-    el.textContent = value ?? "";
+    if (el) el.textContent = value ?? "";
   };
 
   const setList = (elId, items) => {
@@ -32,26 +34,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     const arr = Array.isArray(items)
       ? items
       : typeof items === "string"
-        ? items.split(",").map((s) => s.trim()).filter(Boolean)
+        ? items.split(",").map(s => s.trim()).filter(Boolean)
         : [];
 
-    const tag = el.tagName.toLowerCase();
-
-    // If not a UL/OL, render as text
-    if (tag !== "ul" && tag !== "ol") {
+    if (!["ul", "ol"].includes(el.tagName.toLowerCase())) {
       el.textContent = arr.join(", ");
       return;
     }
 
     el.innerHTML = "";
-    arr.forEach((item) => {
+    arr.forEach(item => {
       const li = document.createElement("li");
       li.textContent = item;
       el.appendChild(li);
     });
   };
 
-  // --- Inline media slots ---
+  /* ===============================
+     Inline media
+  =============================== */
   const SLOTMAP = {
     afterOverview: "pdMediaAfterOverview",
     afterProblem: "pdMediaAfterProblem",
@@ -60,17 +61,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   };
 
   const clearInlineMediaSlots = () => {
-    Object.values(SLOTMAP).forEach((slotId) => {
-      const el = document.getElementById(slotId);
+    Object.values(SLOTMAP).forEach(id => {
+      const el = document.getElementById(id);
       if (el) el.innerHTML = "";
     });
   };
 
   const renderInlineMedia = (project) => {
     clearInlineMediaSlots();
-    const media = Array.isArray(project?.inlineMedia) ? project.inlineMedia : [];
 
-    media.forEach((m) => {
+    const media = Array.isArray(project?.inlineMedia)
+      ? project.inlineMedia
+      : [];
+
+    media.forEach(m => {
       const slotId = SLOTMAP[m.slot];
       const slotEl = document.getElementById(slotId);
       if (!slotEl) return;
@@ -78,14 +82,29 @@ document.addEventListener("DOMContentLoaded", async () => {
       const figure = document.createElement("figure");
       figure.className = "pd-figure";
 
+      /* ---- IMAGE ---- */
       if (m.type === "image") {
+        const placeholder = document.createElement("div");
+        placeholder.className = "pd-skel skel-box";
+        figure.appendChild(placeholder);
+
         const img = document.createElement("img");
         img.className = "pd-figure-img";
-        img.src = m.src || m.id || "";
         img.alt = m.alt || m.title || "";
+
+        const src = m.src || m.id || "";
+        if (src) {
+          img.onload = () => {
+            img.classList.add("is-ready");
+            placeholder.remove();
+          };
+          img.src = src;
+        }
+
         figure.appendChild(img);
       }
 
+      /* ---- YOUTUBE ---- */
       if (m.type === "youtube") {
         const iframe = document.createElement("iframe");
         iframe.className = "pd-embed";
@@ -98,14 +117,18 @@ document.addEventListener("DOMContentLoaded", async () => {
         figure.appendChild(iframe);
       }
 
+      /* ---- VIDEO FILE ---- */
       if (m.type === "fileVideo") {
         const video = document.createElement("video");
         video.className = "pd-video-player";
-        video.controls = true;
+        video.controls = false;
         if (m.poster) video.poster = m.poster;
 
-        const sources = Array.isArray(m.sources) ? m.sources : [];
-        sources.forEach((s) => {
+        video.addEventListener("canplay", () => {
+          video.controls = true;
+        }, { once: true });
+
+        (Array.isArray(m.sources) ? m.sources : []).forEach(s => {
           const source = document.createElement("source");
           source.src = s.src;
           source.type = s.type || "";
@@ -126,14 +149,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   };
 
-  // Start in loading state
+  /* ===============================
+     Guard
+  =============================== */
   if (!id) {
     showLoading("No project id in URL.");
     return;
   }
 
-  showLoading("Loading…");
+  showLoading();
 
+  /* ===============================
+     Fetch data
+  =============================== */
   let projects = [];
   let details = [];
 
@@ -154,18 +182,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  const base = projects.find((p) => p.id === id);
-  const detail = details.find((d) => d.id === id);
+  const base = projects.find(p => p.id === id);
+  const detail = details.find(d => d.id === id);
 
   if (!base || !detail) {
     showLoading("Project not found.");
     return;
   }
 
-  // Merge: details override base
   const proj = { ...base, ...detail };
 
-  // Title/meta/tags
+  /* ===============================
+     Header / meta
+  =============================== */
   const title = proj.title || "Project";
   const year = proj.year || "";
   const role = proj.role || "";
@@ -173,15 +202,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   setText("pdTitle", title);
 
   const metaEl = document.getElementById("pdMeta");
-  if (metaEl) metaEl.textContent = `${year}${year && role ? " · " : ""}${role}`;
-
-  const tags = Array.isArray(proj.tags) ? proj.tags.slice() : [];
-  const tagsWithRole = role ? [role, ...tags] : tags;
+  if (metaEl) {
+    metaEl.textContent = `${year}${year && role ? " · " : ""}${role}`;
+  }
 
   const tagsWrap = document.getElementById("pdTags");
   if (tagsWrap) {
     tagsWrap.innerHTML = "";
-    tagsWithRole.forEach((t) => {
+    const tags = Array.isArray(proj.tags) ? proj.tags : [];
+    (role ? [role, ...tags] : tags).forEach(t => {
       const span = document.createElement("span");
       span.className = "pd-tag";
       span.textContent = t;
@@ -189,55 +218,59 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  // Main sections
-  setText("pdOverview", proj.overview || "");
-  setList("pdOverviewPoints", proj.overviewPoints || []);
-  setText("pdProblem", proj.problem || "");
-  setText("pdSolution", proj.solution || "");
+  /* ===============================
+     Content
+  =============================== */
+  setText("pdOverview", proj.overview);
+  setList("pdOverviewPoints", proj.overviewPoints);
+  setText("pdProblem", proj.problem);
+  setText("pdSolution", proj.solution);
+  setText("pdTech", Array.isArray(proj.tech) ? proj.tech.join(", ") : proj.tech);
+  setList("pdResponsibilities", proj.responsibilities);
+  setList("pdFeatures", proj.features);
 
-  // tech may be array or string
-  const tech = Array.isArray(proj.tech) ? proj.tech.join(", ") : (proj.tech || "");
-  setText("pdTech", tech);
-
-  setList("pdResponsibilities", proj.responsibilities || []);
-  setList("pdFeatures", proj.features || []);
-
-  // Hero image
+  /* ===============================
+     Hero image (NO FLASH)
+  =============================== */
   const heroImage = proj.heroImage || proj.image || "";
   const heroAlt = proj.heroAlt || proj.imageAlt || title;
 
   const imgEl = document.getElementById("pdImage");
-  if (imgEl) {
+  if (imgEl && heroImage) {
+    document.documentElement
+      .style.setProperty("--pdHeroBg", `url('${heroImage}')`);
+
     imgEl.alt = heroAlt;
-    if (heroImage) imgEl.src = heroImage;
+    imgEl.classList.remove("is-ready");
+    imgEl.onload = () => imgEl.classList.add("is-ready");
+    imgEl.src = heroImage;
   }
 
-  // Inline media
+  /* ===============================
+     Inline media
+  =============================== */
   renderInlineMedia(proj);
 
-  // Source code button
+  /* ===============================
+     Source button
+  =============================== */
   const actions = document.getElementById("pdActions");
-  if (actions) {
-    actions.innerHTML = "";
-    if (proj.sourceCode) {
-      const a = document.createElement("a");
-      a.href = proj.sourceCode;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      a.className = "pd-source-btn";
-      a.textContent = "Source code";
-      actions.appendChild(a);
-    }
+  if (actions && proj.sourceCode) {
+    const a = document.createElement("a");
+    a.href = proj.sourceCode;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.className = "pd-source-btn";
+    a.textContent = "Source code";
+    actions.appendChild(a);
   }
 
-  // Back button
-  const backBtn = document.getElementById("pdBack");
-  if (backBtn) {
-    backBtn.addEventListener("click", () => {
-      window.location.href = "projects.html#projectsGrid";
-    });
-  }
+  /* ===============================
+     Back button
+  =============================== */
+  document.getElementById("pdBack")?.addEventListener("click", () => {
+    history.length > 1 ? history.back() : (window.location.href = "projects.html");
+  });
 
   showContent();
 });
-
