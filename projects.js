@@ -1,48 +1,8 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const grid = document.getElementById("projectsGrid");
   const tpl = document.getElementById("projectCardTpl");
+  if (!grid || !tpl) return;
 
-  // Inline details elements (already in your projects.html)
-  const modal = document.getElementById("projectModal");
-  const pmTitle = document.getElementById("pmTitle");
-  const pmMeta = document.getElementById("pmMeta");
-  const pmDesc = document.getElementById("pmDesc");
-  const pmTech = document.getElementById("pmTech");
-
-  if (!grid || !tpl) {
-    console.error("Missing #projectsGrid or #projectCardTpl");
-    return;
-  }
-
-  const openInlineDetails = (p) => {
-    if (!modal) return;
-
-    if (pmTitle) pmTitle.textContent = p.title || "";
-    if (pmMeta) pmMeta.textContent = `${p.year || ""}${p.year && p.role ? " · " : ""}${p.role || ""}`;
-    if (pmDesc) pmDesc.textContent = p.desc || "";
-    if (pmTech) pmTech.textContent = Array.isArray(p.tech) ? p.tech.join(", ") : (p.tech || "");
-
-    modal.classList.add("is-open");
-    modal.setAttribute("aria-hidden", "false");
-    modal.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
-  const closeInlineDetails = () => {
-    if (!modal) return;
-    modal.classList.remove("is-open");
-    modal.setAttribute("aria-hidden", "true");
-    grid.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
-  document.querySelectorAll("[data-close]").forEach((el) => {
-    el.addEventListener("click", closeInlineDetails);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal?.classList.contains("is-open")) closeInlineDetails();
-  });
-
-  // Load projects.json
   let projects = [];
   try {
     const res = await fetch("./projects.json");
@@ -53,7 +13,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  // Render cards
   grid.innerHTML = "";
   projects.forEach((p) => {
     const frag = tpl.content.cloneNode(true);
@@ -85,10 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const btn = frag.querySelector(".project-cta");
-    if (btn) {
-      btn.textContent = "View details →";
-      btn.addEventListener("click", () => openInlineDetails(p));
-    }
+    if (btn) btn.disabled = true; // pure: no details behavior
 
     grid.appendChild(frag);
   });
