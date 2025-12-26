@@ -22,8 +22,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   projects.forEach((p) => {
     const frag = tpl.content.cloneNode(true);
 
-    const card = frag.querySelector(".project-card");
-    if (card) card.setAttribute("data-tags", (p.filter || []).join(","));
+    frag.querySelector(".project-name").textContent = p.title || "";
+    frag.querySelector(".project-meta").textContent =
+      `${p.year || ""}${p.year && p.role ? " · " : ""}${p.role || ""}`;
+    frag.querySelector(".project-desc").textContent = p.desc || "";
 
     const img = frag.querySelector("img");
     if (img) {
@@ -31,11 +33,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       img.alt = p.imageAlt || p.title || "Project image";
     }
 
-    frag.querySelector(".project-name")?.append(p.title || "");
-    frag.querySelector(".project-meta")?.append(
-      `${p.year || ""}${p.year && p.role ? " · " : ""}${p.role || ""}`
-    );
-    frag.querySelector(".project-desc")?.append(p.desc || "");
+    const card = frag.querySelector(".project-card");
+    if (card) card.setAttribute("data-tags", (p.filter || []).join(","));
 
     const tagsWrap = frag.querySelector(".project-tags");
     if (tagsWrap) {
@@ -49,23 +48,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const btn = frag.querySelector(".project-cta");
-    if (btn) {
-      btn.textContent = "View details →";
-      btn.addEventListener("click", () => {
-        if (!p.id) {
-          console.error("Missing project id for:", p.title);
-          return;
-        }
-        window.location.href = `projects_details.html?id=${encodeURIComponent(p.id)}`;
-      });
-    }
+    btn.textContent = "View details →";
+    btn.addEventListener("click", () => {
+      if (!p.id) {
+        console.error("Missing id in projects.json for:", p.title);
+        return;
+      }
+      window.location.href = `projects_details.html?id=${encodeURIComponent(p.id)}`;
+    });
 
     grid.appendChild(frag);
   });
 
   // Filters
   const filterBtns = document.querySelectorAll(".filter-btn");
-
   const setActive = (btn) => {
     filterBtns.forEach((b) => b.classList.remove("is-active"));
     btn.classList.add("is-active");
@@ -75,8 +71,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const f = (filter || "").toLowerCase();
     document.querySelectorAll(".project-card").forEach((card) => {
       const tags = (card.getAttribute("data-tags") || "").toLowerCase();
-      const show = f === "all" || tags.includes(f);
-      card.classList.toggle("is-hidden", !show);
+      card.classList.toggle("is-hidden", !(f === "all" || tags.includes(f)));
     });
   };
 
