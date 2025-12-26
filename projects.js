@@ -37,7 +37,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (nameEl) nameEl.textContent = p.title || "";
 
     const metaEl = frag.querySelector(".project-meta");
-    if (metaEl) metaEl.textContent = `${p.year || ""}${p.year && p.role ? " · " : ""}${p.role || ""}`;
+    if (metaEl) {
+      metaEl.textContent =
+        `${p.year || ""}${p.year && p.role ? " · " : ""}${p.role || ""}`;
+    }
 
     const descEl = frag.querySelector(".project-desc");
     if (descEl) descEl.textContent = p.desc || "";
@@ -61,7 +64,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           console.error("Missing id in projects.json for:", p.title);
           return;
         }
-        window.location.href = `projects_details.html?id=${encodeURIComponent(p.id)}`;
+        window.location.href =
+          `projects_details.html?id=${encodeURIComponent(p.id)}`;
       });
     }
 
