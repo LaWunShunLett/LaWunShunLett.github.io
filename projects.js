@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
+  // Load projects.json
   let projects = [];
   try {
     const res = await fetch("./projects.json");
@@ -17,8 +18,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
+  // Render cards
   grid.innerHTML = "";
-
   projects.forEach((p) => {
     const frag = tpl.content.cloneNode(true);
 
@@ -34,7 +35,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const card = frag.querySelector(".project-card");
-    if (card) card.setAttribute("data-tags", (p.filter || []).join(","));
+    if (card) {
+      card.setAttribute("data-tags", (p.filter || []).join(","));
+    }
 
     const tagsWrap = frag.querySelector(".project-tags");
     if (tagsWrap) {
@@ -48,20 +51,23 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const btn = frag.querySelector(".project-cta");
-    btn.textContent = "View details →";
-    btn.addEventListener("click", () => {
-      if (!p.id) {
-        console.error("Missing id in projects.json for:", p.title);
-        return;
-      }
-      window.location.href = `projects_details.html?id=${encodeURIComponent(p.id)}`;
-    });
+    if (btn) {
+      btn.textContent = "View details →";
+      btn.addEventListener("click", () => {
+        if (!p.id) {
+          console.error("Missing id in projects.json for:", p.title);
+          return;
+        }
+        window.location.href = `projects_details.html?id=${encodeURIComponent(p.id)}`;
+      });
+    }
 
     grid.appendChild(frag);
   });
 
   // Filters
   const filterBtns = document.querySelectorAll(".filter-btn");
+
   const setActive = (btn) => {
     filterBtns.forEach((b) => b.classList.remove("is-active"));
     btn.classList.add("is-active");
@@ -71,7 +77,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const f = (filter || "").toLowerCase();
     document.querySelectorAll(".project-card").forEach((card) => {
       const tags = (card.getAttribute("data-tags") || "").toLowerCase();
-      card.classList.toggle("is-hidden", !(f === "all" || tags.includes(f)));
+      const show = f === "all" || tags.includes(f);
+      card.classList.toggle("is-hidden", !show);
     });
   };
 
@@ -82,3 +89,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 });
+
