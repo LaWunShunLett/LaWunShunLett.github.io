@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  // --- 1) build cards from projects.json ---
   const grid = document.getElementById("projectsGrid");
   const tpl = document.getElementById("projectCardTpl");
 
@@ -14,13 +13,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  // Close handlers (Back button / any [data-close])
+  // Close handlers
   const closeInlineDetails = () => {
     if (!modal) return;
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
-
-    // Scroll back to the grid
     grid.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
@@ -28,7 +25,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     el.addEventListener("click", closeInlineDetails);
   });
 
-  // Esc to close (nice UX)
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && modal?.classList.contains("is-open")) {
       closeInlineDetails();
@@ -45,11 +41,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
-
-    // Scroll to inline details section
     modal.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  // Load projects
   let projects = [];
   try {
     const res = await fetch("./projects.json");
@@ -60,8 +55,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
+  // Render cards
   grid.innerHTML = "";
-
   projects.forEach((p) => {
     const frag = tpl.content.cloneNode(true);
 
@@ -103,7 +98,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     grid.appendChild(frag);
   });
 
-  // --- 2) filters (AFTER cards exist) ---
+  // Filters
   const filterBtns = document.querySelectorAll(".filter-btn");
 
   const setActive = (btn) => {
@@ -114,7 +109,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const applyFilter = (filter) => {
     const f = (filter || "").toLowerCase();
     const cards = document.querySelectorAll(".project-card");
-
     cards.forEach((card) => {
       const tags = (card.getAttribute("data-tags") || "").toLowerCase();
       const show = f === "all" || tags.includes(f);
