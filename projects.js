@@ -79,6 +79,6 @@ btn.textContent = "View details →";
 
 btn.addEventListener("click", () => {
   if (p.id) {
-    window.location.href = `project-details.html?id=${encodeURIComponent(p.id)}`;
+    window.location.href = `projects_details.html?id=${encodeURIComponent(p.id)}`;
   }
 });
