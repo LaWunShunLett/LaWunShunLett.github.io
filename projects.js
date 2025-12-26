@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
+  // 1) Load projects.json
   let projects = [];
   try {
     const res = await fetch("./projects.json");
@@ -17,15 +18,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
+  // 2) Render cards
   grid.innerHTML = "";
 
   projects.forEach((p) => {
     const frag = tpl.content.cloneNode(true);
 
-    frag.querySelector(".project-name").textContent = p.title || "";
-    frag.querySelector(".project-meta").textContent =
-      `${p.year || ""}${p.year && p.role ? " · " : ""}${p.role || ""}`;
-    frag.querySelector(".project-desc").textContent = p.desc || "";
+    const card = frag.querySelector(".project-card");
+    if (card) card.setAttribute("data-tags", (p.filter || []).join(","));
 
     const img = frag.querySelector("img");
     if (img) {
@@ -33,8 +33,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       img.alt = p.imageAlt || p.title || "Project image";
     }
 
-    const card = frag.querySelector(".project-card");
-    if (card) card.setAttribute("data-tags", (p.filter || []).join(","));
+    const nameEl = frag.querySelector(".project-name");
+    if (nameEl) nameEl.textContent = p.title || "";
+
+    const metaEl = frag.querySelector(".project-meta");
+    if (metaEl) metaEl.textContent = `${p.year || ""}${p.year && p.role ? " · " : ""}${p.role || ""}`;
+
+    const descEl = frag.querySelector(".project-desc");
+    if (descEl) descEl.textContent = p.desc || "";
 
     const tagsWrap = frag.querySelector(".project-tags");
     if (tagsWrap) {
@@ -51,7 +57,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (btn) {
       btn.textContent = "View details →";
       btn.addEventListener("click", () => {
-        if (!p.id) return;
+        if (!p.id) {
+          console.error("Missing id in projects.json for:", p.title);
+          return;
+        }
         window.location.href = `projects_details.html?id=${encodeURIComponent(p.id)}`;
       });
     }
@@ -59,6 +68,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     grid.appendChild(frag);
   });
 
+  // 3) Filters
   const filterBtns = document.querySelectorAll(".filter-btn");
 
   const setActive = (btn) => {
