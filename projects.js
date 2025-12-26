@@ -1,4 +1,37 @@
 document.addEventListener("DOMContentLoaded", async () => {
+  // make animations visible
+  document.body.classList.remove("preload");
+    requestAnimationFrame(() => {
+    document.body.classList.remove("preload");
+  });
+  // --- hamburger toggle ---
+  const hamburger = document.getElementById("hamburger");
+  const mobileNav = document.getElementById("mobileNav");
+
+  const closeMenu = () => {
+    if (!hamburger || !mobileNav) return;
+    hamburger.setAttribute("aria-expanded", "false");
+    mobileNav.classList.remove("open");
+  };
+
+  if (hamburger && mobileNav) {
+    const toggleMenu = () => {
+      const isOpen = hamburger.getAttribute("aria-expanded") === "true";
+      hamburger.setAttribute("aria-expanded", String(!isOpen));
+      mobileNav.classList.toggle("open", !isOpen);
+    };
+
+    hamburger.addEventListener("click", toggleMenu);
+
+    mobileNav.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", closeMenu);
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  }
+
   // --- 1) build cards from projects.json ---
   const grid = document.getElementById("projectsGrid");
   const tpl = document.getElementById("projectCardTpl");
@@ -47,7 +80,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     grid.appendChild(frag);
   });
 
-  // --- 2) filters (AFTER cards exist) ---
+  // --- 2) filters (run AFTER cards are in the DOM) ---
   const filterBtns = document.querySelectorAll(".filter-btn");
   const cards = document.querySelectorAll(".project-card");
 
@@ -72,13 +105,57 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 
-  // --- 3) modal + other stuff (optional) ---
-});
-const btn = frag.querySelector(".project-cta");
-btn.textContent = "View details →";
+  // --- 3) modal (wire AFTER cards exist) ---
+  const modal = document.getElementById("projectModal");
+  if (modal) {
+    const titleEl = document.getElementById("pmTitle");
+    const metaEl = document.getElementById("pmMeta");
+    const descEl = document.getElementById("pmDesc");
+    const techEl = document.getElementById("pmTech");
 
-btn.addEventListener("click", () => {
-  if (p.id) {
-    window.location.href = `projects_details.html?id=${encodeURIComponent(p.id)}`;
+    const openModal = (data) => {
+      titleEl.textContent = data.title || "Project";
+      metaEl.textContent = `${data.year || ""}${data.year ? " · " : ""}${data.role || ""}`.trim();
+      descEl.textContent = data.desc || "";
+      techEl.textContent = data.tech || "";
+
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      closeMenu();
+    };
+
+    const closeModal = () => {
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    };
+
+    document.querySelectorAll(".project-cta").forEach(btn => {
+      btn.addEventListener("click", () => {
+        openModal({
+          title: btn.dataset.title,
+          year: btn.dataset.year,
+          role: btn.dataset.role,
+          desc: btn.dataset.desc,
+          tech: btn.dataset.tech,
+        });
+      });
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target.matches("[data-close]")) closeModal();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
   }
+
+  // --- 4) disable right-click on images ---
+  document.addEventListener("contextmenu", (e) => {
+    if (e.target.tagName === "IMG") {
+      e.preventDefault();
+    }
+  });
 });
