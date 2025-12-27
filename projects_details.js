@@ -1,3 +1,5 @@
+document.body.classList.add("preload");
+
 document.addEventListener("DOMContentLoaded", async () => {
 
   const params = new URLSearchParams(window.location.search);
@@ -274,4 +276,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   showContent();
   releasePage();
+});
+requestAnimationFrame(() => {
+  document.body.classList.remove("preload");
 });

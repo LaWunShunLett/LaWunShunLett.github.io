@@ -19,7 +19,7 @@
   </head>
 
   <!-- start in preload -->
-  <body class="preload">
+  <body class="preload" data-page-controlled="true">
     <!-- Page transition overlay (covers flash on refresh) -->
     <div id="pageTransition" class="page-transition is-active" aria-hidden="true"></div>
 
@@ -47,9 +47,9 @@
       </nav>
     </header>
 
-    <main class="project-detail-page">
+    <main class="project-detail-page anim anim-up">
       <!-- HERO -->
-      <section class="pd-hero">
+      <section class="pd-hero anim anim-up delay-1">
         <div class="wrap">
           <button class="pd-back" type="button" id="pdBack">← Back to Projects</button>
 
@@ -61,9 +61,9 @@
       </section>
 
       <!-- BODY -->
-      <section class="pd-body">
+      <section class="pd-body anim anim-up delay-2">
         <div class="wrap">
-          <!-- Skeleton loader -->
+          <!-- Skeleton loader
           <div id="pdLoading" class="pd-loading">
             <div class="pd-skel skel-line w40"></div>
             <div class="pd-skel skel-line w90"></div>
@@ -71,7 +71,7 @@
             <div class="pd-skel skel-box"></div>
             <div class="pd-skel skel-line w70"></div>
             <div class="pd-skel skel-line w60"></div>
-          </div>
+          </div> -->
 
           <!-- Content -->
           <div id="pdContent" class="pd-content-wrap">
