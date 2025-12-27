@@ -1,75 +1,112 @@
 [
   {
     "id": "smart-pill-dispenser",
-    "title": "Smart Pill Dispenser — STM32-Based Medication Management System",
+    "title": "Smart Pill Dispenser (STM32)",
     "year": "2024",
-    "role": "Embedded Firmware Developer | Microcontroller Systems",
+    "role": "Embedded Firmware Developer",
+    "tags": ["Embedded", "STM32", "Healthcare"],
 
-    "overview": "A school project: an STM32-based smart pill dispenser designed for both hospital and home-care medication routines. After one-time setup, it automatically dispenses at scheduled times to reduce missed or double doses. In hospitals, it supports staff by making routine dispensing more consistent; at home, it helps elderly patients and caregivers follow daily medication schedules more easily and track whether dispensing happened.",
-    "overviewPoints": [
-      "One-time schedule setup (supports multiple dispensing times per day).",
-      "RFID-controlled access for authorised users.",
-      "RTC timekeeping for accurate scheduled dispensing.",
-      "Servo-driven dispensing with a 3D-printed guiding mechanism.",
-      "IR/PIR sensing to confirm dispensing activity and detect presence.",
-      "OLED + keypad for setup and status."
-    ],
+    "heroImage": "./images/SmartPill.jpeg",
+    "heroAlt": "Smart pill dispenser prototype",
 
-    "problem": "Some patients (especially elderly users) may forget to take medication or accidentally take it twice when relying on memory or manual pill boxes. In home-care settings, caregivers can also misread the schedule or give a dose at the wrong time, especially when managing multiple medications and busy routines.",
-
-    "solution": "The device uses RFID for authorised access, an RTC to keep time and run scheduled dispensing, and a servo mechanism with sensors to dispense pills and confirm activity at the scheduled time.",
-
-    "targetUsers": "Elderly patients taking multiple medications, and caregivers/healthcare workers who need a simple way to support medication adherence.",
-
-    "impact": "The prototype improved consistency of scheduled dispensing during testing and helped caregivers check whether dispensing happened as planned.",
-
-    "tech": [
-    "RFID authentication for controlled access.",
-    "RTC-based scheduling (one-time setup) for automatic dispensing at configured times.",
-    "3D-printed housing and custom dispensing parts to guide pills and support the mechanism.",
-    "Servo-driven dispensing mechanism to release pills on schedule.",
-    "Sensors (IR/PIR) to detect dispensing activity and user presence.",
-    "OLED + keypad for setup, status display, and on-device configuration."
-    ],
-
-    "responsibilities": [
-      "Developed STM32 firmware in C++ to control the full system.",
-      "Integrated RFID authentication, RTC scheduling, sensors (IR/PIR), and servo motor control.",
-      "Configured STM32 peripherals such as GPIO, timers, and interrupts for real-time behaviour.",
-      "Troubleshot firmware logic and electrical wire connections (power, signal, grounding) to stabilise sensor readings and servo operation.",
-      "Worked with teammates to test and verify the prototype end-to-end."
-    ],
-
-    "features": ["STM32, Embedded C++, RFID, RTC, IR Sensor, PIR Sensor, Servo Motor, OLED Display, Keypad"],
-
-    "learnings": [
-      "How to build an embedded prototype from concept to working system (hardware + firmware + testing).",
-      "Practical STM32 embedded C++ development with multiple sensors and actuators.",
-      "Designing and assembling a dispensing mechanism (including 3D-printed parts) and aligning it for reliable operation.",
-      "Using timers/interrupts (and RTC scheduling) to support real-time, automatic operation.",
-      "Troubleshooting both embedded software and hardware issues (wiring connections, timing, sensor noise, mechanical alignment).",
-      "Testing the full system to verify real-world behaviour and reliability."
-    ],
-        "inlineMedia": [
+    "sections": [
       {
-        "slot": "afterSolution",
-        "type": "image",        
-        "id": "./images/SmartPillBlockDiagram.jpeg",
-        "title": "Smart Pill Dispenser Mechanical Diagram",
-        "caption": "Smart Pill Dispenser Block Diagram Operation"
+        "type": "text",
+        "title": "Overview",
+        "content": "A smart pill dispenser built using an STM32 microcontroller. The system helps patients take the correct medicine at the correct time and reduces mistakes caused by forgetting or taking double doses. It is designed for both hospital and home-care use."
       },
       {
-        "slot": "afterFeatures",
+        "type": "text",
+        "title": "Problem",
+        "content": "Many patients, especially elderly users, forget to take medicine or take it more than once. In hospitals, staff are busy and manual medicine handling can lead to mistakes."
+      },
+      {
+        "type": "list",
+        "title": "Goals",
+        "items": [
+          "Reduce medicine mistakes.",
+          "Help patients follow their medicine schedule.",
+          "Reduce workload for healthcare staff.",
+          "Support elderly users.",
+          "Improve safety in medication use."
+        ]
+      },
+      {
+        "type": "text",
+        "title": "Solution",
+        "content": "The system automatically releases pills at scheduled times. It uses sensors to confirm dispensing and RFID to control access. This reduces human error and improves reliability."
+      },
+      {
+        "type": "list",
+        "title": "System Modes",
+        "items": [
+          "Normal mode for daily medicine dispensing.",
+          "Setup mode for staff to change settings using RFID."
+        ]
+      },
+      {
         "type": "image",
-        "id": "./images/SmartPilldiagram.jpeg",
-        "title": "Smart Pill Dispenser Block Diagram",
-        "caption": "Smart Pill Dispenser Mechanical Diagram Operation"
+        "title": "System Diagram",
+        "src": "./images/SmartPilldiagram.jpeg",
+        "alt": "Smart pill system diagram",
+        "caption": "System diagram"
+      },
+      {
+        "type": "image",
+        "title": "Block Diagram",
+        "src": "./images/SmartPillBlockDiagram.jpeg",
+        "alt": "Smart pill block diagram",
+        "caption": "Block diagram"
+      },
+      {
+        "type": "list",
+        "title": "Main Components",
+        "items": [
+          "STM32F103RB microcontroller",
+          "OLED display (SSD1306)",
+          "4x4 keypad",
+          "20x2 LCD display",
+          "RFID RC522 module",
+          "IR sensor",
+          "PIR sensor",
+          "Servo motor",
+          "RTC module (DS3231)",
+          "Buzzer"
+        ]
+      },
+      {
+        "type": "list",
+        "title": "How It Works",
+        "items": [
+          "User or staff sets the medicine schedule.",
+          "RTC keeps track of time.",
+          "At the scheduled time, the servo rotates to release one pill.",
+          "IR sensor checks if a pill is released.",
+          "PIR sensor detects hand movement.",
+          "RFID allows staff to enter setup mode.",
+          "Display shows time, status, and instructions."
+        ]
+      },
+      {
+        "type": "list",
+        "title": "Programming",
+        "items": [
+          "Embedded C++",
+          "STM32 Arduino Core",
+          "RFID library",
+          "OLED display library",
+          "RTC library",
+          "Servo motor library"
+        ]
       }
     ],
-    "sourceCode": "https://github.com/YOUR_USERNAME/YOUR_REPO",
-    "heroImage": "./images/SmartPill.jpeg",
-    "heroAlt": "Smart pill dispenser prototype with STM32 and pill slots"
-    
+
+    "links": [
+      {
+        "label": "Source Code",
+        "url": "https://github.com/yourname/yourrepo"
+      }
+    ]
   },
 
   {
