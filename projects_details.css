@@ -210,7 +210,12 @@ html, body{
   pointer-events: none;
   transition: opacity .45s ease;
 }
-
+/* Caption centered */
+.pd-gallery .caption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
 .page-transition.is-fade{
   opacity: 0;
 }
@@ -222,79 +227,87 @@ html, body{
   animation: logoAnimUp .6s cubic-bezier(.22,1,.36,1) forwards;
 }
 /* ===== Gallery (number buttons) ===== */
-.pd-gallery {
-  margin-top: 14px;
+.pd-gallery{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
 }
 
-.pd-gallery-viewport {
-  width: 100%;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+/* fixed visual size for ALL slides */
+.pd-gallery-viewport{
+  width:100%;
+  max-width: 980px;          /* keeps it from being too huge */
+  border-radius:18px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 8px 22px rgba(0,0,0,.08);
 }
 
-/* One image per “page”, same size always */
-.pd-gallery-track {
-  display: flex;
-  width: 100%;
-  transition: transform 420ms cubic-bezier(.2,.8,.2,1);
-  will-change: transform;
+/* track moves left/right */
+.pd-gallery-track{
+  display:flex;
+  width:100%;
+  transition:transform 420ms cubic-bezier(.2,.8,.2,1);
+  will-change:transform;
 }
 
-/* Each slide takes full width of the container */
-.pd-gallery-item {
-  flex: 0 0 100%;
-  margin: 0;
+/* each slide full width */
+.pd-gallery-item{
+  flex:0 0 100%;
+  margin:0;
+  padding: 18px 18px 14px;   /* breathing room inside the white card */
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
-/* Same visible size for every image (no different heights) */
-.pd-gallery-img {
-  width: 100%;
-  height: 520px;            /* adjust if you want taller/shorter */
-  object-fit: cover;        /* removes black top/bottom; may crop edges */
-  display: block;
+/* IMPORTANT: fixed frame size so all images appear same size */
+.pd-gallery-img{
+  width:100%;
+  max-width: 860px;          /* smaller than before */
+  aspect-ratio: 16 / 9;      /* same frame for every image */
+  height:auto;
+  object-fit: contain;       /* show full image (no cropping) */
+  border-radius:14px;
+  display:block;
+  background: #f6f7f9;       /* nice neutral behind transparent/odd images */
 }
 
-/* caption */
-.pd-gallery-cap {
-  text-align: center;
-  margin: 8px auto 0;
-  font-size: 0.95rem;
-  opacity: 0.8;
+/* caption centered */
+.pd-gallery-cap{
+  text-align:center;
+  margin:10px auto 0;
+  font-size:0.95rem;
+  opacity:.82;
+  max-width: 860px;
 }
 
-/* numbered buttons */
-.pd-gallery-dots {
-  display: flex;
-  gap: 10px;
-  margin-top: 12px;
-  flex-wrap: wrap;
+/* numbered buttons centered */
+.pd-gallery-dots{
+  display:flex;
+  justify-content:center;     /* CENTER */
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top: 6px;
 }
 
-.pd-dot {
-  min-width: 42px;
-  height: 38px;
-  padding: 0 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(0,0,0,.12);
-  background: #fff;
-  cursor: pointer;
-  font-weight: 600;
+.pd-dot{
+  min-width:42px;
+  height:38px;
+  padding:0 12px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,.12);
+  background:#fff;
+  cursor:pointer;
+  font-weight:700;
 }
 
-.pd-dot[aria-current="true"] {
-  border-color: rgba(0,0,0,.35);
-  box-shadow: 0 8px 18px rgba(0,0,0,.10);
+.pd-dot[aria-current="true"]{
+  border-color:rgba(0,0,0,.35);
+  box-shadow:0 8px 18px rgba(0,0,0,.10);
 }
-
-@keyframes logoAnimUp{
-  to{
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Responsive */
 @media (max-width: 700px){
   .pd-title{ font-size: 1.7rem; }

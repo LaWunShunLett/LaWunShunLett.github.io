@@ -193,32 +193,82 @@ if (section.type === "gallery") {
     }
 
     // IMAGE
-    if (section.type === "image") {
-      const slot = document.createElement("div");
-      slot.className = "pd-media-slot";
+// GALLERY (number buttons)
+if (section.type === "gallery") {
+  const galleryWrap = document.createElement("div");
+  galleryWrap.className = "pd-gallery";
 
-      const figure = document.createElement("figure");
-      figure.className = "pd-figure";
+  // optional title (if you want title inside the gallery block)
+  if (section.title) {
+    const h2 = document.createElement("h2");
+    h2.className = "pd-section-title";
+    h2.textContent = section.title;
+    galleryWrap.appendChild(h2);
+  }
 
-      const img = document.createElement("img");
-      img.className = "pd-figure-img";
-      img.loading = "lazy";
-      img.decoding = "async";
-      img.src = section.src || "";
-      img.alt = section.alt || section.title || "";
+  const viewport = document.createElement("div");
+  viewport.className = "pd-gallery-viewport";
 
-      figure.appendChild(img);
+  const track = document.createElement("div");
+  track.className = "pd-gallery-track";
 
-      if (section.caption) {
-        const cap = document.createElement("figcaption");
-        cap.className = "pd-figure-cap";
-        cap.textContent = section.caption;
-        figure.appendChild(cap);
-      }
+  const dots = document.createElement("div");
+  dots.className = "pd-gallery-dots";
 
-      slot.appendChild(figure);
-      container.appendChild(slot);
+  const items = Array.isArray(section.items) ? section.items : [];
+  let index = 0;
+
+  const update = () => {
+    track.style.transform = `translateX(${-index * 100}%)`;
+    [...dots.children].forEach((btn, i) => {
+      btn.setAttribute("aria-current", i === index ? "true" : "false");
+    });
+  };
+
+  items.forEach((item, i) => {
+    const fig = document.createElement("figure");
+    fig.className = "pd-gallery-item";
+
+    const img = document.createElement("img");
+    img.className = "pd-gallery-img";   // matches CSS
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.src = item.src || "";
+    img.alt = item.alt || "";
+
+    fig.appendChild(img);
+
+    if (item.caption) {
+      const cap = document.createElement("figcaption");
+      cap.className = "pd-gallery-cap";
+      cap.textContent = item.caption;
+      fig.appendChild(cap);
     }
+
+    track.appendChild(fig);
+
+    const btn = document.createElement("button");
+    btn.className = "pd-dot";
+    btn.type = "button";
+    btn.textContent = String(i + 1);
+    btn.setAttribute("aria-current", i === 0 ? "true" : "false");
+    btn.addEventListener("click", () => {
+      index = i;
+      update();
+    });
+
+    dots.appendChild(btn);
+  });
+
+  viewport.appendChild(track);
+  galleryWrap.appendChild(viewport);
+  galleryWrap.appendChild(dots);
+
+  container.appendChild(galleryWrap);
+
+  update();
+}
+
 
     // YOUTUBE
     if (section.type === "youtube") {
