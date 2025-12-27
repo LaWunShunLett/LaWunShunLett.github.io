@@ -226,88 +226,95 @@ html, body{
   transform: translateY(12px);
   animation: logoAnimUp .6s cubic-bezier(.22,1,.36,1) forwards;
 }
+/* ===== Single image section ===== */
+.pd-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.pd-figure-img {
+  width: 85%;
+  max-width: 900px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 14px;
+  object-fit: contain;
+}
+
+.pd-figure-cap {
+  text-align: center;
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin: 0;
+}
+
 /* ===== Gallery (number buttons) ===== */
-.pd-gallery{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:14px;
+.pd-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 
-/* fixed visual size for ALL slides */
-.pd-gallery-viewport{
-  width:100%;
-  max-width: 980px;          /* keeps it from being too huge */
-  border-radius:18px;
-  overflow:hidden;
-  background:#fff;
-  box-shadow:0 8px 22px rgba(0,0,0,.08);
+.pd-gallery-viewport {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
 }
 
-/* track moves left/right */
-.pd-gallery-track{
-  display:flex;
-  width:100%;
-  transition:transform 420ms cubic-bezier(.2,.8,.2,1);
-  will-change:transform;
+/* slide track */
+.pd-gallery-track {
+  display: flex;
+  width: 100%;
+  transition: transform 420ms cubic-bezier(.2,.8,.2,1);
+  will-change: transform;
 }
 
 /* each slide full width */
-.pd-gallery-item{
-  flex:0 0 100%;
-  margin:0;
-  padding: 18px 18px 14px;   /* breathing room inside the white card */
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+.pd-gallery-item {
+  flex: 0 0 100%;
+  margin: 0;
+  padding: 18px 0;              /* prevent overlap / give breathing space */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* IMPORTANT: fixed frame size so all images appear same size */
-.pd-gallery-img{
-  width:100%;
-  max-width: 860px;          /* smaller than before */
-  aspect-ratio: 16 / 9;      /* same frame for every image */
-  height:auto;
-  object-fit: contain;       /* show full image (no cropping) */
-  border-radius:14px;
-  display:block;
-  background: #f6f7f9;       /* nice neutral behind transparent/odd images */
+/* IMPORTANT: target the class, not ".pd-gallery img" */
+.pd-gallery-img {
+  width: 85%;
+  max-width: 900px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 14px;
+  object-fit: contain;
 }
 
-/* caption centered */
-.pd-gallery-cap{
-  text-align:center;
-  margin:10px auto 0;
-  font-size:0.95rem;
-  opacity:.82;
-  max-width: 860px;
+.pd-gallery-cap {
+  text-align: center;           /* caption center */
+  margin: 10px auto 0;
+  font-size: 0.95rem;
+  opacity: 0.8;
 }
 
-/* numbered buttons centered */
-.pd-gallery-dots{
-  display:flex;
-  justify-content:center;     /* CENTER */
-  align-items:center;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top: 6px;
+/* numbered buttons center */
+.pd-gallery-dots {
+  display: flex;
+  justify-content: center;      /* options center */
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
-.pd-dot{
-  min-width:42px;
-  height:38px;
-  padding:0 12px;
-  border-radius:999px;
-  border:1px solid rgba(0,0,0,.12);
-  background:#fff;
-  cursor:pointer;
-  font-weight:700;
-}
 
-.pd-dot[aria-current="true"]{
-  border-color:rgba(0,0,0,.35);
-  box-shadow:0 8px 18px rgba(0,0,0,.10);
-}
 /* Responsive */
 @media (max-width: 700px){
   .pd-title{ font-size: 1.7rem; }

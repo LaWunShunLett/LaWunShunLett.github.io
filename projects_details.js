@@ -1,176 +1,166 @@
-document.addEventListener("DOMContentLoaded", async () => {
-  // keep main content hidden until ready (your anim system)
-  document.body.classList.add("preload");
+/* projects_details.js
+   Single, safe renderer for JSON-driven project details + gallery
+*/
 
-  const qs = new URLSearchParams(window.location.search);
+(async function () {
+  const qs = new URLSearchParams(location.search);
   const id = qs.get("id");
 
-  const $ = (x) => document.getElementById(x);
+  // ===== Small helpers =====
+  const $ = (sel) => document.querySelector(sel);
 
-  const release = () => {
-    requestAnimationFrame(() => {
-      document.body.classList.remove("preload");
-    });
-  };
+  function setText(id, text) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = text || "";
+  }
 
-  // Back button
-  $("pdBack")?.addEventListener("click", () => {
-    history.length > 1 ? history.back() : (window.location.href = "projects.html");
-  });
+  function clearEl(el) {
+    if (el) el.innerHTML = "";
+  }
 
+  function showLoading(msg = "Loading…") {
+    // If you already have a loading UI, keep it.
+    // Otherwise, just set title as fallback.
+    setText("pdTitle", msg);
+  }
+
+  // ===== Guard =====
   if (!id) {
-    release();
+    showLoading("Project not found (missing id).");
     return;
   }
 
-  // Fill basic fields
-  const setText = (elId, text) => {
-    const el = $(elId);
-    if (el) el.textContent = text ?? "";
-  };
+  showLoading();
 
-  const renderTags = (tags, role) => {
-    const wrap = $("pdTags");
-    if (!wrap) return;
-    wrap.innerHTML = "";
+  // ===== Load data =====
+  let projects = [];
+  let details = [];
 
-    const list = [];
-    if (role) list.push(role);
-    (Array.isArray(tags) ? tags : []).forEach(t => list.push(t));
+  try {
+    const [pRes, dRes] = await Promise.all([
+      fetch("./projects.json", { cache: "no-store" }),
+      fetch("./projects_details.json", { cache: "no-store" }),
+    ]);
 
-    list.forEach((t) => {
+    if (!pRes.ok) throw new Error(`projects.json HTTP ${pRes.status}`);
+    if (!dRes.ok) throw new Error(`projects_details.json HTTP ${dRes.status}`);
+
+    projects = await pRes.json();
+    details = await dRes.json();
+  } catch (err) {
+    console.error(err);
+    showLoading("Failed to load project data.");
+    return;
+  }
+
+  // details can be [ ... ] or { projects:[ ... ] }
+  const detailsList = Array.isArray(details) ? details : (details.projects || []);
+
+  const base = projects.find((p) => p.id === id);
+  const detail = detailsList.find((d) => d.id === id);
+
+  if (!base || !detail) {
+    showLoading("Project not found.");
+    return;
+  }
+
+  const proj = { ...base, ...detail };
+
+  // ===== Header/meta =====
+  const title = proj.title || "Project";
+  const year = proj.year || "";
+  const role = proj.role || "";
+
+  setText("pdTitle", title);
+
+  const metaEl = document.getElementById("pdMeta");
+  if (metaEl) metaEl.textContent = `${year}${year && role ? " · " : ""}${role}`;
+
+  const tagsWrap = document.getElementById("pdTags");
+  if (tagsWrap) {
+    clearEl(tagsWrap);
+    const tags = Array.isArray(proj.tags) ? proj.tags : [];
+    tags.forEach((t) => {
       const span = document.createElement("span");
       span.className = "pd-tag";
       span.textContent = t;
-      wrap.appendChild(span);
+      tagsWrap.appendChild(span);
     });
-  };
+  }
 
-  const renderLinks = (links) => {
-    const actions = $("pdActions");
-    if (!actions) return;
-    actions.innerHTML = "";
+  // ===== Hero image =====
+  const heroImage = proj.heroImage || proj.image || "";
+  const heroAlt = proj.heroAlt || proj.imageAlt || title;
 
-    (Array.isArray(links) ? links : []).forEach((link) => {
-      if (!link?.url) return;
+  const imgEl = document.getElementById("pdImage");
+  if (imgEl && heroImage) {
+    imgEl.alt = heroAlt;
+    imgEl.classList.remove("is-ready");
+    imgEl.onload = () => imgEl.classList.add("is-ready");
+    imgEl.src = heroImage;
+  }
+
+  // ===== Actions (source code) =====
+  const actions = document.getElementById("pdActions");
+  if (actions) {
+    clearEl(actions);
+
+    // support both "sourceCode" and "links"
+    if (proj.sourceCode) {
       const a = document.createElement("a");
-      a.className = "pd-source-btn";
-      a.href = link.url;
+      a.href = proj.sourceCode;
       a.target = "_blank";
       a.rel = "noopener noreferrer";
-      a.textContent = link.label || "Open";
+      a.className = "pd-source-btn";
+      a.textContent = "Source code";
       actions.appendChild(a);
-    });
-  };
-function enableDragScroll(el) {
-  let isDown = false;
-  let startX = 0;
-  let scrollLeft = 0;
+    }
 
-  el.addEventListener("mousedown", (e) => {
-    isDown = true;
-    el.classList.add("dragging");
-    startX = e.pageX - el.offsetLeft;
-    scrollLeft = el.scrollLeft;
+    if (Array.isArray(proj.links)) {
+      proj.links.forEach((link) => {
+        if (!link?.url) return;
+        const a = document.createElement("a");
+        a.href = link.url;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.className = "pd-source-btn";
+        a.textContent = link.label || "Open";
+        actions.appendChild(a);
+      });
+    }
+  }
+
+  // ===== Back button =====
+  document.getElementById("pdBack")?.addEventListener("click", () => {
+    history.back();
   });
 
-  window.addEventListener("mouseup", () => {
-    isDown = false;
-    el.classList.remove("dragging");
+  // ===== MAIN CONTENT RENDER (sections only) =====
+  const mount = document.getElementById("pdSections");
+  clearEl(mount);
+
+  // IMPORTANT: do NOT use pdGalleryMount anymore (prevents overlap)
+  const oldGalleryMount = document.getElementById("pdGalleryMount");
+  clearEl(oldGalleryMount);
+
+  const sections = Array.isArray(proj.sections) ? proj.sections : [];
+  sections.forEach((section) => {
+    mount.appendChild(renderSection(section));
   });
 
-  el.addEventListener("mouseleave", () => {
-    isDown = false;
-    el.classList.remove("dragging");
-  });
-
-  el.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - el.offsetLeft;
-    const walk = (x - startX) * 1.2;
-    el.scrollLeft = scrollLeft - walk;
-  });
-}
-
-  const renderSection = (section) => {
+  // ===== Section renderer =====
+  function renderSection(section) {
     const container = document.createElement("div");
     container.className = "pd-section";
 
-    // Title
-    if (section.title) {
+    // Title (for non-gallery, we show as a section heading)
+    if (section.title && section.type !== "gallery") {
       const h2 = document.createElement("h2");
       h2.className = "pd-section-title";
       h2.textContent = section.title;
       container.appendChild(h2);
     }
-    // GALLERY (number buttons carousel)
-if (section.type === "gallery") {
-  const galleryWrap = document.createElement("div");
-  galleryWrap.className = "pd-gallery";
-
-  const viewport = document.createElement("div");
-  viewport.className = "pd-gallery-viewport";
-
-  const track = document.createElement("div");
-  track.className = "pd-gallery-track";
-
-  const dots = document.createElement("div");
-  dots.className = "pd-gallery-dots";
-
-  const items = Array.isArray(section.items) ? section.items : [];
-  let index = 0;
-
-  function update() {
-    track.style.transform = `translateX(${-index * 100}%)`;
-    [...dots.children].forEach((btn, i) => {
-      btn.setAttribute("aria-current", i === index ? "true" : "false");
-    });
-  }
-
-  items.forEach((item, i) => {
-    const fig = document.createElement("figure");
-    fig.className = "pd-gallery-item";
-
-    const img = document.createElement("img");
-    img.className = "pd-gallery-img";
-    img.loading = "lazy";
-    img.decoding = "async";
-    img.src = item.src || "";
-    img.alt = item.alt || "";
-
-    fig.appendChild(img);
-
-    if (item.caption) {
-      const cap = document.createElement("figcaption");
-      cap.className = "pd-gallery-cap";
-      cap.textContent = item.caption;
-      fig.appendChild(cap);
-    }
-
-    track.appendChild(fig);
-
-    const btn = document.createElement("button");
-    btn.className = "pd-dot";
-    btn.type = "button";
-    btn.textContent = String(i + 1);
-    btn.setAttribute("aria-current", i === 0 ? "true" : "false");
-    btn.addEventListener("click", () => {
-      index = i;
-      update();
-    });
-    dots.appendChild(btn);
-  });
-
-  viewport.appendChild(track);
-  galleryWrap.appendChild(viewport);
-  galleryWrap.appendChild(dots);
-
-  container.appendChild(galleryWrap);
-
-  // init
-  update();
-}
 
     // TEXT
     if (section.type === "text") {
@@ -178,6 +168,7 @@ if (section.type === "gallery") {
       p.className = "pd-text";
       p.textContent = section.content || "";
       container.appendChild(p);
+      return container;
     }
 
     // LIST
@@ -190,85 +181,37 @@ if (section.type === "gallery") {
         ul.appendChild(li);
       });
       container.appendChild(ul);
+      return container;
     }
 
     // IMAGE
-// GALLERY (number buttons)
-if (section.type === "gallery") {
-  const galleryWrap = document.createElement("div");
-  galleryWrap.className = "pd-gallery";
+    if (section.type === "image") {
+      const slot = document.createElement("div");
+      slot.className = "pd-media-slot";
 
-  // optional title (if you want title inside the gallery block)
-  if (section.title) {
-    const h2 = document.createElement("h2");
-    h2.className = "pd-section-title";
-    h2.textContent = section.title;
-    galleryWrap.appendChild(h2);
-  }
+      const figure = document.createElement("figure");
+      figure.className = "pd-figure";
 
-  const viewport = document.createElement("div");
-  viewport.className = "pd-gallery-viewport";
+      const img = document.createElement("img");
+      img.className = "pd-figure-img";
+      img.loading = "lazy";
+      img.decoding = "async";
+      img.src = section.src || "";
+      img.alt = section.alt || section.title || "";
 
-  const track = document.createElement("div");
-  track.className = "pd-gallery-track";
+      figure.appendChild(img);
 
-  const dots = document.createElement("div");
-  dots.className = "pd-gallery-dots";
+      if (section.caption) {
+        const cap = document.createElement("figcaption");
+        cap.className = "pd-figure-cap";
+        cap.textContent = section.caption;
+        figure.appendChild(cap);
+      }
 
-  const items = Array.isArray(section.items) ? section.items : [];
-  let index = 0;
-
-  const update = () => {
-    track.style.transform = `translateX(${-index * 100}%)`;
-    [...dots.children].forEach((btn, i) => {
-      btn.setAttribute("aria-current", i === index ? "true" : "false");
-    });
-  };
-
-  items.forEach((item, i) => {
-    const fig = document.createElement("figure");
-    fig.className = "pd-gallery-item";
-
-    const img = document.createElement("img");
-    img.className = "pd-gallery-img";   // matches CSS
-    img.loading = "lazy";
-    img.decoding = "async";
-    img.src = item.src || "";
-    img.alt = item.alt || "";
-
-    fig.appendChild(img);
-
-    if (item.caption) {
-      const cap = document.createElement("figcaption");
-      cap.className = "pd-gallery-cap";
-      cap.textContent = item.caption;
-      fig.appendChild(cap);
+      slot.appendChild(figure);
+      container.appendChild(slot);
+      return container;
     }
-
-    track.appendChild(fig);
-
-    const btn = document.createElement("button");
-    btn.className = "pd-dot";
-    btn.type = "button";
-    btn.textContent = String(i + 1);
-    btn.setAttribute("aria-current", i === 0 ? "true" : "false");
-    btn.addEventListener("click", () => {
-      index = i;
-      update();
-    });
-
-    dots.appendChild(btn);
-  });
-
-  viewport.appendChild(track);
-  galleryWrap.appendChild(viewport);
-  galleryWrap.appendChild(dots);
-
-  container.appendChild(galleryWrap);
-
-  update();
-}
-
 
     // YOUTUBE
     if (section.type === "youtube") {
@@ -286,6 +229,7 @@ if (section.type === "gallery") {
 
       slot.appendChild(iframe);
       container.appendChild(slot);
+      return container;
     }
 
     // FILE VIDEO
@@ -299,6 +243,7 @@ if (section.type === "gallery") {
       if (section.poster) video.poster = section.poster;
 
       (Array.isArray(section.sources) ? section.sources : []).forEach((s) => {
+        if (!s?.src) return;
         const source = document.createElement("source");
         source.src = s.src;
         source.type = s.type || "";
@@ -306,57 +251,96 @@ if (section.type === "gallery") {
       });
 
       slot.appendChild(video);
+
+      if (section.caption) {
+        const cap = document.createElement("div");
+        cap.className = "pd-figure-cap";
+        cap.textContent = section.caption;
+        slot.appendChild(cap);
+      }
+
       container.appendChild(slot);
+      return container;
     }
 
-    return container;
-  };
+    // GALLERY (number buttons)
+    if (section.type === "gallery") {
+      // Gallery title as a section title (like your screenshot)
+      if (section.title) {
+        const h2 = document.createElement("h2");
+        h2.className = "pd-section-title";
+        h2.textContent = section.title;
+        container.appendChild(h2);
+      }
 
-  try {
-    const res = await fetch("./projects_details.json", { cache: "no-store" });
-    const data = await res.json();
+      const galleryWrap = document.createElement("div");
+      galleryWrap.className = "pd-gallery";
 
-    const list = Array.isArray(data) ? data : (data.projects || []);
-    const proj = list.find((p) => p.id === id);
+      const viewport = document.createElement("div");
+      viewport.className = "pd-gallery-viewport";
 
-    if (!proj) {
-      release();
-      return;
-    }
+      const track = document.createElement("div");
+      track.className = "pd-gallery-track";
 
-    // title
-    setText("pdTitle", proj.title || "Project");
+      const dots = document.createElement("div");
+      dots.className = "pd-gallery-dots";
 
-    // meta
-    const meta = `${proj.year || ""}${proj.year && proj.role ? " · " : ""}${proj.role || ""}`;
-    setText("pdMeta", meta);
+      const items = Array.isArray(section.items) ? section.items : [];
+      let index = 0;
 
-    // tags
-    renderTags(proj.tags, proj.role);
+      function update() {
+        track.style.transform = `translateX(${-index * 100}%)`;
+        [...dots.children].forEach((btn, i) => {
+          btn.setAttribute("aria-current", i === index ? "true" : "false");
+        });
+      }
 
-    // hero image
-    const imgEl = $("pdImage");
-    if (imgEl && proj.heroImage) {
-      imgEl.src = proj.heroImage;
-      imgEl.alt = proj.heroAlt || proj.title || "";
-    }
+      items.forEach((item, i) => {
+        const fig = document.createElement("figure");
+        fig.className = "pd-gallery-item";
 
-    // sections
-    const sectionsWrap = $("pdSections");
-    if (sectionsWrap) {
-      sectionsWrap.innerHTML = "";
-      (Array.isArray(proj.sections) ? proj.sections : []).forEach((sec) => {
-        sectionsWrap.appendChild(renderSection(sec));
+        const img = document.createElement("img");
+        img.className = "pd-gallery-img";
+        img.loading = "lazy";
+        img.decoding = "async";
+        img.src = item.src || "";
+        img.alt = item.alt || "";
+
+        fig.appendChild(img);
+
+        if (item.caption) {
+          const cap = document.createElement("figcaption");
+          cap.className = "pd-gallery-cap";
+          cap.textContent = item.caption;
+          fig.appendChild(cap);
+        }
+
+        track.appendChild(fig);
+
+        const btn = document.createElement("button");
+        btn.className = "pd-dot";
+        btn.type = "button";
+        btn.textContent = String(i + 1);
+        btn.setAttribute("aria-current", i === 0 ? "true" : "false");
+        btn.addEventListener("click", () => {
+          index = i;
+          update();
+        });
+
+        dots.appendChild(btn);
       });
+
+      viewport.appendChild(track);
+      galleryWrap.appendChild(viewport);
+      galleryWrap.appendChild(dots);
+
+      container.appendChild(galleryWrap);
+
+      update();
+      return container;
     }
 
-    // links
-    renderLinks(proj.links);
-
-    // done -> start your anim pop
-    release();
-  } catch (err) {
-    console.error(err);
-    release();
+    // fallback: unknown section type
+    return container;
   }
-});
+})();
