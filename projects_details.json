@@ -80,7 +80,7 @@
 },
 {
   "type": "image",
-  "src": "./images/SmartPill_BlockDiagram.jpeg",
+  "src": "./images/SmartPillBlockDiagram.jpeg",
   "alt": "System block diagram of the smart pill dispenser",
   "caption": "Block diagram showing the STM32 microcontroller, input sensors, user interfaces, and output devices."
 },
@@ -98,13 +98,27 @@
       ]
     },
 
+{
+  "type": "gallery",
+  "title": "Prototype & Internal Views",
+  "items": [
     {
-      "type": "image",
-      "title": "System Diagram",
       "src": "./images/SmartPill2.jpeg",
-      "alt": "Smart pill dispenser system diagram",
-      "caption": "Overall system architecture showing controller, sensors, and dispensing mechanism."
+      "alt": "Front view of the smart pill dispenser",
+      "caption": "Front view showing keypad and display."
+    },
+    {
+      "src": "./images/DispensingMechanism.jpeg",
+      "alt": "Internal pill dispensing mechanism",
+      "caption": "Internal pill dispensing mechanism and servo system."
+    },
+    {
+      "src": "./images/Wiring.jpeg",
+      "alt": "STM32 board and wiring",
+      "caption": "STM32 microcontroller and internal wiring."
     }
+  ]
+}
   ],
   "links": [
     {

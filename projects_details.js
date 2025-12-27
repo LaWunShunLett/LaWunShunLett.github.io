@@ -62,6 +62,36 @@ document.addEventListener("DOMContentLoaded", async () => {
       actions.appendChild(a);
     });
   };
+function enableDragScroll(el) {
+  let isDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
+
+  el.addEventListener("mousedown", (e) => {
+    isDown = true;
+    el.classList.add("dragging");
+    startX = e.pageX - el.offsetLeft;
+    scrollLeft = el.scrollLeft;
+  });
+
+  window.addEventListener("mouseup", () => {
+    isDown = false;
+    el.classList.remove("dragging");
+  });
+
+  el.addEventListener("mouseleave", () => {
+    isDown = false;
+    el.classList.remove("dragging");
+  });
+
+  el.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - el.offsetLeft;
+    const walk = (x - startX) * 1.2;
+    el.scrollLeft = scrollLeft - walk;
+  });
+}
 
   const renderSection = (section) => {
     const container = document.createElement("div");
@@ -74,7 +104,37 @@ document.addEventListener("DOMContentLoaded", async () => {
       h2.textContent = section.title;
       container.appendChild(h2);
     }
+    // GALLERY (horizontal swipe)
+if (section.type === "gallery") {
+  const gallery = document.createElement("div");
+  gallery.className = "pd-gallery";
 
+  (Array.isArray(section.items) ? section.items : []).forEach((item) => {
+    const fig = document.createElement("figure");
+    fig.className = "pd-gallery-item";
+
+    const img = document.createElement("img");
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.src = item.src || "";
+    img.alt = item.alt || "";
+
+    fig.appendChild(img);
+
+    if (item.caption) {
+      const cap = document.createElement("figcaption");
+      cap.className = "pd-gallery-cap";
+      cap.textContent = item.caption;
+      fig.appendChild(cap);
+    }
+
+    gallery.appendChild(fig);
+  });
+
+  container.appendChild(gallery);
+  // ENABLE mouse drag swipe
+  enableDragScroll(gallery);
+}
     // TEXT
     if (section.type === "text") {
       const p = document.createElement("p");
