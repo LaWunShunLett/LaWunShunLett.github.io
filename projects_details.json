@@ -4,7 +4,7 @@
     "title": "Smart Pill Dispenser (STM32)",
     "year": "2024",
     "role": "Embedded Firmware Developer",
-    "tags": ["Embedded", "STM32", "Healthcare"],
+    "tags": ["Embedded Systems", "STM32", "Healthcare"],
 
     "heroImage": "./images/SmartPill.jpeg",
     "heroAlt": "Smart pill dispenser prototype",
@@ -13,162 +13,137 @@
       {
         "type": "text",
         "title": "Overview",
-        "content": "A smart pill dispenser built using an STM32 microcontroller. The system helps patients take the correct medicine at the correct time and reduces mistakes caused by forgetting or taking double doses. It is designed for both hospital and home-care use."
+        "content": "A smart pill dispenser built using an STM32 microcontroller to help patients take the correct medicine at the correct time and reduce medication mistakes."
       },
       {
         "type": "text",
         "title": "Problem",
-        "content": "Many patients, especially elderly users, forget to take medicine or take it more than once. In hospitals, staff are busy and manual medicine handling can lead to mistakes."
-      },
-      {
-        "type": "list",
-        "title": "Goals",
-        "items": [
-          "Reduce medicine mistakes.",
-          "Help patients follow their medicine schedule.",
-          "Reduce workload for healthcare staff.",
-          "Support elderly users.",
-          "Improve safety in medication use."
-        ]
+        "content": "Elderly patients often forget to take medicine or take it more than once. In hospitals, manual medicine handling also increases staff workload and risk of errors."
       },
       {
         "type": "text",
         "title": "Solution",
-        "content": "The system automatically releases pills at scheduled times. It uses sensors to confirm dispensing and RFID to control access. This reduces human error and improves reliability."
+        "content": "Designed and programmed an automated pill dispensing system that releases medicine based on a schedule and confirms dispensing using sensors."
       },
       {
         "type": "list",
-        "title": "System Modes",
+        "title": "Key Features",
         "items": [
-          "Normal mode for daily medicine dispensing.",
-          "Setup mode for staff to change settings using RFID."
+          "Scheduled pill dispensing using RTC",
+          "Servo-controlled pill release",
+          "IR sensor to confirm dispensing",
+          "RFID access for staff configuration",
+          "OLED and LCD display for user feedback"
+        ]
+      },
+      {
+        "type": "list",
+        "title": "My Role",
+        "items": [
+          "Designed system logic and firmware flow",
+          "Programmed STM32 using Arduino framework",
+          "Integrated RFID, sensors, servo motor, and RTC",
+          "Tested dispensing accuracy and system reliability"
+        ]
+      },
+      {
+        "type": "list",
+        "title": "Tools & Technologies",
+        "items": [
+          "STM32F103RB",
+          "Embedded C++",
+          "Arduino STM32 Core",
+          "RFID RC522",
+          "SSD1306 OLED",
+          "DS3231 RTC"
         ]
       },
       {
         "type": "image",
         "title": "System Diagram",
         "src": "./images/SmartPilldiagram.jpeg",
-        "alt": "Smart pill system diagram",
-        "caption": "System diagram"
-      },
-      {
-        "type": "image",
-        "title": "Block Diagram",
-        "src": "./images/SmartPillBlockDiagram.jpeg",
-        "alt": "Smart pill block diagram",
-        "caption": "Block diagram"
-      },
-      {
-        "type": "list",
-        "title": "Main Components",
-        "items": [
-          "STM32F103RB microcontroller",
-          "OLED display (SSD1306)",
-          "4x4 keypad",
-          "20x2 LCD display",
-          "RFID RC522 module",
-          "IR sensor",
-          "PIR sensor",
-          "Servo motor",
-          "RTC module (DS3231)",
-          "Buzzer"
-        ]
-      },
-      {
-        "type": "list",
-        "title": "How It Works",
-        "items": [
-          "User or staff sets the medicine schedule.",
-          "RTC keeps track of time.",
-          "At the scheduled time, the servo rotates to release one pill.",
-          "IR sensor checks if a pill is released.",
-          "PIR sensor detects hand movement.",
-          "RFID allows staff to enter setup mode.",
-          "Display shows time, status, and instructions."
-        ]
-      },
-      {
-        "type": "list",
-        "title": "Programming",
-        "items": [
-          "Embedded C++",
-          "STM32 Arduino Core",
-          "RFID library",
-          "OLED display library",
-          "RTC library",
-          "Servo motor library"
-        ]
+        "caption": "Overall system block diagram"
       }
     ],
 
     "links": [
       {
         "label": "Source Code",
-        "url": "https://github.com/yourname/yourrepo"
+        "url": "https://github.com/yourname/smart-pill-dispenser"
       }
     ]
   },
 
   {
     "id": "supermarket-self-checkout",
-    "title": "Supermarket Self-Checkout System — IoT Kiosk + Web Platform",
+    "title": "Supermarket Self-Checkout System",
     "year": "2025",
-    "role": "Product Operations, DevOps & System Troubleshooting",
-
-    "tech": [
-      "Item scanning and cart management on the kiosk.",
-      "Persistent cart synced to a web application.",
-      "Containerised backend for easy deployment and rollback."
-    ],
+    "role": "Product Operations, DevOps & System Support",
+    "tags": ["IoT", "Raspberry Pi", "Docker", "Web System"],
 
     "heroImage": "./images/SuperMarket.jpg",
-    "heroAlt": "Supermarket self-checkout kiosk with keypad and LCD",
-    "youtube": "https://www.youtube.com/embed/YYYYYYYYYYY",
+    "heroAlt": "Supermarket self-checkout kiosk",
 
-    "problem": "Conventional manned checkout counters create queues and require more staff during peak hours.",
-    "solution": "Built a kiosk that lets customers scan items, manage their cart locally, then sync to a web backend for payment and receipt.",
-
-    "responsibilities": [
-      "Maintained the Dockerised backend and database.",
-      "Monitored Raspberry Pi kiosk health and performed on-site troubleshooting.",
-      "Coordinated integration testing between kiosk and web interfaces."
-    ],
-
-    "features": ["Python Backend, SQL / MariaDB, Raspberry Pi, Docker, REST APIs, Web Frontend"],
-    "inlineMedia": [
+    "sections": [
       {
-        "slot": "afterOverview",
-        "type": "image",
-        "src": "./images/SmartPill_inside.jpg",
-        "alt": "Internal layout and dispensing mechanism",
-        "caption": "Internal layout: dispensing path + key components."
+        "type": "text",
+        "title": "Overview",
+        "content": "A self-checkout system combining an IoT kiosk with a web backend to reduce queue time and improve checkout efficiency in supermarkets."
       },
       {
-        "slot": "afterProblem",
-        "type": "image",
-        "src": "./images/Pillbox_schedule.jpg",
-        "alt": "Manual pill organiser and schedule",
-        "caption": "Manual schedules can be misread or forgotten."
+        "type": "text",
+        "title": "Problem",
+        "content": "Traditional staffed checkout counters create long queues and require more manpower during peak hours."
       },
       {
-        "slot": "afterSolution",
+        "type": "text",
+        "title": "Solution",
+        "content": "Built a kiosk that allows customers to scan items and manage their cart locally, then sync data to a web backend for payment and receipt handling."
+      },
+      {
+        "type": "list",
+        "title": "Key Features",
+        "items": [
+          "Item scanning and cart management on kiosk",
+          "Cart data synced with web application",
+          "Containerised backend for easy deployment",
+          "Support for offline and online operation"
+        ]
+      },
+      {
+        "type": "list",
+        "title": "My Role",
+        "items": [
+          "Maintained Dockerised backend and database",
+          "Performed on-site troubleshooting for kiosk hardware",
+          "Monitored system health and deployment stability",
+          "Coordinated integration testing between kiosk and web system"
+        ]
+      },
+      {
+        "type": "list",
+        "title": "Tools & Technologies",
+        "items": [
+          "Python",
+          "Raspberry Pi",
+          "Docker",
+          "MariaDB / SQL",
+          "REST APIs",
+          "Web Frontend"
+        ]
+      },
+      {
         "type": "youtube",
-        "id": "M7lc1UVf-VE",
-        "title": "Demo video",
-        "caption": "Demo hosted on YouTube."
-      },
-      {
-        "slot": "afterFeatures",
-        "type": "fileVideo",
-        "poster": "./images/video-poster.jpg",
-        "sources": [
-          { "src": "./videos/pill-demo.mp4", "type": "video/mp4" },
-          { "src": "./videos/pill-demo.webm", "type": "video/webm" }
-        ],
-        "caption": "Offline demo (local video)."
+        "title": "System Demo",
+        "id": "YYYYYYYYYYY"
       }
     ],
-    "gallery": ["./images/SuperMarket.jpg"],
-    "sourceCode": "https://github.com/LaWunShunLett/LaWunShunLett.github.io"
+
+    "links": [
+      {
+        "label": "Source Code",
+        "url": "https://github.com/LaWunShunLett/LaWunShunLett.github.io"
+      }
+    ]
   }
 ]
