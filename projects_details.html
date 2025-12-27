@@ -6,19 +6,22 @@
     <title>Project Details</title>
 
     <!-- Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./projects_details.css" />
+
+    <!-- IMPORTANT: scripts.js first, then details -->
+    <script defer src="./scripts.js"></script>
+    <script defer src="./projects_details.js"></script>
   </head>
 
+  <!-- start in preload -->
   <body class="preload">
-    <script defer src="./scripts.js"></script>
+    <!-- Page transition overlay (covers flash on refresh) -->
+    <div id="pageTransition" class="page-transition is-active" aria-hidden="true"></div>
 
     <header class="topbar">
       <div class="topbar-inner">
@@ -26,32 +29,26 @@
 
         <nav class="desktop-nav" aria-label="Primary navigation">
           <a href="index.html">Home</a>
-          <a href="projects.html">Projects</a>
+          <a href="projects.html" class="active">Projects</a>
           <a href="about.html">About Me</a>
           <a href="contact.html">Contact</a>
         </nav>
 
-        <button
-          class="hamburger-mobile"
-          id="hamburger"
-          type="button"
-          aria-label="Open menu"
-          aria-expanded="false"
-          aria-controls="mobileNav"
-        >
+        <button class="hamburger-mobile" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
           <span></span><span></span><span></span>
         </button>
       </div>
 
       <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
         <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
+        <a href="projects.html" class="active">Projects</a>
         <a href="about.html">About Me</a>
         <a href="contact.html">Contact</a>
       </nav>
     </header>
 
     <main class="project-detail-page">
+      <!-- HERO -->
       <section class="pd-hero">
         <div class="wrap">
           <button class="pd-back" type="button" id="pdBack">← Back to Projects</button>
@@ -59,13 +56,24 @@
           <p class="pd-meta" id="pdMeta"></p>
           <div class="pd-tags" id="pdTags"></div>
 
-          <!-- Hero image -->
           <img id="pdImage" alt="" />
         </div>
       </section>
 
+      <!-- BODY -->
       <section class="pd-body">
         <div class="wrap">
+          <!-- Skeleton loader -->
+          <div id="pdLoading" class="pd-loading">
+            <div class="pd-skel skel-line w40"></div>
+            <div class="pd-skel skel-line w90"></div>
+            <div class="pd-skel skel-line w85"></div>
+            <div class="pd-skel skel-box"></div>
+            <div class="pd-skel skel-line w70"></div>
+            <div class="pd-skel skel-line w60"></div>
+          </div>
+
+          <!-- Content -->
           <div id="pdContent" class="pd-content-wrap">
             <h1 class="pd-title" id="pdTitle"></h1>
 
@@ -82,137 +90,20 @@
             <p id="pdSolution" class="pd-text"></p>
             <div id="pdMediaAfterSolution" class="pd-media-slot"></div>
 
-            <h2 class="pd-section-title">Tech</h2>
+            <h2 class="pd-section-title">Technical Details</h2>
             <p id="pdTech" class="pd-text"></p>
 
-            <h2 class="pd-section-title">Responsibilities</h2>
+            <h2 class="pd-section-title">My Role</h2>
             <ul id="pdResponsibilities" class="pd-list"></ul>
 
             <h2 class="pd-section-title">Features</h2>
             <ul id="pdFeatures" class="pd-list"></ul>
             <div id="pdMediaAfterFeatures" class="pd-media-slot"></div>
 
-            <div id="pdActions" class="pd-actions"></div>
+            <div class="pd-actions" id="pdActions"></div>
           </div>
         </div>
       </section>
     </main>
-
-    <!-- ✅ Embed your projects_details.json here (NO FETCH, NO FLASH) -->
-    <script type="application/json" id="projectsDetailsData">
-[
-  {
-    "id": "smart-pill-dispenser",
-    "title": "Smart Pill Dispenser — STM32-Based Medication Management System",
-    "year": "2024",
-    "role": "Embedded Firmware Developer | Microcontroller Systems",
-    "overview": "A school project: an STM32-based smart pill dispenser designed for both hospital and home-care medication routines. After one-time setup, it automatically dispenses at scheduled times to reduce missed or double doses. In hospitals, it supports staff by making routine dispensing more consistent; at home, it helps elderly patients and caregivers follow daily medication schedules more easily and track whether dispensing happened.",
-    "overviewPoints": [
-      "One-time schedule setup (supports multiple dispensing times per day).",
-      "RFID-controlled access for authorised users.",
-      "RTC timekeeping for accurate scheduled dispensing.",
-      "Servo-driven dispensing with a 3D-printed guiding mechanism.",
-      "IR/PIR sensing to confirm dispensing activity and detect presence.",
-      "OLED + keypad for setup and status."
-    ],
-    "problem": "Some patients (especially elderly users) may forget to take medication or accidentally take it twice when relying on memory or manual pill boxes. In home-care settings, caregivers can also misread the schedule or give a dose at the wrong time, especially when managing multiple medications and busy routines.",
-    "solution": "The device uses RFID for authorised access, an RTC to keep time and run scheduled dispensing, and a servo mechanism with sensors to dispense pills and confirm activity at the scheduled time.",
-    "tech": [
-      "RFID authentication for controlled access.",
-      "RTC-based scheduling (one-time setup) for automatic dispensing at configured times.",
-      "3D-printed housing and custom dispensing parts to guide pills and support the mechanism.",
-      "Servo-driven dispensing mechanism to release pills on schedule.",
-      "Sensors (IR/PIR) to detect dispensing activity and user presence.",
-      "OLED + keypad for setup, status display, and on-device configuration."
-    ],
-    "responsibilities": [
-      "Developed STM32 firmware in C++ to control the full system.",
-      "Integrated RFID authentication, RTC scheduling, sensors (IR/PIR), and servo motor control.",
-      "Configured STM32 peripherals such as GPIO, timers, and interrupts for real-time behaviour.",
-      "Troubleshot firmware logic and electrical wire connections (power, signal, grounding) to stabilise sensor readings and servo operation.",
-      "Worked with teammates to test and verify the prototype end-to-end."
-    ],
-    "features": ["STM32, Embedded C++, RFID, RTC, IR Sensor, PIR Sensor, Servo Motor, OLED Display, Keypad"],
-    "inlineMedia": [
-      {
-        "slot": "afterSolution",
-        "type": "image",
-        "id": "./images/SmartPillBlockDiagram.jpeg",
-        "title": "Smart Pill Dispenser Mechanical Diagram",
-        "caption": "Smart Pill Dispenser Block Diagram Operation"
-      },
-      {
-        "slot": "afterFeatures",
-        "type": "image",
-        "id": "./images/SmartPilldiagram.jpeg",
-        "title": "Smart Pill Dispenser Block Diagram",
-        "caption": "Smart Pill Dispenser Mechanical Diagram Operation"
-      }
-    ],
-    "sourceCode": "https://github.com/YOUR_USERNAME/YOUR_REPO",
-    "heroImage": "./images/SmartPill.jpeg",
-    "heroAlt": "Smart pill dispenser prototype with STM32 and pill slots"
-  },
-
-  {
-    "id": "supermarket-self-checkout",
-    "title": "Supermarket Self-Checkout System — IoT Kiosk + Web Platform",
-    "year": "2025",
-    "role": "Product Operations, DevOps & System Troubleshooting",
-    "tech": [
-      "Item scanning and cart management on the kiosk.",
-      "Persistent cart synced to a web application.",
-      "Containerised backend for easy deployment and rollback."
-    ],
-    "heroImage": "./images/SuperMarket.jpg",
-    "heroAlt": "Supermarket self-checkout kiosk with keypad and LCD",
-    "problem": "Conventional manned checkout counters create queues and require more staff during peak hours.",
-    "solution": "Built a kiosk that lets customers scan items, manage their cart locally, then sync to a web backend for payment and receipt.",
-    "responsibilities": [
-      "Maintained the Dockerised backend and database.",
-      "Monitored Raspberry Pi kiosk health and performed on-site troubleshooting.",
-      "Coordinated integration testing between kiosk and web interfaces."
-    ],
-    "features": ["Python Backend, SQL / MariaDB, Raspberry Pi, Docker, REST APIs, Web Frontend"],
-    "inlineMedia": [
-      {
-        "slot": "afterOverview",
-        "type": "image",
-        "src": "./images/SmartPill_inside.jpg",
-        "alt": "Internal layout and dispensing mechanism",
-        "caption": "Internal layout: dispensing path + key components."
-      },
-      {
-        "slot": "afterProblem",
-        "type": "image",
-        "src": "./images/Pillbox_schedule.jpg",
-        "alt": "Manual pill organiser and schedule",
-        "caption": "Manual schedules can be misread or forgotten."
-      },
-      {
-        "slot": "afterSolution",
-        "type": "youtube",
-        "id": "M7lc1UVf-VE",
-        "title": "Demo video",
-        "caption": "Demo hosted on YouTube."
-      },
-      {
-        "slot": "afterFeatures",
-        "type": "fileVideo",
-        "poster": "./images/video-poster.jpg",
-        "sources": [
-          { "src": "./videos/pill-demo.mp4", "type": "video/mp4" },
-          { "src": "./videos/pill-demo.webm", "type": "video/webm" }
-        ],
-        "caption": "Offline demo (local video)."
-      }
-    ],
-    "sourceCode": "https://github.com/LaWunShunLett/LaWunShunLett.github.io"
-  }
-]
-    </script>
-
-    <!-- ✅ Run after HTML exists (fast hydrate, no flash) -->
-    <script src="./projects_details.js"></script>
   </body>
 </html>
