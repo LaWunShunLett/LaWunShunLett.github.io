@@ -1,58 +1,25 @@
-document.body.classList.add("preload");
-
 document.addEventListener("DOMContentLoaded", async () => {
+  /* =========================================
+     HOLD ANIMATION UNTIL CONTENT IS READY
+     (covers flash using your anim system)
+  ========================================= */
+  document.body.classList.add("preload");
 
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
+  /* =========================================
+     BASIC HELPERS
+  ========================================= */
+  const qs = new URLSearchParams(window.location.search);
+  const id = qs.get("id");
 
-  const loadingEl = document.getElementById("pdLoading");
-  const contentEl = document.getElementById("pdContent");
+  const byId = (id) => document.getElementById(id);
 
-  /* ===============================
-     Loading / Content control
-  =============================== */
-  const showLoading = (msg = "Loading…") => {
-    if (loadingEl) loadingEl.style.display = "block";
-    if (contentEl) contentEl.classList.add("is-hidden");
-  };
-
-  const showContent = () => {
-    if (loadingEl) loadingEl.style.display = "none";
-    if (contentEl) contentEl.classList.remove("is-hidden");
-  };
-
-  /* ===============================
-     Page transition overlay control
-     (covers flash during refresh)
-  =============================== */
-  const releasePage = () => {
-    // remove preload class (if present)
-    document.body.classList.remove("preload");
-
-    const overlay = document.getElementById("pageTransition");
-    if (!overlay) return;
-
-    // fade out overlay, then remove it
-    overlay.classList.add("is-fade");
-    overlay.addEventListener(
-      "transitionend",
-      () => {
-        overlay.remove();
-      },
-      { once: true }
-    );
-  };
-
-  /* ===============================
-     Simple helper setters
-  =============================== */
   const setText = (id, text) => {
-    const el = document.getElementById(id);
+    const el = byId(id);
     if (el) el.textContent = text ?? "";
   };
 
   const setList = (id, items) => {
-    const el = document.getElementById(id);
+    const el = byId(id);
     if (!el) return;
     el.innerHTML = "";
     (Array.isArray(items) ? items : []).forEach((item) => {
@@ -62,7 +29,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   };
 
-  // Inline media slots
+  /* =========================================
+     INLINE MEDIA RENDERING
+  ========================================= */
   const SLOTMAP = {
     afterOverview: "pdMediaAfterOverview",
     afterProblem: "pdMediaAfterProblem",
@@ -70,20 +39,23 @@ document.addEventListener("DOMContentLoaded", async () => {
     afterFeatures: "pdMediaAfterFeatures",
   };
 
-  const clearInlineMediaSlots = () => {
-    Object.values(SLOTMAP).forEach(id => {
-      const el = document.getElementById(id);
+  const clearMediaSlots = () => {
+    Object.values(SLOTMAP).forEach((slot) => {
+      const el = byId(slot);
       if (el) el.innerHTML = "";
     });
   };
 
   const renderInlineMedia = (project) => {
-    clearInlineMediaSlots();
+    clearMediaSlots();
 
-    const media = Array.isArray(project?.inlineMedia) ? project.inlineMedia : [];
+    const media = Array.isArray(project.inlineMedia)
+      ? project.inlineMedia
+      : [];
+
     media.forEach((m) => {
       const slotId = SLOTMAP[m.slot];
-      const slotEl = document.getElementById(slotId);
+      const slotEl = byId(slotId);
       if (!slotEl) return;
 
       const figure = document.createElement("figure");
@@ -117,17 +89,19 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (m.type === "fileVideo") {
         const video = document.createElement("video");
         video.className = "pd-video-player";
-
-        // Prevent early control-bar flash
         video.controls = false;
+
         if (m.poster) video.poster = m.poster;
 
-        video.addEventListener("canplay", () => {
-          video.controls = true;
-        }, { once: true });
+        video.addEventListener(
+          "canplay",
+          () => {
+            video.controls = true;
+          },
+          { once: true }
+        );
 
-        const sources = Array.isArray(m.sources) ? m.sources : [];
-        sources.forEach((s) => {
+        (Array.isArray(m.sources) ? m.sources : []).forEach((s) => {
           const source = document.createElement("source");
           source.src = s.src;
           source.type = s.type || "";
@@ -148,20 +122,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   };
 
-  /* ===============================
-     Guard
-  =============================== */
+  /* =========================================
+     GUARD
+  ========================================= */
   if (!id) {
-    showLoading("No project id in URL.");
-    releasePage();
+    requestAnimationFrame(() => {
+      document.body.classList.remove("preload");
+    });
     return;
   }
 
-  showLoading();
-
-  /* ===============================
-     Load both datasets
-  =============================== */
+  /* =========================================
+     LOAD DATA
+  ========================================= */
   let projects = [];
   let details = [];
 
@@ -171,44 +144,40 @@ document.addEventListener("DOMContentLoaded", async () => {
       fetch("./projects_details.json"),
     ]);
 
-    if (!pRes.ok) throw new Error(`projects.json HTTP ${pRes.status}`);
-    if (!dRes.ok) throw new Error(`projects_details.json HTTP ${dRes.status}`);
-
     projects = await pRes.json();
     details = await dRes.json();
   } catch (err) {
-    console.error(err);
-    showLoading("Failed to load project data.");
-    releasePage();
+    console.error("Failed to load project data", err);
+    requestAnimationFrame(() => {
+      document.body.classList.remove("preload");
+    });
     return;
   }
 
-  const base = projects.find(p => p.id === id);
-  const detail = details.find(d => d.id === id);
-
+  const base = projects.find((p) => p.id === id);
+  const detail = details.find((d) => d.id === id);
   if (!base || !detail) {
-    showLoading("Project not found.");
-    releasePage();
+    requestAnimationFrame(() => {
+      document.body.classList.remove("preload");
+    });
     return;
   }
 
   const proj = { ...base, ...detail };
 
-  /* ===============================
-     Header / meta
-  =============================== */
-  const title = proj.title || "Project";
+  /* =========================================
+     HEADER META
+  ========================================= */
   const year = proj.year || "";
   const role = proj.role || "";
 
-  setText("pdTitle", title);
+  setText("pdTitle", proj.title || "Project");
+  setText(
+    "pdMeta",
+    `${year}${year && role ? " · " : ""}${role}`
+  );
 
-  const metaEl = document.getElementById("pdMeta");
-  if (metaEl) {
-    metaEl.textContent = `${year}${year && role ? " · " : ""}${role}`;
-  }
-
-  const tagsWrap = document.getElementById("pdTags");
+  const tagsWrap = byId("pdTags");
   if (tagsWrap) {
     tagsWrap.innerHTML = "";
     const tags = Array.isArray(proj.tags) ? proj.tags : [];
@@ -222,38 +191,38 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  /* ===============================
-     Content
-  =============================== */
+  /* =========================================
+     CONTENT
+  ========================================= */
   setText("pdOverview", proj.overview || "");
   setList("pdOverviewPoints", proj.overviewPoints || []);
   setText("pdProblem", proj.problem || "");
   setText("pdSolution", proj.solution || "");
-  setText("pdTech", Array.isArray(proj.tech) ? proj.tech.join(", ") : (proj.tech || ""));
+  setText(
+    "pdTech",
+    Array.isArray(proj.tech) ? proj.tech.join(", ") : proj.tech || ""
+  );
   setList("pdResponsibilities", proj.responsibilities || []);
   setList("pdFeatures", proj.features || []);
 
-  /* ===============================
-     Hero image
-  =============================== */
-  const heroImage = proj.heroImage || proj.image || "";
-  const heroAlt = proj.heroAlt || proj.imageAlt || title;
-
-  const imgEl = document.getElementById("pdImage");
-  if (imgEl && heroImage) {
-    imgEl.alt = heroAlt;
-    imgEl.src = heroImage;
+  /* =========================================
+     HERO IMAGE (NO FLASH)
+  ========================================= */
+  const imgEl = byId("pdImage");
+  if (imgEl && proj.heroImage) {
+    imgEl.alt = proj.heroAlt || proj.title || "";
+    imgEl.src = proj.heroImage;
   }
 
-  /* ===============================
-     Inline media
-  =============================== */
+  /* =========================================
+     INLINE MEDIA
+  ========================================= */
   renderInlineMedia(proj);
 
-  /* ===============================
-     Source button
-  =============================== */
-  const actions = document.getElementById("pdActions");
+  /* =========================================
+     SOURCE BUTTON
+  ========================================= */
+  const actions = byId("pdActions");
   if (actions) {
     actions.innerHTML = "";
     if (proj.sourceCode) {
@@ -267,16 +236,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
-  /* ===============================
-     Back button
-  =============================== */
-  document.getElementById("pdBack")?.addEventListener("click", () => {
-    history.length > 1 ? history.back() : (window.location.href = "projects.html");
+  /* =========================================
+     BACK BUTTON
+  ========================================= */
+  byId("pdBack")?.addEventListener("click", () => {
+    history.length > 1
+      ? history.back()
+      : (window.location.href = "projects.html");
   });
 
-  showContent();
-  releasePage();
-});
-requestAnimationFrame(() => {
-  document.body.classList.remove("preload");
+  /* =========================================
+     RELEASE ANIMATION (THIS IS THE MAGIC)
+  ========================================= */
+  requestAnimationFrame(() => {
+    document.body.classList.remove("preload");
+  });
 });
