@@ -214,17 +214,23 @@ html, body{
 .page-transition.is-fade{
   opacity: 0;
 }
-/* Logo animation independent of preload/.anim system */
-.logo-pop{
-  animation: logoPop .55s cubic-bezier(.22,1,.36,1) both;
+/* Logo POP-UP animation (scale + up + fade) */
+.logo-popup{
+  display: inline-block;              /* important for transform */
+  transform-origin: left center;
+  animation: logoPopUp 520ms cubic-bezier(.22,1.2,.36,1) both;
 }
 
-@keyframes logoPop{
-  from{
+@keyframes logoPopUp{
+  0%{
     opacity: 0;
-    transform: translateY(-10px) scale(.98);
+    transform: translateY(-6px) scale(0.92);
   }
-  to{
+  60%{
+    opacity: 1;
+    transform: translateY(0) scale(1.05);
+  }
+  100%{
     opacity: 1;
     transform: translateY(0) scale(1);
   }
