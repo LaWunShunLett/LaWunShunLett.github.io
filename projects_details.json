@@ -1,79 +1,118 @@
-[
-  {
-    "id": "smart-pill-dispenser",
-    "title": "Smart Pill Dispenser (STM32)",
-    "year": "2024",
-    "role": "Embedded Firmware Developer",
-    "tags": ["Embedded Systems", "STM32", "Healthcare"],
+[{
+  "id": "smart-pill-dispenser",
+  "title": "Smart Pill Dispenser (STM32)",
+  "year": "2024",
+  "role": "Embedded Firmware Developer",
+  "tags": ["Embedded Systems", "STM32", "Healthcare"],
 
-    "heroImage": "./images/SmartPill.jpeg",
-    "heroAlt": "Smart pill dispenser prototype",
+  "heroImage": "./images/SmartPill.jpeg",
+  "heroAlt": "Smart pill dispenser prototype",
 
-    "sections": [
-      {
-        "type": "text",
-        "title": "Overview",
-        "content": "A smart pill dispenser built using an STM32 microcontroller to help patients take the correct medicine at the correct time and reduce medication mistakes."
-      },
-      {
-        "type": "text",
-        "title": "Problem",
-        "content": "Elderly patients often forget to take medicine or take it more than once. In hospitals, manual medicine handling also increases staff workload and risk of errors."
-      },
-      {
-        "type": "text",
-        "title": "Solution",
-        "content": "Designed and programmed an automated pill dispensing system that releases medicine based on a schedule and confirms dispensing using sensors."
-      },
-      {
-        "type": "list",
-        "title": "Key Features",
-        "items": [
-          "Scheduled pill dispensing using RTC",
-          "Servo-controlled pill release",
-          "IR sensor to confirm dispensing",
-          "RFID access for staff configuration",
-          "OLED and LCD display for user feedback"
-        ]
-      },
-      {
-        "type": "list",
-        "title": "My Role",
-        "items": [
-          "Designed system logic and firmware flow",
-          "Programmed STM32 using Arduino framework",
-          "Integrated RFID, sensors, servo motor, and RTC",
-          "Tested dispensing accuracy and system reliability"
-        ]
-      },
-      {
-        "type": "list",
-        "title": "Tools & Technologies",
-        "items": [
-          "STM32F103RB",
-          "Embedded C++",
-          "Arduino STM32 Core",
-          "RFID RC522",
-          "SSD1306 OLED",
-          "DS3231 RTC"
-        ]
-      },
-      {
-        "type": "image",
-        "title": "System Diagram",
-        "src": "./images/SmartPilldiagram.jpeg",
-        "caption": "Overall system block diagram"
-      }
-    ],
+  "sections": [
+    {
+      "type": "text",
+      "title": "Project Background",
+      "content": "The Smart Pill Dispenser was developed as a school project focused on improving medication management in both hospital and home-care environments. It addresses common medication errors caused by forgetfulness, manual scheduling, and human oversight, especially among elderly users and busy healthcare staff. The system is built using an STM32 microcontroller and automates pill dispensing at scheduled times while confirming dispensing activity through sensors."
+    },
 
-    "links": [
-      {
-        "label": "Source Code",
-        "url": "https://github.com/yourname/smart-pill-dispenser"
-      }
-    ]
-  },
+    {
+      "type": "list",
+      "title": "Key Capabilities",
+      "items": [
+        "Automated pill dispensing based on scheduled times",
+        "Real-time clock (RTC) for accurate timekeeping",
+        "Servo-driven dispensing mechanism",
+        "Sensor-based confirmation of dispensing activity",
+        "RFID-controlled access for authorised users",
+        "OLED and LCD displays for system status and user interaction"
+      ]
+    },
 
+    {
+      "type": "text",
+      "title": "Problem",
+      "content": "Many patients, particularly elderly users, forget to take medication or accidentally take it more than once. In hospital settings, manual medication handling increases staff workload and raises the risk of missed or incorrect doses during busy routines."
+    },
+
+    {
+      "type": "text",
+      "title": "Solution",
+      "content": "The system automates medication dispensing by releasing pills at predefined times and verifying the dispensing process using sensors. This reduces reliance on memory and manual handling, improving medication safety and consistency."
+    },
+      {
+  "type": "image",
+  "src": "./images/SmartPill_Working.png",
+  "alt": "Working principle of the smart pill dispenser",
+  "caption": "Illustration showing the pill dispensing mechanism, sensor detection, and control flow."
+},
+    {
+      "type": "text",
+      "title": "My Role",
+      "content": "I was responsible for the design, implementation, and testing of the embedded firmware and overall system logic."
+    },
+    {
+      "type": "list",
+      "title": "My Role",
+      "items": [
+        "Designed the system logic and electrical troubleshooting",
+        "Researched sensors and libraries and configure the STM32 microcontroller GPIOs",
+        "Integrated RTC, RFID module, sensors, and servo motor using Embed studio with C++ and Asembly languages",
+        "Implemented sensor feedback to confirm pill dispensing",
+        "Tested system reliability and electrical wiring"
+      ]
+    },
+{
+  "type": "list",
+  "title": "System Flow & Operation",
+  "items": [
+    "System starts in normal operating mode after power-up.",
+    "Authorised staff can enter configuration mode using RFID authentication.",
+    "In configuration mode, the keypad is used to set or update medication schedules.",
+    "Configuration options and system status are shown on the OLED display.",
+    "RTC continuously keeps track of the current time.",
+    "When a scheduled dispensing time is reached, the STM32 triggers the dispensing process.",
+    "Servo motor rotates to release a single pill.",
+    "IR sensor confirms whether a pill has been successfully dispensed.",
+    "PIR sensor detects user presence near the dispenser during operation.",
+    "System status, alerts, and feedback are displayed on the OLED and LCD screens.",
+    "After dispensing, the system returns to normal mode and waits for the next scheduled cycle."
+  ]
+},
+{
+  "type": "image",
+  "src": "./images/SmartPill_BlockDiagram.jpeg",
+  "alt": "System block diagram of the smart pill dispenser",
+  "caption": "Block diagram showing the STM32 microcontroller, input sensors, user interfaces, and output devices."
+},
+    {
+      "type": "list",
+      "title": "Technical Summary",
+      "items": [
+        "Microcontroller: STM32F103RB",
+        "Programming Language: Embedded C++",
+        "Sensors: IR sensor, PIR sensor",
+        "Actuator: Servo motor",
+        "Modules: RFID RC522, RTC DS3231",
+        "Displays: OLED (SSD1306), LCD",
+        "Application Area: Healthcare automation, assistive technology"
+      ]
+    },
+
+    {
+      "type": "image",
+      "title": "System Diagram",
+      "src": "./images/SmartPill2.jpeg",
+      "alt": "Smart pill dispenser system diagram",
+      "caption": "Overall system architecture showing controller, sensors, and dispensing mechanism."
+    }
+  ],
+  "links": [
+    {
+      "label": "Source Code",
+      "url": "https://github.com/yourname/smart-pill-dispenser"
+    }
+  ]
+},
   {
     "id": "supermarket-self-checkout",
     "title": "Supermarket Self-Checkout System",
