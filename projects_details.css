@@ -221,6 +221,37 @@ html, body{
   transform: translateY(12px);
   animation: logoAnimUp .6s cubic-bezier(.22,1,.36,1) forwards;
 }
+/* ===== Horizontal gallery ===== */
+.pd-gallery {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+}
+
+.pd-gallery.dragging {
+  cursor: grabbing;
+}
+
+.pd-gallery-item {
+  flex: 0 0 auto;
+  width: min(980px, 92vw); /* SAME width as big image */
+  scroll-snap-align: start;
+}
+
+.pd-gallery-item img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 16px 34px rgba(0,0,0,0.12);
+}
+
+.pd-gallery-cap {
+  margin-top: 8px;
+  font-size: 14px;
+  opacity: 0.7;
+}
 
 @keyframes logoAnimUp{
   to{
