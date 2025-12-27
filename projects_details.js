@@ -1,27 +1,15 @@
 document.addEventListener("DOMContentLoaded", async () => {
-
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
 
-  const loadingEl = document.getElementById("pdLoading");
   const contentEl = document.getElementById("pdContent");
 
-  /* ===============================
-     Loading / Content control
-  =============================== */
-  const showLoading = (msg = "Loading…") => {
-    if (loadingEl) loadingEl.style.display = "block";
-    if (contentEl) contentEl.classList.add("is-hidden");
-  };
+  // Back button
+  document.getElementById("pdBack")?.addEventListener("click", () => {
+    history.length > 1 ? history.back() : (window.location.href = "projects.html");
+  });
 
-  const showContent = () => {
-    if (loadingEl) loadingEl.style.display = "none";
-    if (contentEl) contentEl.classList.remove("is-hidden");
-  };
-
-  /* ===============================
-     Helpers
-  =============================== */
+  // Helpers
   const setText = (elId, value) => {
     const el = document.getElementById(elId);
     if (el) el.textContent = value ?? "";
@@ -37,22 +25,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         ? items.split(",").map(s => s.trim()).filter(Boolean)
         : [];
 
-    if (!["ul", "ol"].includes(el.tagName.toLowerCase())) {
-      el.textContent = arr.join(", ");
-      return;
-    }
-
     el.innerHTML = "";
-    arr.forEach(item => {
+    arr.forEach((item) => {
       const li = document.createElement("li");
       li.textContent = item;
       el.appendChild(li);
     });
   };
 
-  /* ===============================
-     Inline media
-  =============================== */
+  // Inline media slots
   const SLOTMAP = {
     afterOverview: "pdMediaAfterOverview",
     afterProblem: "pdMediaAfterProblem",
@@ -61,8 +42,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   };
 
   const clearInlineMediaSlots = () => {
-    Object.values(SLOTMAP).forEach(id => {
-      const el = document.getElementById(id);
+    Object.values(SLOTMAP).forEach((slotId) => {
+      const el = document.getElementById(slotId);
       if (el) el.innerHTML = "";
     });
   };
@@ -70,11 +51,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const renderInlineMedia = (project) => {
     clearInlineMediaSlots();
 
-    const media = Array.isArray(project?.inlineMedia)
-      ? project.inlineMedia
-      : [];
-
-    media.forEach(m => {
+    const media = Array.isArray(project?.inlineMedia) ? project.inlineMedia : [];
+    media.forEach((m) => {
       const slotId = SLOTMAP[m.slot];
       const slotEl = document.getElementById(slotId);
       if (!slotEl) return;
@@ -82,29 +60,18 @@ document.addEventListener("DOMContentLoaded", async () => {
       const figure = document.createElement("figure");
       figure.className = "pd-figure";
 
-      /* ---- IMAGE ---- */
+      // IMAGE
       if (m.type === "image") {
-        const placeholder = document.createElement("div");
-        placeholder.className = "pd-skel skel-box";
-        figure.appendChild(placeholder);
-
         const img = document.createElement("img");
         img.className = "pd-figure-img";
         img.alt = m.alt || m.title || "";
-
-        const src = m.src || m.id || "";
-        if (src) {
-          img.onload = () => {
-            img.classList.add("is-ready");
-            placeholder.remove();
-          };
-          img.src = src;
-        }
-
+        img.loading = "lazy";
+        img.decoding = "async";
+        img.src = m.src || m.id || "";
         figure.appendChild(img);
       }
 
-      /* ---- YOUTUBE ---- */
+      // YOUTUBE
       if (m.type === "youtube") {
         const iframe = document.createElement("iframe");
         iframe.className = "pd-embed";
@@ -117,10 +84,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         figure.appendChild(iframe);
       }
 
-      /* ---- VIDEO FILE ---- */
+      // FILE VIDEO
       if (m.type === "fileVideo") {
         const video = document.createElement("video");
         video.className = "pd-video-player";
+
+        // Prevent early control-bar flash
         video.controls = false;
         if (m.poster) video.poster = m.poster;
 
@@ -128,7 +97,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           video.controls = true;
         }, { once: true });
 
-        (Array.isArray(m.sources) ? m.sources : []).forEach(s => {
+        const sources = Array.isArray(m.sources) ? m.sources : [];
+        sources.forEach((s) => {
           const source = document.createElement("source");
           source.src = s.src;
           source.type = s.type || "";
@@ -149,19 +119,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   };
 
-  /* ===============================
-     Guard
-  =============================== */
+  // Guard
   if (!id) {
-    showLoading("No project id in URL.");
+    console.error("No project id in URL.");
     return;
   }
 
-  showLoading();
-
-  /* ===============================
-     Fetch data
-  =============================== */
+  // Fetch both datasets (teaser + details)
   let projects = [];
   let details = [];
 
@@ -176,41 +140,35 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     projects = await pRes.json();
     details = await dRes.json();
-  } catch (err) {
-    console.error(err);
-    showLoading("Failed to load project data.");
+  } catch (e) {
+    console.error("Failed to load JSON:", e);
     return;
   }
 
-  const base = projects.find(p => p.id === id);
-  const detail = details.find(d => d.id === id);
+  const base = projects.find((p) => p.id === id);
+  const detail = details.find((d) => d.id === id);
 
   if (!base || !detail) {
-    showLoading("Project not found.");
+    console.error("Project not found:", id);
     return;
   }
 
+  // Merge: details override base
   const proj = { ...base, ...detail };
 
-  /* ===============================
-     Header / meta
-  =============================== */
-  const title = proj.title || "Project";
+  // Meta line
   const year = proj.year || "";
   const role = proj.role || "";
+  setText("pdMeta", `${year}${year && role ? " · " : ""}${role}`);
 
-  setText("pdTitle", title);
-
-  const metaEl = document.getElementById("pdMeta");
-  if (metaEl) {
-    metaEl.textContent = `${year}${year && role ? " · " : ""}${role}`;
-  }
-
+  // Tags
   const tagsWrap = document.getElementById("pdTags");
   if (tagsWrap) {
     tagsWrap.innerHTML = "";
     const tags = Array.isArray(proj.tags) ? proj.tags : [];
-    (role ? [role, ...tags] : tags).forEach(t => {
+    const list = role ? [role, ...tags] : tags;
+
+    list.forEach((t) => {
       const span = document.createElement("span");
       span.className = "pd-tag";
       span.textContent = t;
@@ -218,59 +176,41 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  /* ===============================
-     Content
-  =============================== */
-  setText("pdOverview", proj.overview);
-  setList("pdOverviewPoints", proj.overviewPoints);
-  setText("pdProblem", proj.problem);
-  setText("pdSolution", proj.solution);
-  setText("pdTech", Array.isArray(proj.tech) ? proj.tech.join(", ") : proj.tech);
-  setList("pdResponsibilities", proj.responsibilities);
-  setList("pdFeatures", proj.features);
+  // Content
+  setText("pdOverview", proj.overview || "");
+  setList("pdOverviewPoints", proj.overviewPoints || []);
+  setText("pdProblem", proj.problem || "");
+  setText("pdSolution", proj.solution || "");
+  setText(
+    "pdTech",
+    Array.isArray(proj.tech) ? proj.tech.join(", ") : (proj.tech || "")
+  );
+  setList("pdResponsibilities", proj.responsibilities || []);
+  setList("pdFeatures", proj.features || []);
 
-  /* ===============================
-     Hero image (NO FLASH)
-  =============================== */
-  const heroImage = proj.heroImage || proj.image || "";
-  const heroAlt = proj.heroAlt || proj.imageAlt || title;
-
-  const imgEl = document.getElementById("pdImage");
-  if (imgEl && heroImage) {
-    document.documentElement
-      .style.setProperty("--pdHeroBg", `url('${heroImage}')`);
-
-    imgEl.alt = heroAlt;
-    imgEl.classList.remove("is-ready");
-    imgEl.onload = () => imgEl.classList.add("is-ready");
-    imgEl.src = heroImage;
-  }
-
-  /* ===============================
-     Inline media
-  =============================== */
+  // Inline media
   renderInlineMedia(proj);
 
-  /* ===============================
-     Source button
-  =============================== */
+  // Source button
   const actions = document.getElementById("pdActions");
-  if (actions && proj.sourceCode) {
-    const a = document.createElement("a");
-    a.href = proj.sourceCode;
-    a.target = "_blank";
-    a.rel = "noopener noreferrer";
-    a.className = "pd-source-btn";
-    a.textContent = "Source code";
-    actions.appendChild(a);
+  if (actions) {
+    actions.innerHTML = "";
+    if (proj.sourceCode) {
+      const a = document.createElement("a");
+      a.href = proj.sourceCode;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.className = "pd-source-btn";
+      a.textContent = "Source code";
+      actions.appendChild(a);
+    }
   }
 
-  /* ===============================
-     Back button
-  =============================== */
-  document.getElementById("pdBack")?.addEventListener("click", () => {
-    history.length > 1 ? history.back() : (window.location.href = "projects.html");
-  });
+  // IMPORTANT: Do NOT set pdImage.src here (physical image in HTML)
+  // You may set alt only if you want:
+  const imgEl = document.getElementById("pdImage");
+  if (imgEl) imgEl.alt = proj.heroAlt || proj.imageAlt || imgEl.alt || "Project image";
 
-  showContent();
+  // Reveal content
+  contentEl?.classList.remove("is-hidden");
 });
