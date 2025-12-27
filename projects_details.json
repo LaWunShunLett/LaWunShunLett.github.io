@@ -1,6 +1,6 @@
 [{
   "id": "smart-pill-dispenser",
-  "title": "Smart Pill Dispenser (STM32)",
+  "title": "Smart Pill Dispenser",
   "year": "2024",
   "role": "Embedded Firmware Developer",
   "tags": ["Embedded Systems", "STM32", "Healthcare"],
@@ -13,19 +13,6 @@
       "type": "text",
       "title": "Project Background",
       "content": "The Smart Pill Dispenser was developed as a school project focused on improving medication management in both hospital and home-care environments. It addresses common medication errors caused by forgetfulness, manual scheduling, and human oversight, especially among elderly users and busy healthcare staff. The system is built using an STM32 microcontroller and automates pill dispensing at scheduled times while confirming dispensing activity through sensors."
-    },
-
-    {
-      "type": "list",
-      "title": "Key Capabilities",
-      "items": [
-        "Automated pill dispensing based on scheduled times",
-        "Real-time clock (RTC) for accurate timekeeping",
-        "Servo-driven dispensing mechanism",
-        "Sensor-based confirmation of dispensing activity",
-        "RFID-controlled access for authorised users",
-        "OLED and LCD displays for system status and user interaction"
-      ]
     },
 
     {
@@ -46,21 +33,22 @@
   "caption": "Illustration showing the pill dispensing mechanism, sensor detection, and control flow."
 },
     {
-      "type": "text",
-      "title": "My Role",
-      "content": "I was responsible for the design, implementation, and testing of the embedded firmware and overall system logic."
-    },
-    {
       "type": "list",
       "title": "My Role",
       "items": [
-        "Designed the system logic and electrical troubleshooting",
-        "Researched sensors and libraries and configure the STM32 microcontroller GPIOs",
-        "Integrated RTC, RFID module, sensors, and servo motor using Embed studio with C++ and Asembly languages",
-        "Implemented sensor feedback to confirm pill dispensing",
-        "Tested system reliability and electrical wiring"
+        "Designed system logic and firmware architecture.",
+        "Programmed STM32 microcontroller using Embedded C++.",
+        "Integrated RTC, RFID, IR sensor, PIR sensor, and servo motor.",
+        "Debugged electrical wiring and firmware timing issues.",
+        "Tested system reliability and dispensing accuracy."
       ]
     },
+    {
+  "type": "image",
+  "src": "./images/SmartPillBlockDiagram.jpeg",
+  "alt": "System block diagram of the smart pill dispenser",
+  "caption": "Block diagram showing the STM32 microcontroller, input sensors, user interfaces, and output devices."
+},
 {
   "type": "list",
   "title": "System Flow & Operation",
@@ -78,12 +66,17 @@
     "After dispensing, the system returns to normal mode and waits for the next scheduled cycle."
   ]
 },
-{
-  "type": "image",
-  "src": "./images/SmartPillBlockDiagram.jpeg",
-  "alt": "System block diagram of the smart pill dispenser",
-  "caption": "Block diagram showing the STM32 microcontroller, input sensors, user interfaces, and output devices."
-},
+    {
+      "type": "list",
+      "title": "Outcomes",
+      "items": [
+        "Developed an automated pill dispensing system using STM32 firmware, reducing missed or double doses during testing.",
+        "Integrated RTC scheduling, servo control, and sensor feedback in Embedded C++, improving dispensing accuracy and reliability.",
+        "Implemented RFID-based configuration access to prevent unauthorised changes, increasing system safety.",
+        "Built sensor-based confirmation logic using IR and PIR sensors, ensuring each dispensing action was verified.",
+        "Designed and tested a full prototype system, demonstrating reliable operation across repeated dispensing cycles."
+      ]
+    },
     {
       "type": "list",
       "title": "Technical Summary",
@@ -94,7 +87,7 @@
         "Actuator: Servo motor",
         "Modules: RFID RC522, RTC DS3231",
         "Displays: OLED (SSD1306), LCD",
-        "Application Area: Healthcare automation, assistive technology"
+        "Application Area: Healthcare automation"
       ]
     },
 

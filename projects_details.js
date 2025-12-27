@@ -104,16 +104,36 @@ function enableDragScroll(el) {
       h2.textContent = section.title;
       container.appendChild(h2);
     }
-    // GALLERY (horizontal swipe)
+    // GALLERY (number buttons carousel)
 if (section.type === "gallery") {
-  const gallery = document.createElement("div");
-  gallery.className = "pd-gallery";
+  const galleryWrap = document.createElement("div");
+  galleryWrap.className = "pd-gallery";
 
-  (Array.isArray(section.items) ? section.items : []).forEach((item) => {
+  const viewport = document.createElement("div");
+  viewport.className = "pd-gallery-viewport";
+
+  const track = document.createElement("div");
+  track.className = "pd-gallery-track";
+
+  const dots = document.createElement("div");
+  dots.className = "pd-gallery-dots";
+
+  const items = Array.isArray(section.items) ? section.items : [];
+  let index = 0;
+
+  function update() {
+    track.style.transform = `translateX(${-index * 100}%)`;
+    [...dots.children].forEach((btn, i) => {
+      btn.setAttribute("aria-current", i === index ? "true" : "false");
+    });
+  }
+
+  items.forEach((item, i) => {
     const fig = document.createElement("figure");
     fig.className = "pd-gallery-item";
 
     const img = document.createElement("img");
+    img.className = "pd-gallery-img";
     img.loading = "lazy";
     img.decoding = "async";
     img.src = item.src || "";
@@ -128,13 +148,30 @@ if (section.type === "gallery") {
       fig.appendChild(cap);
     }
 
-    gallery.appendChild(fig);
+    track.appendChild(fig);
+
+    const btn = document.createElement("button");
+    btn.className = "pd-dot";
+    btn.type = "button";
+    btn.textContent = String(i + 1);
+    btn.setAttribute("aria-current", i === 0 ? "true" : "false");
+    btn.addEventListener("click", () => {
+      index = i;
+      update();
+    });
+    dots.appendChild(btn);
   });
 
-  container.appendChild(gallery);
-  // ENABLE mouse drag swipe
-  enableDragScroll(gallery);
+  viewport.appendChild(track);
+  galleryWrap.appendChild(viewport);
+  galleryWrap.appendChild(dots);
+
+  container.appendChild(galleryWrap);
+
+  // init
+  update();
 }
+
     // TEXT
     if (section.type === "text") {
       const p = document.createElement("p");

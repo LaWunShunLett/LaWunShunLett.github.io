@@ -221,36 +221,71 @@ html, body{
   transform: translateY(12px);
   animation: logoAnimUp .6s cubic-bezier(.22,1,.36,1) forwards;
 }
-/* ===== Horizontal gallery ===== */
+/* ===== Gallery (number buttons) ===== */
 .pd-gallery {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  cursor: grab;
+  margin-top: 14px;
 }
 
-.pd-gallery.dragging {
-  cursor: grabbing;
-}
-
-.pd-gallery-item {
-  flex: 0 0 auto;
-  width: min(980px, 92vw); /* SAME width as big image */
-  scroll-snap-align: start;
-}
-
-.pd-gallery-item img {
+.pd-gallery-viewport {
   width: 100%;
   border-radius: 18px;
-  box-shadow: 0 16px 34px rgba(0,0,0,0.12);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
 }
 
+/* One image per “page”, same size always */
+.pd-gallery-track {
+  display: flex;
+  width: 100%;
+  transition: transform 420ms cubic-bezier(.2,.8,.2,1);
+  will-change: transform;
+}
+
+/* Each slide takes full width of the container */
+.pd-gallery-item {
+  flex: 0 0 100%;
+  margin: 0;
+}
+
+/* Same visible size for every image (no different heights) */
+.pd-gallery-img {
+  width: 100%;
+  height: 520px;            /* adjust if you want taller/shorter */
+  object-fit: cover;        /* removes black top/bottom; may crop edges */
+  display: block;
+}
+
+/* caption */
 .pd-gallery-cap {
-  margin-top: 8px;
-  font-size: 14px;
-  opacity: 0.7;
+  text-align: center;
+  margin: 8px auto 0;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+/* numbered buttons */
+.pd-gallery-dots {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.pd-dot {
+  min-width: 42px;
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.pd-dot[aria-current="true"] {
+  border-color: rgba(0,0,0,.35);
+  box-shadow: 0 8px 18px rgba(0,0,0,.10);
 }
 
 @keyframes logoAnimUp{
