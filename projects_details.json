@@ -20,12 +20,11 @@
       "title": "Problem",
       "content": "Many patients, particularly elderly users, forget to take medication or accidentally take it more than once. In hospital settings, manual medication handling increases staff workload and raises the risk of missed or incorrect doses during busy routines."
     },
-
-    {
-      "type": "text",
-      "title": "Solution",
-      "content": "The system automates medication dispensing by releasing pills at predefined times and verifying the dispensing process using sensors. This reduces reliance on memory and manual handling, improving medication safety and consistency."
-    },
+{
+  "type": "text",
+  "title": "Solution",
+  "content": "The system automates medication dispensing by releasing pills at predefined times and verifying the dispensing process using sensors. This reduces reliance on memory and manual handling, improving medication safety and consistency. In normal mode, the dispenser runs its scheduled cycles automatically, while configuration mode (unlocked via RFID and keypad input) is used by authorised staff to adjust or update medication timings before returning to normal operation."
+},
       {
   "type": "image",
   "src": "./images/SmartPill_Working.png",
@@ -36,10 +35,9 @@
       "type": "list",
       "title": "My Role",
       "items": [
-        "Designed system logic and firmware architecture.",
         "Programmed STM32 microcontroller using Embedded C++.",
-        "Integrated RTC, RFID, IR sensor, PIR sensor, and servo motor.",
-        "Debugged electrical wiring and firmware timing issues.",
+        "Integrated RTC, RFID, IR sensor, and servo motor.",
+        "Debugged electrical wiring and firmware issues.",
         "Tested system reliability and dispensing accuracy."
       ]
     },
@@ -69,7 +67,7 @@
     {
       "type": "list",
       "title": "Outcomes",
-      "items": [
+      "content": [
         "Our project was made possible by developing an automated pill dispensing system using STM32 firmware and Embedded C++, integrating RTC scheduling, servo control, and IR/PIR sensor feedback to ensure accurate and reliable dispensing. This design reduced missed or double doses during testing and improved overall system safety through RFID-based configuration access that prevented unauthorised changes. The system was validated through repeated end-to-end prototype testing, demonstrating stable operation across multiple dispensing cycles."
       ]
     },

@@ -22,7 +22,7 @@
   <body class="preload" data-page-controlled="true">
     <header class="topbar">
       <div class="topbar-inner">
-        <div class="logo logo-anim-up">LA WUN SHUN LETT</div>
+        <div class="logo">LA WUN SHUN LETT</div>
 
         <nav class="desktop-nav" aria-label="Primary navigation">
           <a href="index.html">Home</a>
@@ -44,35 +44,34 @@
       </nav>
     </header>
 
-    <main class="project-detail-page anim anim-up">
-      <!-- HERO -->
-      <section class="pd-hero anim anim-up delay-1">
-        <div class="wrap">
-          <button class="pd-back" type="button" id="pdBack">← Back to Projects</button>
+<main class="project-detail-page anim anim-up">
+  <!-- HERO -->
+  <section class="pd-hero anim anim-up delay-1">
+    <div class="wrap">
+      <button class="pd-back" type="button" id="pdBack">← Back to Projects</button>
 
-          <p class="pd-meta" id="pdMeta"></p>
-          <div class="pd-tags" id="pdTags"></div>
+      <!-- ✅ Title first -->
+      <h1 class="pd-title" id="pdTitle"></h1>
 
-          <img id="pdImage" alt="" />
-        </div>
-      </section>
+      <!-- ✅ Role/Year after title -->
+      <p class="pd-meta" id="pdMeta"></p>
 
-      <!-- BODY -->
-      <section class="pd-body anim anim-up delay-2">
-        <div class="wrap">
-          <!-- Content -->
-<!-- Content -->
-<div id="pdContent" class="pd-content-wrap">
-  <h1 class="pd-title" id="pdTitle"></h1>
+      <!-- ✅ Tags after role -->
+      <div class="pd-tags" id="pdTags"></div>
 
-  <!-- Dynamic sections: JS will build different layouts per project -->
-  <div id="pdSections"></div>
-  <!-- Keep actions same -->
-  <div class="pd-actions" id="pdActions"></div>
-</div>
+      <!-- ✅ Hero image -->
+      <img id="pdImage" alt="" />
+    </div>
+  </section>
 
-        </div>
-      </section>
-    </main>
+  <!-- BODY -->
+  <section class="pd-body anim anim-up delay-2">
+    <div class="wrap">
+      <!-- ✅ JSON sections render here -->
+      <div id="pdSections"></div>
+    </div>
+  </section>
+</main>
+
   </body>
 </html>

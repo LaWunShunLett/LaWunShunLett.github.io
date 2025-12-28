@@ -41,7 +41,7 @@ html, body{
   border-radius: 999px;
   border: 1px solid #e5e7eb;
   background: #f9fafb;
-  color: #2563eb;
+  color: #000000;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
@@ -277,7 +277,7 @@ body:not(.preload) .logo-anim-up{
 /* Limit the whole gallery width */
 .pd-gallery-viewport{
   width:100%;
-  max-width: 900px;      /* ✅ control the gallery width */
+  max-width: 800px;      /* ✅ control the gallery width */
   margin: 0 auto;        /* ✅ center it */
   border-radius:18px;
   overflow:hidden;
@@ -297,7 +297,7 @@ body:not(.preload) .logo-anim-up{
 .pd-gallery-item{
   flex:0 0 100%;
   margin:0;
-  padding: 18px 16px 12px;     /* ✅ breathing space */
+  padding: 12px 12px 8px;     /* ✅ breathing space */
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -307,8 +307,8 @@ body:not(.preload) .logo-anim-up{
 .pd-gallery .pd-gallery-img{
   display:block;
   width:100%;
-  max-width: 760px;       /* ✅ image not too wide */
-  max-height: 520px;      /* ✅ image not too tall */
+  max-width: 720px;       /* ✅ image not too wide */
+  max-height: 420px;      /* ✅ image not too tall */
   height:auto;
   object-fit:contain;
   border-radius:14px;
@@ -318,7 +318,8 @@ body:not(.preload) .logo-anim-up{
 .pd-gallery .pd-gallery-cap{
   text-align:center;
   margin:10px auto 0;
-  font-size:0.95rem;
+  margin-top: 6px;
+  font-size:0.9rem;
   opacity:0.8;
   width:100%;
 }
@@ -367,6 +368,24 @@ body:not(.preload) .logo-anim-up{
 
 .pd-dot:active {
   transform: translateY(0);
+}
+.pd-title{
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 10px 0 6px;
+}
+
+.pd-meta{
+  font-size: .95rem;
+  color: #6b7280;
+  margin: 0 0 10px;
+}
+
+.pd-tags{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
 }
 
 /* =========================
