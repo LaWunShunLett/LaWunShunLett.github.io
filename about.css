@@ -95,7 +95,29 @@
 }
 
 /* right blocks */
+/* right blocks */
 .about-block{
+  border-radius: 22px;
+  padding: 18px 18px;
+  background: rgba(255,255,255,.62);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(37,99,235,.35);          /* was .16 */
+  box-shadow:                                     /* moved from :hover */
+    0 26px 60px rgba(37,99,235,.12),
+    0 18px 45px rgba(15, 23, 42, .10),
+    0 0 0 3px rgba(37,99,235,.14);
+  margin-bottom: 14px;
+  transform: translateY(-4px);                    /* always lifted */
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  will-change: transform, box-shadow;
+}
+
+/* Optional: tiny extra lift on hover, or delete this block */
+.about-block:hover{
+  transform: translateY(-6px);
+}
+
+/* .about-block{
   border-radius: 22px;
   padding: 18px 18px;
   background: rgba(255,255,255,.62);
@@ -105,17 +127,17 @@
   margin-bottom: 14px;
   transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
   will-change: transform, box-shadow;
-}
+} */
 
 /* Hover: blue ring + gentle pop (RIGHT SIDE ONLY) */
-.about-block:hover{
+/* .about-block:hover{
   transform: translateY(-4px);
   border-color: rgba(37,99,235,.35);
   box-shadow:
     0 26px 60px rgba(37,99,235,.12),
     0 18px 45px rgba(15, 23, 42, .10),
     0 0 0 3px rgba(37,99,235,.14);
-}
+} */
 
 /* =========================
    Pills / Chips (add ring glow to BOTH)

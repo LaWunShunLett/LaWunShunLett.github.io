@@ -21,7 +21,7 @@
   "image": "./images/SuperMarket.jpg",
   "imageAlt": "Supermarket self-checkout kiosk built with Raspberry Pi and web interface",
   "filter": ["iot", "web"],
-  "tags": ["IoT", "Web App", "Docker & DevOps", "Backend Development"]
+  "tags": ["IoT", "DevOps", "Web App", "Containerization & Operations"]
 },
 {
   "id" : "soil-tiller-checkout",

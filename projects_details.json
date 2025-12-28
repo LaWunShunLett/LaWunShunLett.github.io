@@ -2,8 +2,8 @@
   "id": "smart-pill-dispenser",
   "title": "Smart Pill Dispenser",
   "year": "2024",
-  "role": "Embedded Firmware Developer",
-  "tags": ["Embedded Systems", "STM32", "Healthcare", "Sensors & Actuators", "Prototype"],
+  "role": "Embedded Firmware Developer | Microcontroller Systems",
+  "tags": ["Embedded Systems", "STM32", "Healthcare", "Sensors & Actuators", "Prototype", "Academic Project – DCPE, Singapore Polytechnic"],
 
   "heroImage": "./images/SmartPill.jpeg",
   "heroAlt": "Smart pill dispenser prototype",
@@ -12,7 +12,7 @@
     {
       "type": "text",
       "title": "Project Background",
-      "content": "The Smart Pill Dispenser was developed as a school project focused on improving medication management in both hospital and home-care environments. It addresses common medication errors caused by forgetfulness, manual scheduling, and human oversight, especially among elderly users and busy healthcare staff. The system is built using an STM32 microcontroller and automates pill dispensing at scheduled times while confirming dispensing activity through sensors."
+      "content": "The Smart Pill Dispenser was focused on improving medication management in both hospital and home-care environments. It addresses common medication errors caused by forgetfulness, manual scheduling, and human oversight, especially among elderly users and busy healthcare staff. The system is built using an STM32 microcontroller and automates pill dispensing at scheduled times while confirming dispensing activity through sensors."
     },
 
     {
@@ -29,7 +29,7 @@
   "type": "image",
   "src": "./images/SmartPill_Working.png",
   "alt": "Working principle of the smart pill dispenser",
-  "caption": "Illustration showing the pill dispensing mechanism, sensor detection, and control flow."
+  "caption": "Illustration showing the pill dispensing mechanism, sensor detection, and control flow"
 },
     {
       "type": "list",
@@ -45,7 +45,7 @@
   "type": "image",
   "src": "./images/SmartPillBlockDiagram.jpeg",
   "alt": "System block diagram of the smart pill dispenser",
-  "caption": "Block diagram showing the STM32 microcontroller, input sensors, user interfaces, and output devices."
+  "caption": "Block diagram showing the STM32 microcontroller, input sensors, user interfaces, and output devices"
 },
 {
   "type": "list",
@@ -91,17 +91,17 @@
     {
       "src": "./images/SmartPill2.jpeg",
       "alt": "Front view of the smart pill dispenser",
-      "caption": "Front view showing keypad and display."
+      "caption": "Front view showing keypad and display"
     },
     {
       "src": "./images/DispensingMechanism.jpeg",
       "alt": "Internal dispensing mechanism and servo",
-      "caption": "Internal dispensing mechanism and servo system."
+      "caption": "Internal dispensing mechanism and servo system"
     },
     {
       "src": "./images/Wiring.jpeg",
       "alt": "STM32 board and wiring",
-      "caption": "STM32 microcontroller and internal wiring."
+      "caption": "STM32 microcontroller and internal wiring"
     }
   ]
 }
@@ -113,76 +113,126 @@
     }
   ]
 },
-  {
-    "id": "supermarket-self-checkout",
-    "title": "Supermarket Self-Checkout System",
-    "year": "2025",
-    "role": "Product Operations, DevOps & System Support",
-    "tags": ["IoT", "Raspberry Pi", "Docker", "Web System"],
+{
+  "id": "supermarket-self-checkout",
+  "title": "IoT-Based Supermarket Self-Checkout System",
+  "year": "2024",
+  "role": "IoT Systems Developer | Embedded & Software Engineer",
+  "tags": ["IoT", "Self-Checkout", "Raspberry Pi","DevOps", "Containerization","Academic Project – DCPE, Singapore Polytechnic" ],
 
-    "heroImage": "./images/SuperMarket.jpg",
-    "heroAlt": "Supermarket self-checkout kiosk",
+  "heroImage": "./images/SuperMarket.jpg",
+  "heroAlt": "IoT-based supermarket self-checkout prototype",
 
-    "sections": [
-      {
-        "type": "text",
-        "title": "Overview",
-        "content": "A self-checkout system combining an IoT kiosk with a web backend to reduce queue time and improve checkout efficiency in supermarkets."
-      },
-      {
-        "type": "text",
-        "title": "Problem",
-        "content": "Traditional staffed checkout counters create long queues and require more manpower during peak hours."
-      },
-      {
-        "type": "text",
-        "title": "Solution",
-        "content": "Built a kiosk that allows customers to scan items and manage their cart locally, then sync data to a web backend for payment and receipt handling."
-      },
-      {
-        "type": "list",
-        "title": "Key Features",
-        "items": [
-          "Item scanning and cart management on kiosk",
-          "Cart data synced with web application",
-          "Containerised backend for easy deployment",
-          "Support for offline and online operation"
-        ]
-      },
-      {
-        "type": "list",
-        "title": "My Role",
-        "items": [
-          "Maintained Dockerised backend and database",
-          "Performed on-site troubleshooting for kiosk hardware",
-          "Monitored system health and deployment stability",
-          "Coordinated integration testing between kiosk and web system"
-        ]
-      },
-      {
-        "type": "list",
-        "title": "Tools & Technologies",
-        "items": [
-          "Python",
-          "Raspberry Pi",
-          "Docker",
-          "MariaDB / SQL",
-          "REST APIs",
-          "Web Frontend"
-        ]
-      },
-      {
-        "type": "youtube",
-        "title": "System Demo",
-        "id": "YYYYYYYYYYY"
-      }
-    ],
+  "links": [
+    {
+      "label": "Source Code",
+      "url": "https://github.com/yourname/supermarket-self-checkout"
+    }
+  ],
 
-    "links": [
-      {
-        "label": "Source Code",
-        "url": "https://github.com/LaWunShunLett/LaWunShunLett.github.io"
-      }
-    ]
-  }
+  "sections": [
+    {
+      "type": "text",
+      "title": "Project Background",
+      "content": "This project is an IoT-based Supermarket Self-Checkout System designed to improve shopping efficiency by allowing customers to independently scan items, manage purchases, and complete payments. The system supports both in-store and online purchases, including membership authentication, QR code generation for in-store pickup, and secure payment handling."
+    },
+
+    {
+      "type": "text",
+      "title": "Problem",
+      "content": "Traditional supermarket checkout systems often result in long queues, high manpower dependency, and inefficient transitions between in-store and online shopping workflows, negatively impacting customer experience during peak hours."
+    },
+
+    {
+      "type": "text",
+      "title": "Solution",
+      "content": "A unified self-checkout solution was developed using a Raspberry Pi as the central controller, integrating barcode scanning, RFID-based authentication, cart management, and payment processing. For online orders, the system generates a QR code containing an Order ID to enable fast in-store pickup verification. Power management logic was implemented to reduce energy consumption by dynamically switching between low and high power operating modes."
+    },
+
+    {
+      "type": "image",
+      "title": "Use Case Diagram",
+      "src": "./images/usecase.jpg",
+      "alt": "Use case diagram for supermarket self-checkout system",
+      "caption": "Use case diagram illustrating interactions between in-store customers, online customers, payment gateway, and backend systems."
+    },
+
+    {
+      "type": "text",
+      "title": "Use Case Diagram Explanation",
+      "content": "The use case diagram illustrates the functional interactions between different actors and the supermarket self-checkout system. In-store customers initialize the system, scan items using a camera, and complete payments. The scanning workflow includes continuous item verification against the product database, followed by cart total calculation and checkout confirmation. Optional membership authentication is performed using RFID, extending the payment process with additional validation steps.\n\nOnline customers interact with the system through a website to browse products, add items to the cart, and complete checkout remotely. For online purchases, the system generates a QR code containing an Order ID, which is scanned during in-store pickup for verification. The payment gateway supports multiple payment methods such as ATM card, PayWave/RFID, and Visa, while backend services handle authentication, item validation, and order summary generation."
+    },
+
+    {
+      "type": "image",
+      "title": "Hardware & Interface Architecture",
+      "src": "./images/Supermarket_BlockDiagram.jpg",
+      "alt": "Raspberry Pi hardware interface architecture",
+      "caption": "Hardware interface architecture showing sensors, input devices, and output peripherals connected to the Raspberry Pi."
+    },
+
+    {
+      "type": "text",
+      "title": "Hardware Architecture Explanation",
+      "content": "The hardware architecture is centered around a Raspberry Pi development board, which serves as the main controller for all system operations. A camera module connected via the CSI port performs barcode scanning for item identification. An RFID reader interfaced through GPIO and SPI pins enables membership authentication, while a keypad connected to GPIO pins allows user input for menu navigation and checkout control.\n\nAn ultrasonic sensor connected to GPIO pins is used to detect object presence and system interaction states. Output devices include an LCD connected through the I2C interface for displaying menus, item details, and payment information, as well as a buzzer connected to a GPIO pin to provide audio feedback during authentication and system events. This modular hardware design ensures reliable real-time interaction between sensors, user interfaces, and backend software components."
+    },
+
+    {
+      "type": "youtube",
+      "title": "System Demonstration Video",
+      "id": "h2f91rtczLM"
+    },
+    {
+      "type": "list",
+      "title": "System Flow & Operation",
+      "items": [
+        "System powers on and displays the main menu on the LCD interface",
+        "User initiates checkout and begins scanning items using the camera",
+        "Scanned items are validated against the product database and added to the cart",
+        "System continuously updates and displays the cumulative total",
+        "User optionally performs RFID-based membership authentication",
+        "Payment is processed securely through the payment system",
+        "For online orders, a QR code is generated and scanned during in-store pickup verification",
+        "System transitions between high and low power modes based on activity state"
+      ]
+    },
+
+    {
+      "type": "list",
+      "title": "Key Functional Features",
+      "items": [
+        "System startup and main menu display on LCD with keypad navigation",
+        "In-store item scanning using camera-based barcode detection",
+        "Real-time cart management and cumulative price calculation",
+        "Optional member authentication using RFID with buzzer feedback",
+        "Secure in-store payment processing",
+        "Online shopping support with QR code generation for in-store pickup verification",
+        "Low Power Mode (LPM): Activated when the user exits the system or when no high-power activity is detected for a defined inactivity period to conserve energy",
+        "High Power Mode (HPM): Activated during scanning, database lookup, cart updates, authentication, payment processing, and QR code generation"        
+      ]
+    },
+
+    {
+      "type": "text",
+      "title": "Outcomes",
+      "content": "The system was successfully implemented based on a structured requirements specification covering item scanning, authentication, payment workflows, online ordering with QR-based pickup verification, and dynamic power management. Functional testing validated end-to-end operation across in-store and online scenarios, demonstrating reliable system behavior and effective energy-saving transitions between Low Power Mode and High Power Mode."
+    },
+
+    {
+      "type": "list",
+      "title": "Technologies Used",
+      "items": [
+        "Raspberry Pi",
+        "Python",
+        "Camera (Barcode Scanning)",
+        "RFID Reader",
+        "Ultrasonic Sensor",
+        "LCD Display (I2C)",
+        "Keypad Input",
+        "QR Code Generation",
+        "Power State Management"
+      ]
+    }
+  ]
+}
 ]
