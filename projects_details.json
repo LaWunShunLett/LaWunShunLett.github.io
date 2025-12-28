@@ -65,7 +65,7 @@
   ]
 },
     {
-      "type": "list",
+      "type": "text",
       "title": "Outcomes",
       "content": [
         "Our project was made possible by developing an automated pill dispensing system using STM32 firmware and Embedded C++, integrating RTC scheduling, servo control, and IR/PIR sensor feedback to ensure accurate and reliable dispensing. This design reduced missed or double doses during testing and improved overall system safety through RFID-based configuration access that prevented unauthorised changes. The system was validated through repeated end-to-end prototype testing, demonstrating stable operation across multiple dispensing cycles."
