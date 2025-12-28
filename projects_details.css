@@ -90,15 +90,12 @@ html, body{
 
 #pdImage{
   width: 100%;
-  max-width: 520px;     /* ✅ controls image width */
-  height: auto;         /* ✅ natural aspect ratio */
+  height: clamp(260px, 40vw, 520px);
   border-radius: 22px;
-  object-fit: contain;  /* ✅ no aggressive crop */
+  object-fit: cover;
   display: block;
-  margin: 16px auto 0;  /* ✅ center */
   box-shadow: var(--shadow);
 }
-
 
 /* Body */
 .pd-body{
@@ -115,13 +112,18 @@ html, body{
   margin: 26px 0 10px;
   font-size: 1.35rem;
 }
-
 .pd-text{
   margin: 0 0 10px;
   color: #1F2937;
   line-height: 1.65;
-}
 
+  /* ✅ Justified text (like Word / Docs) */
+  text-align: justify;
+  text-justify: inter-word;
+
+  /* ✅ Improves spacing & prevents ugly gaps */
+  hyphens: auto;
+}
 .pd-list{
   margin: 0 0 8px 18px;
   color: #1F2937;
@@ -300,7 +302,7 @@ body:not(.preload) .logo-anim-up{
 .pd-gallery-item{
   flex:0 0 100%;
   margin:0;
-  padding: 12px 12px 8px;     /* ✅ breathing space */
+  padding: 8px 10px 6px;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -308,13 +310,13 @@ body:not(.preload) .logo-anim-up{
 
 /* ✅ IMPORTANT: very specific selector so it beats global img rules */
 .pd-gallery .pd-gallery-img{
-  display:block;
-  width:100%;
-  max-width: 720px;       /* ✅ image not too wide */
-  max-height: 420px;      /* ✅ image not too tall */
-  height:auto;
-  object-fit:contain;
-  border-radius:14px;
+  display: block;
+  width: 100%;
+  max-width: 640px;     /* 🔽 narrower */
+  max-height: 320px;    /* 🔥 key change: much shorter */
+  height: auto;
+  object-fit: contain;
+  border-radius: 14px;
 }
 
 /* Caption centered */
@@ -459,8 +461,13 @@ body:not(.preload) .logo-anim-up{
     font-size: 0.8rem;
   }
 }
-
-
+@media (min-width: 768px){
+  .pd-text{
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+}
 /* Responsive */
 @media (max-width: 700px){
   .pd-title{ font-size: 1.7rem; }
