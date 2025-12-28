@@ -9,7 +9,7 @@
   "image": "./images/SmartPill.jpeg",
   "imageAlt": "Smart pill dispenser prototype with STM32 and pill slots",
   "filter": ["microcontroller"],
-  "tags": ["Embedded System", "Microcontroller", "Sensors & Actuators", "Prototype"]
+  "tags": ["Healthcare", "Embedded System", "Microcontroller", "Sensors & Actuators"]
 },
 {
   "id":"supermarket-self-checkout",

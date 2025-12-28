@@ -32,14 +32,37 @@ html, body{
   padding: 34px 0 18px;
 }
 
-.pd-back{
-  appearance: none;
-  border: 0;
-  background: transparent;
-  color: var(--text);
+/* Back button = CTA style */
+.pd-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  color: #2563eb;
+  font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  padding: 10px 0;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.1s ease,
+    color 0.18s ease;
+}
+
+.pd-back:hover {
+  background: #e5edff;
+  border-color: #c7d2fe;
+  box-shadow: 0 6px 16px rgba(148, 163, 184, 0.45);
+  transform: translateY(-1px);
+}
+
+.pd-back:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(148, 163, 184, 0.5);
 }
 
 .pd-meta{
@@ -220,13 +243,26 @@ html, body{
   opacity: 0;
 }
 /* Logo slide-up animation (same feel as anim-up) */
+/* Default = visible (so it never disappears) */
 .logo-anim-up{
   display: inline-block;
+  opacity: 1;
+  transform: none;
+}
+
+/* Only animate when preload is removed */
+body:not(.preload) .logo-anim-up{
   opacity: 0;
   transform: translateY(12px);
   animation: logoAnimUp .6s cubic-bezier(.22,1,.36,1) forwards;
 }
-no only for this /* =========================
+@keyframes logoAnimUp{
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* =========================
    Gallery override (FINAL)
    Put this at END of projects_details.css
    ========================= */
@@ -297,21 +333,42 @@ no only for this /* =========================
   width:100%;
 }
 
-.pd-dot{
-  min-width:38px;
-  height:34px;
-  padding:0 10px;
-  border-radius:999px;
-  border:1px solid rgba(0,0,0,.12);
-  background:#fff;
-  cursor:pointer;
-  font-weight:600;
+/* Gallery number buttons styled like CTA */
+.pd-dot {
+  min-width: 40px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.1s ease;
 }
 
-.pd-dot[aria-current="true"]{
-  border-color:rgba(0,0,0,.35);
-  box-shadow:0 8px 18px rgba(0,0,0,.10);
+.pd-dot:hover {
+  background: #e5edff;
+  border-color: #c7d2fe;
+  box-shadow: 0 6px 16px rgba(148, 163, 184, 0.45);
+  transform: translateY(-1px);
 }
+
+.pd-dot[aria-current="true"] {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
+}
+
+.pd-dot:active {
+  transform: translateY(0);
+}
+
 /* =========================
    Gallery responsive (ONLY for the block above)
    ========================= */

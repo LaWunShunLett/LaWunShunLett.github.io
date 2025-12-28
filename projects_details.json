@@ -3,7 +3,7 @@
   "title": "Smart Pill Dispenser",
   "year": "2024",
   "role": "Embedded Firmware Developer",
-  "tags": ["Embedded Systems", "STM32", "Healthcare"],
+  "tags": ["Embedded Systems", "STM32", "Healthcare", "Sensors & Actuators", "Prototype"],
 
   "heroImage": "./images/SmartPill.jpeg",
   "heroAlt": "Smart pill dispenser prototype",

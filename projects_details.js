@@ -1,6 +1,10 @@
 /* projects_details.js
    Single, safe renderer for JSON-driven project details + gallery
 */
+// Project Details only: force preload off after everything is ready
+window.addEventListener("load", () => {
+  document.body.classList.remove("preload");
+});
 
 (async function () {
   const qs = new URLSearchParams(location.search);
