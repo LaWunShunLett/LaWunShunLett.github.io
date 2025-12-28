@@ -40,8 +40,8 @@ html, body{
   padding: 0.5rem 1.1rem;
   border-radius: 999px;
   border: 1px solid #e5e7eb;
-  background: #2563eb;
-  color: #000000;
+  background: #f9fafb;
+  color:#2563eb;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
@@ -90,12 +90,15 @@ html, body{
 
 #pdImage{
   width: 100%;
-  height: clamp(260px, 40vw, 520px);
+  max-width: 520px;     /* ✅ controls image width */
+  height: auto;         /* ✅ natural aspect ratio */
   border-radius: 22px;
-  object-fit: cover;
+  object-fit: contain;  /* ✅ no aggressive crop */
   display: block;
+  margin: 16px auto 0;  /* ✅ center */
   box-shadow: var(--shadow);
 }
+
 
 /* Body */
 .pd-body{
