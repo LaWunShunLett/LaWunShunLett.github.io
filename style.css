@@ -512,332 +512,49 @@ body{
 .fp-page.is-active{
   transform: translateY(-1px);
 }
-/* ===== Featured header spacing ===== */
+/* ===== Featured Projects (index) ===== */
 .section-head{
   display:flex;
   align-items:flex-end;
   justify-content:space-between;
-  gap:24px;
-  margin-bottom:18px; /* more breathing room */
+  gap:16px;
 }
 
 .view-all-link{
-  color: var(--accent, #2563eb);
   font-weight:700;
   text-decoration:none;
-  white-space:nowrap;
-  margin-left:auto;
-  padding-bottom:6px; /* lifts it a bit */
+  color: var(--accent, #2563eb); /* blue */
 }
 .view-all-link:hover{ text-decoration: underline; }
 
-/* ===== Horizontal swipe carousel (no scrollbar) ===== */
-.featured-row{
-  position:relative;
-}
-
-.featured-track{
+/* Pagination dots/buttons */
+.featured-pagination{
   display:flex;
-  gap:22px;
-  overflow-x:auto;
-  padding: 10px 4px 14px; /* top/left/bottom breathing */
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;          /* Firefox hide */
-}
-.featured-track::-webkit-scrollbar{ display:none; } /* Chrome/Safari hide */
-
-/* Each card width (nice on desktop) */
-.featured-track .project-card{
-  flex: 0 0 380px;       /* card width */
-  scroll-snap-align: start;
+  gap:10px;
+  justify-content:center;
+  margin-top:18px;
 }
 
-/* Responsive card width */
-@media (max-width:1024px){
-  .featured-track .project-card{ flex-basis: 340px; }
-}
-@media (max-width:640px){
-  .featured-track .project-card{ flex-basis: 86vw; } /* near full width */
-}
-/* ===== Fix Featured Projects color consistency ===== */
-
-/* Make section background consistent */
-#projects.section {
-  background: var(--bg, #f5f7fb); /* same as rest of page */
-}
-
-/* Ensure swipe row doesn't expose a different color */
-.featured-row {
+.page-dot{
+  border:1px solid rgba(0,0,0,0.18);
   background: transparent;
+  padding:6px 10px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:700;
+}
+.page-dot.is-active{
+  background: var(--accent, #2563eb);
+  color:#fff;
+  border-color: transparent;
 }
 
-/* Remove visual band caused by padding */
-.featured-track {
-  padding-bottom: 6px; /* reduce from large padding */
-}
-
-/* Soften card shadow so it doesn't create a dark strip */
-.featured-track .project-card {
-  background: #ffffff;
-  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
-}
-
-/* Optional: unify card radius with theme */
-.featured-track .project-card {
-  border-radius: 20px;
-}
-/* ===============================
-   Featured Projects – FORCE SAME BACKGROUND (no white slab)
-   Put this at the VERY BOTTOM of style.css
-   =============================== */
-
-section#projects.section{
-  /* blend with page (same as body’s background) */
-  background: transparent !important;
-  background-image: none !important;
-  box-shadow: none !important;
-  border: none !important;
-  border-radius: 0 !important;
-}
-
-/* kill any inner "panel container" inside the section */
-section#projects.section > *{
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-/* common wrappers that may be getting a white background */
-section#projects.section .wrap,
-section#projects.section .container,
-section#projects.section .section-inner,
-section#projects.section .projects-wrap{
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-/* if your .section uses pseudo-elements to draw slabs */
-section#projects.section::before,
-section#projects.section::after{
-  content: none !important;
-  display: none !important;
-}
-/* ===============================
-   Featured Projects swipe carousel
-   =============================== */
-
-#projects .featured-row{
-  position: relative;
-}
-
-/* horizontal scroll + snap + hide scrollbar */
-#projects .featured-track{
-  display: flex;
-  gap: 22px;
-  overflow-x: auto;
-  padding: 10px 4px 14px;
-
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-
-  scrollbar-width: none; /* Firefox */
-}
-#projects .featured-track::-webkit-scrollbar{
-  display: none; /* Chrome/Safari */
-}
-
-/* card sizing */
-#projects .featured-track .project-card{
-  flex: 0 0 380px;
-  scroll-snap-align: start;
-}
-#featuredGrid{
-  display: flex;
-  gap: 22px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding: 8px 4px 14px;
-  scrollbar-width: none;
-}
-#featuredGrid::-webkit-scrollbar{ display:none; }
-
-#featuredGrid .project-card{
-  flex: 0 0 360px;
-  scroll-snap-align: start;
-}
-/* =========================
-   Featured Projects (Home) — FINAL OVERRIDE
-   Put this at the VERY BOTTOM of style.css
-   ========================= */
-
-/* Make sure the section itself does NOT introduce a new slab color */
-section#projects.section{
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* Keep the header spacing nice and link not too close */
-#projects .section-head{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:24px;
-  margin-bottom:18px;
-}
-
-#projects .view-all-link{
-  color: var(--accent) !important;
-  font-weight: 700;
-  text-decoration: none;
-  white-space: nowrap;
-}
-#projects .view-all-link:hover{
-  text-decoration: underline;
-}
-
-/* Swipe area — NO scrollbar, but still scrollable */
-#projects .featured-row{
-  background: transparent !important;
-}
-
-#projects .featured-track{
-  display: flex;
-  gap: 22px;
-
-  overflow-x: auto;
-  overflow-y: visible;
-
-  padding: 10px 4px 16px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-
-  scrollbar-width: none;          /* Firefox hide */
-}
-#projects .featured-track::-webkit-scrollbar{
-  display: none;                  /* Chrome/Safari hide */
-}
-
-/* Desktop drag cursor feedback */
-#projects .featured-track.is-dragging{
-  cursor: grabbing;
-}
-#projects .featured-track{
-  cursor: grab;
-}
-
-/* Card sizing for horizontal row */
-#projects .featured-track .project-card{
-  flex: 0 0 380px;
-  scroll-snap-align: start;
-
-  background: var(--panel) !important;
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  box-shadow: 0 16px 34px rgba(17,24,39,.08);
-}
-section#projects {
-  background: transparent !important; /* remove any slab/rectangle */
-  border: 0 !important;
-  box-shadow: none !important;
-}
-
-/* Header row: title + link */
-section#projects .section-head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 18px;
-}
-
-section#projects .view-all-link {
-  color: var(--accent) !important;
-  font-weight: 700;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-section#projects .view-all-link:hover {
-  color: var(--accent-hover) !important;
-  text-decoration: underline;
-}
-
-/* Swipe container (no scrollbar) */
-section#projects .featured-row {
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-}
-
-section#projects .featured-track,
-section#projects #featuredTrack {
-  display: flex;
-  gap: 22px;
-
-  overflow-x: auto;
-  overflow-y: visible;
-
-  padding: 10px 4px 16px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-
-  scrollbar-width: none; /* Firefox */
-}
-
-section#projects .featured-track::-webkit-scrollbar,
-section#projects #featuredTrack::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
-}
-
-/* Drag feel (optional) */
-section#projects .featured-track,
-section#projects #featuredTrack {
-  cursor: grab;
-}
-section#projects .featured-track.is-dragging,
-section#projects #featuredTrack.is-dragging {
-  cursor: grabbing;
-}
-
-/* Card sizing for horizontal row */
-section#projects .project-card {
-  flex: 0 0 380px;
-  scroll-snap-align: start;
-
-  background: var(--panel) !important;
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  box-shadow: 0 16px 34px rgba(17, 24, 39, .08);
-}
-
-/* Make sure images don’t overflow weirdly */
-section#projects .project-media img {
-  width: 100%;
-  height: 210px;            /* adjust if you want smaller/taller */
-  object-fit: cover;
-  display: block;
-  border-top-left-radius: 22px;
-  border-top-right-radius: 22px;
-}
-
-/* Responsive widths */
-@media (max-width: 1024px){
-  #projects .featured-track .project-card{ flex-basis: 340px; }
-}
-@media (max-width: 640px){
-  #projects .featured-track .project-card{ flex-basis: 86vw; }
-}
-
-/* responsive */
-@media (max-width: 1024px){
-  #projects .featured-track .project-card{ flex-basis: 340px; }
-}
-@media (max-width: 640px){
-  #projects .featured-track .project-card{ flex-basis: 86vw; }
+/* Responsive: keep header nice on small screens */
+@media (max-width: 720px){
+  .section-head{
+    align-items:flex-start;
+    flex-direction:column;
+  }
 }
 
 @keyframes scrollArrow{
@@ -941,95 +658,4 @@ section#projects .project-media img {
     font-size: 12px;
     letter-spacing: .14em;
   }
-}
-/* =========================================================
-   Featured Projects — CLEAN OVERRIDE (DO NOT TOUCH OTHERS)
-   ========================================================= */
-
-/* Section background — must match page */
-#projects.section {
-  background: var(--bg-main);
-  padding: 4rem 0 4.5rem;
-}
-
-/* Remove any white panel coming from .section */
-#projects.section,
-#projects.section > * {
-  box-shadow: none !important;
-  border: none !important;
-  border-radius: 0 !important;
-}
-
-/* Header row */
-#projects .section-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  padding: 0 2rem;
-  background: transparent;
-}
-
-/* View all link — theme blue */
-#projects .view-all-link {
-  color: var(--accent);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-#projects .view-all-link:hover {
-  color: var(--accent-hover);
-}
-
-/* ===============================
-   Swipe container (IMPORTANT)
-   =============================== */
-
-.featured-row {
-  position: relative;
-  overflow: hidden;           /* hides scrollbar area */
-  padding-left: 2rem;
-}
-
-.featured-track {
-  display: flex;
-  gap: 1.75rem;
-  overflow-x: auto;           /* ENABLE SCROLL */
-  overflow-y: visible;
-  scroll-behavior: smooth;
-  padding-bottom: 1rem;
-
-  /* remove scrollbar */
-  scrollbar-width: none;      /* Firefox */
-}
-.featured-track::-webkit-scrollbar {
-  display: none;              /* Chrome / Safari */
-}
-
-/* ===============================
-   Cards (only cards are white)
-   =============================== */
-
-#projects .project-card {
-  min-width: 320px;
-  max-width: 320px;
-  flex: 0 0 auto;
-
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  box-shadow: var(--shadow);
-}
-
-/* Prevent clipping */
-#projects .project-card * {
-  overflow: visible;
-}
-
-/* ===============================
-   Drag cursor feedback
-   =============================== */
-
-.featured-track.is-dragging {
-  cursor: grabbing;
 }

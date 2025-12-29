@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="./contact.css" />
   <link rel="stylesheet" href="./style.css" />
   <script defer src="./featured_projects.js"></script>
+  <link rel="stylesheet" href="./projects.css" />
+
 </head>
 
 <body class="preload">
@@ -120,11 +122,13 @@
     <a class="view-all-link" href="projects.html">View all projects →</a>
   </div>
 
-  <!-- swipe row (no pagination) -->
-  <div class="featured-row anim anim-up delay-1">
-    <div class="featured-track" id="featuredTrack"></div>
-  </div>
+  <!-- Cards -->
+  <div class="projects-grid anim anim-up delay-1" id="featuredGrid"></div>
 
+  <!-- Pagination -->
+  <div class="featured-pagination anim anim-up delay-2" id="featuredPagination"></div>
+
+  <!-- SAME TEMPLATE STYLE AS projects.html -->
   <template id="projectCardTpl">
     <article class="project-card" data-tags="">
       <div class="project-media">
@@ -138,14 +142,13 @@
 
         <div class="project-tags"></div>
 
-        <button class="project-cta" type="button">View details →</button>
+        <button class="project-cta" type="button">
+          View details →
+        </button>
       </div>
     </article>
   </template>
 </section>
-
-<!-- IMPORTANT: your new JS (root folder) -->
-<script defer src="./featured_projects.js"></script>
 
     <section id="contact" class="section">
       <h2 class="section-title anim anim-up">Let's Work Together!</h2>
