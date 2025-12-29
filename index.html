@@ -119,20 +119,33 @@
     <a class="view-all-link" href="projects.html">View all projects →</a>
   </div>
 
-  <!-- Cards -->
   <div class="projects-grid anim anim-up delay-1" id="featuredGrid"></div>
-
-  <!-- Pagination -->
   <div class="featured-pagination anim anim-up delay-2" id="featuredPagination"></div>
 
-  <!-- ✅ IMPORTANT:
-       Copy the EXACT card template from projects.html and paste it inside here.
-       This is what guarantees the same card design / theme.
-  -->
+  <!-- ✅ SAME TEMPLATE AS projects.html -->
   <template id="projectCardTpl">
-    <!-- PASTE YOUR projects.html <template id="projectCardTpl">...</template> CONTENT HERE -->
+    <article class="project-card" data-tags="">
+      <div class="project-media">
+        <img src="" alt="" loading="lazy">
+      </div>
+
+      <div class="project-body">
+        <h3 class="project-name"></h3>
+        <p class="project-meta"></p>
+        <p class="project-desc"></p>
+
+        <div class="project-tags"></div>
+
+        <button class="project-cta" type="button">
+          View details →
+        </button>
+      </div>
+    </article>
   </template>
 </section>
+
+<!-- ✅ NEW JS FILE (put before </body>) -->
+<script defer src="./featured-projects.js"></script>
 
     <section id="contact" class="section">
       <h2 class="section-title anim anim-up">Let's Work Together!</h2>
