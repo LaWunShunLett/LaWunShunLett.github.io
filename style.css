@@ -671,10 +671,10 @@ body{
 /* turn featuredGrid into a horizontal swipe track */
 #featuredGrid{
   display: flex;
-  gap: 18px;
+  gap: 10px;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 6px 2px 14px;        /* a bit of breathing room */
+  padding: 2px 2px 8px;        /* a bit of breathing room */
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 
@@ -708,5 +708,21 @@ body{
 /* remove pagination UI (you won’t need it) */
 #featuredPagination{
   display: none !important;
+}
+/* Inner blue rectangle closer to card edges */
+#projects #featuredGrid .project-card{
+  overflow: hidden;
+}
+
+#projects #featuredGrid .project-body{
+  margin: 8px;        /* gap from card edge (try 6px if you want tighter) */
+  padding: 16px;      /* inside padding */
+  border-radius: 18px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.08),
+    rgba(29, 78, 216, 0.14)
+  );
 }
 
