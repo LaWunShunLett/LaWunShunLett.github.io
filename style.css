@@ -652,6 +652,133 @@ section#projects .project-media img {
   border-top-left-radius: 22px;
   border-top-right-radius: 22px;
 }
+/* =========================================================
+   HOME: Featured Projects — CLEAN OVERRIDE (ONLY this section)
+   Targets ONLY: section#projects on index.html
+   Paste at the VERY BOTTOM of style.css
+   ========================================================= */
+
+/* 1) Force the exact page background (removes white slab) */
+section#projects.section,
+section#projects.section * {
+  /* don’t globally reset everything; just kill slab-like styles */
+}
+
+section#projects.section{
+  background: var(--bg-main) !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Kill common “panel” wrappers inside this section that cause the white rectangle */
+section#projects.section > *,
+section#projects.section .wrap,
+section#projects.section .container,
+section#projects.section .section-inner,
+section#projects.section .projects-wrap{
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* If your global .section draws a slab with pseudo elements */
+section#projects.section::before,
+section#projects.section::after{
+  content: none !important;
+  display: none !important;
+}
+
+/* 2) Header row spacing + link color */
+section#projects .section-head{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+
+section#projects .view-all-link{
+  color: var(--accent) !important;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  padding-bottom: 6px;
+}
+section#projects .view-all-link:hover{
+  color: var(--accent-hover) !important;
+  text-decoration: underline;
+}
+
+/* 3) Swipe / drag carousel (supports BOTH ids: #featuredTrack or #featuredGrid) */
+section#projects .featured-row{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+/* Track */
+section#projects #featuredTrack,
+section#projects #featuredGrid{
+  display: flex !important;
+  gap: 22px;
+
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+
+  padding: 10px 4px 16px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;              /* Firefox */
+  touch-action: pan-x;                /* makes touch swiping feel right */
+  cursor: grab;
+}
+section#projects #featuredTrack::-webkit-scrollbar,
+section#projects #featuredGrid::-webkit-scrollbar{
+  display: none;                      /* Chrome/Safari */
+}
+section#projects #featuredTrack.is-dragging,
+section#projects #featuredGrid.is-dragging{
+  cursor: grabbing;
+}
+
+/* 4) Cards: fixed width (no squish), clean clipping, consistent theme */
+section#projects .project-card{
+  flex: 0 0 380px !important;         /* prevents “chopped” cards */
+  scroll-snap-align: start;
+
+  background: var(--panel) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 22px;
+  box-shadow: 0 16px 34px rgba(17, 24, 39, .08) !important;
+
+  overflow: hidden;                   /* ensures image corners clip cleanly */
+}
+
+/* Image */
+section#projects .project-media img{
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Body padding (in case your global styles are tight) */
+section#projects .project-body{
+  padding: 14px 16px 16px;
+}
+
+/* 5) Responsive widths */
+@media (max-width: 1024px){
+  section#projects .project-card{ flex-basis: 340px !important; }
+}
+@media (max-width: 640px){
+  section#projects .project-card{ flex-basis: 86vw !important; }
+}
 
 /* Responsive widths */
 @media (max-width: 1024px) {
