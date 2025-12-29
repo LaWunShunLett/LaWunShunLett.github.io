@@ -709,32 +709,4 @@ body{
 #featuredPagination{
   display: none !important;
 }
-/* =========================
-   Featured Projects — soft blue gradient inner card
-   ========================= */
-
-#projects{
-  background: #f5f7fb;
-}
-
-/* Outer card */
-#projects .project-card{
-  background: transparent;
-  border-radius: 22px;
-  border: 1px solid rgba(0,0,0,0.04);
-  box-shadow: none;
-  overflow: hidden;
-}
-
-/* Inner padded rectangle with blue gradient */
-#projects .project-content{
-  padding: 18px;
-  border-radius: 18px;
-
-  background: linear-gradient(
-    135deg,
-    rgba(37, 99, 235, 0.08),   /* --accent (soft) */
-    rgba(29, 78, 216, 0.14)    /* --accent-hover (soft) */
-  );
-}
 
