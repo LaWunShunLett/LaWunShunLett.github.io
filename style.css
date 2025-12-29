@@ -587,41 +587,42 @@ body{
 .featured-track .project-card {
   border-radius: 20px;
 }
-/* =========================================
-   Featured Projects: remove rectangle/panel
-   ========================================= */
+/* ================================
+   FIX: white rectangle behind Featured Projects
+   (parent wrapper / global .section)
+   ================================ */
 
-/* 1) Section itself must be bg-main (same as page) */
-#projects.section{
+/* Force the entire featured section block to be the same page surface */
+section#projects.section {
   background: var(--bg-main) !important;
   background-image: none !important;
-  border: 0 !important;
+  border: none !important;
   box-shadow: none !important;
   border-radius: 0 !important;
 }
 
-/* 2) Remove any overlay rectangles */
-#projects.section::before,
-#projects.section::after{
+/* If your global .section uses an inner container/card, kill it here */
+section#projects.section > * {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Common culprit: a "wrap" or "container" that has white panel styling */
+section#projects.section .wrap,
+section#projects.section .projects-wrap,
+section#projects.section .container,
+section#projects.section .section-inner {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Remove pseudo-element overlays that create slabs */
+section#projects.section::before,
+section#projects.section::after {
   content: none !important;
   display: none !important;
-}
-
-/* 3) Any wrapper inside should NOT paint a different surface */
-#projects .projects-wrap,
-#projects .section-head,
-#projects .featured-row,
-#projects .featured-track{
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-}
-
-/* 4) Cards stay white (panel) — this is what you WANT */
-#projects .project-card{
-  background: var(--panel);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
 }
 
 @keyframes scrollArrow{
