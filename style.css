@@ -587,6 +587,42 @@ body{
 .featured-track .project-card {
   border-radius: 20px;
 }
+/* =========================================
+   Featured Projects: remove rectangle/panel
+   ========================================= */
+
+/* 1) Section itself must be bg-main (same as page) */
+#projects.section{
+  background: var(--bg-main) !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* 2) Remove any overlay rectangles */
+#projects.section::before,
+#projects.section::after{
+  content: none !important;
+  display: none !important;
+}
+
+/* 3) Any wrapper inside should NOT paint a different surface */
+#projects .projects-wrap,
+#projects .section-head,
+#projects .featured-row,
+#projects .featured-track{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* 4) Cards stay white (panel) — this is what you WANT */
+#projects .project-card{
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
 
 @keyframes scrollArrow{
   0%   { opacity: 0; transform: translateY(-6px) rotate(45deg); }
