@@ -121,12 +121,13 @@
     <h2 class="section-title">Featured Projects</h2>
     <a class="view-all-link" href="projects.html">View all projects →</a>
   </div>
-<!-- Swipe Cards (no pagination) -->
-<div class="featured-row anim anim-up delay-1">
-  <div class="featured-track" id="featuredGrid" aria-label="Featured projects"></div>
-</div>
 
-  <!-- SAME TEMPLATE STYLE AS projects.html -->
+  <!-- swipe row (no pagination) -->
+  <div class="featured-row anim anim-up delay-1">
+    <div class="featured-track" id="featuredTrack"></div>
+  </div>
+
+  <!-- template (same as projects.html) -->
   <template id="projectCardTpl">
     <article class="project-card" data-tags="">
       <div class="project-media">
@@ -137,7 +138,6 @@
         <h3 class="project-name"></h3>
         <p class="project-meta"></p>
         <p class="project-desc"></p>
-
         <div class="project-tags"></div>
 
         <button class="project-cta" type="button">
@@ -147,7 +147,6 @@
     </article>
   </template>
 </section>
-
     <section id="contact" class="section">
       <h2 class="section-title anim anim-up">Let's Work Together!</h2>
 <section class="contact-simple">

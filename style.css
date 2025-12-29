@@ -587,42 +587,94 @@ body{
 .featured-track .project-card {
   border-radius: 20px;
 }
-/* ================================
-   FIX: white rectangle behind Featured Projects
-   (parent wrapper / global .section)
-   ================================ */
+/* ===============================
+   Featured Projects – FORCE SAME BACKGROUND (no white slab)
+   Put this at the VERY BOTTOM of style.css
+   =============================== */
 
-/* Force the entire featured section block to be the same page surface */
-section#projects.section {
-  background: var(--bg-main) !important;
+section#projects.section{
+  /* blend with page (same as body’s background) */
+  background: transparent !important;
   background-image: none !important;
-  border: none !important;
   box-shadow: none !important;
+  border: none !important;
   border-radius: 0 !important;
 }
 
-/* If your global .section uses an inner container/card, kill it here */
-section#projects.section > * {
+/* kill any inner "panel container" inside the section */
+section#projects.section > *{
   background: transparent !important;
   box-shadow: none !important;
   border: none !important;
 }
 
-/* Common culprit: a "wrap" or "container" that has white panel styling */
+/* common wrappers that may be getting a white background */
 section#projects.section .wrap,
-section#projects.section .projects-wrap,
 section#projects.section .container,
-section#projects.section .section-inner {
+section#projects.section .section-inner,
+section#projects.section .projects-wrap{
   background: transparent !important;
   box-shadow: none !important;
   border: none !important;
 }
 
-/* Remove pseudo-element overlays that create slabs */
+/* if your .section uses pseudo-elements to draw slabs */
 section#projects.section::before,
-section#projects.section::after {
+section#projects.section::after{
   content: none !important;
   display: none !important;
+}
+/* ===============================
+   Featured Projects swipe carousel
+   =============================== */
+
+#projects .featured-row{
+  position: relative;
+}
+
+/* horizontal scroll + snap + hide scrollbar */
+#projects .featured-track{
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  padding: 10px 4px 14px;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none; /* Firefox */
+}
+#projects .featured-track::-webkit-scrollbar{
+  display: none; /* Chrome/Safari */
+}
+
+/* card sizing */
+#projects .featured-track .project-card{
+  flex: 0 0 380px;
+  scroll-snap-align: start;
+}
+#featuredGrid{
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 8px 4px 14px;
+  scrollbar-width: none;
+}
+#featuredGrid::-webkit-scrollbar{ display:none; }
+
+#featuredGrid .project-card{
+  flex: 0 0 360px;
+  scroll-snap-align: start;
+}
+
+/* responsive */
+@media (max-width: 1024px){
+  #projects .featured-track .project-card{ flex-basis: 340px; }
+}
+@media (max-width: 640px){
+  #projects .featured-track .project-card{ flex-basis: 86vw; }
 }
 
 @keyframes scrollArrow{
