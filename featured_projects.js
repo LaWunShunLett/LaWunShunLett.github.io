@@ -1,105 +1,84 @@
-// featured_projects.js (root)
-// Renders Featured Projects cards + pagination on index.html
-
+// featured_projects.js (root) - swipe carousel (no pagination)
 document.addEventListener("DOMContentLoaded", async () => {
-  const grid = document.getElementById("featuredGrid");
-  const pager = document.getElementById("featuredPagination");
+  const track = document.getElementById("featuredGrid");
   const tpl = document.getElementById("projectCardTpl");
 
-  if (!grid || !pager || !tpl) {
-    console.error("Missing #featuredGrid, #featuredPagination, or #projectCardTpl");
-    return;
-  }
+  if (!track || !tpl) return;
 
-  // Load projects.json
   let projects = [];
   try {
     const res = await fetch("./projects.json", { cache: "no-store" });
-    if (!res.ok) throw new Error(`projects.json HTTP ${res.status}`);
     projects = await res.json();
-  } catch (err) {
-    console.error("Failed to load projects.json", err);
+  } catch (e) {
+    console.error("Failed to load projects.json", e);
     return;
   }
 
-  // OPTIONAL: sort newest first (by year number if possible)
-  projects.sort((a, b) => {
-    const ay = Number(a.year) || 0;
-    const by = Number(b.year) || 0;
-    return by - ay;
-  });
+  // Choose what you want featured (example: first 8)
+  const featured = projects.slice(0, 8);
 
-  const pageSize = 3;
-  let page = 1;
-  const totalPages = Math.max(1, Math.ceil(projects.length / pageSize));
+  // Render cards
+  track.innerHTML = "";
+  featured.forEach((p) => {
+    const frag = tpl.content.cloneNode(true);
 
-  function renderPage() {
-    grid.innerHTML = "";
+    frag.querySelector(".project-name").textContent = p.title || "";
+    frag.querySelector(".project-meta").textContent =
+      `${p.year || ""}${p.year && p.role ? " · " : ""}${p.role || ""}`;
+    frag.querySelector(".project-desc").textContent = p.desc || "";
 
-    const start = (page - 1) * pageSize;
-    const items = projects.slice(start, start + pageSize);
+    const img = frag.querySelector("img");
+    img.src = p.image || "";
+    img.alt = p.imageAlt || p.title || "";
 
-    items.forEach((p) => {
-      const frag = tpl.content.cloneNode(true);
-
-      frag.querySelector(".project-name").textContent = p.title || "";
-      frag.querySelector(".project-meta").textContent =
-        `${p.year || ""}${p.year && p.role ? " · " : ""}${p.role || ""}`;
-      frag.querySelector(".project-desc").textContent = p.desc || "";
-
-      const img = frag.querySelector("img");
-      if (img) {
-        img.src = p.image || "";
-        img.alt = p.imageAlt || p.title || "Project image";
-      }
-
-      const tagsWrap = frag.querySelector(".project-tags");
-      if (tagsWrap) {
-        tagsWrap.innerHTML = "";
-        (p.tags || []).forEach((t) => {
-          const span = document.createElement("span");
-          span.className = "tag";
-          span.textContent = t;
-          tagsWrap.appendChild(span);
-        });
-      }
-
-      // Go to details page (same behavior as your projects page)
-      const btn = frag.querySelector(".project-cta");
-      if (btn) {
-        btn.addEventListener("click", () => {
-          if (!p.id) {
-            console.error("Missing id in projects.json for:", p.title);
-            return;
-          }
-          window.location.href = `projects_details.html?id=${encodeURIComponent(p.id)}`;
-        });
-      }
-
-      grid.appendChild(frag);
+    const tagsWrap = frag.querySelector(".project-tags");
+    tagsWrap.innerHTML = "";
+    (p.tags || []).slice(0, 5).forEach((t) => {
+      const span = document.createElement("span");
+      span.className = "tag";
+      span.textContent = t;
+      tagsWrap.appendChild(span);
     });
 
-    renderPager();
-  }
+    const btn = frag.querySelector(".project-cta");
+    btn.addEventListener("click", () => {
+      window.location.href = `projects_details.html?id=${encodeURIComponent(p.id)}`;
+    });
 
-  function renderPager() {
-    pager.innerHTML = "";
+    track.appendChild(frag);
+  });
 
-    if (totalPages <= 1) return;
-
-    for (let i = 1; i <= totalPages; i++) {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = "page-dot" + (i === page ? " is-active" : "");
-      b.setAttribute("aria-label", `Go to page ${i}`);
-      b.textContent = String(i);
-      b.addEventListener("click", () => {
-        page = i;
-        renderPage();
-      });
-      pager.appendChild(b);
-    }
-  }
-
-  renderPage();
+  // Optional: drag-to-scroll for desktop mouse
+  enableDragScroll(track);
 });
+
+function enableDragScroll(el) {
+  let isDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
+
+  el.addEventListener("mousedown", (e) => {
+    isDown = true;
+    startX = e.pageX - el.offsetLeft;
+    scrollLeft = el.scrollLeft;
+    el.classList.add("is-dragging");
+  });
+
+  window.addEventListener("mouseup", () => {
+    isDown = false;
+    el.classList.remove("is-dragging");
+  });
+
+  el.addEventListener("mouseleave", () => {
+    isDown = false;
+    el.classList.remove("is-dragging");
+  });
+
+  el.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - el.offsetLeft;
+    const walk = (x - startX) * 1.2;
+    el.scrollLeft = scrollLeft - walk;
+  });
+}

@@ -512,49 +512,53 @@ body{
 .fp-page.is-active{
   transform: translateY(-1px);
 }
-/* ===== Featured Projects (index) ===== */
+/* ===== Featured header spacing ===== */
 .section-head{
   display:flex;
   align-items:flex-end;
   justify-content:space-between;
-  gap:16px;
+  gap:24px;
+  margin-bottom:18px; /* more breathing room */
 }
 
 .view-all-link{
+  color: var(--accent, #2563eb);
   font-weight:700;
   text-decoration:none;
-  color: var(--accent, #2563eb); /* blue */
+  white-space:nowrap;
+  margin-left:auto;
+  padding-bottom:6px; /* lifts it a bit */
 }
 .view-all-link:hover{ text-decoration: underline; }
 
-/* Pagination dots/buttons */
-.featured-pagination{
+/* ===== Horizontal swipe carousel (no scrollbar) ===== */
+.featured-row{
+  position:relative;
+}
+
+.featured-track{
   display:flex;
-  gap:10px;
-  justify-content:center;
-  margin-top:18px;
+  gap:22px;
+  overflow-x:auto;
+  padding: 10px 4px 14px; /* top/left/bottom breathing */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;          /* Firefox hide */
+}
+.featured-track::-webkit-scrollbar{ display:none; } /* Chrome/Safari hide */
+
+/* Each card width (nice on desktop) */
+.featured-track .project-card{
+  flex: 0 0 380px;       /* card width */
+  scroll-snap-align: start;
 }
 
-.page-dot{
-  border:1px solid rgba(0,0,0,0.18);
-  background: transparent;
-  padding:6px 10px;
-  border-radius:999px;
-  cursor:pointer;
-  font-weight:700;
+/* Responsive card width */
+@media (max-width:1024px){
+  .featured-track .project-card{ flex-basis: 340px; }
 }
-.page-dot.is-active{
-  background: var(--accent, #2563eb);
-  color:#fff;
-  border-color: transparent;
-}
-
-/* Responsive: keep header nice on small screens */
-@media (max-width: 720px){
-  .section-head{
-    align-items:flex-start;
-    flex-direction:column;
-  }
+@media (max-width:640px){
+  .featured-track .project-card{ flex-basis: 86vw; } /* near full width */
 }
 
 @keyframes scrollArrow{
