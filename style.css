@@ -710,38 +710,31 @@ body{
   display: none !important;
 }
 /* =========================
-   Featured Projects — remove inner rectangle look
+   Featured Projects — soft blue gradient inner card
    ========================= */
 
-/* Section background */
-#projects {
+#projects{
   background: #f5f7fb;
 }
 
-/* Card = flat, same color as section */
-#projects .project-card {
-  background: #f5f7fb;
-  border-radius: 18px;
+/* Outer card */
+#projects .project-card{
+  background: transparent;
+  border-radius: 22px;
   border: 1px solid rgba(0,0,0,0.04);
   box-shadow: none;
-  padding: 0;
   overflow: hidden;
 }
 
-/* REMOVE inner white box completely */
-#projects .project-content {
-  background: transparent !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
+/* Inner padded rectangle with blue gradient */
+#projects .project-content{
   padding: 18px;
-}
+  border-radius: 18px;
 
-/* Image stays clean, no inset background */
-#projects .project-card img {
-  display: block;
-  width: 100%;
-  height: 210px;
-  object-fit: cover;
-  background: transparent;
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.08),   /* --accent (soft) */
+    rgba(29, 78, 216, 0.14)    /* --accent-hover (soft) */
+  );
 }
 
