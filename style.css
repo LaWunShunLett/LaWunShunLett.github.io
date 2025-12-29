@@ -674,7 +674,7 @@ body{
   gap: 10px;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 2px 2px 8px;        /* a bit of breathing room */
+  padding: 2px 2px 0;        /* a bit of breathing room */
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 
