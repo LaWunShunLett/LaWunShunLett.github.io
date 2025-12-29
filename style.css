@@ -659,3 +659,53 @@ body{
     letter-spacing: .14em;
   }
 }
+/* =========================
+   Featured Projects: swipe row (index)
+   ========================= */
+
+/* give space between header row and cards */
+#projects .section-head{
+  margin-bottom: 18px;
+}
+
+/* turn featuredGrid into a horizontal swipe track */
+#featuredGrid{
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 6px 2px 14px;        /* a bit of breathing room */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  /* “swipe background invisible” feel */
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+
+  /* hide scrollbar */
+  scrollbar-width: none;        /* Firefox */
+}
+#featuredGrid::-webkit-scrollbar{
+  display: none;                /* Chrome/Safari */
+}
+
+/* each card snaps nicely while swiping */
+#featuredGrid > .project-card{
+  scroll-snap-align: start;
+  flex: 0 0 auto;               /* important: don’t shrink */
+  width: 340px;                 /* adjust if you want bigger/smaller */
+}
+
+/* responsive card width */
+@media (max-width: 900px){
+  #featuredGrid > .project-card{ width: 300px; }
+}
+@media (max-width: 520px){
+  #featuredGrid > .project-card{ width: 86vw; }
+}
+
+/* remove pagination UI (you won’t need it) */
+#featuredPagination{
+  display: none !important;
+}
