@@ -709,3 +709,20 @@ body{
 #featuredPagination{
   display: none !important;
 }
+/* =========================
+   Featured Projects — match card color to section
+   ========================= */
+
+#projects {
+  background: #f5f7fb;
+}
+
+#projects .project-card {
+  background-color: rgba(245, 247, 251, 0.9);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+#projects .project-content {
+  background: transparent;
+}
