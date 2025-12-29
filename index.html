@@ -15,6 +15,8 @@
 
 <body class="preload">
   <script defer src="./scripts.js"></script>
+  <script defer src="./featured_projects.js"></script>
+
   <!-- HEADER -->
   <header class="topbar">
     <div class="topbar-inner">
@@ -93,7 +95,7 @@
     <span></span><span></span><span></span>
   </span>
 </div>
-<!-- <section id="about" class="section">
+<section id="about" class="section">
   <h2 class="section-title anim anim-up">My Journey</h2>
 
   <div class="about-glow-box">
@@ -108,12 +110,47 @@
       making a meaningful impact.
     </p>
   </div>
-</section> -->
-    <section id="projects" class="section">
-      <h2 class="section-title anim anim-up">Featured Projects</h2>
-      <p class="section-text anim anim-up delay-1">Add your projects here.</p>
-    </section>
+</section>
+<section id="projects" class="section">
+  <div class="section-head anim anim-up">
+    <h2 class="section-title">Featured Projects</h2>
 
+    <a class="view-all-link" href="projects.html">View all projects →</a>
+  </div>
+
+  <!-- same grid style as projects page -->
+  <div class="projects-grid anim anim-up delay-1" id="featuredGrid"></div>
+
+  <!-- pagination buttons -->
+  <div class="featured-pagination anim anim-up delay-2" id="featuredPagination"></div>
+
+  <!-- reuse your existing project card template from projects.html -->
+<template id="projectCardTpl">
+  <article class="project-card" data-tags="">
+    <div class="project-media">
+      <img src="" alt="" loading="lazy">
+    </div>
+
+    <div class="project-body">
+      <h3 class="project-name"></h3>
+      <p class="project-meta"></p>
+      <p class="project-desc"></p>
+
+      <div class="project-tags"></div>
+
+      <button class="project-cta" type="button"
+        data-title=""
+        data-year=""
+        data-role=""
+        data-desc=""
+        data-tech=""
+      >
+        View details →
+      </button>
+    </div>
+  </article>
+</template>
+</section>
     <section id="contact" class="section">
       <h2 class="section-title anim anim-up">Let's Work Together!</h2>
 <section class="contact-simple">

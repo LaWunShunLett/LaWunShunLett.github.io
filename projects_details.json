@@ -1,9 +1,9 @@
 [{
   "id": "smart-pill-dispenser",
-  "title": "Smart Pill Dispenser",
+  "title": "Smart Pill Dispenser — STM32-Based Medication Management System",
   "year": "2024",
   "role": "Embedded Firmware Developer | Microcontroller Systems",
-  "tags": ["Embedded Systems", "STM32", "Healthcare", "Sensors & Actuators", "Prototype", "Academic Project – DCPE, Singapore Polytechnic"],
+  "tags": ["Embedded Systems", "STM32", "Healthcare", "Sensors & Actuators", "Prototype", "Academic Project – Singapore Polytechnic"],
 
   "heroImage": "./images/SmartPill.jpeg",
   "heroAlt": "Smart pill dispenser prototype",
@@ -118,7 +118,7 @@
   "title": "IoT-Based Supermarket Self-Checkout System",
   "year": "2024",
   "role": "IoT Systems Developer | Embedded & Software Engineer",
-  "tags": ["IoT", "Self-Checkout", "Raspberry Pi","DevOps", "Containerization","Academic Project – DCPE, Singapore Polytechnic" ],
+  "tags": ["IoT", "Self-Checkout", "Raspberry Pi","DevOps", "Containerization","Academic Project – Singapore Polytechnic" ],
 
   "heroImage": "./images/SuperMarket.jpg",
   "heroAlt": "IoT-based supermarket self-checkout prototype",
@@ -142,33 +142,30 @@
       "title": "Problem",
       "content": "Traditional supermarket checkout systems often result in long queues, high manpower dependency, and inefficient transitions between in-store and online shopping workflows, negatively impacting customer experience during peak hours."
     },
-
-    {
-      "type": "text",
-      "title": "Solution",
-      "content": "A unified self-checkout solution was developed using a Raspberry Pi as the central controller, integrating barcode scanning, RFID-based authentication, cart management, and payment processing. For online orders, the system generates a QR code containing an Order ID to enable fast in-store pickup verification. Power management logic was implemented to reduce energy consumption by dynamically switching between low and high power operating modes."
-    },
-
+{
+  "type": "text",
+  "title": "Solution",
+  "content": "A unified self-checkout solution was developed using a Raspberry Pi as the central controller, integrating Picamera-based barcode scanning, RFID authentication, cart management, and payment processing. In addition to in-store checkout, the system includes an online shopping website where users can browse products, add items to a cart, and place orders remotely. Product information, user/cart data, and orders are stored and managed in a MariaDB database. For online pickup orders, the system generates a QR code containing an Order ID to enable fast in-store pickup verification. Power management logic was implemented to reduce energy consumption by dynamically switching between low and high power operating modes."
+},
     {
       "type": "image",
       "title": "Use Case Diagram",
       "src": "./images/usecase.jpg",
       "alt": "Use case diagram for supermarket self-checkout system",
-      "caption": "Use case diagram illustrating interactions between in-store customers, online customers, payment gateway, and backend systems."
+      "caption": "Use case diagram illustrating interactions between in-store customers, online customers, payment gateway, and backend systems"
     },
-
-    {
-      "type": "text",
-      "title": "Use Case Diagram Explanation",
-      "content": "The use case diagram illustrates the functional interactions between different actors and the supermarket self-checkout system. In-store customers initialize the system, scan items using a camera, and complete payments. The scanning workflow includes continuous item verification against the product database, followed by cart total calculation and checkout confirmation. Optional membership authentication is performed using RFID, extending the payment process with additional validation steps.\n\nOnline customers interact with the system through a website to browse products, add items to the cart, and complete checkout remotely. For online purchases, the system generates a QR code containing an Order ID, which is scanned during in-store pickup for verification. The payment gateway supports multiple payment methods such as ATM card, PayWave/RFID, and Visa, while backend services handle authentication, item validation, and order summary generation."
-    },
+{
+  "type": "text",
+  "title": "Use Case Diagram Explanation",
+  "content": "The use case diagram illustrates the functional interactions between different actors and the supermarket self-checkout system. In-store customers initialize the system, scan items using a camera, and complete payments. The scanning workflow includes continuous item verification against the product database, followed by cart total calculation and checkout confirmation. Optional membership authentication is performed using RFID, extending the payment process with additional validation steps.\n\nOnline customers interact with the system through a website to browse products, add items to the cart, and complete checkout remotely. The website communicates with a MariaDB database to retrieve product details and store cart/order information. For online pickup purchases, the system generates a QR code containing an Order ID, which is scanned during in-store pickup for verification. The payment gateway supports payment methods such as ATM card, PayWave/RFID, and Visa, while backend services handle authentication, item validation, and order summary generation."
+},
 
     {
       "type": "image",
       "title": "Hardware & Interface Architecture",
       "src": "./images/Supermarket_BlockDiagram.jpg",
       "alt": "Raspberry Pi hardware interface architecture",
-      "caption": "Hardware interface architecture showing sensors, input devices, and output peripherals connected to the Raspberry Pi."
+      "caption": "Hardware interface architecture showing sensors, input devices, and output peripherals connected to the Raspberry Pi"
     },
 
     {
@@ -198,6 +195,12 @@
     },
 
     {
+      "type": "text",
+      "title": "Outcomes",
+      "content": "The system was successfully implemented based on a structured requirements specification covering item scanning, authentication, payment workflows, online ordering with QR-based pickup verification, and dynamic power management. Functional testing validated end-to-end operation across in-store and online scenarios, demonstrating reliable system behavior and effective energy-saving transitions between Low Power Mode and High Power Mode."
+    },
+
+    {
       "type": "list",
       "title": "Key Functional Features",
       "items": [
@@ -211,26 +214,125 @@
         "High Power Mode (HPM): Activated during scanning, database lookup, cart updates, authentication, payment processing, and QR code generation"        
       ]
     },
+{
+  "type": "list",
+  "title": "Technical Summary",
+  "items": [
+    "Controller: Raspberry Pi",
+    "Programming Language: Python",
+    "Online Platform: Website (Online Shopping)",
+    "Database: MariaDB (Products, Cart, Orders)",
+    "Item Detection: Camera-based Barcode Scanning",
+    "Authentication Module: RFID Reader",
+    "Presence Detection: Ultrasonic Sensor",
+    "User Interface: LCD Display (I2C), Keypad",
+    "Feedback Device: Buzzer",
+    "Order Verification: QR Code Generation",
+    "Power Management: Low Power Mode (LPM), High Power Mode (HPM)",
+    "Application Area: Smart Retail & IoT Automation"
+  ]
+}
+  ]
+},
+{
+  "id": "stockpulse",
+  "title": "StockPulse – Stock Trading & Market Analysis Platform",
+  "year": "2024",
+  "role": "Frontend Developer & Interactive Animation",
+  "tags": [
+    "Web Application", "UI/UX",
+    "Stock Trading",
+    "Market Analysis",
+    "Paper Trading",
+    "Academic Project – Singapore Polytechnic"
+  ],
+
+  "heroImage": "./images/StockPulse.jpg",
+  "heroAlt": "StockPulse stock trading and market analysis platform",
+
+  "sections": [
+    {
+      "type": "text",
+      "title": "At a Glance",
+      "content": "A web-based stock trading simulation platform that allows users to practise buying and selling stocks using virtual funds, with an emphasis on clear interaction flow and visual feedback."
+    },
+
+    {
+      "type": "image",
+      "title": "Platform Overview",
+      "src": "./images/StockPulse_UI.png",
+      "alt": "StockPulse main user interfaces",
+      "caption": "Core interfaces including portfolio overview, stock detail view, buy/sell workflow, and watchlist."
+    },
 
     {
       "type": "text",
-      "title": "Outcomes",
-      "content": "The system was successfully implemented based on a structured requirements specification covering item scanning, authentication, payment workflows, online ordering with QR-based pickup verification, and dynamic power management. Functional testing validated end-to-end operation across in-store and online scenarios, demonstrating reliable system behavior and effective energy-saving transitions between Low Power Mode and High Power Mode."
+      "title": "Interface & Interaction Design",
+      "content": "The platform is structured around a clear navigation flow that guides users through portfolio viewing, stock exploration, and trade execution. Visual hierarchy and motion cues are used to help users understand state changes and transitions without overwhelming them, making the system approachable even for users new to stock trading concepts."
+    },
+
+    {
+      "type": "image",
+      "title": "Stock Exploration",
+      "src": "./images/StockPulse_StockOverview.png",
+      "alt": "Stock detail and market indicators",
+      "caption": "Stock detail page displaying pricing data, visual indicators, and available actions."
+    },
+
+    {
+      "type": "text",
+      "title": "Stock Data Presentation",
+      "content": "Stock information is presented using a combination of numeric values and visual indicators such as price ranges and recommendation bars. These visual elements help users quickly interpret market conditions and trends without requiring prior financial knowledge."
+    },
+
+    {
+      "type": "image",
+      "title": "Buy & Sell Workflow",
+      "src": "./images/StockPulse_BuySell.png",
+      "alt": "Buy and sell interaction flow",
+      "caption": "Buy and sell interface allowing users to select trade action and quantity."
+    },
+
+    {
+      "type": "text",
+      "title": "Trade Interaction Flow",
+      "content": "The buy and sell workflow is intentionally constrained to reduce user error. Animated feedback and validation messages are used to confirm successful actions and to alert users when invalid operations occur, such as insufficient funds or stock quantity."
+    },
+
+    {
+      "type": "image",
+      "title": "Watchlist & Tracking",
+      "src": "./images/StockPulse_Watchlist.png",
+      "alt": "Watchlist and stock tracking",
+      "caption": "Watchlist displaying tracked stocks and price changes."
+    },
+
+    {
+      "type": "text",
+      "title": "Tracking & Review",
+      "content": "The watchlist and transaction history features allow users to monitor selected stocks and review past actions. These sections support reflection and learning by making trading behaviour visible and easy to revisit."
     },
 
     {
       "type": "list",
-      "title": "Technologies Used",
+      "title": "My Role",
       "items": [
-        "Raspberry Pi",
-        "Python",
-        "Camera (Barcode Scanning)",
-        "RFID Reader",
-        "Ultrasonic Sensor",
-        "LCD Display (I2C)",
-        "Keypad Input",
-        "QR Code Generation",
-        "Power State Management"
+        "Implemented frontend animations and interaction effects across the platform",
+        "Added animated sign-out interaction for clear session feedback",
+        "Enhanced page transitions to improve navigation continuity",
+        "Ensured animations were lightweight and non-intrusive"
+      ]
+    },
+
+    {
+      "type": "list",
+      "title": "Technical Summary",
+      "items": [
+        "Frontend: HTML, CSS, JavaScript",
+        "Interaction Design: UI Animations & Transitions",
+        "Trading Mode: Paper Trading (Virtual Funds)",
+        "User Focus: Clear Interaction Flow",
+        "Application Domain: Financial Technology (FinTech)"
       ]
     }
   ]

@@ -484,6 +484,87 @@ body{
 .scroll-arrows span:nth-child(1){ animation-delay: 0s; }
 .scroll-arrows span:nth-child(2){ animation-delay: .35s; }
 .scroll-arrows span:nth-child(3){ animation-delay: .7s; }
+.section-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.view-all-link{
+  text-decoration:none;
+  font-weight:600;
+}
+
+.featured-pagination{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:18px;
+}
+
+.fp-page{
+  width:42px;
+  height:42px;
+  border-radius:999px;
+}
+
+.fp-page.is-active{
+  transform: translateY(-1px);
+}
+/* =========================
+   Featured Projects – Responsive
+   ========================= */
+
+/* Desktop (default) */
+.featured-grid,
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .featured-grid,
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .project-card {
+    max-width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .featured-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .view-all-link {
+    align-self: flex-start;
+  }
+
+  .featured-pagination {
+    margin-top: 14px;
+  }
+
+  .fp-page {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+}
 
 @keyframes scrollArrow{
   0%   { opacity: 0; transform: translateY(-6px) rotate(45deg); }

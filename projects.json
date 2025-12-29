@@ -13,7 +13,7 @@
 },
 {
   "id":"supermarket-self-checkout",
-  "title": "Supermarket Self-Checkout",
+  "title": "IoT-Based Supermarket Self-Checkout System",
   "year": "2025",
   "role": "Product Operations, DevOps & System Troubleshooting",
   "desc": "A team-based supermarket self-checkout system that combines a Raspberry Pi–powered kiosk with a full web application, allowing customers to scan items, manage their cart, and complete payment in-store or online.",
@@ -21,7 +21,7 @@
   "image": "./images/SuperMarket.jpg",
   "imageAlt": "Supermarket self-checkout kiosk built with Raspberry Pi and web interface",
   "filter": ["iot", "web"],
-  "tags": ["IoT", "DevOps", "Web App", "Containerization & Operations"]
+  "tags": ["IoT", "DevOps", "Web App", "Containerization"]
 },
 {
   "id" : "soil-tiller-checkout",
@@ -37,15 +37,17 @@
 },
 {
   "id" : "stockpulse-web-app",    
-  "title": "StockPulse — Stock Trading Simulation Web App",
+  "title": "StockPulse – Stock Trading & Market Analysis Platform",
   "year": "2024",
-  "role": "Front-End Developer & UI/UX Designer",
+  "role": "Frontend Developer & Interactive Animation",
   "desc": "A multi-page stock trading simulation web app with dashboards, stock detail views, watchlists, and history pages, focused on smooth navigation, clear layouts, and responsive interactions.",
   "tech": "Front-End Development, UI/UX Design, JavaScript, HTML/CSS, Web Application Layout, Interaction Design, Basic SQL / MariaDB Integration, Team Collaboration",
   "image": "./images/StockPulse.jpg",
   "imageAlt": "StockPulse stock trading simulation dashboard interface",
   "filter": ["web"],
-  "tags": ["Web App", "Front-End", "UI/UX", "Team Project"]
+  "tags": [    "Web Application", "UI/UX",
+    "Stock Trading",
+    "Market Analysis"]
 },
 {
   "id" : "trash-segregator-iot", 
