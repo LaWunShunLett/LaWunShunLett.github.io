@@ -942,3 +942,94 @@ section#projects .project-media img {
     letter-spacing: .14em;
   }
 }
+/* =========================================================
+   Featured Projects — CLEAN OVERRIDE (DO NOT TOUCH OTHERS)
+   ========================================================= */
+
+/* Section background — must match page */
+#projects.section {
+  background: var(--bg-main);
+  padding: 4rem 0 4.5rem;
+}
+
+/* Remove any white panel coming from .section */
+#projects.section,
+#projects.section > * {
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+/* Header row */
+#projects .section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+  background: transparent;
+}
+
+/* View all link — theme blue */
+#projects .view-all-link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#projects .view-all-link:hover {
+  color: var(--accent-hover);
+}
+
+/* ===============================
+   Swipe container (IMPORTANT)
+   =============================== */
+
+.featured-row {
+  position: relative;
+  overflow: hidden;           /* hides scrollbar area */
+  padding-left: 2rem;
+}
+
+.featured-track {
+  display: flex;
+  gap: 1.75rem;
+  overflow-x: auto;           /* ENABLE SCROLL */
+  overflow-y: visible;
+  scroll-behavior: smooth;
+  padding-bottom: 1rem;
+
+  /* remove scrollbar */
+  scrollbar-width: none;      /* Firefox */
+}
+.featured-track::-webkit-scrollbar {
+  display: none;              /* Chrome / Safari */
+}
+
+/* ===============================
+   Cards (only cards are white)
+   =============================== */
+
+#projects .project-card {
+  min-width: 320px;
+  max-width: 320px;
+  flex: 0 0 auto;
+
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+/* Prevent clipping */
+#projects .project-card * {
+  overflow: visible;
+}
+
+/* ===============================
+   Drag cursor feedback
+   =============================== */
+
+.featured-track.is-dragging {
+  cursor: grabbing;
+}
