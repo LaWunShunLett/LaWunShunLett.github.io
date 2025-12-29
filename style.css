@@ -709,20 +709,4 @@ body{
 #featuredPagination{
   display: none !important;
 }
-/* Inner blue rectangle closer to card edges */
-#projects #featuredGrid .project-card{
-  overflow: hidden;
-}
-
-#projects #featuredGrid .project-body{
-  margin: 8px;        /* gap from card edge (try 6px if you want tighter) */
-  padding: 16px;      /* inside padding */
-  border-radius: 18px;
-
-  background: linear-gradient(
-    135deg,
-    rgba(37, 99, 235, 0.08),
-    rgba(29, 78, 216, 0.14)
-  );
-}
 
