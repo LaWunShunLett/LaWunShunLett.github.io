@@ -513,56 +513,75 @@ body{
   transform: translateY(-1px);
 }
 /* =========================
-   Featured Projects – Responsive
+   Featured Projects (Home)
    ========================= */
 
-/* Desktop (default) */
-.featured-grid,
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+.featured-projects{
+  padding: 4rem 0;
 }
 
-/* Tablet */
-@media (max-width: 1024px) {
-  .featured-grid,
-  .projects-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
-  }
+.featured-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  margin-bottom:2rem;
+}
 
-  .project-card {
-    max-width: 100%;
+.featured-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:24px;
+  align-items:stretch;
+}
+
+/* Stop huge images */
+.project-card .project-media{
+  aspect-ratio: 16 / 9;
+  overflow:hidden;
+  border-radius:14px;
+}
+
+.project-card .project-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* Pagination */
+.featured-pagination{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:20px;
+}
+
+.featured-pagination button{
+  width:42px;
+  height:42px;
+  border-radius:999px;
+  cursor:pointer;
+}
+
+/* Responsive */
+@media (max-width:1024px){
+  .featured-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
   }
 }
 
-/* Mobile */
-@media (max-width: 640px) {
-  .featured-grid,
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
+@media (max-width:640px){
+  .featured-grid{
+    grid-template-columns:1fr;
   }
-
-  .section-head {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+  .featured-header{
+    flex-direction:column;
+    align-items:flex-start;
   }
-
-  .view-all-link {
-    align-self: flex-start;
-  }
-
-  .featured-pagination {
-    margin-top: 14px;
-  }
-
-  .fp-page {
-    width: 36px;
-    height: 36px;
-    font-size: 0.9rem;
+  .featured-pagination button{
+    width:36px;
+    height:36px;
   }
 }
 

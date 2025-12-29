@@ -11,12 +11,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./contact.css" />
   <link rel="stylesheet" href="./style.css" />
-  <link rel="stylesheet" href="./projects_details.css"/>
 </head>
 
 <body class="preload">
   <script defer src="./scripts.js"></script>
-  <script defer src="./featured_projects.js"></script>
 
   <!-- HEADER -->
   <header class="topbar">
@@ -112,46 +110,30 @@
     </p>
   </div>
 </section>
+<!-- =========================
+     Featured Projects Section
+     ========================= -->
 <section id="projects" class="section">
   <div class="section-head anim anim-up">
     <h2 class="section-title">Featured Projects</h2>
-
     <a class="view-all-link" href="projects.html">View all projects →</a>
   </div>
 
-  <!-- same grid style as projects page -->
+  <!-- Cards -->
   <div class="projects-grid anim anim-up delay-1" id="featuredGrid"></div>
 
-  <!-- pagination buttons -->
+  <!-- Pagination -->
   <div class="featured-pagination anim anim-up delay-2" id="featuredPagination"></div>
 
-  <!-- reuse your existing project card template from projects.html -->
-<template id="projectCardTpl">
-  <article class="project-card" data-tags="">
-    <div class="project-media">
-      <img src="" alt="" loading="lazy">
-    </div>
-
-    <div class="project-body">
-      <h3 class="project-name"></h3>
-      <p class="project-meta"></p>
-      <p class="project-desc"></p>
-
-      <div class="project-tags"></div>
-
-      <button class="project-cta" type="button"
-        data-title=""
-        data-year=""
-        data-role=""
-        data-desc=""
-        data-tech=""
-      >
-        View details →
-      </button>
-    </div>
-  </article>
-</template>
+  <!-- ✅ IMPORTANT:
+       Copy the EXACT card template from projects.html and paste it inside here.
+       This is what guarantees the same card design / theme.
+  -->
+  <template id="projectCardTpl">
+    <!-- PASTE YOUR projects.html <template id="projectCardTpl">...</template> CONTENT HERE -->
+  </template>
 </section>
+
     <section id="contact" class="section">
       <h2 class="section-title anim anim-up">Let's Work Together!</h2>
 <section class="contact-simple">
