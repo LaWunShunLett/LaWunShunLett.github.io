@@ -560,6 +560,33 @@ body{
 @media (max-width:640px){
   .featured-track .project-card{ flex-basis: 86vw; } /* near full width */
 }
+/* ===== Fix Featured Projects color consistency ===== */
+
+/* Make section background consistent */
+#projects.section {
+  background: var(--bg, #f5f7fb); /* same as rest of page */
+}
+
+/* Ensure swipe row doesn't expose a different color */
+.featured-row {
+  background: transparent;
+}
+
+/* Remove visual band caused by padding */
+.featured-track {
+  padding-bottom: 6px; /* reduce from large padding */
+}
+
+/* Soften card shadow so it doesn't create a dark strip */
+.featured-track .project-card {
+  background: #ffffff;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* Optional: unify card radius with theme */
+.featured-track .project-card {
+  border-radius: 20px;
+}
 
 @keyframes scrollArrow{
   0%   { opacity: 0; transform: translateY(-6px) rotate(45deg); }
