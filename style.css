@@ -709,4 +709,39 @@ body{
 #featuredPagination{
   display: none !important;
 }
+/* =========================
+   Featured Projects — remove inner rectangle look
+   ========================= */
+
+/* Section background */
+#projects {
+  background: #f5f7fb;
+}
+
+/* Card = flat, same color as section */
+#projects .project-card {
+  background: #f5f7fb;
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,0.04);
+  box-shadow: none;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* REMOVE inner white box completely */
+#projects .project-content {
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 18px;
+}
+
+/* Image stays clean, no inset background */
+#projects .project-card img {
+  display: block;
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  background: transparent;
+}
 
