@@ -12,8 +12,6 @@
   <link rel="stylesheet" href="./contact.css" />
   <link rel="stylesheet" href="./style.css" />
   <script defer src="./featured_projects.js"></script>
-  <link rel="stylesheet" href="./projects.css" />
-
 </head>
 
 <body class="preload">
@@ -127,7 +125,6 @@
     <div class="featured-track" id="featuredTrack"></div>
   </div>
 
-  <!-- template (same as projects.html) -->
   <template id="projectCardTpl">
     <article class="project-card" data-tags="">
       <div class="project-media">
@@ -138,15 +135,18 @@
         <h3 class="project-name"></h3>
         <p class="project-meta"></p>
         <p class="project-desc"></p>
+
         <div class="project-tags"></div>
 
-        <button class="project-cta" type="button">
-          View details →
-        </button>
+        <button class="project-cta" type="button">View details →</button>
       </div>
     </article>
   </template>
 </section>
+
+<!-- IMPORTANT: your new JS (root folder) -->
+<script defer src="./featured_projects.js"></script>
+
     <section id="contact" class="section">
       <h2 class="section-title anim anim-up">Let's Work Together!</h2>
 <section class="contact-simple">
