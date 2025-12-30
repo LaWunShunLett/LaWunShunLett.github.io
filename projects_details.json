@@ -366,7 +366,11 @@
         "Watchlist and transaction history for tracking and review"
       ]
     },
-
+{
+  "type": "text",
+  "title": "Outcome",
+  "content": "This project resulted in a beginner-friendly stock trading simulation platform that makes complex market data easier to understand. By using clear visual indicators, interactive UI elements, and subtle animations, the platform helps users interpret stock movements, trading actions, and portfolio performance with confidence, even without prior financial knowledge."
+},
     {
       "type": "list",
       "title": "Technical Summary",
