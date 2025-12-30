@@ -468,10 +468,10 @@
   "content": "The poster summarizes the complete system design in a single view, covering the problem statement, sensor roles, actuator control, flow logic, and implementation process. It also highlights the project outcomes and proposed future improvements, making it easier to understand the overall system without referring to separate diagrams."
 },
 {
-  "type": "youtube",
-  "title": "Autonomous Soil Tiller — System Demonstration",
-  "videoId": "_aBiyv_RG1k",
-  "caption": "Video demonstration of the soil tiller navigating autonomously while displaying soil condition and system status on the LCD."
+  
+      "type": "youtube",
+      "title": "System Demonstration Video",
+      "id": "_aBiyv_RG1k"
 },
 {
   "type": "text",
