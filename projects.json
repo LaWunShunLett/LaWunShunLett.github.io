@@ -62,7 +62,7 @@
   "tech": "Arduino (C/C++), Ultrasonic Sensors, Laser + Light Sensor Pair for Material Detection, Servo Motor, Custom PCB / Shield, ThingSpeak IoT Cloud, HTTP API Integration, Serial Debugging, Circuit Wiring & Testing",
   "image": "./images/TrashSegregator.jpeg",
   "imageAlt": "Trash segregator prototype with Arduino shield, ultrasonic modules, and ThingSpeak dashboard on laptop",
-  "filter": ["iot", "microcontroller"],
+  "filter": ["iot", "microcontroller", "mobile"],
   "tags": [    "IoT",
     "Smart City",
     "Sustainability",
@@ -80,6 +80,6 @@
   "image": "./images/SPpalsProfile.jpg",
   "imageAlt": "SP Pal social media app interface for Singapore Polytechnic students",
   "filter": ["mobile"],
-  "tags": ["Mobile App", "Social Media", "UI/UX", "Front-End"]
+  "tags": ["Android Mobile App", "Social Media", "UI/UX", "Front-End"]
 }
 ]

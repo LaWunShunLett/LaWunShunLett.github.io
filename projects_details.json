@@ -303,7 +303,7 @@
           "caption": "Stock Page Profile"
         },
         {
-          "src": "./images/StockRange.png",
+          "src": "./images/StockRange.jpg",
           "alt": "Stock price range sliders",
           "caption": "Day’s Range and 52-Week Range sliders visually representing stock price movement."
         },
@@ -638,7 +638,7 @@
   "year": "2024",
   "role": "Mobile UI Developer, UX Flow & System Design",
   "tags": [
-    "Mobile App",
+    "Android Mobile App",
     "UI/UX",
     "Social Media platform",
     "Student Community",
@@ -673,16 +673,26 @@
       "type": "gallery",
       "title": "Key UI Flow Screens",
       "items": [
+{
+  "src": "./images/overall.jpeg",
+  "alt": "Overall application interface showing multiple main screens",
+  "caption": "Overall application view presenting the main screens and interface layout."
+},
         {
           "src": "./images/sppals_flow_home_profile_settings_qr.png",
           "alt": "Home, Profile, Settings and QR/Share screens",
           "caption": "Main navigation flow: Home feed → Profile → Settings, with QR/Share for quick profile linking."
         },
-        {
-          "src": "./images/sppals_flow_search_profile_chat_message.png",
-          "alt": "Search, profile viewing, chat list and message screens",
-          "caption": "Discovery and communication flow: Search students → View profile → Open chat → Send messages."
-        },
+{
+  "src": "./images/sppals_flow_search_profile_chat_message1.png",
+  "alt": "Search, profile viewing, chat list and message screens",
+  "caption": "Step 1 — User discovery flow: Searching for students and viewing individual profiles."
+},
+{
+  "src": "./images/sppals_flow_search_profile_chat_message2.jpg",
+  "alt": "Chat list and messaging interface",
+  "caption": "Step 2 — Communication flow: Opening chat conversations and sending real-time messages."
+},
         {
           "src": "./images/sppals_flow_notifications_create_filter.png",
           "alt": "Notifications, post creation and filter options",
@@ -694,14 +704,16 @@
     {
       "type": "list",
       "title": "Core Features",
-      "items": [
-        "Home feed for campus-related posts and student updates",
-        "Search to find students or content quickly",
-        "Profiles to showcase student identity and posts",
-        "Direct messaging for private communication",
-        "Notifications to keep users aware of activity and updates",
-        "Post creation flow for sharing content"
-      ]
+"items": [
+  "Home feed for campus-related posts and student updates",
+  "Search functionality to quickly find students and relevant content",
+  "User profiles to showcase student identity, activities, and posts",
+  "Integrated chat box for real-time messaging, powered by Firebase Realtime Database",
+  "Post filtering options to categorize content into CCA, Calendar, and Lost & Found sections",
+  "Notification system to keep users informed of activity and updates",
+  "Post creation flow for sharing announcements and updates"
+]
+
     },
 
     {
@@ -724,23 +736,28 @@
     {
       "type": "text",
       "title": "My Role",
-      "content": "I focused on the UI/UX flow and screen design planning, including navigation structure, interaction flow between main modules, and preparing polished mockups for evaluation."
+      "content": "I focused on the UI/UX flow, Splash Screen and screen design planning, including navigation structure, interaction flow between main modules, and preparing polished mockups for evaluation."
     },
-
-    {
-      "type": "list",
-      "title": "Technical Summary",
-      "items": [
-        "Deliverables: UI mockups, UX flows, feature specification",
-        "Focus: Navigation structure, search-to-chat flow, usability consistency",
-        "Domain: Student social platform / campus community"
-      ]
-    },
-
+{
+  "type": "text",
+  "title": "Outcome",
+  "content": "Designed a unified campus social app concept by consolidating feeds, search, profiles, and real-time messaging into a single platform, resulting in a clearer end-to-end user experience that reduces information fragmentation and improves student engagement within the campus community."
+},
+{
+  "type": "list",
+  "title": "Technical Summary",
+  "items": [
+    "Platform: Android mobile application",
+    "Backend & Services: Firebase (Realtime Database) and RESTful APIs",
+    "Deliverables: UI mockups, UX flows, and feature specifications",
+    "Focus: Navigation structure, search-to-chat flow, and usability consistency",
+    "Domain: Student social platform / campus community"
+  ]
+},
     {
       "type": "text",
       "title": "Recognition",
-      "content": "This project was selected and featured under the SP Batey Hackathon & Challenge 2024 showcase."
+      "content": "This project was selected and featured under the SP Batey Hackathon & Challenge 2024."
     }
   ]
 }
