@@ -605,11 +605,11 @@
   "title": "Mobile Monitoring (MIT App Inventor)",
   "content": "A lightweight mobile monitoring interface was developed using MIT App Inventor to display the bin’s fill level received from the system’s wireless module. This enables quick remote checking of bin status without physically opening the bin, supporting faster response for clearing and maintenance."
 },
-{
-  "type": "video",
-  "title": "Overall System Demonstration",
-  "src": "./images/Bin - Made with Clipchamp.mp4",
-  "alt": "End-to-end demonstration of the smart waste sorting system in operation",
+    {
+      "type": "youtube",
+      "title": "System Demonstration Video",
+      "id": "6nB13YlRDbU",
+
   "caption": "End-to-end system demonstration showing waste detection, classification, servo-based sorting, visual LED feedback, and real-time bin level updates transmitted to the mobile monitoring app."
 },
     {
@@ -638,7 +638,7 @@
 },
 {
   "id": "sp-pal-mobile-app",
-  "title": "SP Pal — Social Media App for Singapore Polytechnic Students",
+  "title": "SP Pals — Social Media App for Singapore Polytechnic Students",
   "year": "2024",
   "role": "Mobile UI Developer, UX Flow & System Design",
   "tags": [
