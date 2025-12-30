@@ -441,15 +441,15 @@
   "title": "Prototype Demonstration Videos",
   "items": [
 {
-  "type": "video",
-  "src": "./images/SoilMeasuring - Made with Clipchamp.mp4",
-  "alt": "Soil moisture measurement and actuator response test",
+      "type": "youtube",
+      "title": "System Demonstration Video",
+      "id": "gowhitPGVU4",
   "caption": "Prototype test showing soil moisture measurement and actuator response for watering decision."
 },
 {
-  "type": "video",
-  "src": "./images/linefollowing - Made with Clipchamp.mp4",
-  "alt": "Soil tiller line-following navigation test",
+      "type": "youtube",
+      "title": "System Demonstration Video",
+      "id": "aU7JT5yDpOU",
   "caption": "Prototype test demonstrating autonomous line-following navigation and obstacle detection."
 }
   ]
@@ -605,12 +605,31 @@
   "title": "Mobile Monitoring (MIT App Inventor)",
   "content": "A lightweight mobile monitoring interface was developed using MIT App Inventor to display the bin’s fill level received from the system’s wireless module. This enables quick remote checking of bin status without physically opening the bin, supporting faster response for clearing and maintenance."
 },
+{
+  "type": "gallery",
+  "title": "System Demonstration (Image-Based Overview)",
+  "items": [
     {
-      "type": "youtube",
-      "title": "System Demonstration Video",
-      "id": "6nB13YlRDbU",
-
-  "caption": "End-to-end system demonstration showing waste detection, classification, servo-based sorting, visual LED feedback, and real-time bin level updates transmitted to the mobile monitoring app."
+      "src": "./images/TrashBin.jpg",
+      "alt": "Hand-drawn system diagram illustrating smart bin sensing and sorting mechanism",
+      "caption": "Conceptual system diagram illustrating the smart bin architecture, including ultrasonic rangers for trash-level detection, a light sensor and laser for material identification, and a servo motor controlling waste routing between compartments."
+    },
+    {
+      "src": "./images/smartbin_hardware_setup.jpg",
+      "alt": "Smart bin hardware prototype with sensors and dual compartments",
+      "caption": "Physical prototype setup showing the smart bin with dual compartments, ultrasonic sensors mounted for trash-level detection, and the microcontroller circuitry handling real-time sensing and classification."
+    },
+    {
+      "src": "./images/smartbin_thingspeak_dashboard.jpg",
+      "alt": "ThingSpeak dashboard displaying trash level data",
+      "caption": "Live cloud dashboard (ThingSpeak) visualising trash-level data and system status, demonstrating real-time data transmission from the smart bin to the monitoring platform."
+    },
+    {
+      "src": "./images/smartbin_mobile_notification.png",
+      "alt": "Mobile app displaying trash level notification",
+      "caption": "Mobile application interface using MIT App Inventor showing real-time trash-level notifications, indicating that the plastics compartment is full while the general waste compartment remains available."
+    }
+  ]
 },
     {
       "type": "list",
