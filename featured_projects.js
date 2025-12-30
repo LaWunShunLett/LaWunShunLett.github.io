@@ -1,123 +1,95 @@
-// featured_projects.js (root)
-// Renders Featured Projects as a swipe/drag horizontal row (no pagination)
-
+// featured_projects.js (root) - swipe carousel (no pagination)
 document.addEventListener("DOMContentLoaded", async () => {
-  const grid = document.getElementById("featuredGrid");
+  // support BOTH ids (your index.html uses featuredTrack)
+  const track =
+    document.getElementById("featuredTrack") ||
+    document.getElementById("featuredGrid");
+
   const tpl = document.getElementById("projectCardTpl");
+  if (!track || !tpl) return;
 
-  if (!grid || !tpl) {
-    console.error("Missing #featuredGrid or #projectCardTpl");
-    return;
-  }
-
-  // Load projects.json
   let projects = [];
   try {
-    const res = await fetch("./projects.json", { cache: "no-store" });
-    if (!res.ok) throw new Error(`projects.json HTTP ${res.status}`);
+    const res = await fetch("./projects_details.json", { cache: "no-store" });
     projects = await res.json();
-  } catch (err) {
-    console.error("Failed to load projects.json", err);
+  } catch (e) {
+    console.error("Failed to load projects_details.json", e);
     return;
   }
 
-  // Newest first (same as before)
-  projects.sort((a, b) => (Number(b.year) || 0) - (Number(a.year) || 0));
+  // your JSON can be array OR {projects:[...]}
+  const list = Array.isArray(projects) ? projects : (projects.projects || []);
+  const featured = list.slice(0, 8);
 
-  // Choose how many featured cards you want
-  const featured = projects.slice(0, 8);
-
-  // Render cards
-  grid.innerHTML = "";
+  track.innerHTML = "";
   featured.forEach((p) => {
     const frag = tpl.content.cloneNode(true);
 
     frag.querySelector(".project-name").textContent = p.title || "";
     frag.querySelector(".project-meta").textContent =
       `${p.year || ""}${p.year && p.role ? " · " : ""}${p.role || ""}`;
-    frag.querySelector(".project-desc").textContent = p.desc || "";
+    frag.querySelector(".project-desc").textContent =
+      p.desc || p.summary || "";
 
     const img = frag.querySelector("img");
-    if (img) {
-      img.src = p.image || "";
-      img.alt = p.imageAlt || p.title || "Project image";
-    }
+    img.src = p.heroImage || p.image || "";
+    img.alt = p.heroAlt || p.imageAlt || p.title || "";
 
     const tagsWrap = frag.querySelector(".project-tags");
-    if (tagsWrap) {
-      tagsWrap.innerHTML = "";
-      (p.tags || []).forEach((t) => {
-        const span = document.createElement("span");
-        span.className = "tag";
-        span.textContent = t;
-        tagsWrap.appendChild(span);
-      });
-    }
+    tagsWrap.innerHTML = "";
+    (p.tags || []).slice(0, 5).forEach((t) => {
+      const span = document.createElement("span");
+      span.className = "tag";
+      span.textContent = t;
+      tagsWrap.appendChild(span);
+    });
 
-const btn = frag.querySelector(".project-cta");
-if (btn) {
-  if (!p.id) {
-    console.error("Missing id in projects.json for:", p.title);
-    btn.setAttribute("href", "#");
-    btn.style.pointerEvents = "none";
-    btn.style.opacity = "0.6";
-  } else {
-    btn.setAttribute(
-      "href",
-      `projects_details.html?id=${encodeURIComponent(p.id)}`
-    );
-  }
-}
+    const btn = frag.querySelector(".project-cta");
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.href = `projects_details.html?id=${encodeURIComponent(p.id)}`;
+    });
 
+    track.appendChild(frag);
   });
 
-  // Enable mouse drag + touch swipe feel on desktop
-  enableDragScroll(grid);
+  enableDragScroll(track);
 });
 
+// Drag-to-scroll (desktop)
 function enableDragScroll(el) {
   let isDown = false;
   let startX = 0;
-  let startScrollLeft = 0;
-  let dragged = false;
+  let scrollLeft = 0;
+  let moved = false;
 
-  el.style.cursor = "grab";
-
-  el.addEventListener("pointerdown", (e) => {
+  el.addEventListener("mousedown", (e) => {
     isDown = true;
-    dragged = false;
-    startX = e.clientX;
-    startScrollLeft = el.scrollLeft;
-    el.setPointerCapture(e.pointerId);
-    el.style.cursor = "grabbing";
-    el.style.userSelect = "none";
+    moved = false;
+    startX = e.pageX;
+    scrollLeft = el.scrollLeft;
+    el.classList.add("is-dragging");
   });
 
-  el.addEventListener("pointermove", (e) => {
-    if (!isDown) return;
-    const dx = e.clientX - startX;
-    if (Math.abs(dx) > 4) dragged = true;
-    el.scrollLeft = startScrollLeft - dx;
-  });
-
-  const end = () => {
+  window.addEventListener("mouseup", () => {
     isDown = false;
-    el.style.cursor = "grab";
-    el.style.userSelect = "";
-  };
+    el.classList.remove("is-dragging");
+  });
 
-  el.addEventListener("pointerup", end);
-  el.addEventListener("pointercancel", end);
+  el.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    const walk = (e.pageX - startX) * 1.2;
+    if (Math.abs(walk) > 5) moved = true;
+    el.scrollLeft = scrollLeft - walk;
+  });
 
-  // Prevent accidental clicks while dragging
-  el.addEventListener(
-    "click",
-    (e) => {
-      if (dragged) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    },
-    true
-  );
+  // If user dragged, block accidental click
+  el.addEventListener("click", (e) => {
+    if (moved) {
+      e.preventDefault();
+      e.stopPropagation();
+      moved = false;
+    }
+  }, true);
 }

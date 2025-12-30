@@ -403,21 +403,16 @@
       "title": "Project Background",
       "content": "This project focuses on reducing manual agricultural labour by developing an autonomous soil tilling robot. The system navigates a predefined path while collecting soil and environmental data, improving efficiency and reducing physical workload."
     },
-
-    {
-      "type": "image",
-      "title": "Overall System Overview",
-      "src": "./images/SoilTiller.jpeg",
-      "alt": "System infographic showing sensors, flowchart, and block diagram",
-      "caption": "High-level overview of the soil tiller system architecture and control logic."
-    },
-
-    {
-      "type": "text",
-      "title": "System Design Explanation",
-      "content": "The system is designed around an Arduino controller that integrates navigation, obstacle detection, and environmental sensing. Each sensor supports a specific function so the robot can move autonomously while maintaining safety and consistent measurements."
-    },
-
+{
+  "type": "text",
+  "title": "Problem",
+  "content": "Traditional soil tilling is labour-intensive, time-consuming, and energy-draining, especially in high-temperature environments. Manual cultivation requires continuous human effort and contributes to increased energy consumption, making it inefficient and unsustainable for long-term agricultural practices. These challenges highlight the need for automation to improve efficiency while supporting sustainable agricultural development."
+},
+{
+  "type": "text",
+  "title": "Solution",
+  "content": "To address these challenges, this project introduces an autonomous soil tilling robot that automates navigation and soil monitoring tasks. By integrating sensors, control logic, and actuators, the system reduces reliance on manual labour, optimizes energy usage, and improves operational efficiency. The solution aligns with UN Sustainable Development Goal 9 by promoting innovation, efficiency, and sustainable agricultural technology."
+},
     {
       "type": "image",
       "title": "Block Diagram",
@@ -443,13 +438,13 @@
   "items": [
 {
   "type": "video",
-  "src": "./videos/SoilMeasuring.mp4",
+  "src": "./images/SoilMeasuring - Made with Clipchamp.mp4",
   "alt": "Soil moisture measurement and actuator response test",
   "caption": "Prototype test showing soil moisture measurement and actuator response for watering decision."
 },
 {
   "type": "video",
-  "src": "./videos/LineFollowing.mp4",
+  "src": "./images/LineFollowing - Made with Clipchamp.mp4",
   "alt": "Soil tiller line-following navigation test",
   "caption": "Prototype test demonstrating autonomous line-following navigation and obstacle detection."
 }
@@ -551,36 +546,68 @@
       "title": "Solution",
       "content": "The system introduces a smart bin that automatically detects waste characteristics and routes items into the correct compartment using a motorized sorting mechanism. Visual feedback is provided through indicator LEDs to guide users during disposal. Optional wireless connectivity enables remote monitoring of bin status, supporting maintenance planning and system scalability."
     },
-
+    
+{
+  "type": "gallery",
+  "title": "System Architecture & Control Visuals",
+  "items": [
     {
-      "type": "gallery",
-      "title": "Concept Development & System Overview",
-      "items": [
-        {
-          "src": "./images/SmartBin_InterviewPersona_2.png",
-          "alt": "User interviews and persona",
-          "caption": "User interviews and persona development highlighting real-world pain points in waste disposal."
-        },
-        {
-          "src": "./images/SmartBin_BlockFlowData_4.png",
-          "alt": "Block diagram and data flow",
-          "caption": "System architecture including block diagram, control flow, and cloud data path."
-        }
-      ]
+      "src": "./images/FlowChart.jpg",
+      "alt": "System flow chart showing waste detection, decision logic, and actuator control",
+      "caption": "Flow chart illustrating the system’s operational logic, including waste detection, classification, and actuator control sequence."
     },
-
     {
-      "type": "list",
-      "title": "System Components & Operation",
-      "items": [
-        "Sensors such as ultrasonic rangers and LDRs detect waste presence, bin level, and basic characteristics.",
-        "A microcontroller processes sensor input and determines the appropriate waste category.",
-        "A servo motor actuates the sorting mechanism to route waste into the correct compartment.",
-        "Indicator LEDs provide clear visual feedback to guide user interaction.",
-        "Wireless connectivity enables optional remote monitoring of bin status and maintenance needs."
-      ]
-    },
+      "src": "./images/BlockDiagram.jpg",
+      "alt": "Block diagram of hardware components and microcontroller connections",
+      "caption": "Block diagram highlighting hardware inputs, microcontroller processing, and output modules such as actuators and indicators."
+    }
+  ]
+},
 
+{
+  "type": "list",
+  "title": "System Architecture & Operational Flow",
+  "items": [
+    "The system begins by initializing the microcontroller, sensors, indicators, and communication modules after power-up.",
+    "Ultrasonic rangers and the LDR continuously capture input data related to waste presence, bin level, and basic waste characteristics.",
+    "Bin identification is determined using DIP switch configuration, allowing the controller to differentiate between waste compartments.",
+    "The microcontroller processes all incoming sensor data and executes decision logic to classify waste and assess bin capacity.",
+    "Based on the control decision, a servo motor actuates the mechanical sorting mechanism to route waste into the appropriate bin.",
+    "Laser and red/green LED indicators provide immediate visual feedback to guide user interaction and indicate system status.",
+    "When bin sections reach capacity, the system triggers alerts and transmits status updates through the wireless module for monitoring.",
+    "The operation cycle completes after feedback and notification are delivered, readying the system for the next interaction."
+  ]
+},
+  {
+  "type": "image",
+  "title": "Data Flow Diagram",
+      "src": "./images/DataFlowDiagram.jpg",
+      "alt": "Data flow diagram showing sensor data transmission and monitoring",
+      "caption": "Data flow diagram showing how sensor data is processed, transmitted, and visualized through cloud-based monitoring."
+  },
+{
+  "type": "list",
+  "title": "Data Flow Diagram — Data Processing & Monitoring",
+  "items": [
+    "Sensor nodes continuously collect waste level and status data during operation.",
+    "Collected sensor data is transmitted to a central controller for processing.",
+    "The controller analyses bin status and determines whether alerts or updates are required.",
+    "Relevant data is sent to cloud storage for logging and analysis.",
+    "A dashboard interface visualizes system status for monitoring and maintenance."
+   ]
+},
+{
+  "type": "text",
+  "title": "Mobile Monitoring (MIT App Inventor)",
+  "content": "A lightweight mobile monitoring interface was developed using MIT App Inventor to display the bin’s fill level received from the system’s wireless module. This enables quick remote checking of bin status without physically opening the bin, supporting faster response for clearing and maintenance."
+},
+{
+  "type": "video",
+  "title": "Overall System Demonstration",
+  "src": "./images/SmartBin - Made with Clipchamp",
+  "alt": "End-to-end demonstration of the smart waste sorting system in operation",
+  "caption": "End-to-end system demonstration showing waste detection, classification, servo-based sorting, visual LED feedback, and real-time bin level updates transmitted to the mobile monitoring app."
+},
     {
       "type": "list",
       "title": "My Role",
@@ -591,18 +618,18 @@
         "Supported documentation and presentation of the project for evaluation."
       ]
     },
-
-    {
-      "type": "list",
-      "title": "Technical Summary",
-      "items": [
-        "Domain: IoT Smart Waste Management",
-        "Controller: Microcontroller-based decision logic",
-        "Sensors: Ultrasonic sensors, LDR, identification switches",
-        "Actuator: Servo motor for automated sorting",
-        "Connectivity: Wireless module for monitoring and diagnostics"
-      ]
-    }
+{
+  "type": "list",
+  "title": "Technical Summary",
+  "items": [
+    "Domain: IoT Smart Waste Management",
+    "Controller: Microcontroller-based decision logic",
+    "Sensors: Ultrasonic sensors, LDR, identification switches",
+    "Actuator: Servo motor for automated sorting",
+    "Connectivity: Wireless module for monitoring and diagnostics",
+    "Mobile Application: MIT App Inventor for real-time bin level display and status monitoring"
+  ]
+}
   ]
 },
 {
