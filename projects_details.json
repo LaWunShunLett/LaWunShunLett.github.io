@@ -235,92 +235,135 @@
   ]
 },
 {
-  "id": "stockpulse",
+  "id": "stockpulse-web-app",
   "title": "StockPulse – Stock Trading & Market Analysis Platform",
   "year": "2024",
-  "role": "Frontend Developer & Interactive Animation",
+  "role": "Frontend Developer | UI/UX & Interactive Animation",
   "tags": [
-    "Web Application", "UI/UX",
-    "Stock Trading",
-    "Market Analysis",
+    "Web Application",
+    "UI/UX",
+    "FinTech",
     "Paper Trading",
+    "Market Analysis",
     "Academic Project – Singapore Polytechnic"
   ],
 
-  "heroImage": "./images/StockPulse.jpg",
+  "heroImage": "./images/HomePage.jpg",
   "heroAlt": "StockPulse stock trading and market analysis platform",
 
   "sections": [
     {
-      "type": "text",
-      "title": "At a Glance",
-      "content": "A web-based stock trading simulation platform that allows users to practise buying and selling stocks using virtual funds, with an emphasis on clear interaction flow and visual feedback."
-    },
-
-    {
-      "type": "image",
-      "title": "Platform Overview",
-      "src": "./images/StockPulse_UI.png",
-      "alt": "StockPulse main user interfaces",
-      "caption": "Core interfaces including portfolio overview, stock detail view, buy/sell workflow, and watchlist."
-    },
-
-    {
-      "type": "text",
-      "title": "Interface & Interaction Design",
-      "content": "The platform is structured around a clear navigation flow that guides users through portfolio viewing, stock exploration, and trade execution. Visual hierarchy and motion cues are used to help users understand state changes and transitions without overwhelming them, making the system approachable even for users new to stock trading concepts."
-    },
-
-    {
-      "type": "image",
-      "title": "Stock Exploration",
-      "src": "./images/StockPulse_StockOverview.png",
-      "alt": "Stock detail and market indicators",
-      "caption": "Stock detail page displaying pricing data, visual indicators, and available actions."
+      "type": "list",
+      "title": "My Role",
+      "items": [
+        "Designed and implemented the frontend UI with a focus on beginner-friendly financial interactions",
+        "Developed smooth UI animations and interaction feedback to guide user actions",
+        "Implemented animated sign-out interaction for clear session feedback",
+        "Improved navigation continuity using subtle transitions between pages",
+        "Ensured all animations remained lightweight, consistent, and non-intrusive"
+      ]
     },
 
     {
       "type": "text",
-      "title": "Stock Data Presentation",
-      "content": "Stock information is presented using a combination of numeric values and visual indicators such as price ranges and recommendation bars. These visual elements help users quickly interpret market conditions and trends without requiring prior financial knowledge."
+      "title": "Project Overview",
+      "content": "StockPulse is a web-based stock trading simulation platform that allows users to practise buying and selling stocks using virtual funds. The platform focuses on clarity, accessibility, and visual feedback to make stock trading concepts approachable for beginners."
     },
 
     {
-      "type": "image",
-      "title": "Buy & Sell Workflow",
-      "src": "./images/StockPulse_BuySell.png",
-      "alt": "Buy and sell interaction flow",
-      "caption": "Buy and sell interface allowing users to select trade action and quantity."
+      "type": "gallery",
+      "title": "Search & Quick Access",
+      "items": [
+        {
+          "src": "./images/Stock_Search.jpg",
+          "alt": "Search bar and quick links",
+          "caption": "Search bar with quick links allowing users to rapidly find companies by name, ticker, or category."
+        },
+        {
+          "src": "./images/Stock_QuickLink.png",
+          "alt": "Quick links by category",
+          "caption": "Categorized quick links providing fast navigation across different market sectors."
+        }
+      ]
     },
 
     {
       "type": "text",
-      "title": "Trade Interaction Flow",
-      "content": "The buy and sell workflow is intentionally constrained to reduce user error. Animated feedback and validation messages are used to confirm successful actions and to alert users when invalid operations occur, such as insufficient funds or stock quantity."
+      "title": "User-Friendly Navigation Design",
+      "content": "The search and quick links system reduces friction for users by providing fast access to relevant stocks. This design supports exploration without overwhelming users with excessive data or complex filtering mechanisms."
     },
 
     {
-      "type": "image",
-      "title": "Watchlist & Tracking",
-      "src": "./images/StockPulse_Watchlist.png",
-      "alt": "Watchlist and stock tracking",
-      "caption": "Watchlist displaying tracked stocks and price changes."
+      "type": "gallery",
+      "title": "Stock Analysis & Trading Features",
+      "items": [
+        {
+          "src": "./images/StockPage.png",
+          "alt": "Stock page profile",
+          "caption": "Stock Page Profile"
+        },
+        {
+          "src": "./images/StockRange.png",
+          "alt": "Stock price range sliders",
+          "caption": "Day’s Range and 52-Week Range sliders visually representing stock price movement."
+        },
+        {
+          "src": "./images/MarketMetrics.png",
+          "alt": "Market metrics display",
+          "caption": "Key metrics including Market Capital, P/E Ratio, Beta, and Dividend Rate presented for quick interpretation."
+        },
+        {
+          "src": "./images/RecommendationTrend.png",
+          "alt": "Recommendation trend indicators",
+          "caption": "Recommendation trend bars showing analyst sentiment from Strong Buy to Strong Sell."
+        },
+        {
+          "src": "./images/BuySell.png",
+          "alt": "Buy and sell interface",
+          "caption": "Buy and sell interface with validation feedback to prevent invalid trades."
+        }
+      ]
+    },
+
+    {
+      "type": "text",
+      "title": "Market Data & Interaction Design",
+      "content": "Stock information is presented using visual sliders, color-coded indicators, and recommendation bars to simplify interpretation. These elements help users understand price movement, valuation, volatility, and market sentiment without requiring prior financial expertise."
+    },
+
+    {
+      "type": "gallery",
+      "title": "Watchlist & Portfolio Tracking",
+      "items": [
+        {
+          "src": "./images/Watchlist.png",
+          "alt": "User watchlist",
+          "caption": "Watchlist allowing users to track selected stocks and monitor price changes."
+        },
+        {
+          "src": "./images/TransactionHistory.png",
+          "alt": "Transaction history",
+          "caption": "Transaction history displaying past buy and sell actions for review and learning."
+        }
+      ]
     },
 
     {
       "type": "text",
       "title": "Tracking & Review",
-      "content": "The watchlist and transaction history features allow users to monitor selected stocks and review past actions. These sections support reflection and learning by making trading behaviour visible and easy to revisit."
+      "content": "The watchlist and transaction history features support reflective learning by making trading behavior visible. Users can easily revisit past actions and observe trends over time."
     },
 
     {
       "type": "list",
-      "title": "My Role",
+      "title": "Unique Functional Highlights",
       "items": [
-        "Implemented frontend animations and interaction effects across the platform",
-        "Added animated sign-out interaction for clear session feedback",
-        "Enhanced page transitions to improve navigation continuity",
-        "Ensured animations were lightweight and non-intrusive"
+        "Paper trading system enabling stock transactions without financial risk",
+        "Visual price range sliders for intuitive understanding of stock movement",
+        "Market metrics including Market Capital, P/E Ratio, Beta, and Dividend Rate",
+        "Recommendation trend visualization to communicate market sentiment",
+        "Client-side validation preventing invalid trades such as insufficient funds",
+        "Watchlist and transaction history for tracking and review"
       ]
     },
 
@@ -329,12 +372,350 @@
       "title": "Technical Summary",
       "items": [
         "Frontend: HTML, CSS, JavaScript",
-        "Interaction Design: UI Animations & Transitions",
-        "Trading Mode: Paper Trading (Virtual Funds)",
-        "User Focus: Clear Interaction Flow",
-        "Application Domain: Financial Technology (FinTech)"
+        "Backend : MySQL, API",
+        "UI/UX Focus: Interaction clarity, motion feedback, accessibility",
+        "Trading Mode: Paper trading using virtual funds",
+        "Domain: Financial Technology (FinTech)"
       ]
     }
   ]
+},
+{
+  "id" : "soil-tiller-checkout",
+  "title": "Self-Navigating Soil Tiller Robot — Arduino-Based Field Prototype",
+  "year": "2024",
+  "role": "Embedded Systems Developer & Tester | Sensor Integration & Control Logic",
+  "tags": [
+    "Embedded Systems",
+    "Arduino",
+    "Robotics",
+    "Agricultural Automation",
+    "Sustainability",
+    "Academic Project – Singapore Polytechnic"
+  ],
+
+  "heroImage": "./images/SoilTiller.jpeg",
+  "heroAlt": "Self-navigating soil tiller robot prototype",
+
+  "sections": [
+    {
+      "type": "text",
+      "title": "Project Background",
+      "content": "This project focuses on reducing manual agricultural labour by developing an autonomous soil tilling robot. The system navigates a predefined path while collecting soil and environmental data, improving efficiency and reducing physical workload."
+    },
+
+    {
+      "type": "image",
+      "title": "Overall System Overview",
+      "src": "./images/SoilTiller.jpeg",
+      "alt": "System infographic showing sensors, flowchart, and block diagram",
+      "caption": "High-level overview of the soil tiller system architecture and control logic."
+    },
+
+    {
+      "type": "text",
+      "title": "System Design Explanation",
+      "content": "The system is designed around an Arduino controller that integrates navigation, obstacle detection, and environmental sensing. Each sensor supports a specific function so the robot can move autonomously while maintaining safety and consistent measurements."
+    },
+
+    {
+      "type": "image",
+      "title": "Block Diagram",
+      "src": "./images/SoilTiller_BlockDiagram.jpeg",
+      "alt": "Soil tiller block diagram",
+      "caption": "Block diagram showing the relationship between the Arduino controller, sensors, actuators, and display."
+    },
+{
+  "type": "list",
+  "title": "System Components & Operation",
+  "items": [
+    "The system initializes the Arduino controller, sensors, and motors upon power-up.",
+    "IR sensors enable autonomous line-following navigation along a predefined path.",
+    "An ultrasonic sensor continuously monitors for obstacles and halts movement when required to prevent collisions.",
+    "Soil moisture and environmental sensors collect soil condition, temperature, and humidity data during operation.",
+    "Based on sensor input, the servo motor and linear actuator control mechanical movement and watering-related actions.",
+    "Real-time sensor readings and system status are displayed on the LCD for user feedback and monitoring."
+  ]
+},
+{
+  "type": "gallery",
+  "title": "Prototype Demonstration Videos",
+  "items": [
+{
+  "type": "video",
+  "src": "./videos/SoilMeasuring.mp4",
+  "alt": "Soil moisture measurement and actuator response test",
+  "caption": "Prototype test showing soil moisture measurement and actuator response for watering decision."
+},
+{
+  "type": "video",
+  "src": "./videos/LineFollowing.mp4",
+  "alt": "Soil tiller line-following navigation test",
+  "caption": "Prototype test demonstrating autonomous line-following navigation and obstacle detection."
 }
+  ]
+},
+{
+  "type": "text",
+  "title": "Prototype Behaviour Observation",
+  "content": "During testing, the robot demonstrated stable line-following behaviour and reliable obstacle detection. Sensor readings were updated consistently on the LCD, validating both the firmware logic and hardware integration. In addition, soil moisture readings were used to determine whether watering was required, where the linear servo actuator was lowered to perform watering when low moisture was detected and remained inactive when sufficient moisture was present."
+},
+    {
+  "type": "image",
+  "title": "System Design Poster",
+  "src": "./images/SoilTiller_Poster.jpg",
+  "alt": "Soil tiller system poster showing problem, sensors, block diagram, flow chart, and outcomes",
+  "caption": "Consolidated system poster illustrating the problem statement, sensor integration, control logic, block diagram, implementation steps, outcomes, and future improvements."
+    },
+{
+  "type": "text",
+  "title": "Poster Explanation",
+  "content": "The poster summarizes the complete system design in a single view, covering the problem statement, sensor roles, actuator control, flow logic, and implementation process. It also highlights the project outcomes and proposed future improvements, making it easier to understand the overall system without referring to separate diagrams."
+},
+{
+  "type": "youtube",
+  "title": "Autonomous Soil Tiller — System Demonstration",
+  "videoId": "_aBiyv_RG1k",
+  "caption": "Video demonstration of the soil tiller navigating autonomously while displaying soil condition and system status on the LCD."
+},
+{
+  "type": "text",
+  "title": "Demonstration Context",
+  "content": "This demonstration reflects the application of Industry 4.0 concepts in agriculture, where sensors, automation, and control logic are integrated to enable data-driven decision-making. By automating soil condition assessment and navigation, the system reduces reliance on manual labour while supporting smarter and more sustainable farming practices."
+},
+    {
+      "type": "list",
+      "title": "My Role",
+      "items": [
+        "Developed Arduino firmware for navigation and sensor handling.",
+        "Integrated IR, ultrasonic, soil moisture, and environmental sensors.",
+        "Tested and debugged firmware and hardware integration.",
+        "Troubleshoot the electrical wiring system."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Outcomes",
+      "content": [
+        "This project developed an autonomous soil tiller that automated soil monitoring and navigation through integrated sensing and control. Soil moisture data was used to guide watering decisions, and prototype demonstrations validated the application of Industry 4.0 concepts in agriculture."
+      ]
+    },
+    {
+      "type": "list",
+      "title": "Technical Summary",
+      "items": [
+        "Controller: Arduino",
+        "Sensors: IR, Ultrasonic, Soil Moisture, Environmental",
+        "Actuators: Servo motor, Linear actuator",
+        "Display: LCD",
+        "Application Domain: Agricultural automation and robotics"
+      ]
+    }
+  ]
+},
+{
+  "id": "trash-segregator-iot", 
+  "title": "Trash Segregator — IoT Waste Monitoring & Sorting Prototype",
+  "year": "2024",
+  "role": "Concept & System Design (Team Project)",
+  "tags": [
+    "IoT",
+    "Smart City",
+    "Sustainability",
+    "Automation",
+    "System Design",
+    "Mobile App",
+    "Academic Project – Singapore Polytechnic"
+  ],
+  "heroImage": "./images/TrashSegregator.jpeg",
+  "heroAlt": "Smart bin introduction slide comparing traditional bin vs smart bin",
+  "sections": [
+    {
+      "type": "text",
+      "title": "Project Background",
+      "content": "The Smart Trash Segregator is a concept-driven IoT solution designed to improve waste sorting efficiency in public and residential environments. The project focuses on reducing user confusion and effort during waste disposal by introducing automated sorting, guided feedback, and optional remote monitoring. It supports sustainability goals by encouraging correct recycling behavior and reducing contamination in waste streams."
+    },
+
+    {
+      "type": "text",
+      "title": "Problem",
+      "content": "Many users struggle with proper waste separation due to unclear bin categories, unpleasant handling, and lack of guidance, especially in public spaces. Manual sorting often leads to incorrect disposal, reduced recycling efficiency, and increased maintenance effort."
+    },
+    {
+  "type": "text",
+  "title": "User Interviews",
+  "content": "User interviews were conducted with housewives and members of the public to understand current challenges in waste disposal. Housewives highlighted difficulties in determining whether bins were full, as there is no clear indication without opening the bin, often resulting in overflowing trash. Public users reported that bins in shared spaces, especially in HDB areas, are frequently full and that waste is often not properly separated into recyclable and general waste. These insights informed the need for clearer guidance, automated sorting, and improved bin capacity awareness in the system design."
+},
+    {
+      "type": "text",
+      "title": "Solution",
+      "content": "The system introduces a smart bin that automatically detects waste characteristics and routes items into the correct compartment using a motorized sorting mechanism. Visual feedback is provided through indicator LEDs to guide users during disposal. Optional wireless connectivity enables remote monitoring of bin status, supporting maintenance planning and system scalability."
+    },
+
+    {
+      "type": "gallery",
+      "title": "Concept Development & System Overview",
+      "items": [
+        {
+          "src": "./images/SmartBin_InterviewPersona_2.png",
+          "alt": "User interviews and persona",
+          "caption": "User interviews and persona development highlighting real-world pain points in waste disposal."
+        },
+        {
+          "src": "./images/SmartBin_BlockFlowData_4.png",
+          "alt": "Block diagram and data flow",
+          "caption": "System architecture including block diagram, control flow, and cloud data path."
+        }
+      ]
+    },
+
+    {
+      "type": "list",
+      "title": "System Components & Operation",
+      "items": [
+        "Sensors such as ultrasonic rangers and LDRs detect waste presence, bin level, and basic characteristics.",
+        "A microcontroller processes sensor input and determines the appropriate waste category.",
+        "A servo motor actuates the sorting mechanism to route waste into the correct compartment.",
+        "Indicator LEDs provide clear visual feedback to guide user interaction.",
+        "Wireless connectivity enables optional remote monitoring of bin status and maintenance needs."
+      ]
+    },
+
+    {
+      "type": "list",
+      "title": "My Role",
+      "items": [
+        "Contributed to concept ideation and feature prioritization using feasibility and impact analysis.",
+        "Helped design the user interaction flow based on interview findings and personas.",
+        "Assisted in creating system diagrams including block diagrams and flowcharts.",
+        "Supported documentation and presentation of the project for evaluation."
+      ]
+    },
+
+    {
+      "type": "list",
+      "title": "Technical Summary",
+      "items": [
+        "Domain: IoT Smart Waste Management",
+        "Controller: Microcontroller-based decision logic",
+        "Sensors: Ultrasonic sensors, LDR, identification switches",
+        "Actuator: Servo motor for automated sorting",
+        "Connectivity: Wireless module for monitoring and diagnostics"
+      ]
+    }
+  ]
+},
+{
+  "id": "sp-pal-mobile-app",
+  "title": "SP Pal — Social Media App for Singapore Polytechnic Students",
+  "year": "2024",
+  "role": "Mobile UI Developer, UX Flow & System Design",
+  "tags": [
+    "Mobile App",
+    "UI/UX",
+    "Social Media platform",
+    "Student Community",
+    "Messaging",
+    "Search",
+"Academic Project – Singapore Polytechnic"
+  ],
+
+  "heroImage": "./images/SPpalsProfile.jpg",
+  "heroAlt": "SP Pals app UI mockups showing home feed, search, profiles, chat and messaging",
+
+  "sections": [
+    {
+      "type": "text",
+      "title": "At a Glance",
+      "content": "SP Pals is a student-focused social platform concept designed for Singapore Polytechnic. It centralises campus updates and student interaction features such as feeds, profiles, search, and messaging, supporting a more connected campus community experience."
+    },
+
+    {
+      "type": "text",
+      "title": "Problem",
+      "content": "Students rely on scattered sources (multiple apps and groups) to keep up with campus news and peer communication. This fragmentation makes it harder to discover updates, find communities, and interact efficiently in one place."
+    },
+
+    {
+      "type": "text",
+      "title": "Proposed Solution",
+      "content": "A single SP-centric social app that combines campus updates and student interaction. The design prioritises simple navigation, clear UI hierarchy, and familiar social patterns so students can adopt it quickly."
+    },
+
+    {
+      "type": "gallery",
+      "title": "Key UI Flow Screens",
+      "items": [
+        {
+          "src": "./images/sppals_flow_home_profile_settings_qr.png",
+          "alt": "Home, Profile, Settings and QR/Share screens",
+          "caption": "Main navigation flow: Home feed → Profile → Settings, with QR/Share for quick profile linking."
+        },
+        {
+          "src": "./images/sppals_flow_search_profile_chat_message.png",
+          "alt": "Search, profile viewing, chat list and message screens",
+          "caption": "Discovery and communication flow: Search students → View profile → Open chat → Send messages."
+        },
+        {
+          "src": "./images/sppals_flow_notifications_create_filter.png",
+          "alt": "Notifications, post creation and filter options",
+          "caption": "Engagement flow: Notifications and post creation with filters to organise content discovery."
+        }
+      ]
+    },
+
+    {
+      "type": "list",
+      "title": "Core Features",
+      "items": [
+        "Home feed for campus-related posts and student updates",
+        "Search to find students or content quickly",
+        "Profiles to showcase student identity and posts",
+        "Direct messaging for private communication",
+        "Notifications to keep users aware of activity and updates",
+        "Post creation flow for sharing content"
+      ]
+    },
+
+    {
+      "type": "text",
+      "title": "UI/UX Design Decisions",
+      "content": "The interface follows familiar social app patterns to reduce learning time. Key flows (home → search → profile → chat) were mapped to minimise taps, and screens were designed with consistent layout and spacing to keep interaction predictable."
+    },
+
+    {
+      "type": "list",
+      "title": "Unique Functional Highlights",
+      "items": [
+        "QR / share profile feature to connect quickly without typing usernames",
+        "Structured user flows for search → profile → chat to reduce friction",
+        "Post filters to support browsing and content organisation",
+        "Campus-focused positioning to differentiate from general social platforms"
+      ]
+    },
+
+    {
+      "type": "text",
+      "title": "My Role",
+      "content": "I focused on the UI/UX flow and screen design planning, including navigation structure, interaction flow between main modules, and preparing polished mockups for evaluation."
+    },
+
+    {
+      "type": "list",
+      "title": "Technical Summary",
+      "items": [
+        "Deliverables: UI mockups, UX flows, feature specification",
+        "Focus: Navigation structure, search-to-chat flow, usability consistency",
+        "Domain: Student social platform / campus community"
+      ]
+    },
+
+    {
+      "type": "text",
+      "title": "Recognition",
+      "content": "This project was selected and featured under the SP Batey Hackathon & Challenge 2024 showcase."
+    }
+  ]
+}
+
 ]

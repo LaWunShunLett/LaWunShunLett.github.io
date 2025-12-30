@@ -54,15 +54,21 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     }
 
-    const btn = frag.querySelector(".project-cta");
-    if (btn) {
-      btn.addEventListener("click", () => {
-        if (!p.id) return;
-        window.location.href = `projects_details.html?id=${encodeURIComponent(p.id)}`;
-      });
-    }
+const btn = frag.querySelector(".project-cta");
+if (btn) {
+  if (!p.id) {
+    console.error("Missing id in projects.json for:", p.title);
+    btn.setAttribute("href", "#");
+    btn.style.pointerEvents = "none";
+    btn.style.opacity = "0.6";
+  } else {
+    btn.setAttribute(
+      "href",
+      `projects_details.html?id=${encodeURIComponent(p.id)}`
+    );
+  }
+}
 
-    grid.appendChild(frag);
   });
 
   // Enable mouse drag + touch swipe feel on desktop

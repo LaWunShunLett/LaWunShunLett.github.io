@@ -696,6 +696,12 @@ body{
   flex: 0 0 auto;               /* important: don’t shrink */
   width: 340px;                 /* adjust if you want bigger/smaller */
 }
+/* Ensure the CTA is clickable even if overlays exist */
+#featuredGrid .project-cta{
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+}
 
 /* responsive card width */
 @media (max-width: 900px){

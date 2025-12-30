@@ -33,7 +33,11 @@
   "image": "./images/SoilTiller.jpeg",
   "imageAlt": "Self-navigating soil tiller robot prototype on 4WD chassis",
   "filter": ["microcontroller"],
-  "tags": ["Arduino", "Sensors & Robotics", "Circuit Debugging", "Team Project"]
+  "tags": [    "Embedded Systems",
+    "Arduino",
+    "Robotics",
+    "Agricultural Automation",
+    "Sustainability"]
 },
 {
   "id" : "stockpulse-web-app",    
@@ -42,7 +46,7 @@
   "role": "Frontend Developer & Interactive Animation",
   "desc": "A multi-page stock trading simulation web app with dashboards, stock detail views, watchlists, and history pages, focused on smooth navigation, clear layouts, and responsive interactions.",
   "tech": "Front-End Development, UI/UX Design, JavaScript, HTML/CSS, Web Application Layout, Interaction Design, Basic SQL / MariaDB Integration, Team Collaboration",
-  "image": "./images/StockPulse.jpg",
+  "image": "./images/HomePage.jpg",
   "imageAlt": "StockPulse stock trading simulation dashboard interface",
   "filter": ["web"],
   "tags": [    "Web Application", "UI/UX",
@@ -59,7 +63,12 @@
   "image": "./images/TrashSegregator.jpeg",
   "imageAlt": "Trash segregator prototype with Arduino shield, ultrasonic modules, and ThingSpeak dashboard on laptop",
   "filter": ["iot", "microcontroller"],
-  "tags": ["IoT", "Arduino", "Sensors & Actuators", "End-to-End Build"]
+  "tags": [    "IoT",
+    "Smart City",
+    "Sustainability",
+    "Automation",
+    "System Design",
+    "Mobile App"]
 },
 {
   "id" : "sp-pal-mobile-app", 
