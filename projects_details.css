@@ -475,10 +475,8 @@ body:not(.preload) .logo-anim-up{
 }
 /* ===============================
    PATCH: Fix YouTube-in-gallery without breaking image galleries
-   (put this at the very bottom of your CSS)
    =============================== */
 
-/* 1) Undo the accidental "video wrapper" styling on normal containers */
 .pd-media-slot {
   position: static !important;
   padding-top: 0 !important;
@@ -487,18 +485,24 @@ body:not(.preload) .logo-anim-up{
   border-radius: 0 !important;
 }
 
-/* 2) Make ONLY YouTube wrapper responsive 16:9 */
+/* video wrapper */
 .pd-embed-wrap {
   position: relative !important;
   width: 100% !important;
-  padding-top: 56.25% !important; /* 16:9 */
+  padding-top: 56.25% !important;
   border-radius: 18px !important;
   overflow: hidden !important;
   background: #000 !important;
+  box-shadow: var(--shadow);
 }
 
-/* 3) iframe fills wrapper */
-.pd-embed {
+/* keep video width consistent with images inside gallery */
+.pd-gallery .pd-embed-wrap {
+  max-width: 640px !important;
+}
+
+/* IMPORTANT: only affect iframe inside wrapper */
+.pd-embed-wrap > .pd-embed {
   position: absolute !important;
   inset: 0 !important;
   width: 100% !important;
@@ -507,7 +511,7 @@ body:not(.preload) .logo-anim-up{
   display: block !important;
 }
 
-/* 4) Keep each slide full-width so dots align */
+/* keep slides full-width */
 .pd-gallery-item {
   flex: 0 0 100% !important;
   width: 100% !important;
