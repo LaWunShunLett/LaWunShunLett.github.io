@@ -696,26 +696,13 @@ body{
   flex: 0 0 auto;               /* important: don’t shrink */
   width: 340px;                 /* adjust if you want bigger/smaller */
 }
-.project-card{
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-.project-body{
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
 /* Ensure the CTA is clickable even if overlays exist */
 #featuredGrid .project-cta{
   position: relative;
   z-index: 5;
   pointer-events: auto;
 }
-.project-cta{
-  margin-top: auto;   /* pushes link to bottom */
-}
+
 /* responsive card width */
 @media (max-width: 900px){
   #featuredGrid > .project-card{ width: 300px; }

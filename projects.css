@@ -141,10 +141,7 @@ header.topbar{
 }
 
 .project-body{
-  padding: 18px 18px 10px; /* was 18px 18px 16px */
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+  padding: 18px 18px 16px;
 }
 
 .project-name{
@@ -370,9 +367,6 @@ header.topbar{
   padding: 0.4rem 1rem;
   background: rgba(37,99,235,.10);
   box-shadow: 0 4px 10px rgba(148,163,184,.35);
-}
-.projects-grid{
-  align-items: stretch;
 }
 
 /* Mobile: show hamburger and dropdown menu */
