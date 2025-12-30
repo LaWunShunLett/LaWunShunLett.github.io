@@ -474,50 +474,41 @@ body:not(.preload) .logo-anim-up{
   .pd-section-title{ font-size: 1.2rem; }
 }
 /* =========================================================
-   FINAL PATCH — YouTube gallery fix (non-destructive)
-   Put this at the VERY END of your CSS file
+   FIX: Make YouTube video larger inside gallery card
+   (Scoped — does NOT affect image galleries)
    ========================================================= */
 
-/* Reset accidental video styles from affecting images */
-.pd-media-slot {
-  position: static !important;
-  padding-top: 0 !important;
-  background: transparent !important;
-  overflow: visible !important;
-  border-radius: 0 !important;
+/* Target only Prototype Demonstration Videos section */
+.pd-gallery {
+  padding: 32px 0;
 }
 
-/* Responsive YouTube wrapper ONLY */
-.pd-embed-wrap {
-  position: relative !important;
-  width: 100% !important;
-  padding-top: 56.25% !important; /* 16:9 */
-  border-radius: 18px !important;
-  overflow: hidden !important;
-  background: #000 !important;
-  box-shadow: var(--shadow);
+/* Allow content to grow wider */
+.pd-gallery .pd-gallery-item {
+  display: flex;
+  justify-content: center;
 }
 
-/* Make video size comparable to image gallery (even without caption) */
+/* Enlarge the YouTube embed wrapper */
 .pd-gallery .pd-embed-wrap {
-  max-width: 900px !important;   /* adjust 800–1000 if needed */
-  margin: 0 auto !important;
-  min-height: 360px;
+  width: 100%;
+  max-width: 1100px;   /* 🔥 increase size */
+  min-height: 480px;   /* 🔥 prevents tiny video */
+  margin: 0 auto;
 }
 
-/* IMPORTANT: scope iframe positioning ONLY inside wrapper */
-.pd-embed-wrap > .pd-embed {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  border: 0 !important;
-  display: block !important;
+/* Maintain proper 16:9 ratio */
+.pd-gallery .pd-embed-wrap::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
 }
 
-/* Ensure each gallery slide stays full width (dots align correctly) */
-.pd-gallery-item {
-  flex: 0 0 100% !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
+/* Ensure iframe fills wrapper */
+.pd-gallery .pd-embed {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
 }
