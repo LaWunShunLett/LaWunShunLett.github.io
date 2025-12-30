@@ -444,7 +444,7 @@
 },
 {
   "type": "video",
-  "src": "./images/LineFollowing - Made with Clipchamp.mp4",
+  "src": "./images/linefollowing - Made with Clipchamp.mp4",
   "alt": "Soil tiller line-following navigation test",
   "caption": "Prototype test demonstrating autonomous line-following navigation and obstacle detection."
 }
@@ -604,7 +604,7 @@
 {
   "type": "video",
   "title": "Overall System Demonstration",
-  "src": "./images/SmartBin - Made with Clipchamp",
+  "src": "./images/Bin - Made with Clipchamp.mp4",
   "alt": "End-to-end demonstration of the smart waste sorting system in operation",
   "caption": "End-to-end system demonstration showing waste detection, classification, servo-based sorting, visual LED feedback, and real-time bin level updates transmitted to the mobile monitoring app."
 },
