@@ -116,7 +116,7 @@
 {
   "id": "supermarket-self-checkout",
   "title": "IoT-Based Supermarket Self-Checkout System",
-  "year": "2024",
+  "year": "2025",
   "role": "IoT Systems Developer | Embedded & Software Engineer",
   "tags": ["IoT", "Self-Checkout", "Raspberry Pi","DevOps", "Containerization","Academic Project – Singapore Polytechnic" ],
 
@@ -440,18 +440,18 @@
   "type": "gallery",
   "title": "Prototype Demonstration Videos",
   "items": [
-{
+    {
       "type": "youtube",
       "title": "System Demonstration Video",
-      "id": "gowhitPGVU4",
-  "caption": "Prototype test showing soil moisture measurement and actuator response for watering decision."
-},
-{
+      "videoId": "gowhitPGVU4",
+      "caption": "Prototype test showing soil moisture measurement and actuator response for watering decision."
+    },
+    {
       "type": "youtube",
       "title": "System Demonstration Video",
       "id": "aU7JT5yDpOU",
-  "caption": "Prototype test demonstrating autonomous line-following navigation and obstacle detection."
-}
+      "caption": "Prototype test demonstrating autonomous line-following navigation and obstacle detection."
+    }
   ]
 },
 {

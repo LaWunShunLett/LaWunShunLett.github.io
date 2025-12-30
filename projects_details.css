@@ -473,3 +473,95 @@ body:not(.preload) .logo-anim-up{
   .pd-title{ font-size: 1.7rem; }
   .pd-section-title{ font-size: 1.2rem; }
 }
+/* ===============================
+   Project Details – Media & Gallery
+   =============================== */
+
+/* Gallery container */
+.pd-gallery {
+  margin: 1.5rem 0;
+}
+
+/* Gallery viewport (mask) */
+.pd-gallery-viewport {
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+/* Horizontal slide track */
+.pd-gallery-track {
+  display: flex;
+  transition: transform 0.35s ease;
+  will-change: transform;
+}
+
+/* Each slide (image OR video) */
+.pd-gallery-item {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+}
+
+/* Image inside gallery */
+.pd-gallery-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+}
+
+/* Caption below image/video */
+.pd-gallery-cap,
+.pd-figure-cap {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* ===============================
+   YouTube / Video Embed
+   =============================== */
+
+/* Responsive 16:9 wrapper */
+.pd-embed-wrap,
+.pd-media-slot {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+}
+
+/* Iframe fills wrapper */
+.pd-embed {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ===============================
+   Gallery navigation dots
+   =============================== */
+
+.pd-gallery-dots {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 0.75rem;
+}
+
+.pd-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #ccc;
+  cursor: pointer;
+}
+
+.pd-dot[aria-current="true"] {
+  background: #333;
+}
