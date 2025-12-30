@@ -443,14 +443,13 @@
     {
       "type": "youtube",
       "title": "System Demonstration Video",
-      "videoId": "gowhitPGVU4",
-      "caption": "Prototype test showing soil moisture measurement and actuator response for watering decision."
+      "videoId": "gowhitPGVU4"
+
     },
     {
       "type": "youtube",
       "title": "System Demonstration Video",
-      "id": "aU7JT5yDpOU",
-      "caption": "Prototype test demonstrating autonomous line-following navigation and obstacle detection."
+      "id": "aU7JT5yDpOU"
     }
   ]
 },
