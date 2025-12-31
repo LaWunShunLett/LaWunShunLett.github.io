@@ -255,6 +255,60 @@
 </section>
 
         </section>
+        <!-- Achievements (Full width below the two cards) -->
+<section class="about-block achievements-wide">
+  <h2 class="about-h2">Achievements</h2>
+
+  <div class="achievements-toolbar" role="group" aria-label="Achievement filters">
+    <button class="ach-filter is-active" type="button" data-filter="all">All</button>
+    <button class="ach-filter" type="button" data-filter="certificate">Certificates</button>
+    <button class="ach-filter" type="button" data-filter="award">Awards</button>
+    <button class="ach-filter" type="button" data-filter="hackathon">Hackathons</button>
+  </div>
+
+  <div class="ach-grid" id="achGrid">
+    <!-- Replace with your images -->
+    <figure class="ach-card" data-type="hackathon">
+      <img class="ach-img" src="./images/cert_sp_batey_showcase.jpg" alt="SP Batey Hackathon & Challenge 2024 showcase">
+      <figcaption class="ach-cap">
+        SP Batey Hackathon & Challenge 2024 — Showcase Feature
+        <span class="ach-meta">Hackathon</span>
+      </figcaption>
+    </figure>
+
+    <figure class="ach-card" data-type="certificate">
+      <img class="ach-img" src="./images/cert_aws_fundamentals.jpg" alt="AWS Cloud Fundamentals certificate">
+      <figcaption class="ach-cap">
+        AWS Cloud Fundamentals
+        <span class="ach-meta">Certificate</span>
+      </figcaption>
+    </figure>
+
+    <figure class="ach-card" data-type="certificate">
+      <img class="ach-img" src="./images/cert_docker.jpg" alt="Docker certificate">
+      <figcaption class="ach-cap">
+        Docker / Containerization Training
+        <span class="ach-meta">Certificate</span>
+      </figcaption>
+    </figure>
+
+    <figure class="ach-card" data-type="award">
+      <img class="ach-img" src="./images/cert_project_award.jpg" alt="Project recognition award">
+      <figcaption class="ach-cap">
+        Project / Module Recognition
+        <span class="ach-meta">Award</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="ach-lightbox" id="achLightbox" aria-hidden="true">
+    <button class="ach-close" type="button" aria-label="Close">×</button>
+    <img class="ach-zoom" id="achZoom" alt="">
+    <p class="ach-zoom-cap" id="achZoomCap"></p>
+  </div>
+</section>
+
         </div>
   </main>
 </body>

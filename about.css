@@ -336,6 +336,11 @@
 .chip{
   white-space: nowrap;
 }
+/* Achievements should span full width under the two cards */
+.achievements-wide{
+  grid-column: 1 / -1; /* makes it full width in a CSS grid layout */
+  margin-top: 18px;
+}
 
 /*
   You have 6 slides total because you duplicated A+B.
