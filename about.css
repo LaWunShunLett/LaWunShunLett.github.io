@@ -336,10 +336,52 @@
 .chip{
   white-space: nowrap;
 }
-/* Achievements should span full width under the two cards */
-.achievements-wide{
-  grid-column: 1 / -1; /* makes it full width in a CSS grid layout */
-  margin-top: 18px;
+.achievements-section {
+  margin-top: 48px;
+}
+
+.ach-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.ach-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  transition: all 0.25s ease;
+}
+
+.ach-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+.ach-link {
+  display: block;
+}
+
+.ach-img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.ach-cap {
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.ach-verify {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #2563eb;
 }
 
 /*
