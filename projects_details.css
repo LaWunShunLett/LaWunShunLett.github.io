@@ -473,34 +473,57 @@ body:not(.preload) .logo-anim-up{
   .pd-title{ font-size: 1.7rem; }
   .pd-section-title{ font-size: 1.2rem; }
 }
-/* =========================================================
-   FINAL: Big YouTube videos inside gallery (no squish)
-   ========================================================= */
+/* ===============================
+   FIX: YouTube embeds WITHOUT breaking image galleries
+   Put this at the VERY BOTTOM
+   =============================== */
 
-/* Make gallery slides center their content */
-.pd-gallery .pd-gallery-item {
-  display: flex;
-  justify-content: center;
+/* 1) pd-media-slot must NOT be forced into 16:9 */
+.pd-media-slot{
+  position: static !important;
+  padding-top: 0 !important;
+  background: transparent !important;
+  overflow: visible !important;
+  border-radius: 0 !important;
 }
 
-/* Responsive YouTube wrapper ONLY (single aspect-ratio method) */
-.pd-gallery .pd-embed-wrap {
-  position: relative !important;
-  width: 100% !important;
-  max-width: 1100px !important;  /* change 900/1100/1200 */
-  padding-top: 56.25% !important; /* 16:9 */
-  border-radius: 18px !important;
-  overflow: hidden !important;
-  background: #000 !important;
-  margin: 0 auto !important;
+/* 2) Only pd-embed-wrap is the 16:9 responsive wrapper */
+.pd-embed-wrap{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;         /* modern + stable */
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
 }
 
-/* iframe fills wrapper */
-.pd-gallery .pd-embed-wrap > .pd-embed {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  border: 0 !important;
-  display: block !important;
+/* fallback for older browsers (optional but safe) */
+@supports not (aspect-ratio: 16 / 9){
+  .pd-embed-wrap{ padding-top: 56.25%; }
+  .pd-embed-wrap > .pd-embed{ position:absolute; inset:0; }
+}
+
+.pd-embed{
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* 3) Keep your image galleries the same, but make VIDEO galleries wider */
+.pd-gallery--video .pd-gallery-viewport{
+  max-width: 1100px; /* ✅ bigger like your first screenshot */
+}
+
+/* 4) In video galleries, do NOT apply your image max-width limit */
+.pd-gallery-item.is-video{
+  align-items: stretch; /* let the iframe fill width */
+}
+.pd-gallery-item.is-video .pd-embed-wrap{
+  width: 100%;
+}
+
+/* 5) Your image rule stays (only images) */
+.pd-gallery .pd-gallery-img{
+  object-fit: contain;
 }

@@ -722,32 +722,70 @@ window.addEventListener("load", () => {
         });
       }
 
-      items.forEach((item, i) => {
-        // Each slide must be a full-width "pd-gallery-item" block.
-        const slide = document.createElement("div");
-        slide.className = "pd-gallery-item";
+items.forEach((item, i) => {
+  const fig = document.createElement("figure");
+  fig.className = "pd-gallery-item";
 
-        // Put either image figure OR embed block inside the slide
-        const content = renderMediaItem(item);
+  // ✅ If this gallery contains any YouTube item, mark gallery wide
+  // (do it once)
+  if (!galleryWrap.dataset._checkedVideo) {
+    const hasVideo = items.some(x => x && x.type === "youtube");
+    if (hasVideo) galleryWrap.classList.add("pd-gallery--video");
+    galleryWrap.dataset._checkedVideo = "1";
+  }
 
-        // If renderMediaItem returned a pd-media-slot (youtube/fileVideo), keep it.
-        // If it returned a figure for image, also ok.
-        slide.appendChild(content);
+  // ✅ YOUTUBE item inside gallery
+  if (item.type === "youtube") {
+    fig.classList.add("is-video");
 
-        track.appendChild(slide);
+    const wrap = document.createElement("div");
+    wrap.className = "pd-embed-wrap";
 
-        const btn = document.createElement("button");
-        btn.className = "pd-dot";
-        btn.type = "button";
-        btn.textContent = String(i + 1);
-        btn.setAttribute("aria-current", i === 0 ? "true" : "false");
-        btn.addEventListener("click", () => {
-          index = i;
-          update();
-        });
+    const iframe = document.createElement("iframe");
+    iframe.className = "pd-embed";
+    iframe.loading = "lazy";
+    iframe.src = `https://www.youtube.com/embed/${item.id}?rel=0&modestbranding=1`;
+    iframe.title = item.title || "YouTube video";
+    iframe.allow =
+      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    iframe.allowFullscreen = true;
 
-        dots.appendChild(btn);
-      });
+    wrap.appendChild(iframe);
+    fig.appendChild(wrap);
+
+  } else {
+    // ✅ Normal image item (your existing behavior)
+    const img = document.createElement("img");
+    img.className = "pd-gallery-img";
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.src = item.src || "";
+    img.alt = item.alt || "";
+    fig.appendChild(img);
+  }
+
+  if (item.caption) {
+    const cap = document.createElement("figcaption");
+    cap.className = "pd-gallery-cap";
+    cap.textContent = item.caption;
+    fig.appendChild(cap);
+  }
+
+  track.appendChild(fig);
+
+  const btn = document.createElement("button");
+  btn.className = "pd-dot";
+  btn.type = "button";
+  btn.textContent = String(i + 1);
+  btn.setAttribute("aria-current", i === 0 ? "true" : "false");
+  btn.addEventListener("click", () => {
+    index = i;
+    update();
+  });
+
+  dots.appendChild(btn);
+});
+
 
       viewport.appendChild(track);
       galleryWrap.appendChild(viewport);
