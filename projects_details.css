@@ -474,41 +474,33 @@ body:not(.preload) .logo-anim-up{
   .pd-section-title{ font-size: 1.2rem; }
 }
 /* =========================================================
-   FIX: Make YouTube video larger inside gallery card
-   (Scoped — does NOT affect image galleries)
+   FINAL: Big YouTube videos inside gallery (no squish)
    ========================================================= */
 
-/* Target only Prototype Demonstration Videos section */
-.pd-gallery {
-  padding: 32px 0;
-}
-
-/* Allow content to grow wider */
+/* Make gallery slides center their content */
 .pd-gallery .pd-gallery-item {
   display: flex;
   justify-content: center;
 }
 
-/* Enlarge the YouTube embed wrapper */
+/* Responsive YouTube wrapper ONLY (single aspect-ratio method) */
 .pd-gallery .pd-embed-wrap {
-  width: 100%;
-  max-width: 1100px;   /* 🔥 increase size */
-  min-height: 480px;   /* 🔥 prevents tiny video */
-  margin: 0 auto;
+  position: relative !important;
+  width: 100% !important;
+  max-width: 1100px !important;  /* change 900/1100/1200 */
+  padding-top: 56.25% !important; /* 16:9 */
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  background: #000 !important;
+  margin: 0 auto !important;
 }
 
-/* Maintain proper 16:9 ratio */
-.pd-gallery .pd-embed-wrap::before {
-  content: "";
-  display: block;
-  padding-top: 56.25%;
-}
-
-/* Ensure iframe fills wrapper */
-.pd-gallery .pd-embed {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 18px;
+/* iframe fills wrapper */
+.pd-gallery .pd-embed-wrap > .pd-embed {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0 !important;
+  display: block !important;
 }
