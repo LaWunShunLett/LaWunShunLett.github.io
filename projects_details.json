@@ -770,7 +770,7 @@
   "type": "list",
   "title": "Technical Summary",
   "items": [
-    "Platform: Android mobile application",
+    "Platform: Android mobile application, Figma",
     "Backend & Services: Firebase (Realtime Database) and RESTful APIs",
     "Deliverables: UI mockups, UX flows, and feature specifications",
     "Focus: Navigation structure, search-to-chat flow, and usability consistency",

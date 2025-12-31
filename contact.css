@@ -1,4 +1,33 @@
 /* CONTACT PAGE */
+/* Prevent header/content from shifting between pages with/without scrollbar */
+html {
+  overflow-y: scroll;          /* reserve scrollbar width */
+  scrollbar-gutter: stable;    /* modern browsers */
+}
+/* Hide scrollbar but keep layout width */
+html {
+  scrollbar-width: none;           /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  width: 0;                        /* Chrome / Edge / Safari */
+  height: 0;
+}
+
+.topbar {
+  width: 100%;
+}
+
+.topbar-inner{
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
 .contact-wrap{
   padding: 90px 0 120px;
 }

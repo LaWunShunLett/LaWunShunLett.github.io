@@ -27,6 +27,11 @@
   background: #fff; 
   display: block;
 } */
+.btn img.btn-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+}
 
 *{ box-sizing: border-box; }
 
