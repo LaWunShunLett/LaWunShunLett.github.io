@@ -14,20 +14,6 @@ html::-webkit-scrollbar {
   height: 0;
 }
 
-.topbar {
-  width: 100%;
-}
-
-.topbar-inner{
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-}
-
 .contact-wrap{
   padding: 90px 0 120px;
 }
