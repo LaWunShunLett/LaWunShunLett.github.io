@@ -751,7 +751,25 @@ body{
   z-index: 5;
   pointer-events: auto;
 }
+.contact-pill{
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  color: #111827;
+  text-decoration: none;
 
+  background: rgba(255,255,255,.70);
+  border: 1px solid rgba(17,24,39,.10);
+  box-shadow: 0 10px 25px rgba(15,23,42,.06);
+
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.contact-pill:hover{
+  transform: translateY(-3px);
+  border-color: rgba(37,99,235,.35);
+  box-shadow: 0 18px 40px rgba(37,99,235,.14);
+}
 /* responsive card width */
 @media (max-width: 900px){
   #featuredGrid > .project-card{ width: 300px; }
