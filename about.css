@@ -264,7 +264,6 @@
    - No "reverse back" feeling
    - Uses your duplicated slides (A+B) for seamless looping
    ========================= */
-
 .tech-slider{
   position: relative;
   overflow: hidden;
@@ -272,10 +271,11 @@
   border: 1px solid rgba(17,24,39,.08);
   background: rgba(245,247,251,.85);
   padding: 14px;
-    user-select: none;
-  -webkit-user-select: none;
-}
 
+  cursor: grab;
+  touch-action: none;            /* ✅ key: allow JS to control swipe */
+  overscroll-behavior: contain;  /* ✅ stops page swipe fighting */
+}
 /* optional fade edges */
 .tech-slider::before,
 .tech-slider::after{
@@ -297,11 +297,18 @@
 }
 /* Allow dragging feel */
 .tech-slider{ cursor: grab; touch-action: pan-y; }
-.tech-track.is-dragging{ animation-play-state: paused !important; cursor: grabbing; }
+
+.tech-track.is-dragging{
+  animation-play-state: paused !important;
+  cursor: grabbing;
+}
 .tech-slider:hover .tech-track{
   animation-play-state: paused;
 }
-
+.tech-slider *{
+  user-select: none;
+  -webkit-user-select: none;
+}
 .tech-track{
   display: flex;
   will-change: transform;
