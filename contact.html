@@ -16,28 +16,69 @@
   <script defer src="./scripts.js"></script>
 
   <!-- HEADER -->
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="logo">LA WUN SHUN LETT</div>
+  <header class="topbar"
+    style="position:sticky;top:0;z-index:100;">
+
+    <div class="topbar-inner"
+      style="
+        max-width:1120px;
+        margin:0 auto;
+        padding:18px 22px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:18px;
+      ">
+
+      <!-- Logo -->
+      <div class="logo" style="white-space:nowrap;">
+        LA WUN SHUN LETT
+      </div>
 
       <!-- Desktop nav -->
-      <nav class="nav desktop-nav" aria-label="Primary navigation">
-        <a class="anim anim-pop delay-1" href="index.html">Home</a>
-        <a class="anim anim-pop delay-2" href="projects.html">Projects</a>
-        <a class="anim anim-pop delay-3" href="about.html">About Me</a>
-        <a class="anim anim-pop delay-4" href="contact.html">Contact</a>
+      <nav class="desktop-nav"
+        style="
+          display:flex;
+          align-items:center;
+          gap:28px;
+          margin-left:auto;
+        ">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About Me</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
-      <!-- Hamburger (mobile only) -->
-      <button class="hamburger-mobile" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+      <!-- Hamburger -->
+      <button class="hamburger-mobile" id="hamburger"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobileNav"
+        style="
+          width:44px;
+          height:44px;
+          padding:0;
+          display:inline-flex;
+          flex-direction:column;
+          align-items:center;
+          justify-content:center;
+          gap:6px;
+        ">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </div>
 
-    <!-- Mobile menu -->
-    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <!-- Mobile nav -->
+    <nav class="mobile-nav" id="mobileNav"
+      style="
+        position:absolute;
+        left:0;
+        right:0;
+        top:100%;
+        z-index:1000;
+      ">
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
       <a href="about.html">About Me</a>

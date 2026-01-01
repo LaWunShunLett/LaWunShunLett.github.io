@@ -12,147 +12,6 @@
 
   <!-- Your existing site theme -->
   <link rel="stylesheet" href="./style.css" />
-   <style>
-/* =========================
-   TOP BAR (COMMON)
-   ========================= */
-.topbar{
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(245,247,251,.92);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(17,24,39,.06);
-}
-
-.topbar-inner{
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 18px 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-}
-
-/* Logo */
-.logo{
-  font-size: 14px;
-  letter-spacing: .18em;
-  font-weight: 800;
-  color: var(--text, #111827);
-  white-space: nowrap;
-}
-
-/* Desktop nav */
-.desktop-nav{
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  margin-left: auto;
-}
-
-.desktop-nav a{
-  position: relative;
-  color: #111827;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 10px 14px;
-  border-radius: 999px;
-  transition: background .25s ease, box-shadow .25s ease;
-}
-
-.desktop-nav a:hover{
-  background: rgba(37,99,235,.10);
-  box-shadow: inset 0 0 0 1px rgba(37,99,235,.25);
-}
-
-/* =========================
-   HAMBURGER (MOBILE)
-   ========================= */
-.hamburger-mobile{
-  display: none; /* hidden on desktop */
-}
-
-/* =========================
-   MOBILE LAYOUT
-   ========================= */
-@media (max-width: 980px){
-
-  /* Logo tweak */
-  .logo{
-    font-size: 12px;
-    letter-spacing: .14em;
-  }
-
-  /* Hide desktop nav */
-  .desktop-nav{
-    display: none !important;
-  }
-
-  /* Hamburger button */
-  .hamburger-mobile{
-    display: inline-flex;
-    width: 44px;
-    height: 44px;
-    border: 1px solid rgba(17,24,39,.12);
-    border-radius: 12px;
-    background: rgba(255,255,255,.75);
-    backdrop-filter: blur(10px);
-    cursor: pointer;
-
-    padding: 0;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-  }
-
-  .hamburger-mobile span{
-    display: block;
-    width: 22px;
-    height: 3px;
-    background: #111827;
-    border-radius: 999px;
-  }
-
-  /* Mobile nav dropdown */
-  .mobile-nav{
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    z-index: 1000;
-
-    display: none;
-    flex-direction: column;
-    gap: 8px;
-    padding: 14px 22px 18px;
-
-    border-top: 1px solid rgba(17,24,39,.08);
-    background: rgba(245,247,251,.95);
-    backdrop-filter: blur(10px);
-  }
-
-  .mobile-nav a{
-    color: #111827;
-    text-decoration: none;
-    font-weight: 700;
-    padding: 12px;
-    border-radius: 12px;
-  }
-
-  .mobile-nav a:hover{
-    background: rgba(37,99,235,.10);
-  }
-
-  .mobile-nav.active{
-    display: flex;
-  }
-}
-</style>
-
   <!-- Page-specific styles -->
   <link rel="stylesheet" href="./about.css" />
 </head>
@@ -160,30 +19,75 @@
 <body class="preload">
   <script defer src="./scripts.js"></script>
   <!-- HEADER -->
-<header class="topbar">
-  <div class="topbar-inner">
-    <div class="logo">LA WUN SHUN LETT</div>
+  <header class="topbar"
+    style="position:sticky;top:0;z-index:100;">
 
-    <nav class="nav desktop-nav">
+    <div class="topbar-inner"
+      style="
+        max-width:1120px;
+        margin:0 auto;
+        padding:18px 22px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:18px;
+      ">
+
+      <!-- Logo -->
+      <div class="logo" style="white-space:nowrap;">
+        LA WUN SHUN LETT
+      </div>
+
+      <!-- Desktop nav -->
+      <nav class="desktop-nav"
+        style="
+          display:flex;
+          align-items:center;
+          gap:28px;
+          margin-left:auto;
+        ">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About Me</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <!-- Hamburger -->
+      <button class="hamburger-mobile" id="hamburger"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobileNav"
+        style="
+          width:44px;
+          height:44px;
+          padding:0;
+          display:inline-flex;
+          flex-direction:column;
+          align-items:center;
+          justify-content:center;
+          gap:6px;
+        ">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile nav -->
+    <nav class="mobile-nav" id="mobileNav"
+      style="
+        position:absolute;
+        left:0;
+        right:0;
+        top:100%;
+        z-index:1000;
+      ">
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
       <a href="about.html">About Me</a>
       <a href="contact.html">Contact</a>
     </nav>
-
-    <button class="hamburger-mobile" id="hamburger">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-
-  <nav class="mobile-nav" id="mobileNav">
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="about.html">About Me</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
-
+  </header>
   <main class="about-wrap">
 
     <!-- Top intro -->
