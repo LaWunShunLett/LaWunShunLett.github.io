@@ -366,7 +366,11 @@
 
   // Mouse
   slider.addEventListener("mousedown", (e) => down(e.clientX));
-  window.addEventListener("mousemove", (e) => move(e.clientX));
+  window.addEventListener("mousemove", (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  move(e.clientX);
+});
   window.addEventListener("mouseup", up);
 
   // Touch
@@ -375,10 +379,12 @@
     down(e.touches[0].clientX);
   }, { passive: true });
 
-  slider.addEventListener("touchmove", (e) => {
-    if (e.touches.length !== 1) return;
-    move(e.touches[0].clientX);
-  }, { passive: true });
+slider.addEventListener("touchmove", (e) => {
+  if (!e.touches || e.touches.length !== 1) return;
+  if (isDown) e.preventDefault();
+  move(e.touches[0].clientX);
+}, { passive: false });
+
 
   slider.addEventListener("touchend", up);
 

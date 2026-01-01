@@ -272,6 +272,8 @@
   border: 1px solid rgba(17,24,39,.08);
   background: rgba(245,247,251,.85);
   padding: 14px;
+    user-select: none;
+  -webkit-user-select: none;
 }
 
 /* optional fade edges */
@@ -304,6 +306,8 @@
   display: flex;
   will-change: transform;
   animation: techStepLoop 24s infinite;  /* slow */
+    position: relative;
+  z-index: 3; /* above ::before/::after */
 }
 
 /* pause on hover */
@@ -331,7 +335,9 @@
   font-weight: 900;
   color: #111827;
 }
-
+.tech-track.is-dragging *{
+  pointer-events: none; /* prevents clicking chips while dragging */
+}
 /* chips wrap nicely */
 .chip-wrap{
   display: flex;
