@@ -304,5 +304,95 @@
 </section>
         </div>
   </main>
+  <script>
+(() => {
+  const slider = document.querySelector(".tech-slider");
+  const track  = document.querySelector(".tech-track");
+  if (!slider || !track) return;
+
+  let isDown = false;
+  let startX = 0;
+  let startTX = 0;
+  let currentTX = 0;
+  let resumeTimer = null;
+
+  // Read current translateX from computed transform
+  function getTX(el){
+    const t = getComputedStyle(el).transform;
+    if (t === "none") return 0;
+    return new DOMMatrixReadOnly(t).m41;
+  }
+  function setTX(x){
+    track.style.transform = `translateX(${x}px)`;
+  }
+
+  function stopAuto(){
+    clearTimeout(resumeTimer);
+    track.classList.add("is-dragging");
+    track.style.transition = "";
+    track.style.animationPlayState = "paused";
+  }
+
+  function resumeAuto(){
+    clearTimeout(resumeTimer);
+    // Let it rest a moment, then hand control back to CSS animation
+    resumeTimer = setTimeout(() => {
+      track.style.transition = "";
+      track.style.transform = "";
+      track.style.animationPlayState = "";
+      track.classList.remove("is-dragging");
+    }, 900);
+  }
+
+  function down(clientX){
+    isDown = true;
+    startX = clientX;
+    stopAuto();
+    startTX = getTX(track);
+    currentTX = startTX;
+  }
+
+  function move(clientX){
+    if (!isDown) return;
+    const dx = clientX - startX;
+    currentTX = startTX + dx;
+    setTX(currentTX);
+  }
+
+  function up(){
+    if (!isDown) return;
+    isDown = false;
+    resumeAuto();
+  }
+
+  // Mouse
+  slider.addEventListener("mousedown", (e) => down(e.clientX));
+  window.addEventListener("mousemove", (e) => move(e.clientX));
+  window.addEventListener("mouseup", up);
+
+  // Touch
+  slider.addEventListener("touchstart", (e) => {
+    if (e.touches.length !== 1) return;
+    down(e.touches[0].clientX);
+  }, { passive: true });
+
+  slider.addEventListener("touchmove", (e) => {
+    if (e.touches.length !== 1) return;
+    move(e.touches[0].clientX);
+  }, { passive: true });
+
+  slider.addEventListener("touchend", up);
+
+  // Safety: if resized, reset to animation control
+  window.addEventListener("resize", () => {
+    clearTimeout(resumeTimer);
+    track.style.transition = "";
+    track.style.transform = "";
+    track.style.animationPlayState = "";
+    track.classList.remove("is-dragging");
+  });
+})();
+</script>
+
 </body>
 </html>

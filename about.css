@@ -293,6 +293,12 @@
   right:0;
   background: linear-gradient(to left, rgba(245,247,251,.95), rgba(245,247,251,0));
 }
+/* Allow dragging feel */
+.tech-slider{ cursor: grab; touch-action: pan-y; }
+.tech-track.is-dragging{ animation-play-state: paused !important; cursor: grabbing; }
+.tech-slider:hover .tech-track{
+  animation-play-state: paused;
+}
 
 .tech-track{
   display: flex;
