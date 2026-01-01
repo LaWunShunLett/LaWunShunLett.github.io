@@ -336,53 +336,6 @@
 .chip{
   white-space: nowrap;
 }
-.achievements-section {
-  margin-top: 48px;
-}
-
-.ach-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
-}
-
-.ach-card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-  transition: all 0.25s ease;
-}
-
-.ach-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
-}
-
-.ach-link {
-  display: block;
-}
-
-.ach-img {
-  width: 100%;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-.ach-cap {
-  margin-top: 12px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #0f172a;
-}
-
-.ach-verify {
-  display: block;
-  margin-top: 4px;
-  font-size: 12px;
-  font-weight: 600;
-  color: #2563eb;
-}
 
 /*
   You have 6 slides total because you duplicated A+B.
