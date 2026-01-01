@@ -264,6 +264,7 @@
    - No "reverse back" feeling
    - Uses your duplicated slides (A+B) for seamless looping
    ========================= */
+
 .tech-slider{
   position: relative;
   overflow: hidden;
@@ -271,11 +272,8 @@
   border: 1px solid rgba(17,24,39,.08);
   background: rgba(245,247,251,.85);
   padding: 14px;
-
-  cursor: grab;
-  touch-action: none;            /* ✅ key: allow JS to control swipe */
-  overscroll-behavior: contain;  /* ✅ stops page swipe fighting */
 }
+
 /* optional fade edges */
 .tech-slider::before,
 .tech-slider::after{
@@ -296,23 +294,10 @@
   background: linear-gradient(to left, rgba(245,247,251,.95), rgba(245,247,251,0));
 }
 
-.tech-track.is-dragging{
-  animation-play-state: paused !important;
-  cursor: grabbing;
-}
-.tech-slider:hover .tech-track{
-  animation-play-state: paused;
-}
-.tech-slider *{
-  user-select: none;
-  -webkit-user-select: none;
-}
 .tech-track{
   display: flex;
   will-change: transform;
   animation: techStepLoop 24s infinite;  /* slow */
-    position: relative;
-  z-index: 3; /* above ::before/::after */
 }
 
 /* pause on hover */
@@ -340,9 +325,7 @@
   font-weight: 900;
   color: #111827;
 }
-.tech-track.is-dragging *{
-  pointer-events: none; /* prevents clicking chips while dragging */
-}
+
 /* chips wrap nicely */
 .chip-wrap{
   display: flex;
