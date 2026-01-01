@@ -336,6 +336,64 @@
 .chip{
   white-space: nowrap;
 }
+/* =========================
+   Achievements (force layout)
+   ========================= */
+.about-main .ach-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 14px;
+  width: 100%;
+}
+
+.about-main .ach-card{
+  margin: 0;
+  background: rgba(255,255,255,.85);
+  border: 1px solid rgba(17,24,39,.12);
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: 0 12px 28px rgba(15,23,42,.06);
+  text-align: center;
+}
+
+.about-main .ach-link{
+  display: block;
+}
+
+.about-main .ach-img{
+  width: 100%;
+  max-width: 240px;  /* prevents giant image */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.about-main .ach-cap{
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.4;
+}
+
+.about-main .ach-verify{
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+@media (max-width: 720px){
+  .about-main .ach-grid{
+    grid-template-columns: 1fr;
+  }
+  .about-main .ach-img{
+    max-width: 220px;
+  }
+}
 
 /*
   You have 6 slides total because you duplicated A+B.
