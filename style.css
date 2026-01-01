@@ -46,13 +46,13 @@ html{
   flex-shrink: 0;
 }
 .linkedin-icon {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
 }
 
 .github-icon {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
 }
 /* ✅ ONLY the hero CTA buttons (LinkedIn/GitHub/Resume/CV/Contact Me) */
 .hero-actions > .btn{
