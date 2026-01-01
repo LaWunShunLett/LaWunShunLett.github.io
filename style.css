@@ -40,6 +40,16 @@ html{
   height: 18px;
   display: inline-block;
 }
+.btn-icon {
+  width: 18px;      /* or 20px, match what looks good */
+  height: 18px;
+  flex-shrink: 0;
+}
+.github-icon {
+  width: 17px;
+  height: 17px;
+  transform: translateY(1px); /* tiny vertical align tweak if needed */
+}
 
 *{ box-sizing: border-box; }
 
