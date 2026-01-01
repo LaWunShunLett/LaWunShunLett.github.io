@@ -1,3 +1,11 @@
+html{
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+html{
+  overflow-y: scroll;
+}
+
 :root{
   --bg-main: #F5F7FB;
   --bg-soft: #E9EEF6;
