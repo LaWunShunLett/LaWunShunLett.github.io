@@ -46,17 +46,35 @@ html{
   flex-shrink: 0;
 }
 .linkedin-icon {
-  width: 18px;
-  height: 18px;
-  vertical-align: middle;
-  transform: translateY(1px);  /* tweak 0–2px as needed */
+  width: 20px;
+  height: 20px;
 }
 
 .github-icon {
   width: 18px;
   height: 18px;
-  vertical-align: middle;
-  transform: translateY(1px);  /* same nudge so they align */
+}
+/* ✅ ONLY the hero CTA buttons (LinkedIn/GitHub/Resume/CV/Contact Me) */
+.hero-actions > .btn{
+  display: inline-flex;
+  align-items: center;        /* vertical center */
+  justify-content: center;    /* horizontal center (fixes text centering) */
+  gap: 10px;
+}
+
+/* ✅ ONLY icons inside hero CTA buttons */
+.hero-actions > .btn .btn-icon{
+  width: 20px;
+  height: 20px;
+  display: block;             /* removes baseline weirdness */
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+/* Optional: if LinkedIn still looks smaller because its SVG has extra whitespace */
+.hero-actions > .btn .linkedin-icon{
+  width: 22px;
+  height: 22px;
 }
 
 *{ box-sizing: border-box; }
@@ -740,6 +758,12 @@ body{
 }
 @media (max-width: 520px){
   #featuredGrid > .project-card{ width: 86vw; }
+}
+@media (max-width: 900px) {
+  .hero-right {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 /* remove pagination UI (you won’t need it) */
