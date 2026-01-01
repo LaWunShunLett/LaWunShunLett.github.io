@@ -45,10 +45,18 @@ html{
   height: 18px;
   flex-shrink: 0;
 }
+.linkedin-icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  transform: translateY(1px);  /* tweak 0–2px as needed */
+}
+
 .github-icon {
-  width: 17px;
-  height: 17px;
-  transform: translateY(1px); /* tiny vertical align tweak if needed */
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  transform: translateY(1px);  /* same nudge so they align */
 }
 
 *{ box-sizing: border-box; }
