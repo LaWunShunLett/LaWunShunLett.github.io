@@ -303,7 +303,7 @@
           "caption": "Stock Page Profile"
         },
         {
-          "src": "./images/StockRange.jpg",
+          "src": "./images/StockRange.png",
           "alt": "Stock price range sliders",
           "caption": "Day’s Range and 52-Week Range sliders visually representing stock price movement."
         },
