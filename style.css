@@ -177,7 +177,8 @@ body{
   font-size: 40px;
   font-weight: 700;
   color: var(--muted);
-  margin: 0 0 4px;   /* smaller gap */
+  margin: 0 0 9px;   /* smaller gap */
+  margin-bottom: 9px;
 }
 
 .hero-title .name{
@@ -186,6 +187,7 @@ body{
   font-weight: 800;
   color: var(--text);
   margin: 0 0 2px;   /* smaller gap */
+  margin-bottom: 9px;
 }
 
 .hero-title .nickname{
@@ -194,6 +196,7 @@ body{
   font-weight: 800;
   color: var(--accent);
   margin: 0;         /* remove big gap */
+  margin-bottom: 9px;
 }
 
 .hero-desc{
@@ -792,6 +795,8 @@ body{
   color: #111827;
   text-decoration: none;
   gap: 10px;
+    flex: 1 1 0;              /* two equal buttons */
+  min-width: 0;
 
   background: rgba(255,255,255,.70);
   border: 1px solid rgba(17,24,39,.10);
@@ -817,6 +822,10 @@ body{
     display: flex;
     justify-content: center;
   }
+}
+@media (max-width: 360px){
+  .contact-links{ flex-wrap: wrap; }
+  .contact-pill{ flex: 1 1 100%; }
 }
 
 /* remove pagination UI (you won’t need it) */
