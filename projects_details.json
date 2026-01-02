@@ -126,7 +126,7 @@
   "links": [
     {
       "label": "Source Code",
-      "url": "https://github.com/yourname/supermarket-self-checkout"
+      "url": "https://github.com/LaWunShunLett/Supermarket-Self-Checkout-System"
     }
   ],
 
@@ -381,6 +381,12 @@
         "Trading Mode: Paper trading using virtual funds",
         "Domain: Financial Technology (FinTech)"
       ]
+    }
+  ],
+      "links": [
+    {
+      "label": "Source Code",
+      "url": "https://github.com/LaWunShunLett/StockPulse-Stock-Trading-Market-Analysis-Platform"
     }
   ]
 },
@@ -787,6 +793,12 @@
       "type": "text",
       "title": "Recognition",
       "content": "This project was selected and featured under the SP Batey Hackathon & Challenge 2024."
+    }
+  ],
+     "links": [
+    {
+      "label": "Source Code",
+      "url": "https://github.com/LaWunShunLett/SPpals"
     }
   ]
 }
