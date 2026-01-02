@@ -188,6 +188,7 @@ body{
   color: var(--text);
   margin: 0 0 2px;   /* smaller gap */
   margin-bottom: 9px;
+  gap: 9px;
 }
 
 .hero-title .nickname{
@@ -197,6 +198,7 @@ body{
   color: var(--accent);
   margin: 0;         /* remove big gap */
   margin-bottom: 9px;
+  gap: 9px;
 }
 
 .hero-desc{
