@@ -33,6 +33,49 @@ html, body{
 }
 
 /* Back button = CTA style */
+/* === Shared base style === */
+/* Shared button style (same size + same hover) */
+.pd-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  padding:14px 26px;
+  min-width:200px;            /* same width */
+  border-radius:999px;
+
+  font-size:16px;
+  font-weight:800;
+  line-height:1;
+
+  cursor:pointer;
+  text-decoration:none;
+
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease;
+}
+/* Back (outline) */
+.pd-btn.back{
+  background:#fff;
+  color:#2563eb;
+  border:2px solid #2563eb;
+}
+
+/* Source Code (filled) */
+.pd-btn.source{
+  background:#2563eb;
+  color:#fff;
+  border:2px solid #2563eb;
+}
+.pd-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 6px 16px rgba(37,99,235,.35);
+}
+.pd-btn.primary {
+  background: #2563eb;
+  color: #fff;
+  border: 2px solid #2563eb;
+}
 .pd-back {
   display: inline-flex;
   align-items: center;
@@ -198,12 +241,13 @@ html, body{
 }
 
 /* Actions */
+/* Container: always centered */
 .pd-actions{
   display:flex;
   justify-content:center;
-  gap:16px;
+  gap:14px;
   flex-wrap:wrap;
-  margin-top:24px;
+  margin-top:32px;
 }
 .pd-source-btn{
   display: inline-flex;

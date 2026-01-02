@@ -458,38 +458,31 @@ window.addEventListener("load", () => {
 // ===== Actions (Back + Source Code) =====
 const actions = document.getElementById("pdActions");
 if (actions) {
-  clearEl(actions);
+  actions.innerHTML = "";
 
-  // 1) Back button (always show)
+  // Back button (ALWAYS)
   const backBtn = document.createElement("button");
   backBtn.type = "button";
-  backBtn.className = "pd-back-btn"; // new style
+  backBtn.className = "pd-btn back";
   backBtn.textContent = "← Back to Projects";
-  backBtn.addEventListener("click", () => history.back());
+  backBtn.addEventListener("click", () => {
+    window.location.href = "projects.html";
+  });
   actions.appendChild(backBtn);
 
-  // 2) Source code / links (optional)
-  if (proj.sourceCode) {
+  // Source Code button (ONLY if exists)
+  const sourceLink =
+    (proj.links || []).find(l => (l.label || "").toLowerCase().includes("source")) ||
+    (proj.sourceCode ? { url: proj.sourceCode } : null);
+
+  if (sourceLink && sourceLink.url) {
     const a = document.createElement("a");
-    a.href = proj.sourceCode;
+    a.className = "pd-btn source";
+    a.href = sourceLink.url;
     a.target = "_blank";
-    a.rel = "noopener noreferrer";
-    a.className = "pd-source-btn";
+    a.rel = "noreferrer";
     a.textContent = "Source Code";
     actions.appendChild(a);
-  }
-
-  if (Array.isArray(proj.links)) {
-    proj.links.forEach((link) => {
-      if (!link?.url) return;
-      const a = document.createElement("a");
-      a.href = link.url;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      a.className = "pd-source-btn";
-      a.textContent = link.label || "Open";
-      actions.appendChild(a);
-    });
   }
 }
   // ===== Back button =====
