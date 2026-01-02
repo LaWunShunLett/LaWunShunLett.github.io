@@ -162,8 +162,24 @@ body{
 }
 
 .hero-title{
-  margin: 0 0 18px;
+  margin: 0 0 13px;
   line-height: 1.05;
+}
+.hero-title span{
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+.hero-title .intro{
+  margin-bottom: 2px;
+}
+
+.hero-title .name{
+  margin-bottom: 1px;
+}
+
+.hero-title .nickname{
+  margin-top: 1px;
 }
 
 .hero-title .intro{
