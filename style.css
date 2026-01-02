@@ -163,7 +163,17 @@ body{
 
 .hero-title{
   margin: 0;
-  line-height: 1.05;
+  line-height: 1.2;
+}
+.hero-title .intro{
+  display: inline-block;
+  margin-bottom: 12px; /* 👈 THIS is the space you want */
+}
+
+/* Second line (name + nickname) */
+.hero-title .name,
+.hero-title .nickname{
+  display: inline;
 }
 
 
@@ -188,7 +198,6 @@ body{
   color: var(--text);
   margin: 0 0 2px;   /* smaller gap */
   margin-bottom: 9px;
-  gap: 9px;
 }
 
 .hero-title .nickname{
@@ -198,7 +207,6 @@ body{
   color: var(--accent);
   margin: 0;         /* remove big gap */
   margin-bottom: 9px;
-  gap: 9px;
 }
 
 .hero-desc{
