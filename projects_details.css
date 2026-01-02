@@ -64,6 +64,11 @@ html, body{
   transform: translateY(0);
   box-shadow: 0 3px 8px rgba(148, 163, 184, 0.5);
 }
+.pd-back-wrap{
+  display:flex;
+  justify-content:center;
+  margin-top:32px;
+}
 
 .pd-meta{
   margin: 6px 0 10px;
