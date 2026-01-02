@@ -117,7 +117,7 @@
   "id": "supermarket-self-checkout",
   "title": "IoT-Based Supermarket Self-Checkout System",
   "year": "2025",
-  "role": "IoT Systems Developer | Embedded & Software Engineer",
+  "role": "Product Operations, DevOps & System Troubleshooting",
   "tags": ["IoT", "Self-Checkout", "Raspberry Pi","DevOps", "Containerization","Academic Project – Singapore Polytechnic" ],
 
   "heroImage": "./images/SuperMarket.jpg",
@@ -516,7 +516,7 @@
   "id": "trash-segregator-iot", 
   "title": "Trash Segregator — IoT Waste Monitoring & Sorting Prototype",
   "year": "2024",
-  "role": "Concept & System Design (Team Project)",
+  "role": "End-to-End IoT Developer (Hardware, Firmware & Dashboard)",
   "tags": [
     "IoT",
     "Smart City",

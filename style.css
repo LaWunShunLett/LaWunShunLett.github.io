@@ -216,7 +216,9 @@ body{
 
 .btn{
   display: inline-flex;
-  align-items: center;
+  align-items: center;        /* vertical center */
+  justify-content: center;    /* horizontal center */
+  text-align: center;         /* text center */
   gap: 10px;
   padding: 14px 28px;
   border-radius: 12px;

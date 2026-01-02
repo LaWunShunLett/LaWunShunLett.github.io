@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   let projects = [];
   try {
-    const res = await fetch("./projects_details.json", { cache: "no-store" });
+    const res = await fetch("./projects.json", { cache: "no-store" });
     projects = await res.json();
   } catch (e) {
-    console.error("Failed to load projects_details.json", e);
+    console.error("Failed to load projects.json", e);
     return;
   }
 
