@@ -161,25 +161,15 @@ body{
   align-items: center;
 }
 
-.hero-title{
-  margin: 0;
-  line-height: 1.05;
-}
+
 .hero-title span{
   display: inline-block;
   margin: 0;
   padding: 0;
 }
-.hero-title .intro{
-  margin-bottom: 2px;
-}
-
-.hero-title .name{
-  margin-bottom: 1px;
-}
-
-.hero-title .nickname{
-  margin-top: 1px;
+.hero-title{
+  margin: 0;
+  line-height: 1.05;
 }
 
 .hero-title .intro{
@@ -187,7 +177,7 @@ body{
   font-size: 40px;
   font-weight: 700;
   color: var(--muted);
-  margin-bottom: 10px;
+  margin: 0 0 4px;   /* smaller gap */
 }
 
 .hero-title .name{
@@ -195,14 +185,15 @@ body{
   font-size: 64px;
   font-weight: 800;
   color: var(--text);
+  margin: 0 0 2px;   /* smaller gap */
 }
 
 .hero-title .nickname{
-  display: block;           /* [Shun] next line */
-  margin-top: 8px;
+  display: block;
   font-size: 34px;
   font-weight: 800;
   color: var(--accent);
+  margin: 0;         /* remove big gap */
 }
 
 .hero-desc{
@@ -338,6 +329,13 @@ body{
   color: var(--muted);
   line-height: 1.8;
 }
+.section-head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
 /* About Me – Glowing ring box */
 /* About box - clean, readable, minimal glow */
 .about-glow-box{
