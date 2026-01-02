@@ -52,14 +52,32 @@ html, body{
     transform 0.1s ease,
     color 0.18s ease;
 }
+.pd-back-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
 
+  padding:14px 22px;
+  border-radius:999px;
+
+  background:#fff;
+  color:#2563eb;
+  border:2px solid #2563eb;
+
+  font-weight:800;
+  cursor:pointer;
+}
 .pd-back:hover {
   background: #e5edff;
   border-color: #c7d2fe;
   box-shadow: 0 6px 16px rgba(148, 163, 184, 0.45);
   transform: translateY(-1px);
 }
-
+.pd-back-btn:hover{
+  background:#2563eb;
+  color:#fff;
+}
 .pd-back:active {
   transform: translateY(0);
   box-shadow: 0 3px 8px rgba(148, 163, 184, 0.5);
@@ -181,12 +199,12 @@ html, body{
 
 /* Actions */
 .pd-actions{
-  margin-top: 26px;
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-top:24px;
 }
-
 .pd-source-btn{
   display: inline-flex;
   align-items: center;

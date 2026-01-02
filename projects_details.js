@@ -455,39 +455,47 @@ window.addEventListener("load", () => {
   }
 
   // ===== Actions (source code) =====
-  const actions = document.getElementById("pdActions");
-  if (actions) {
-    clearEl(actions);
+// ===== Actions (Back + Source Code) =====
+const actions = document.getElementById("pdActions");
+if (actions) {
+  clearEl(actions);
 
-    // support both "sourceCode" and "links"
-    if (proj.sourceCode) {
+  // 1) Back button (always show)
+  const backBtn = document.createElement("button");
+  backBtn.type = "button";
+  backBtn.className = "pd-back-btn"; // new style
+  backBtn.textContent = "← Back to Projects";
+  backBtn.addEventListener("click", () => history.back());
+  actions.appendChild(backBtn);
+
+  // 2) Source code / links (optional)
+  if (proj.sourceCode) {
+    const a = document.createElement("a");
+    a.href = proj.sourceCode;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.className = "pd-source-btn";
+    a.textContent = "Source Code";
+    actions.appendChild(a);
+  }
+
+  if (Array.isArray(proj.links)) {
+    proj.links.forEach((link) => {
+      if (!link?.url) return;
       const a = document.createElement("a");
-      a.href = proj.sourceCode;
+      a.href = link.url;
       a.target = "_blank";
       a.rel = "noopener noreferrer";
       a.className = "pd-source-btn";
-      a.textContent = "Source code";
+      a.textContent = link.label || "Open";
       actions.appendChild(a);
-    }
-
-    if (Array.isArray(proj.links)) {
-      proj.links.forEach((link) => {
-        if (!link?.url) return;
-        const a = document.createElement("a");
-        a.href = link.url;
-        a.target = "_blank";
-        a.rel = "noopener noreferrer";
-        a.className = "pd-source-btn";
-        a.textContent = link.label || "Open";
-        actions.appendChild(a);
-      });
-    }
+    });
   }
-
+}
   // ===== Back button =====
-  document.getElementById("pdBack")?.addEventListener("click", () => {
-    history.back();
-  });
+  // document.getElementById("pdBack")?.addEventListener("click", () => {
+  //   history.back();
+  // });
 
   // ===== MAIN CONTENT RENDER (sections only) =====
   const mount = document.getElementById("pdSections");
