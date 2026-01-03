@@ -165,6 +165,24 @@ body{
   margin: 0;
   line-height: 1.2;
 }
+/* ===== Fix hero title spacing + keep name + [Shun] on same line ===== */
+.hero-title{ line-height: 1.1; }
+
+.hero-title .intro{
+  display: block;        /* own line */
+  margin: 0 0 14px;      /* ✅ space after Hello, I'm */
+}
+
+.hero-title .name{
+  display: inline;       /* same line as nickname */
+  margin: 0;
+}
+
+.hero-title .nickname{
+  display: inline;       /* same line as name */
+  margin-left: 10px;     /* ✅ space between name and [Shun] */
+}
+
 .hero-title .intro{
   display: inline-block;
   margin-bottom: 12px; /* 👈 THIS is the space you want */
@@ -215,13 +233,6 @@ body{
   line-height: 1.8;
   color: var(--muted);
   margin: 0 0 28px;
-}
-.hero-title .intro,
-.hero-title .name,
-.hero-title .nickname{
-  display: inline;   /* or inline-block */
-  margin: 0;
-  padding: 0;
 }
 
 .sp-link{
@@ -820,6 +831,17 @@ body{
   border-color: rgba(37,99,235,.35);
   box-shadow: 0 18px 40px rgba(37,99,235,.14);
 }
+.contact-links{
+  display: flex;
+  gap: 12px;
+  flex-wrap: nowrap;      /* ✅ never stack */
+}
+
+.contact-pill{
+  flex: 1 1 0;
+  white-space: nowrap;    /* ✅ prevent “LinkedIn” breaking */
+}
+
 /* responsive card width */
 @media (max-width: 900px){
   #featuredGrid > .project-card{ width: 300px; }
@@ -832,10 +854,6 @@ body{
     display: flex;
     justify-content: center;
   }
-}
-@media (max-width: 360px){
-  .contact-links{ flex-wrap: wrap; }
-  .contact-pill{ flex: 1 1 100%; }
 }
 
 /* remove pagination UI (you won’t need it) */
