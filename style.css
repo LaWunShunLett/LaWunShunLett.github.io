@@ -166,7 +166,7 @@ body{
 /* ===== HERO TITLE (CLEAN, FINAL) ===== */
 .hero-title{
   margin: 0;
-  line-height: 1.1;
+  line-height: 1.05;
 }
 
 .hero-title .intro{
@@ -175,6 +175,7 @@ body{
   font-weight: 700;
   color: var(--muted);
   margin: 0 0 3px;        /* closer to name */
+  margin-bottom: 3px;
 }
 
 /* Keep name + [Shun] on SAME line */
