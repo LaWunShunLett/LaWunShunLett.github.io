@@ -161,51 +161,51 @@ body{
   align-items: center;
 }
 
+/* ===== HERO TITLE (CLEAN, FINAL) ===== */
 .hero-title{
   margin: 0;
-  line-height: 1.2;
-}
-/* ===== Fix hero title spacing + keep name + [Shun] on same line ===== */
-.hero-title{ line-height: 1.1; }
-
-.hero-title .intro{
-  display: block;        /* own line */
-  margin: 0 0 14px;      /* ✅ space after Hello, I'm */
-}
-
-.hero-title .name{
-  display: inline;       /* same line as nickname */
-  margin: 0;
-}
-
-.hero-title .nickname{
-  display: inline;       /* same line as name */
-  margin-left: 10px;     /* ✅ space between name and [Shun] */
+  line-height: 1.1;
 }
 
 .hero-title .intro{
-  display: inline-block;
-  margin-bottom: 12px; /* 👈 THIS is the space you want */
+  display: block;
+  font-size: 26px;        /* smaller hello */
+  font-weight: 700;
+  color: var(--muted);
+  margin: 0 0 6px;        /* closer to name */
 }
 
-/* Second line (name + nickname) */
+/* Keep name + [Shun] on SAME line */
 .hero-title .name,
 .hero-title .nickname{
   display: inline;
+  white-space: nowrap;    /* prevents mobile wrap */
 }
 
+.hero-title .name{
+  font-size: 50px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.hero-title .nickname{
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--accent);
+  margin-left: 10px;
+}
 
 .hero-title span{
   display: inline-block;
   margin: 0;
   padding: 0;
 }
-.hero-title .intro{
+/* .hero-title .intro{
   display: block;
   font-size: 40px;
   font-weight: 700;
   color: var(--muted);
-  margin: 0 0 9px;   /* smaller gap */
+  margin: 0 0 9px;   
   margin-bottom: 9px;
 }
 
@@ -214,7 +214,7 @@ body{
   font-size: 50px;
   font-weight: 800;
   color: var(--text);
-  margin: 0 0 2px;   /* smaller gap */
+  margin: 0 0 2px;  
   margin-bottom: 9px;
 }
 
@@ -223,9 +223,9 @@ body{
   font-size: 34px;
   font-weight: 800;
   color: var(--accent);
-  margin: 0;         /* remove big gap */
+  margin: 0;         
   margin-bottom: 9px;
-}
+} */
 
 .hero-desc{
   max-width: 560px;
@@ -730,12 +730,49 @@ body{
     justify-content: flex-start;
   }
 
-  .hero-title .name{
-    font-size: 46px;
+  .hero-left .scroll-hint{
+    transform: translateX(40%);
+  }
+}
+@media (max-width: 480px){
+
+  /* Your existing layout rules */
+  .hero{
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .hero-right{
+    justify-content: flex-start;
   }
 
   .hero-left .scroll-hint{
     transform: translateX(40%);
+  }
+
+  /* ===== HERO TITLE FIX (mobile) ===== */
+
+  /* Keep name + [Shun] on SAME line */
+  .hero-title .name,
+  .hero-title .nickname{
+    display: inline;
+    white-space: nowrap;
+  }
+
+  /* Reduce sizes so it fits */
+  .hero-title .name{
+    font-size: 42px;
+  }
+
+  .hero-title .nickname{
+    font-size: 30px;
+    margin-left: 8px;
+  }
+
+  /* Smaller, closer "Hello, I'm" */
+  .hero-title .intro{
+    font-size: 22px;
+    margin-bottom: 6px;
   }
 }
 
