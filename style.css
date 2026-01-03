@@ -118,6 +118,8 @@ body{
   font-weight: 800;
   color: var(--text);
   white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
 }
 
 /* Desktop nav spacing + black + underline hover */
@@ -169,10 +171,10 @@ body{
 
 .hero-title .intro{
   display: block;
-  font-size: 26px;        /* smaller hello */
+  font-size: 23px;        /* smaller hello */
   font-weight: 700;
   color: var(--muted);
-  margin: 0 0 6px;        /* closer to name */
+  margin: 0 0 3px;        /* closer to name */
 }
 
 /* Keep name + [Shun] on SAME line */
@@ -183,7 +185,7 @@ body{
 }
 
 .hero-title .name{
-  font-size: 50px;
+  font-size: 45px;
   font-weight: 800;
   color: var(--text);
 }
@@ -766,13 +768,13 @@ body{
 
   .hero-title .nickname{
     font-size: 30px;
-    margin-left: 8px;
+    margin-left: 0px;
   }
 
   /* Smaller, closer "Hello, I'm" */
   .hero-title .intro{
     font-size: 22px;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 }
 

@@ -4,7 +4,11 @@ window.addEventListener("DOMContentLoaded", () => {
     document.body.classList.remove("preload");
   });
 });
+const homeLogo = document.getElementById("homeLogo");
 
+document.getElementById("homeLogo").onclick = () => {
+  window.location.href = "index.html";
+};
 // Hamburger toggle
 const hamburger = document.getElementById("hamburger");
 const mobileNav = document.getElementById("mobileNav");
