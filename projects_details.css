@@ -24,10 +24,6 @@ html, body{
   font-weight: 600;
 }
 
-.hl:hover {
-  text-decoration: underline;
-}
-
 /* Layout wrapper */
 .wrap{
   max-width: var(--pd-col);
