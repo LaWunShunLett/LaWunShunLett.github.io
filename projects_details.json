@@ -45,7 +45,7 @@
   "type": "image",
   "src": "./images/SmartPillBlockDiagram.jpeg",
   "alt": "System block diagram of the smart pill dispenser",
-  "caption": "Block diagram showing the [[STM32 microcontroller]], input sensors, user interfaces, and output devices"
+  "caption": "Block diagram showing the STM32 microcontroller, input sensors, user interfaces, and output devices"
     },
 {
   "type": "list",
@@ -91,17 +91,17 @@
     {
       "src": "./images/SmartPill2.jpeg",
       "alt": "Front view of the smart pill dispenser",
-      "caption": "Front view showing [[keypad]] and [[display]]"
+      "caption": "Front view showing keypad and display"
     },
     {
       "src": "./images/DispensingMechanism.jpeg",
       "alt": "Internal dispensing mechanism and servo",
-      "caption": "Internal [[dispensing mechanism]] and [[servo system]]"
+      "caption": "Internal dispensing mechanism and servo system"
     },
     {
       "src": "./images/Wiring.jpeg",
       "alt": "STM32 board and wiring",
-      "caption": "[[STM32 microcontroller]] and internal [[wiring]]"
+      "caption": "STM32 microcontroller and internal wiring"
     }
   ]
 }
@@ -152,7 +152,7 @@
       "title": "Use Case Diagram",
       "src": "./images/usecase.jpg",
       "alt": "Use case diagram for supermarket self-checkout system",
-      "caption": "Use case diagram illustrating interactions between [[in-store customers]], [[online customers]], [[payment gateway]], and [[backend systems]]"
+      "caption": "Use case diagram illustrating interactions between in-store customers, online customers, payment gateway, and backend systems"
     },
 {
   "type": "text",
@@ -165,7 +165,7 @@
       "title": "Hardware & Interface Architecture",
       "src": "./images/Supermarket_BlockDiagram.jpg",
       "alt": "Raspberry Pi hardware interface architecture",
-      "caption": "Hardware interface architecture showing sensors, input devices, and output peripherals connected to the [[Raspberry Pi]]"
+      "caption": "Hardware interface architecture showing sensors, input devices, and output peripherals connected to the Raspberry Pi"
     },
 
     {
@@ -276,12 +276,12 @@
         {
           "src": "./images/Stock_Search.jpg",
           "alt": "Search bar and quick links",
-          "caption": "Search bar with [[quick links]] allowing users to rapidly find companies by [[name]], [[ticker]], or [[category]]."
+          "caption": "Search bar with quick links allowing users to rapidly find companies by name, ticker, or category"
         },
         {
           "src": "./images/Stock_QuickLink.png",
           "alt": "Quick links by category",
-          "caption": "Categorized [[quick links]] providing fast navigation across different [[market sectors]]."
+          "caption": "Categorized quick links providing fast navigation across different market sectors"
         }
       ]
     },
@@ -297,27 +297,27 @@
         {
           "src": "./images/StockPage.png",
           "alt": "Stock page profile",
-          "caption": "[[Stock page profile]] displaying company overview and key metrics"
+          "caption": "Stock page profile displaying company overview and key metrics"
         },
         {
           "src": "./images/StockRange.png",
           "alt": "Stock price range sliders",
-          "caption": "[[Day’s Range]] and [[52-Week Range]] sliders visually representing [[stock price movement]]."
+          "caption": "Day’s Range and 52-Week Range sliders visually representing stock price movement"
         },
         {
           "src": "./images/MarketMetrics.png",
           "alt": "Market metrics display",
-          "caption": "Key metrics including [[Market Capital]], [[P/E Ratio]], [[Beta]], and [[Dividend Rate]] presented for quick interpretation."
+          "caption": "Key metrics including Market Capital, P/E Ratio, Beta, and Dividend Rate presented for quick interpretation"
         },
         {
           "src": "./images/RecommendationTrend.png",
           "alt": "Recommendation trend indicators",
-          "caption": "[[Recommendation trend bars]] showing analyst sentiment from [[Strong Buy]] to [[Strong Sell]]."
+          "caption": "Recommendation trend bars showing analyst sentiment from Strong Buy to Strong Sell"
         },
         {
           "src": "./images/BuySell.png",
           "alt": "Buy and sell interface",
-          "caption": "[[Buy and sell interface]] with [[validation feedback]] to prevent invalid trades."
+          "caption": "Buy and sell interface with validation feedback to prevent invalid trades"
         }
       ]
     },
@@ -335,12 +335,12 @@
         {
           "src": "./images/Watchlist.png",
           "alt": "User watchlist",
-          "caption": "[[Watchlist]] allowing users to track selected stocks and monitor [[price changes]]."
+          "caption": "Watchlist allowing users to track selected stocks and monitor price changes"
         },
         {
           "src": "./images/TransactionHistory.png",
           "alt": "Transaction history",
-          "caption": "[[Transaction history]] displaying past buy and sell actions for [[review]] and [[learning]]."
+          "caption": "Transaction history displaying past buy and sell actions for review and learning"
         }
       ]
     },
@@ -424,7 +424,7 @@
       "title": "Block Diagram",
       "src": "./images/SoilTiller_BlockDiagram.jpeg",
       "alt": "Soil tiller block diagram",
-      "caption": "Block diagram showing the relationship between the [[Arduino controller]], [[sensors]], [[actuators]], and [[display]]."
+      "caption": "Block diagram showing the relationship between the Arduino controller, sensors, actuators, and display"
     },
 {
   "type": "list",
@@ -446,13 +446,13 @@
       "type": "youtube",
       "title": "Soil Moisture Demo",
       "id": "gowhitPGVU4",
-          "caption": "Prototype test showing soil moisture measurement and actuator response for watering decision."
+          "caption": "Prototype test showing soil moisture measurement and actuator response for watering decision"
         },
     {
       "type": "youtube",
       "title": "Line Following Demo",
       "id": "aU7JT5yDpOU",
-          "caption": "Prototype test demonstrating autonomous line-following navigation and obstacle detection."
+          "caption": "Prototype test demonstrating autonomous line-following navigation and obstacle detection"
         }
   ]
 },
@@ -466,7 +466,7 @@
   "title": "System Design Poster",
   "src": "./images/SoilTiller_Poster.jpg",
   "alt": "Soil tiller system poster showing problem, sensors, block diagram, flow chart, and outcomes",
-      "caption": "Consolidated system poster illustrating the [[problem statement]], [[sensor integration]], [[control logic]], [[block diagram]], [[implementation steps]], [[outcomes]], and [[future improvements]]."
+      "caption": "Consolidated system poster illustrating the problem statement, sensor integration, control logic, block diagram, implementation steps, outcomes, and future improvements"
     },
 
 {
@@ -561,12 +561,12 @@
     {
       "src": "./images/FlowChart.jpg",
       "alt": "System flow chart showing waste detection, decision logic, and actuator control",
-          "caption": "Flow chart illustrating the system’s [[operational logic]], including [[waste detection]], [[classification]], and [[actuator control sequence]]."
+          "caption": "Flow chart illustrating the system’s operational logic, including waste detection, classification, and actuator control sequence"
         },
     {
       "src": "./images/BlockDiagram.jpg",
       "alt": "Block diagram of hardware components and microcontroller connections",
-          "caption": "Block diagram highlighting [[hardware inputs]], [[microcontroller processing]], and [[output modules]] such as actuators and indicators."
+          "caption": "Block diagram highlighting hardware inputs, microcontroller processing, and output modules such as actuators and indicators"
         }
   ]
 },
@@ -590,7 +590,7 @@
   "title": "Data Flow Diagram",
       "src": "./images/DataFlowDiagram.jpg",
       "alt": "Data flow diagram showing sensor data transmission and monitoring",
-      "caption": "Data flow diagram showing how [[sensor data]] is [[processed]], [[transmitted]], and [[visualized]] through cloud-based monitoring."
+      "caption": "Data flow diagram showing how sensor data is processed, transmitted, and visualized through cloud-based monitoring"
     },
 {
   "type": "list",
@@ -615,22 +615,22 @@
     {
       "src": "./images/TrashBin.jpg",
       "alt": "Hand-drawn system diagram illustrating smart bin sensing and sorting mechanism",
-          "caption": "Conceptual system diagram illustrating the [[smart bin architecture]], including [[ultrasonic rangers]] for trash-level detection, a [[light sensor]] and [[laser]] for material identification, and a [[servo motor]] controlling waste routing."
+          "caption": "Conceptual system diagram illustrating the smart bin architecture, including ultrasonic rangers for trash-level detection, a light sensor and laser for material identification, and a servo motor controlling waste routing"
         },
     {
       "src": "./images/smartbin_hardware_setup.jpg",
       "alt": "Smart bin hardware prototype with sensors and dual compartments",
-          "caption": "Physical prototype setup showing the smart bin with [[dual compartments]], [[ultrasonic sensors]] mounted for trash-level detection, and the [[microcontroller circuitry]] handling real-time sensing and classification."
+          "caption": "Physical prototype setup showing the smart bin with dual compartments, ultrasonic sensors mounted for trash-level detection, and the microcontroller circuitry handling real-time sensing and classification"
         },
     {
       "src": "./images/smartbin_thingspeak_dashboard.jpg",
       "alt": "ThingSpeak dashboard displaying trash level data",
-          "caption": "Live cloud dashboard ([[ThingSpeak]]) visualising [[trash-level data]] and system status, demonstrating [[real-time data transmission]] from the smart bin."
+          "caption": "Live cloud dashboard (ThingSpeak) visualising trash-level data and system status, demonstrating real-time data transmission from the smart bin"
         },
     {
       "src": "./images/smartbin_mobile_notification.png",
       "alt": "Mobile app displaying trash level notification",
-          "caption": "Mobile application interface using [[MIT App Inventor]] showing [[real-time trash-level notifications]], indicating bin capacity status."
+          "caption": "Mobile application interface using MIT App Inventor showing real-time trash-level notifications, indicating bin capacity status"
         }
   ]
 },
@@ -705,27 +705,27 @@
 {
   "src": "./images/overall.jpeg",
   "alt": "Overall application interface showing multiple main screens",
-          "caption": "Overall application view presenting the [[main screens]] and [[interface layout]]."
+          "caption": "Overall application view presenting the main screens and interface layout"
         },
         {
           "src": "./images/sppals_flow_home_profile_settings_qr.png",
           "alt": "Home, Profile, Settings and QR/Share screens",
-          "caption": "Main navigation flow: [[Home feed]] → [[Profile]] → [[Settings]], with [[QR / Share]] for quick profile linking."
+          "caption": "Main navigation flow: Home feed → Profile → Settings, with QR / Share for quick profile linking"
         },
 {
   "src": "./images/sppals_flow_search_profile_chat_message1.png",
   "alt": "Search, profile viewing, chat list and message screens",
-          "caption": "Step 1 — [[User discovery flow]]: Searching for students and viewing individual profiles."
+          "caption": "Step 1 — User discovery flow: Searching for students and viewing individual profiles"
         },
 {
   "src": "./images/sppals_flow_search_profile_chat_message2.jpg",
   "alt": "Chat list and messaging interface",
-          "caption": "Step 2 — [[Communication flow]]: Opening chat conversations and sending [[real-time messages]]."
+          "caption": "Step 2 — Communication flow: Opening chat conversations and sending real-time messages"
         },
         {
           "src": "./images/sppals_flow_notifications_create_filter.png",
           "alt": "Notifications, post creation and filter options",
-          "caption": "[[Engagement flow]]: Notifications and post creation with [[filters]] to organise content discovery."
+          "caption": "Engagement flow: Notifications and post creation with filters to organise content discovery"
         }
       ]
     },
