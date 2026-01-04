@@ -12,18 +12,18 @@
     {
       "type": "text",
       "title": "Project Background",
-      "content": "The Smart Pill Dispenser was focused on improving medication management in both hospital and home-care environments. It addresses common medication errors caused by forgetfulness, manual scheduling, and human oversight, especially among elderly users and busy healthcare staff. The system is built using an STM32 microcontroller and automates pill dispensing at scheduled times while confirming dispensing activity through sensors."
+      "content": "The Smart Pill Dispenser was focused on improving medication management in both hospital and home-care environments. It addresses common medication errors caused by [[forgetfulness]], [[manual scheduling]], and [[human oversight]], especially among elderly users and busy healthcare staff. The system is built using a [[STM32 microcontroller]] and [[automates pill dispensing]] at scheduled times while [[confirming dispensing activity]] through sensors."
     },
 
     {
       "type": "text",
       "title": "Problem",
-      "content": "Many patients, particularly elderly users, forget to take medication or accidentally take it more than once. In hospital settings, manual medication handling increases staff workload and raises the risk of missed or incorrect doses during busy routines."
+      "content": "Many patients, particularly elderly users, forget to take medication or accidentally take it more than once. In hospital settings, [[manual medication handling]] increases [[staff workload]] and raises the risk of [[missed or incorrect doses]] during busy routines."
     },
 {
   "type": "text",
   "title": "Solution",
-  "content": "The system automates medication dispensing by releasing pills at predefined times and verifying the dispensing process using sensors. This reduces reliance on memory and manual handling, improving medication safety and consistency. In normal mode, the dispenser runs its scheduled cycles automatically, while configuration mode (unlocked via RFID and keypad input) is used by authorised staff to adjust or update medication timings before returning to normal operation."
+  "content": "The system [[automates medication dispensing]] by releasing pills at [[predefined times]] and [[verifying the dispensing process]] using sensors. This reduces reliance on memory and manual handling, improving [[medication safety]] and [[consistency]]. In normal mode, the dispenser runs its scheduled cycles automatically, while configuration mode (unlocked via [[RFID]] and [[keypad input]]) is used by authorised staff to adjust or update medication timings before returning to normal operation."
 },
       {
   "type": "image",
@@ -35,54 +35,54 @@
       "type": "list",
       "title": "My Role",
       "items": [
-        "Programmed STM32 microcontroller using Embedded C++.",
-        "Integrated RTC, RFID, IR sensor, and servo motor.",
-        "Debugged electrical wiring and firmware issues.",
-        "Tested system reliability and dispensing accuracy."
+        "Programmed [[STM32 microcontroller]] using [[Embedded C++]].",
+        "Integrated [[RTC]], [[RFID]], [[IR sensor]], and [[servo motor]].",
+        "Debugged [[electrical wiring]] and [[firmware issues]].",
+        "Tested [[system reliability]] and [[dispensing accuracy]]."
       ]
     },
     {
   "type": "image",
   "src": "./images/SmartPillBlockDiagram.jpeg",
   "alt": "System block diagram of the smart pill dispenser",
-  "caption": "Block diagram showing the STM32 microcontroller, input sensors, user interfaces, and output devices"
-},
+  "caption": "Block diagram showing the [[STM32 microcontroller]], input sensors, user interfaces, and output devices"
+    },
 {
   "type": "list",
   "title": "System Flow & Operation",
   "items": [
-    "System starts in normal operating mode after power-up.",
-    "Authorised staff can enter configuration mode using RFID authentication.",
-    "In configuration mode, the keypad is used to set or update medication schedules.",
-    "Configuration options and system status are shown on the OLED display.",
-    "RTC continuously keeps track of the current time.",
-    "When a scheduled dispensing time is reached, the STM32 triggers the dispensing process.",
-    "Servo motor rotates to release a single pill.",
-    "IR sensor confirms whether a pill has been successfully dispensed.",
-    "PIR sensor detects user presence near the dispenser during operation.",
-    "System status, alerts, and feedback are displayed on the OLED and LCD screens.",
-    "After dispensing, the system returns to normal mode and waits for the next scheduled cycle."
+    "System starts in [[normal operating mode]] after power-up.",
+    "Authorised staff can enter [[configuration mode]] using [[RFID authentication]].",
+    "In configuration mode, the [[keypad]] is used to set or update [[medication schedules]].",
+    "Configuration options and system status are shown on the [[OLED display]].",
+    "[[RTC]] continuously keeps track of the current time.",
+    "When a [[scheduled dispensing time]] is reached, the [[STM32]] triggers the [[dispensing process]].",
+    "[[Servo motor]] rotates to release a single pill.",
+    "[[IR sensor]] confirms whether a pill has been successfully dispensed.",
+    "[[PIR sensor]] detects user presence near the dispenser during operation.",
+    "System status, alerts, and feedback are displayed on the [[OLED]] and [[LCD]] screens.",
+    "After dispensing, the system returns to [[normal mode]] and waits for the next [[scheduled cycle]]."
   ]
 },
     {
       "type": "text",
       "title": "Outcomes",
       "content": [
-        "Our project was made possible by developing an automated pill dispensing system using STM32 firmware and Embedded C++, integrating RTC scheduling, servo control, and IR/PIR sensor feedback to ensure accurate and reliable dispensing. This design reduced missed or double doses during testing and improved overall system safety through RFID-based configuration access that prevented unauthorised changes. The system was validated through repeated end-to-end prototype testing, demonstrating stable operation across multiple dispensing cycles."
-      ]
+         "Our project was made possible by developing an [[automated pill dispensing system]] using [[STM32 firmware]] and [[Embedded C++]], integrating [[RTC scheduling]], [[servo control]], and [[IR/PIR sensor feedback]] to ensure [[accurate]] and [[reliable dispensing]]. This design reduced [[missed or double doses]] during testing and improved overall [[system safety]] through [[RFID-based configuration access]] that prevented unauthorised changes. The system was validated through repeated [[end-to-end prototype testing]], demonstrating [[stable operation]] across multiple dispensing cycles."
+  ]
     },
     {
       "type": "list",
       "title": "Technical Summary",
-      "items": [
-        "Microcontroller: STM32F103RB",
-        "Programming Language: Embedded C++",
-        "Sensors: IR sensor, PIR sensor",
-        "Actuator: Servo motor",
-        "Modules: RFID RC522, RTC DS3231",
-        "Displays: OLED (SSD1306), LCD",
-        "Application Area: Healthcare automation"
-      ]
+  "items": [
+    "Microcontroller: [[STM32F103RB]]",
+    "Programming Language: [[Embedded C++]]",
+    "Sensors: [[IR sensor]], [[PIR sensor]]",
+    "Actuator: [[Servo motor]]",
+    "Modules: [[RFID RC522]], [[RTC DS3231]]",
+    "Displays: [[OLED (SSD1306)]], [[LCD]]",
+    "Application Area: [[Healthcare automation]]"
+  ]
     },
 {
   "type": "gallery",
@@ -91,17 +91,17 @@
     {
       "src": "./images/SmartPill2.jpeg",
       "alt": "Front view of the smart pill dispenser",
-      "caption": "Front view showing keypad and display"
+      "caption": "Front view showing [[keypad]] and [[display]]"
     },
     {
       "src": "./images/DispensingMechanism.jpeg",
       "alt": "Internal dispensing mechanism and servo",
-      "caption": "Internal dispensing mechanism and servo system"
+      "caption": "Internal [[dispensing mechanism]] and [[servo system]]"
     },
     {
       "src": "./images/Wiring.jpeg",
       "alt": "STM32 board and wiring",
-      "caption": "STM32 microcontroller and internal wiring"
+      "caption": "[[STM32 microcontroller]] and internal [[wiring]]"
     }
   ]
 }
@@ -118,7 +118,7 @@
   "title": "IoT-Based Supermarket Self-Checkout System",
   "year": "2025",
   "role": "Product Operations, DevOps & System Troubleshooting",
-  "tags": ["IoT", "Self-Checkout", "Raspberry Pi","DevOps", "Containerization","Academic Project – Singapore Polytechnic" ],
+  "tags": ["IoT", "Self-Checkout", "Raspberry Pi","DevOps", "Containerization","CI/CD", "Academic Project – Singapore Polytechnic" ],
 
   "heroImage": "./images/SuperMarket.jpg",
   "heroAlt": "IoT-based supermarket self-checkout prototype",
@@ -134,13 +134,13 @@
     {
       "type": "text",
       "title": "Project Background",
-      "content": "This project is an IoT-based Supermarket Self-Checkout System designed to improve shopping efficiency by allowing customers to independently scan items, manage purchases, and complete payments. The system supports both in-store and online purchases, including membership authentication, QR code generation for in-store pickup, and secure payment handling."
+      "content": "This project is an [[IoT-based Supermarket Self-Checkout System]] designed to improve [[shopping efficiency]] by allowing customers to independently [[scan items]], [[manage purchases]], and [[complete payments]]. The system supports both [[in-store]] and [[online purchases]], including [[membership authentication]], [[QR code generation]] for in-store pickup, and [[secure payment handling]]."
     },
 
     {
       "type": "text",
       "title": "Problem",
-      "content": "Traditional supermarket checkout systems often result in long queues, high manpower dependency, and inefficient transitions between in-store and online shopping workflows, negatively impacting customer experience during peak hours."
+      "content": "A unified self-checkout solution was developed using a [[Raspberry Pi]] as the central controller, integrating [[Picamera-based barcode scanning]], [[RFID authentication]], [[cart management]], and [[payment processing]]. In addition to in-store checkout, the system includes an [[online shopping website]] where users can browse products, add items to a cart, and place orders remotely. Product information, user/cart data, and orders are stored and managed in a [[MariaDB database]]. For online pickup orders, the system generates a [[QR code containing an Order ID]] to enable fast in-store pickup verification. [[Power management logic]] was implemented to reduce energy consumption by dynamically switching between [[low power]] and [[high power operating modes]]."
     },
 {
   "type": "text",
@@ -152,26 +152,26 @@
       "title": "Use Case Diagram",
       "src": "./images/usecase.jpg",
       "alt": "Use case diagram for supermarket self-checkout system",
-      "caption": "Use case diagram illustrating interactions between in-store customers, online customers, payment gateway, and backend systems"
+      "caption": "Use case diagram illustrating interactions between [[in-store customers]], [[online customers]], [[payment gateway]], and [[backend systems]]"
     },
 {
   "type": "text",
   "title": "Use Case Diagram Explanation",
-  "content": "The use case diagram illustrates the functional interactions between different actors and the supermarket self-checkout system. In-store customers initialize the system, scan items using a camera, and complete payments. The scanning workflow includes continuous item verification against the product database, followed by cart total calculation and checkout confirmation. Optional membership authentication is performed using RFID, extending the payment process with additional validation steps.\n\nOnline customers interact with the system through a website to browse products, add items to the cart, and complete checkout remotely. The website communicates with a MariaDB database to retrieve product details and store cart/order information. For online pickup purchases, the system generates a QR code containing an Order ID, which is scanned during in-store pickup for verification. The payment gateway supports payment methods such as ATM card, PayWave/RFID, and Visa, while backend services handle authentication, item validation, and order summary generation."
-},
+      "content": "The use case diagram illustrates the functional interactions between different actors and the supermarket self-checkout system. [[In-store customers]] initialize the system, [[scan items]] using a camera, and [[complete payments]]. The scanning workflow includes [[continuous item verification]] against the product database, followed by [[cart total calculation]] and [[checkout confirmation]]. Optional [[membership authentication]] is performed using [[RFID]], extending the payment process with additional validation steps.\n\n[[Online customers]] interact with the system through a website to browse products, add items to the cart, and complete checkout remotely. The website communicates with a [[MariaDB database]] to retrieve product details and store cart/order information. For online pickup purchases, the system generates a [[QR code containing an Order ID]], which is scanned during in-store pickup for verification. The payment gateway supports payment methods such as [[ATM card]], [[PayWave/RFID]], and [[Visa]], while backend services handle [[authentication]], [[item validation]], and [[order summary generation]]."
+    },
 
     {
       "type": "image",
       "title": "Hardware & Interface Architecture",
       "src": "./images/Supermarket_BlockDiagram.jpg",
       "alt": "Raspberry Pi hardware interface architecture",
-      "caption": "Hardware interface architecture showing sensors, input devices, and output peripherals connected to the Raspberry Pi"
+      "caption": "Hardware interface architecture showing sensors, input devices, and output peripherals connected to the [[Raspberry Pi]]"
     },
 
     {
       "type": "text",
       "title": "Hardware Architecture Explanation",
-      "content": "The hardware architecture is centered around a Raspberry Pi development board, which serves as the main controller for all system operations. A camera module connected via the CSI port performs barcode scanning for item identification. An RFID reader interfaced through GPIO and SPI pins enables membership authentication, while a keypad connected to GPIO pins allows user input for menu navigation and checkout control.\n\nAn ultrasonic sensor connected to GPIO pins is used to detect object presence and system interaction states. Output devices include an LCD connected through the I2C interface for displaying menus, item details, and payment information, as well as a buzzer connected to a GPIO pin to provide audio feedback during authentication and system events. This modular hardware design ensures reliable real-time interaction between sensors, user interfaces, and backend software components."
+      "content": "The hardware architecture is centered around a [[Raspberry Pi development board]], which serves as the [[main controller]] for all system operations. A [[camera module]] connected via the [[CSI port]] performs [[barcode scanning]] for item identification. An [[RFID reader]] interfaced through [[GPIO]] and [[SPI pins]] enables membership authentication, while a [[keypad]] connected to GPIO pins allows user input for menu navigation and checkout control.\n\nAn [[ultrasonic sensor]] connected to GPIO pins is used to detect object presence and system interaction states. Output devices include an [[LCD]] connected through the [[I2C interface]] for displaying menus, item details, and payment information, as well as a [[buzzer]] connected to a GPIO pin to provide audio feedback during authentication and system events. This [[modular hardware design]] ensures reliable [[real-time interaction]] between sensors, user interfaces, and backend software components."
     },
 
     {
@@ -183,54 +183,54 @@
       "type": "list",
       "title": "System Flow & Operation",
       "items": [
-        "System powers on and displays the main menu on the LCD interface",
-        "User initiates checkout and begins scanning items using the camera",
-        "Scanned items are validated against the product database and added to the cart",
-        "System continuously updates and displays the cumulative total",
-        "User optionally performs RFID-based membership authentication",
-        "Payment is processed securely through the payment system",
-        "For online orders, a QR code is generated and scanned during in-store pickup verification",
-        "System transitions between high and low power modes based on activity state"
+        "System powers on and displays the [[main menu]] on the [[LCD interface]]",
+        "User initiates checkout and begins [[scanning items]] using the [[camera]]",
+        "Scanned items are [[validated against the product database]] and added to the [[cart]]",
+        "System continuously updates and displays the [[cumulative total]]",
+        "User optionally performs [[RFID-based membership authentication]]",
+        "Payment is [[processed securely]] through the [[payment system]]",
+        "For online orders, a [[QR code]] is generated and scanned during [[in-store pickup verification]]",
+        "System transitions between [[High Power Mode (HPM)]] and [[Low Power Mode (LPM)]] based on activity state"
       ]
     },
 
     {
       "type": "text",
       "title": "Outcomes",
-      "content": "The system was successfully implemented based on a structured requirements specification covering item scanning, authentication, payment workflows, online ordering with QR-based pickup verification, and dynamic power management. Functional testing validated end-to-end operation across in-store and online scenarios, demonstrating reliable system behavior and effective energy-saving transitions between Low Power Mode and High Power Mode."
+      "content": "The system was successfully implemented based on a structured [[requirements specification]] covering [[item scanning]], [[authentication]], [[payment workflows]], [[online ordering]] with [[QR-based pickup verification]], and [[dynamic power management]]. [[Functional testing]] validated [[end-to-end operation]] across in-store and online scenarios, demonstrating [[reliable system behavior]] and effective [[energy-saving transitions]] between Low Power Mode and High Power Mode."
     },
 
     {
       "type": "list",
       "title": "Key Functional Features",
       "items": [
-        "System startup and main menu display on LCD with keypad navigation",
-        "In-store item scanning using camera-based barcode detection",
-        "Real-time cart management and cumulative price calculation",
-        "Optional member authentication using RFID with buzzer feedback",
-        "Secure in-store payment processing",
-        "Online shopping support with QR code generation for in-store pickup verification",
-        "Low Power Mode (LPM): Activated when the user exits the system or when no high-power activity is detected for a defined inactivity period to conserve energy",
-        "High Power Mode (HPM): Activated during scanning, database lookup, cart updates, authentication, payment processing, and QR code generation"        
+        "System startup and [[main menu display]] on [[LCD]] with [[keypad navigation]]",
+        "In-store item scanning using [[camera-based barcode detection]]",
+        "Real-time [[cart management]] and [[price calculation]]",
+        "Optional [[member authentication]] using [[RFID]] with [[buzzer feedback]]",
+        "Secure [[in-store payment processing]]",
+        "Online shopping support with [[QR code generation]] for in-store pickup verification",
+        "[[Low Power Mode (LPM)]]: Activated when the user exits the system or when no high-power activity is detected to [[conserve energy]]",
+        "[[High Power Mode (HPM)]]: Activated during scanning, database lookup, cart updates, authentication, payment processing, and QR code generation"
       ]
     },
 {
   "type": "list",
   "title": "Technical Summary",
-  "items": [
-    "Controller: Raspberry Pi",
-    "Programming Language: Python",
-    "Online Platform: Website (Online Shopping)",
-    "Database: MariaDB (Products, Cart, Orders)",
-    "Item Detection: Camera-based Barcode Scanning",
-    "Authentication Module: RFID Reader",
-    "Presence Detection: Ultrasonic Sensor",
-    "User Interface: LCD Display (I2C), Keypad",
-    "Feedback Device: Buzzer",
-    "Order Verification: QR Code Generation",
-    "Power Management: Low Power Mode (LPM), High Power Mode (HPM)",
-    "Application Area: Smart Retail & IoT Automation"
-  ]
+      "items": [
+        "Controller: [[Raspberry Pi]]",
+        "Programming Language: [[Python]]",
+        "Online Platform: [[Website (Online Shopping)]]",
+        "Database: [[MariaDB]] (Products, Cart, Orders)",
+        "Item Detection: [[Camera-based Barcode Scanning]]",
+        "Authentication Module: [[RFID Reader]]",
+        "Presence Detection: [[Ultrasonic Sensor]]",
+        "User Interface: [[LCD Display (I2C)]], [[Keypad]]",
+        "Feedback Device: [[Buzzer]]",
+        "Order Verification: [[QR Code Generation]]",
+        "Power Management: [[Low Power Mode (LPM)]], [[High Power Mode (HPM)]]",
+        "Application Area: [[Smart Retail & IoT Automation]]"
+      ]
 }
   ]
 },
@@ -256,20 +256,19 @@
       "type": "list",
       "title": "My Role",
       "items": [
-        "Designed and implemented the frontend UI with a focus on beginner-friendly financial interactions",
-        "Developed smooth UI animations and interaction feedback to guide user actions",
-        "Implemented animated sign-out interaction for clear session feedback",
-        "Improved navigation continuity using subtle transitions between pages",
-        "Ensured all animations remained lightweight, consistent, and non-intrusive"
+        "Designed and implemented the [[frontend UI]] with a focus on [[beginner-friendly financial interactions]]",
+        "Developed smooth [[UI animations]] and [[interaction feedback]] to guide user actions",
+        "Implemented [[animated sign-out interaction]] for clear session feedback",
+        "Improved [[navigation continuity]] using subtle transitions between pages",
+        "Ensured all animations remained [[lightweight]], [[consistent]], and [[non-intrusive]]"
       ]
     },
 
     {
       "type": "text",
       "title": "Project Overview",
-      "content": "StockPulse is a web-based stock trading simulation platform that allows users to practise buying and selling stocks using virtual funds. The platform focuses on clarity, accessibility, and visual feedback to make stock trading concepts approachable for beginners."
+      "content": "StockPulse is a [[web-based stock trading simulation platform]] that allows users to practise [[buying and selling stocks]] using [[virtual funds]]. The platform focuses on [[clarity]], [[accessibility]], and [[visual feedback]] to make stock trading concepts approachable for beginners."
     },
-
     {
       "type": "gallery",
       "title": "Search & Quick Access",
@@ -277,22 +276,20 @@
         {
           "src": "./images/Stock_Search.jpg",
           "alt": "Search bar and quick links",
-          "caption": "Search bar with quick links allowing users to rapidly find companies by name, ticker, or category."
+          "caption": "Search bar with [[quick links]] allowing users to rapidly find companies by [[name]], [[ticker]], or [[category]]."
         },
         {
           "src": "./images/Stock_QuickLink.png",
           "alt": "Quick links by category",
-          "caption": "Categorized quick links providing fast navigation across different market sectors."
+          "caption": "Categorized [[quick links]] providing fast navigation across different [[market sectors]]."
         }
       ]
     },
-
     {
       "type": "text",
       "title": "User-Friendly Navigation Design",
-      "content": "The search and quick links system reduces friction for users by providing fast access to relevant stocks. This design supports exploration without overwhelming users with excessive data or complex filtering mechanisms."
+      "content": "The [[search and quick links system]] reduces friction for users by providing [[fast access]] to relevant stocks. This design supports [[exploration]] without overwhelming users with excessive data or complex filtering mechanisms."
     },
-
     {
       "type": "gallery",
       "title": "Stock Analysis & Trading Features",
@@ -300,27 +297,27 @@
         {
           "src": "./images/StockPage.png",
           "alt": "Stock page profile",
-          "caption": "Stock Page Profile"
+          "caption": "[[Stock page profile]] displaying company overview and key metrics"
         },
         {
           "src": "./images/StockRange.png",
           "alt": "Stock price range sliders",
-          "caption": "Day’s Range and 52-Week Range sliders visually representing stock price movement."
+          "caption": "[[Day’s Range]] and [[52-Week Range]] sliders visually representing [[stock price movement]]."
         },
         {
           "src": "./images/MarketMetrics.png",
           "alt": "Market metrics display",
-          "caption": "Key metrics including Market Capital, P/E Ratio, Beta, and Dividend Rate presented for quick interpretation."
+          "caption": "Key metrics including [[Market Capital]], [[P/E Ratio]], [[Beta]], and [[Dividend Rate]] presented for quick interpretation."
         },
         {
           "src": "./images/RecommendationTrend.png",
           "alt": "Recommendation trend indicators",
-          "caption": "Recommendation trend bars showing analyst sentiment from Strong Buy to Strong Sell."
+          "caption": "[[Recommendation trend bars]] showing analyst sentiment from [[Strong Buy]] to [[Strong Sell]]."
         },
         {
           "src": "./images/BuySell.png",
           "alt": "Buy and sell interface",
-          "caption": "Buy and sell interface with validation feedback to prevent invalid trades."
+          "caption": "[[Buy and sell interface]] with [[validation feedback]] to prevent invalid trades."
         }
       ]
     },
@@ -328,8 +325,8 @@
     {
       "type": "text",
       "title": "Market Data & Interaction Design",
-      "content": "Stock information is presented using visual sliders, color-coded indicators, and recommendation bars to simplify interpretation. These elements help users understand price movement, valuation, volatility, and market sentiment without requiring prior financial expertise."
-    },
+      "content": "Stock information is presented using [[visual sliders]], [[color-coded indicators]], and [[recommendation bars]] to simplify interpretation. These elements help users understand [[price movement]], [[valuation]], [[volatility]], and [[market sentiment]] without requiring prior financial expertise."
+    },                       
 
     {
       "type": "gallery",
@@ -338,12 +335,12 @@
         {
           "src": "./images/Watchlist.png",
           "alt": "User watchlist",
-          "caption": "Watchlist allowing users to track selected stocks and monitor price changes."
+          "caption": "[[Watchlist]] allowing users to track selected stocks and monitor [[price changes]]."
         },
         {
           "src": "./images/TransactionHistory.png",
           "alt": "Transaction history",
-          "caption": "Transaction history displaying past buy and sell actions for review and learning."
+          "caption": "[[Transaction history]] displaying past buy and sell actions for [[review]] and [[learning]]."
         }
       ]
     },
@@ -351,35 +348,34 @@
     {
       "type": "text",
       "title": "Tracking & Review",
-      "content": "The watchlist and transaction history features support reflective learning by making trading behavior visible. Users can easily revisit past actions and observe trends over time."
+      "content": "The [[watchlist]] and [[transaction history]] features support [[reflective learning]] by making trading behavior visible. Users can easily revisit past actions and observe [[trends over time]]."
     },
-
     {
       "type": "list",
       "title": "Unique Functional Highlights",
       "items": [
-        "Paper trading system enabling stock transactions without financial risk",
-        "Visual price range sliders for intuitive understanding of stock movement",
-        "Market metrics including Market Capital, P/E Ratio, Beta, and Dividend Rate",
-        "Recommendation trend visualization to communicate market sentiment",
-        "Client-side validation preventing invalid trades such as insufficient funds",
-        "Watchlist and transaction history for tracking and review"
+        "[[Paper trading system]] enabling stock transactions without [[financial risk]]",
+        "[[Visual price range sliders]] for intuitive understanding of stock movement",
+        "Market metrics including [[Market Capital]], [[P/E Ratio]], [[Beta]], and [[Dividend Rate]]",
+        "[[Recommendation trend visualization]] to communicate [[market sentiment]]",
+        "[[Client-side validation]] preventing invalid trades such as [[insufficient funds]]",
+        "[[Watchlist]] and [[transaction history]] for tracking and review"
       ]
     },
 {
   "type": "text",
   "title": "Outcome",
-  "content": "This project resulted in a beginner-friendly stock trading simulation platform that makes complex market data easier to understand. By using clear visual indicators, interactive UI elements, and subtle animations, the platform helps users interpret stock movements, trading actions, and portfolio performance with confidence, even without prior financial knowledge."
-},
+      "content": "This project resulted in a [[beginner-friendly stock trading simulation platform]] that makes [[complex market data]] easier to understand. By using [[clear visual indicators]], [[interactive UI elements]], and [[subtle animations]], the platform helps users interpret [[stock movements]], [[trading actions]], and [[portfolio performance]] with confidence, even without prior financial knowledge."
+    },
     {
       "type": "list",
       "title": "Technical Summary",
       "items": [
-        "Frontend: HTML, CSS, JavaScript",
-        "Backend : MySQL, API",
-        "UI/UX Focus: Interaction clarity, motion feedback, accessibility",
-        "Trading Mode: Paper trading using virtual funds",
-        "Domain: Financial Technology (FinTech)"
+        "Frontend: [[HTML]], [[CSS]], [[JavaScript]]",
+        "Backend: [[MySQL]], [[API]]",
+        "UI/UX Focus: [[Interaction clarity]], [[motion feedback]], [[accessibility]]",
+        "Trading Mode: [[Paper trading]] using [[virtual funds]]",
+        "Domain: [[Financial Technology (FinTech)]]"
       ]
     }
   ],
@@ -411,36 +407,36 @@
     {
       "type": "text",
       "title": "Project Background",
-      "content": "This project focuses on reducing manual agricultural labour by developing an autonomous soil tilling robot. The system navigates a predefined path while collecting soil and environmental data, improving efficiency and reducing physical workload."
+      "content": "This project focuses on reducing [[manual agricultural labour]] by developing an [[autonomous soil tilling robot]]. The system navigates a [[predefined path]] while collecting [[soil]] and [[environmental data]], improving [[efficiency]] and reducing [[physical workload]]."
     },
 {
   "type": "text",
   "title": "Problem",
-  "content": "Traditional soil tilling is labour-intensive, time-consuming, and energy-draining, especially in high-temperature environments. Manual cultivation requires continuous human effort and contributes to increased energy consumption, making it inefficient and unsustainable for long-term agricultural practices. These challenges highlight the need for automation to improve efficiency while supporting sustainable agricultural development."
-},
+      "content": "Traditional soil tilling is [[labour-intensive]], [[time-consuming]], and [[energy-draining]], especially in [[high-temperature environments]]. Manual cultivation requires continuous human effort and contributes to increased [[energy consumption]], making it inefficient and unsustainable for long-term agricultural practices. These challenges highlight the need for [[automation]] to improve efficiency while supporting [[sustainable agricultural development]]."
+    },
 {
   "type": "text",
   "title": "Solution",
-  "content": "To address these challenges, this project introduces an autonomous soil tilling robot that automates navigation and soil monitoring tasks. By integrating sensors, control logic, and actuators, the system reduces reliance on manual labour, optimizes energy usage, and improves operational efficiency. The solution aligns with UN Sustainable Development Goal 9 by promoting innovation, efficiency, and sustainable agricultural technology."
-},
+      "content": "To address these challenges, this project introduces an [[autonomous soil tilling robot]] that [[automates navigation]] and [[soil monitoring tasks]]. By integrating [[sensors]], [[control logic]], and [[actuators]], the system reduces reliance on manual labour, [[optimizes energy usage]], and improves [[operational efficiency]]. The solution aligns with [[UN Sustainable Development Goal 9]] by promoting [[innovation]], [[efficiency]], and [[sustainable agricultural technology]]."
+    },
     {
       "type": "image",
       "title": "Block Diagram",
       "src": "./images/SoilTiller_BlockDiagram.jpeg",
       "alt": "Soil tiller block diagram",
-      "caption": "Block diagram showing the relationship between the Arduino controller, sensors, actuators, and display."
+      "caption": "Block diagram showing the relationship between the [[Arduino controller]], [[sensors]], [[actuators]], and [[display]]."
     },
 {
   "type": "list",
   "title": "System Components & Operation",
   "items": [
-    "The system initializes the Arduino controller, sensors, and motors upon power-up.",
-    "IR sensors enable autonomous line-following navigation along a predefined path.",
-    "An ultrasonic sensor continuously monitors for obstacles and halts movement when required to prevent collisions.",
-    "Soil moisture and environmental sensors collect soil condition, temperature, and humidity data during operation.",
-    "Based on sensor input, the servo motor and linear actuator control mechanical movement and watering-related actions.",
-    "Real-time sensor readings and system status are displayed on the LCD for user feedback and monitoring."
-  ]
+        "The system initializes the [[Arduino controller]], [[sensors]], and [[motors]] upon power-up.",
+        "[[IR sensors]] enable autonomous [[line-following navigation]] along a predefined path.",
+        "An [[ultrasonic sensor]] continuously monitors for [[obstacles]] and halts movement when required to prevent [[collisions]].",
+        "[[Soil moisture]] and [[environmental sensors]] collect [[soil condition]], [[temperature]], and [[humidity data]] during operation.",
+        "Based on sensor input, the [[servo motor]] and [[linear actuator]] control mechanical movement and [[watering-related actions]].",
+        "Real-time sensor readings and system status are displayed on the [[LCD]] for user feedback and monitoring."
+      ]
 },
 {
   "type": "gallery",
@@ -450,33 +446,34 @@
       "type": "youtube",
       "title": "Soil Moisture Demo",
       "id": "gowhitPGVU4",
-      "caption": "Prototype test showing soil moisture measurement and actuator response for watering decision."
-    },
+          "caption": "Prototype test showing [[soil moisture measurement]] and [[actuator response]] for watering decision."
+        },
     {
       "type": "youtube",
       "title": "Line Following Demo",
       "id": "aU7JT5yDpOU",
-      "caption": "Prototype test demonstrating autonomous line-following navigation and obstacle detection."
-    }
+          "caption": "Prototype test demonstrating autonomous [[line-following navigation]] and [[obstacle detection]]."
+        }
   ]
 },
 {
   "type": "text",
   "title": "Prototype Behaviour Observation",
-  "content": "During testing, the robot demonstrated stable line-following behaviour and reliable obstacle detection. Sensor readings were updated consistently on the LCD, validating both the firmware logic and hardware integration. In addition, soil moisture readings were used to determine whether watering was required, where the linear servo actuator was lowered to perform watering when low moisture was detected and remained inactive when sufficient moisture was present."
-},
+      "content": "During testing, the robot demonstrated [[stable line-following behaviour]] and [[reliable obstacle detection]]. Sensor readings were updated consistently on the [[LCD]], validating both the [[firmware logic]] and [[hardware integration]]. In addition, [[soil moisture readings]] were used to determine whether watering was required, where the [[linear servo actuator]] was lowered to perform watering when low moisture was detected and remained inactive when sufficient moisture was present."
+    },
     {
   "type": "image",
   "title": "System Design Poster",
   "src": "./images/SoilTiller_Poster.jpg",
   "alt": "Soil tiller system poster showing problem, sensors, block diagram, flow chart, and outcomes",
-  "caption": "Consolidated system poster illustrating the problem statement, sensor integration, control logic, block diagram, implementation steps, outcomes, and future improvements."
+      "caption": "Consolidated system poster illustrating the [[problem statement]], [[sensor integration]], [[control logic]], [[block diagram]], [[implementation steps]], [[outcomes]], and [[future improvements]]."
     },
+
 {
   "type": "text",
   "title": "Poster Explanation",
-  "content": "The poster summarizes the complete system design in a single view, covering the problem statement, sensor roles, actuator control, flow logic, and implementation process. It also highlights the project outcomes and proposed future improvements, making it easier to understand the overall system without referring to separate diagrams."
-},
+      "content": "The poster summarizes the complete [[system design]] in a single view, covering the [[problem statement]], [[sensor roles]], [[actuator control]], [[flow logic]], and [[implementation process]]. It also highlights the [[project outcomes]] and [[proposed future improvements]], making it easier to understand the overall system without referring to separate diagrams."
+    },
 {
   
       "type": "youtube",
@@ -486,34 +483,34 @@
 {
   "type": "text",
   "title": "Demonstration Context",
-  "content": "This demonstration reflects the application of Industry 4.0 concepts in agriculture, where sensors, automation, and control logic are integrated to enable data-driven decision-making. By automating soil condition assessment and navigation, the system reduces reliance on manual labour while supporting smarter and more sustainable farming practices."
-},
+      "content": "This demonstration reflects the application of [[Industry 4.0 concepts]] in agriculture, where [[sensors]], [[automation]], and [[control logic]] are integrated to enable [[data-driven decision-making]]. By automating [[soil condition assessment]] and [[navigation]], the system reduces reliance on manual labour while supporting [[smarter]] and [[more sustainable farming practices]]."
+    },
     {
       "type": "list",
       "title": "My Role",
       "items": [
-        "Developed Arduino firmware for navigation and sensor handling.",
-        "Integrated IR, ultrasonic, soil moisture, and environmental sensors.",
-        "Tested and debugged firmware and hardware integration.",
-        "Troubleshoot the electrical wiring system."
+        "Developed [[Arduino firmware]] for [[navigation]] and [[sensor handling]].",
+        "Integrated [[IR]], [[ultrasonic]], [[soil moisture]], and [[environmental sensors]].",
+        "Tested and debugged [[firmware]] and [[hardware integration]].",
+        "Troubleshot the [[electrical wiring system]]."
       ]
     },
     {
       "type": "text",
       "title": "Outcomes",
       "content": [
-        "This project developed an autonomous soil tiller that automated soil monitoring and navigation through integrated sensing and control. Soil moisture data was used to guide watering decisions, and prototype demonstrations validated the application of Industry 4.0 concepts in agriculture."
+        "This project developed an [[autonomous soil tiller]] that automated [[soil monitoring]] and [[navigation]] through integrated [[sensing]] and [[control]]. [[Soil moisture data]] was used to guide [[watering decisions]], and prototype demonstrations validated the application of [[Industry 4.0 concepts]] in agriculture."
       ]
     },
     {
       "type": "list",
       "title": "Technical Summary",
       "items": [
-        "Controller: Arduino",
-        "Sensors: IR, Ultrasonic, Soil Moisture, Environmental",
-        "Actuators: Servo motor, Linear actuator",
-        "Display: LCD",
-        "Application Domain: Agricultural automation and robotics"
+        "Controller: [[Arduino]]",
+        "Sensors: [[IR]], [[Ultrasonic]], [[Soil Moisture]], [[Environmental]]",
+        "Actuators: [[Servo motor]], [[Linear actuator]]",
+        "Display: [[LCD]]",
+        "Application Domain: [[Agricultural automation]] and [[robotics]]"
       ]
     }
   ]
@@ -544,17 +541,17 @@
     {
       "type": "text",
       "title": "Problem",
-      "content": "Many users struggle with proper waste separation due to unclear bin categories, unpleasant handling, and lack of guidance, especially in public spaces. Manual sorting often leads to incorrect disposal, reduced recycling efficiency, and increased maintenance effort."
+      "content": "Many users struggle with proper waste separation due to [[unclear bin categories]], [[unpleasant handling]], and [[lack of guidance]], especially in public spaces. Manual sorting often leads to [[incorrect disposal]], reduced [[recycling efficiency]], and increased [[maintenance effort]]."
     },
     {
   "type": "text",
   "title": "User Interviews",
-  "content": "User interviews were conducted with housewives and members of the public to understand current challenges in waste disposal. Housewives highlighted difficulties in determining whether bins were full, as there is no clear indication without opening the bin, often resulting in overflowing trash. Public users reported that bins in shared spaces, especially in HDB areas, are frequently full and that waste is often not properly separated into recyclable and general waste. These insights informed the need for clearer guidance, automated sorting, and improved bin capacity awareness in the system design."
-},
+      "content": "User interviews were conducted with [[housewives]] and [[members of the public]] to understand current challenges in waste disposal. Housewives highlighted difficulties in determining whether bins were [[full]] due to the absence of [[clear fill-level indicators]], often resulting in [[overflowing trash]]. Public users reported that bins in shared spaces, especially in [[HDB areas]], are frequently full and that waste is often not properly separated. These insights informed the need for [[clearer guidance]], [[automated sorting]], and improved [[bin capacity awareness]] in the system design."
+    },
     {
       "type": "text",
       "title": "Solution",
-      "content": "The system introduces a smart bin that automatically detects waste characteristics and routes items into the correct compartment using a motorized sorting mechanism. Visual feedback is provided through indicator LEDs to guide users during disposal. Optional wireless connectivity enables remote monitoring of bin status, supporting maintenance planning and system scalability."
+      "content": "The system introduces a [[smart bin]] that automatically detects [[waste characteristics]] and routes items into the [[correct compartment]] using a [[motorized sorting mechanism]]. [[Visual feedback]] is provided through [[indicator LEDs]] to guide users during disposal. Optional [[wireless connectivity]] enables [[remote monitoring]] of bin status, supporting [[maintenance planning]] and [[system scalability]]."
     },
     
 {
@@ -564,53 +561,53 @@
     {
       "src": "./images/FlowChart.jpg",
       "alt": "System flow chart showing waste detection, decision logic, and actuator control",
-      "caption": "Flow chart illustrating the system’s operational logic, including waste detection, classification, and actuator control sequence."
-    },
+          "caption": "Flow chart illustrating the system’s [[operational logic]], including [[waste detection]], [[classification]], and [[actuator control sequence]]."
+        },
     {
       "src": "./images/BlockDiagram.jpg",
       "alt": "Block diagram of hardware components and microcontroller connections",
-      "caption": "Block diagram highlighting hardware inputs, microcontroller processing, and output modules such as actuators and indicators."
-    }
+          "caption": "Block diagram highlighting [[hardware inputs]], [[microcontroller processing]], and [[output modules]] such as actuators and indicators."
+        }
   ]
 },
 
 {
   "type": "list",
   "title": "System Architecture & Operational Flow",
-  "items": [
-    "The system begins by initializing the microcontroller, sensors, indicators, and communication modules after power-up.",
-    "Ultrasonic rangers and the LDR continuously capture input data related to waste presence, bin level, and basic waste characteristics.",
-    "Bin identification is determined using DIP switch configuration, allowing the controller to differentiate between waste compartments.",
-    "The microcontroller processes all incoming sensor data and executes decision logic to classify waste and assess bin capacity.",
-    "Based on the control decision, a servo motor actuates the mechanical sorting mechanism to route waste into the appropriate bin.",
-    "Laser and red/green LED indicators provide immediate visual feedback to guide user interaction and indicate system status.",
-    "When bin sections reach capacity, the system triggers alerts and transmits status updates through the wireless module for monitoring.",
-    "The operation cycle completes after feedback and notification are delivered, readying the system for the next interaction."
-  ]
+      "items": [
+        "The system begins by initializing the [[microcontroller]], [[sensors]], [[indicators]], and [[communication modules]] after power-up.",
+        "[[Ultrasonic rangers]] and the [[LDR]] continuously capture input data related to [[waste presence]], [[bin level]], and basic waste characteristics.",
+        "Bin identification is determined using [[DIP switch configuration]], allowing the controller to differentiate between [[waste compartments]].",
+        "The microcontroller processes all incoming sensor data and executes [[decision logic]] to classify waste and assess bin capacity.",
+        "Based on the control decision, a [[servo motor]] actuates the [[mechanical sorting mechanism]] to route waste into the appropriate bin.",
+        "[[Laser]] and [[red/green LED indicators]] provide immediate [[visual feedback]] to guide user interaction and indicate system status.",
+        "When bin sections reach capacity, the system triggers [[alerts]] and transmits status updates through the [[wireless module]] for monitoring.",
+        "The operation cycle completes after feedback and notification are delivered, readying the system for the next interaction."
+      ]
 },
   {
   "type": "image",
   "title": "Data Flow Diagram",
       "src": "./images/DataFlowDiagram.jpg",
       "alt": "Data flow diagram showing sensor data transmission and monitoring",
-      "caption": "Data flow diagram showing how sensor data is processed, transmitted, and visualized through cloud-based monitoring."
-  },
+      "caption": "Data flow diagram showing how [[sensor data]] is [[processed]], [[transmitted]], and [[visualized]] through cloud-based monitoring."
+    },
 {
   "type": "list",
   "title": "Data Flow Diagram — Data Processing & Monitoring",
-  "items": [
-    "Sensor nodes continuously collect waste level and status data during operation.",
-    "Collected sensor data is transmitted to a central controller for processing.",
-    "The controller analyses bin status and determines whether alerts or updates are required.",
-    "Relevant data is sent to cloud storage for logging and analysis.",
-    "A dashboard interface visualizes system status for monitoring and maintenance."
-   ]
+      "items": [
+        "[[Sensor nodes]] continuously collect waste level and status data during operation.",
+        "Collected sensor data is transmitted to a [[central controller]] for processing.",
+        "The controller [[analyses bin status]] and determines whether [[alerts]] or updates are required.",
+        "Relevant data is sent to [[cloud storage]] for [[logging]] and [[analysis]].",
+        "A [[dashboard interface]] visualizes system status for monitoring and maintenance."
+      ]
 },
 {
   "type": "text",
   "title": "Mobile Monitoring (MIT App Inventor)",
-  "content": "A lightweight mobile monitoring interface was developed using MIT App Inventor to display the bin’s fill level received from the system’s wireless module. This enables quick remote checking of bin status without physically opening the bin, supporting faster response for clearing and maintenance."
-},
+      "content": "A lightweight [[mobile monitoring interface]] was developed using [[MIT App Inventor]] to display the bin’s [[fill level]] received from the system’s [[wireless module]]. This enables quick [[remote checking]] of bin status without physically opening the bin, supporting faster [[response]] for clearing and maintenance."
+    },
 {
   "type": "gallery",
   "title": "System Demonstration (Image-Based Overview)",
@@ -618,46 +615,46 @@
     {
       "src": "./images/TrashBin.jpg",
       "alt": "Hand-drawn system diagram illustrating smart bin sensing and sorting mechanism",
-      "caption": "Conceptual system diagram illustrating the smart bin architecture, including ultrasonic rangers for trash-level detection, a light sensor and laser for material identification, and a servo motor controlling waste routing between compartments."
-    },
+          "caption": "Conceptual system diagram illustrating the [[smart bin architecture]], including [[ultrasonic rangers]] for trash-level detection, a [[light sensor]] and [[laser]] for material identification, and a [[servo motor]] controlling waste routing."
+        },
     {
       "src": "./images/smartbin_hardware_setup.jpg",
       "alt": "Smart bin hardware prototype with sensors and dual compartments",
-      "caption": "Physical prototype setup showing the smart bin with dual compartments, ultrasonic sensors mounted for trash-level detection, and the microcontroller circuitry handling real-time sensing and classification."
-    },
+          "caption": "Physical prototype setup showing the smart bin with [[dual compartments]], [[ultrasonic sensors]] mounted for trash-level detection, and the [[microcontroller circuitry]] handling real-time sensing and classification."
+        },
     {
       "src": "./images/smartbin_thingspeak_dashboard.jpg",
       "alt": "ThingSpeak dashboard displaying trash level data",
-      "caption": "Live cloud dashboard (ThingSpeak) visualising trash-level data and system status, demonstrating real-time data transmission from the smart bin to the monitoring platform."
-    },
+          "caption": "Live cloud dashboard ([[ThingSpeak]]) visualising [[trash-level data]] and system status, demonstrating [[real-time data transmission]] from the smart bin."
+        },
     {
       "src": "./images/smartbin_mobile_notification.png",
       "alt": "Mobile app displaying trash level notification",
-      "caption": "Mobile application interface using MIT App Inventor showing real-time trash-level notifications, indicating that the plastics compartment is full while the general waste compartment remains available."
-    }
+          "caption": "Mobile application interface using [[MIT App Inventor]] showing [[real-time trash-level notifications]], indicating bin capacity status."
+        }
   ]
 },
     {
       "type": "list",
       "title": "My Role",
       "items": [
-        "Contributed to concept ideation and feature prioritization using feasibility and impact analysis.",
-        "Helped design the user interaction flow based on interview findings and personas.",
-        "Assisted in creating system diagrams including block diagrams and flowcharts.",
-        "Supported documentation and presentation of the project for evaluation."
+        "Contributed to [[concept ideation]] and [[feature prioritization]] using feasibility and impact analysis.",
+        "Helped design the [[user interaction flow]] based on interview findings and personas.",
+        "Assisted in creating [[system diagrams]] including block diagrams and flowcharts.",
+        "Supported [[documentation]] and [[presentation]] of the project for evaluation."
       ]
     },
 {
   "type": "list",
   "title": "Technical Summary",
-  "items": [
-    "Domain: IoT Smart Waste Management",
-    "Controller: Microcontroller-based decision logic",
-    "Sensors: Ultrasonic sensors, LDR, identification switches",
-    "Actuator: Servo motor for automated sorting",
-    "Connectivity: Wireless module for monitoring and diagnostics",
-    "Mobile Application: MIT App Inventor for real-time bin level display and status monitoring"
-  ]
+      "items": [
+        "Domain: [[IoT Smart Waste Management]]",
+        "Controller: [[Microcontroller-based decision logic]]",
+        "Sensors: [[Ultrasonic sensors]], [[LDR]], [[identification switches]]",
+        "Actuator: [[Servo motor]] for automated sorting",
+        "Connectivity: [[Wireless module]] for monitoring and diagnostics",
+        "Mobile Application: [[MIT App Inventor]] for real-time bin level display and status monitoring"
+      ]
 }
   ],
     "links": [
@@ -689,21 +686,18 @@
     {
       "type": "text",
       "title": "At a Glance",
-      "content": "SP Pals is a student-focused social platform concept designed for Singapore Polytechnic. It centralises campus updates and student interaction features such as feeds, profiles, search, and messaging, supporting a more connected campus community experience."
+      "content": "SP Pals is a [[student-focused social platform]] concept designed for [[Singapore Polytechnic]]. It centralises [[campus updates]] and [[student interaction features]] such as feeds, profiles, search, and messaging, supporting a more [[connected campus community]] experience."
     },
-
     {
       "type": "text",
       "title": "Problem",
-      "content": "Students rely on scattered sources (multiple apps and groups) to keep up with campus news and peer communication. This fragmentation makes it harder to discover updates, find communities, and interact efficiently in one place."
+       "content": "Students rely on [[scattered sources]] (multiple apps and groups) to keep up with campus news and peer communication. This [[fragmentation]] makes it harder to [[discover updates]], [[find communities]], and [[interact efficiently]] in one place."
     },
-
     {
       "type": "text",
       "title": "Proposed Solution",
-      "content": "A single SP-centric social app that combines campus updates and student interaction. The design prioritises simple navigation, clear UI hierarchy, and familiar social patterns so students can adopt it quickly."
+      "content": "A single [[SP-centric social app]] that combines [[campus updates]] and [[student interaction]]. The design prioritises [[simple navigation]], [[clear UI hierarchy]], and [[familiar social patterns]] so students can adopt it quickly."
     },
-
     {
       "type": "gallery",
       "title": "Key UI Flow Screens",
@@ -711,27 +705,27 @@
 {
   "src": "./images/overall.jpeg",
   "alt": "Overall application interface showing multiple main screens",
-  "caption": "Overall application view presenting the main screens and interface layout."
-},
+          "caption": "Overall application view presenting the [[main screens]] and [[interface layout]]."
+        },
         {
           "src": "./images/sppals_flow_home_profile_settings_qr.png",
           "alt": "Home, Profile, Settings and QR/Share screens",
-          "caption": "Main navigation flow: Home feed → Profile → Settings, with QR/Share for quick profile linking."
+          "caption": "Main navigation flow: [[Home feed]] → [[Profile]] → [[Settings]], with [[QR / Share]] for quick profile linking."
         },
 {
   "src": "./images/sppals_flow_search_profile_chat_message1.png",
   "alt": "Search, profile viewing, chat list and message screens",
-  "caption": "Step 1 — User discovery flow: Searching for students and viewing individual profiles."
-},
+          "caption": "Step 1 — [[User discovery flow]]: Searching for students and viewing individual profiles."
+        },
 {
   "src": "./images/sppals_flow_search_profile_chat_message2.jpg",
   "alt": "Chat list and messaging interface",
-  "caption": "Step 2 — Communication flow: Opening chat conversations and sending real-time messages."
-},
+          "caption": "Step 2 — [[Communication flow]]: Opening chat conversations and sending [[real-time messages]]."
+        },
         {
           "src": "./images/sppals_flow_notifications_create_filter.png",
           "alt": "Notifications, post creation and filter options",
-          "caption": "Engagement flow: Notifications and post creation with filters to organise content discovery."
+          "caption": "[[Engagement flow]]: Notifications and post creation with [[filters]] to organise content discovery."
         }
       ]
     },
@@ -739,60 +733,60 @@
     {
       "type": "list",
       "title": "Core Features",
-"items": [
-  "Home feed for campus-related posts and student updates",
-  "Search functionality to quickly find students and relevant content",
-  "User profiles to showcase student identity, activities, and posts",
-  "Integrated chat box for real-time messaging, powered by Firebase Realtime Database",
-  "Post filtering options to categorize content into CCA, Calendar, and Lost & Found sections",
-  "Notification system to keep users informed of activity and updates",
-  "Post creation flow for sharing announcements and updates"
-]
+      "items": [
+        "[[Home feed]] for campus-related posts and student updates",
+        "[[Search functionality]] to quickly find students and relevant content",
+        "[[User profiles]] to showcase student identity, activities, and posts",
+        "[[Integrated chat box]] for [[real-time messaging]], powered by [[Firebase Realtime Database]]",
+        "[[Post filtering options]] to categorize content into [[CCA]], [[Calendar]], and [[Lost & Found]] sections",
+        "[[Notification system]] to keep users informed of activity and updates",
+        "[[Post creation flow]] for sharing announcements and updates"
+      ]
 
     },
 
     {
       "type": "text",
       "title": "UI/UX Design Decisions",
-      "content": "The interface follows familiar social app patterns to reduce learning time. Key flows (home → search → profile → chat) were mapped to minimise taps, and screens were designed with consistent layout and spacing to keep interaction predictable."
+      "content": "The interface follows [[familiar social app patterns]] to reduce learning time. Key flows ([[home → search → profile → chat]]) were mapped to [[minimise taps]], and screens were designed with [[consistent layout]] and [[spacing]] to keep interaction predictable."
     },
 
     {
       "type": "list",
       "title": "Unique Functional Highlights",
       "items": [
-        "QR / share profile feature to connect quickly without typing usernames",
-        "Structured user flows for search → profile → chat to reduce friction",
-        "Post filters to support browsing and content organisation",
-        "Campus-focused positioning to differentiate from general social platforms"
+        "[[QR / share profile feature]] to connect quickly without typing usernames",
+        "[[Structured user flows]] for search → profile → chat to reduce friction",
+        "[[Post filters]] to support browsing and content organisation",
+        "[[Campus-focused positioning]] to differentiate from general social platforms"
       ]
     },
 
     {
       "type": "text",
       "title": "My Role",
-      "content": "I focused on the UI/UX flow, Splash Screen and screen design planning, including navigation structure, interaction flow between main modules, and preparing polished mockups for evaluation."
+      "content": "I focused on the [[UI/UX flow]], [[Splash Screen]] and [[screen design planning]], including [[navigation structure]], [[interaction flow]] between main modules, and preparing [[polished mockups]] for evaluation."
     },
 {
   "type": "text",
   "title": "Outcome",
-  "content": "Designed a unified campus social app concept by consolidating feeds, search, profiles, and real-time messaging into a single platform, resulting in a clearer end-to-end user experience that reduces information fragmentation and improves student engagement within the campus community."
-},
+      "content": "Designed a [[unified campus social app concept]] by consolidating [[feeds]], [[search]], [[profiles]], and [[real-time messaging]] into a single platform, resulting in a clearer [[end-to-end user experience]] that reduces [[information fragmentation]] and improves [[student engagement]] within the campus community."
+    },
 {
   "type": "list",
   "title": "Technical Summary",
-  "items": [
-    "Platform: Android mobile application, Figma",
-    "Backend & Services: Firebase (Realtime Database) and RESTful APIs",
-    "Deliverables: UI mockups, UX flows, and feature specifications",
-    "Focus: Navigation structure, search-to-chat flow, and usability consistency",
-    "Domain: Student social platform / campus community"
-  ]
+      "items": [
+        "Platform: [[Android mobile application]], [[Figma]]",
+        "Backend & Services: [[Firebase (Realtime Database)]], [[RESTful APIs]]",
+        "Deliverables: [[UI mockups]], [[UX flows]], and [[feature specifications]]",
+        "Focus: [[Navigation structure]], [[search-to-chat flow]], and [[usability consistency]]",
+        "Domain: [[Student social platform]] / [[campus community]]"
+      ]
 },
     {
       "type": "text",
       "title": "Recognition",
-      "content": "This project was selected and featured under the SP Batey Hackathon & Challenge 2024."
+      "content": "This project was [[selected]] and [[featured]] under the [[SP Batey Hackathon & Challenge 2024]]."
     }
   ],
      "links": [
