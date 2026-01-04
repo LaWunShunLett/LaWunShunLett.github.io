@@ -446,13 +446,13 @@
       "type": "youtube",
       "title": "Soil Moisture Demo",
       "id": "gowhitPGVU4",
-          "caption": "Prototype test showing [[soil moisture measurement]] and [[actuator response]] for watering decision."
+          "caption": "Prototype test showing soil moisture measurement and actuator response for watering decision."
         },
     {
       "type": "youtube",
       "title": "Line Following Demo",
       "id": "aU7JT5yDpOU",
-          "caption": "Prototype test demonstrating autonomous [[line-following navigation]] and [[obstacle detection]]."
+          "caption": "Prototype test demonstrating autonomous line-following navigation and obstacle detection."
         }
   ]
 },
