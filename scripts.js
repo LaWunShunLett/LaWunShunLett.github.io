@@ -39,4 +39,21 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 });
+/* ===============================
+   Image deterrence (not foolproof)
+   =============================== */
+
+// Disable right-click on images only
+document.addEventListener("contextmenu", (e) => {
+  if (e.target && e.target.tagName === "IMG") {
+    e.preventDefault();
+  }
+});
+
+// Prevent dragging images
+document.addEventListener("dragstart", (e) => {
+  if (e.target && e.target.tagName === "IMG") {
+    e.preventDefault();
+  }
+});
 

@@ -493,6 +493,27 @@ body:not(.preload) .logo-anim-up{
     max-height: 480px;
   }
 }
+/* MOBILE: buttons side-by-side if possible, stack if long
+   Source Code stays on top when stacked */
+@media (max-width: 600px){
+  .pd-actions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Stack buttons when they wrap */
+  .pd-actions > *{
+    flex: 1 1 100%;
+  }
+
+  /* Source Code priority (GitHub / GitLab / Bitbucket links) */
+  .pd-actions > a[href*="github"],
+  .pd-actions > a[href*="gitlab"],
+  .pd-actions > a[href*="bitbucket"]{
+    order: -1;
+  }
+}
 
 /* Tablets */
 @media (max-width: 900px){
