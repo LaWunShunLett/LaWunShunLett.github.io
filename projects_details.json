@@ -789,6 +789,360 @@
       "url": "https://github.com/LaWunShunLett/SPpals"
     }
   ]
-}
+},
+{
+  "id": "5g-aiot-face-recognition",
+  "title": "5G AIoT Face Recognition Application — Smart Access Control",
+  "year": "2026",
+  "role": "AIoT Systems Developer | Computer Vision & Network Integration",
+  "tags": [
+    "AIoT",
+    "Computer Vision",
+    "5G Network",
+    "Smart Security",
+    "Python Development",
+    "Academic Project – Singapore Polytechnic"
+  ],
 
+  "heroImage": "./images/FaceRecognition.png",
+  "heroAlt": "5G AIoT Face Recognition Access Control System",
+  "links": [
+    {
+      "label": "Source Code",
+      "url": "https://github.com/LaWunShunLett07/5GAIoT_FaceRecongnition_ET0743"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "title": "Project Overview",
+      "content": "This project explores how 5G connectivity, Edge Computing (MEC), and Artificial Intelligence can be integrated to create a secure smart access control solution. A Raspberry Pi equipped with a Pi Camera captures live video and transmits it over a 5G Standalone (SA) network to a MEC laptop where facial recognition is performed in real time using CodeProject.AI. The system demonstrates low-latency video transmission, AI-powered identity verification, and automated access control for smart building environments."
+    },
+
+    {
+      "type": "text",
+      "title": "Problem Statement",
+      "content": "Traditional access control systems rely on physical keys, access cards, or PIN codes that can be lost, stolen, duplicated, or shared with unauthorized individuals. These methods also require physical interaction and often lack intelligent identity verification. The project addresses these limitations by developing a contactless facial recognition system that leverages 5G communication and edge intelligence to provide secure, real-time authentication."
+    },
+
+    {
+      "type": "image",
+      "src": "./images/5g_Proposal.jpg",
+      "caption": "Overall 5G Facial Recognition System Project Proposal"
+    },
+
+    {
+      "type": "text",
+      "title": "System Architecture",
+      "content": "The system consists of a Raspberry Pi transmitter equipped with a Pi Camera and RM502Q-AE 5G HAT module, a 5G network infrastructure, and a MEC laptop acting as the receiver and AI processing platform. Live video is streamed through RTSP over the 5G network, allowing the MEC device to perform face detection and recognition with minimal latency while maintaining high video quality."
+    },
+
+    {
+      "type": "text",
+      "title": "5G Connectivity",
+      "content": "To establish end-to-end 5G communication, RM502Q-AE 5G HAT modules were configured on both the transmitter and receiver sides. The Raspberry Pi transmitter streamed data through the 5G network while the MEC laptop accessed the network through a USB-connected 5G HAT. MBIM mode was selected for improved stability and PySerial scripts were developed to automate modem initialization, network registration, public IP acquisition, and connectivity verification."
+    },
+
+    {
+      "type": "image",
+      "src": "./images/5g-hardware-setup.jpg",
+      "caption": "RM502Q-AE 5G HAT Hardware Setup"
+    },
+
+    {
+      "type": "text",
+      "title": "Video Streaming Over 5G",
+      "content": "Live video captured by the Raspberry Pi Camera was encoded using H.264 through FFmpeg and published through a MediaMTX RTSP server. The receiver connected to the RTSP stream over the 5G network and continuously displayed incoming video frames. Frame skipping and timestamp overlays were implemented to reduce processing overhead while ensuring the displayed feed remained live and synchronized."
+    },
+
+    {
+      "type": "image",
+      "src": "./images/rtsp-streaming-demo.jpg",
+      "caption": "RTSP Video Streaming Over 5G"
+    },
+
+    {
+      "type": "text",
+      "title": "Face Recognition & Access Control",
+      "content": "Facial recognition was implemented using CodeProject.AI. Authorized users were registered into the facial recognition database before deployment. During operation, video frames were processed using AI-based face detection and recognition APIs. Detected faces were compared against registered identities, and confidence thresholds were applied to ensure reliable authentication. Recognition results were linked to LED actuation logic, where authorized users triggered an access indicator while unrecognized individuals were denied access."
+    },
+
+    {
+      "type": "image",
+      "src": "./images/facial-recognition-demo.jpg",
+      "caption": "Real-Time Face Detection and Recognition"
+    },
+
+    {
+      "type": "text",
+      "title": "Performance Optimization",
+      "content": "The initial implementation used a single-threaded architecture, causing the video display to freeze while waiting for AI processing responses. To improve responsiveness, the system was redesigned using a multi-threaded non-blocking architecture. Video rendering and AI processing were separated into independent workflows, frame resizing and JPEG compression were optimized, persistent HTTP connection pooling was introduced, and disk I/O operations were eliminated. These improvements increased performance from approximately 3–5 FPS to over 30 FPS while maintaining smooth video playback and significantly reducing latency."
+    },
+
+    {
+      "type": "image",
+      "src": "./images/performance-comparison.jpg",
+      "caption": "Before vs After Performance Optimization"
+    },
+
+    {
+      "type": "text",
+      "title": "Multiple Face Detection & Activity Logging",
+      "content": "The system was further enhanced to support multiple-face detection, allowing several individuals to be recognized simultaneously within a single frame. Each detected face was bounded and labeled with its corresponding identity and confidence score. An automated Excel-based logging system was developed to create a real-time audit trail containing timestamps, recognized usernames, and confidence values. Background-thread logging with cooldown mechanisms prevented duplicate entries while maintaining system performance."
+    },
+
+    {
+      "type": "image",
+      "src": "./images/multi-face-detection.jpg",
+      "caption": "Multiple Face Detection and Recognition"
+    },
+
+    {
+      "type": "image",
+      "src": "./images/recognition-log.jpg",
+      "caption": "Automated Recognition Activity Logging"
+    },
+{
+  "type": "text",
+  "title": "Project Demonstration",
+  "content": "The following demonstration showcases the complete end-to-end workflow of the system, including 5G connectivity establishment, RTSP video streaming, AI-powered facial recognition, LED-based access control, multiple-face detection, and automated activity logging."
+},
+{
+  "type": "youtube",
+  "title": "5G AIoT Facial Recognition Door Access System Demonstration",
+  "id": "smlk5ebVEmk"
+},
+    {
+      "type": "list",
+      "title": "My Contributions",
+      "items": [
+        "Configured 5G SA connectivity using RM502Q-AE 5G HAT modules.",
+        "Developed Python scripts for modem control using PySerial.",
+        "Implemented RTSP video streaming using FFmpeg and MediaMTX.",
+        "Integrated CodeProject.AI facial recognition APIs.",
+        "Developed multi-threaded video processing architecture.",
+        "Implemented LED-based access control actuation.",
+        "Developed automated Excel logging functionality.",
+        "Optimized video processing performance and reduced latency.",
+        "Tested end-to-end communication across Raspberry Pi, 5G network, and MEC platforms."
+      ]
+    },
+
+    {
+      "type": "list",
+      "title": "Technologies Used",
+      "items": [
+        "Python",
+        "Raspberry Pi",
+        "Pi Camera",
+        "RM502Q-AE 5G HAT",
+        "5G Standalone (SA)",
+        "OpenCV",
+        "CodeProject.AI",
+        "FFmpeg",
+        "MediaMTX",
+        "RTSP",
+        "PySerial",
+        "MBIM",
+        "Paramiko SSH",
+        "OpenPyXL",
+        "Multi-threading"
+      ]
+    },
+
+    {
+      "type": "list",
+      "title": "Key Achievements",
+      "items": [
+        "Established end-to-end 5G video streaming architecture.",
+        "Implemented real-time AI facial recognition over a 5G network.",
+        "Integrated edge computing through MEC deployment.",
+        "Implemented LED-based access control actuation.",
+        "Improved frame rate from approximately 3–5 FPS to over 30 FPS.",
+        "Implemented multiple-face detection capabilities.",
+        "Developed automated timestamp-based activity logging.",
+        "Demonstrated practical AIoT deployment for smart building security."
+      ]
+    }
+  ]
+},
+{
+  "id": "iot-secured-locker",
+  "title": "IoT Secured School Locker — Multi-Factor Authentication System",
+  "year": "2026",
+  "role": "Embedded C++ Firmware Developer | End-to-End Hardware Integration",
+  "tags": [
+    "Embedded Systems",
+    "IoT Security",
+    "Hardware Integration",
+    "Microcontroller",
+    "Wireless Alerts",
+    "Academic Project – Singapore Polytechnic"
+  ],
+
+  "heroImage": "./images/SecureLocker.jpg",
+  "heroAlt": "IoT secured school locker system",
+
+  "sections": [
+    {
+      "type": "text",
+      "title": "Project Background",
+      "content": "The IoT Secured School Locker was developed to improve the security of personal storage systems in educational environments. Traditional lockers rely on physical keys or simple PIN codes, which can be lost, duplicated, or shared. This project introduces a multi-factor authentication system that combines RFID verification, OTP-based PIN authentication, wireless notifications, and centralized activity logging to provide enhanced locker security."
+    },
+
+    {
+      "type": "text",
+      "title": "Problem",
+      "content": "Conventional school lockers are vulnerable to unauthorized access due to lost keys, shared credentials, and weak authentication methods. In addition, users and administrators have limited visibility into locker access activities, making it difficult to detect suspicious behavior or maintain security records."
+    },
+
+    {
+      "type": "text",
+      "title": "Solution",
+      "content": "A secure IoT locker system was developed using a dual-layer authentication mechanism. Users must first authenticate using a registered RFID card before entering a One-Time Password (OTP) through a keypad. The system validates both authentication stages before unlocking the locker. Real-time Telegram notifications are sent whenever access events occur, while centralized activity logs maintain a complete history of locker usage for monitoring and auditing."
+    },
+
+    {
+      "type": "list",
+      "title": "My Role",
+      "items": [
+        "Developed embedded C++ firmware for locker control logic.",
+        "Integrated RFID authentication and OTP verification workflows.",
+        "Configured ESP8266 Wi-Fi communication.",
+        "Implemented Telegram Bot API notifications.",
+        "Designed centralized activity logging functions.",
+        "Integrated keypad, RFID reader, and locking mechanisms.",
+        "Performed firmware debugging and hardware troubleshooting."
+      ]
+    },
+
+    {
+      "type": "list",
+      "title": "System Flow & Operation",
+      "items": [
+        "System initializes RFID reader, keypad, ESP8266, and lock controller.",
+        "User scans a registered RFID card.",
+        "System verifies card identity.",
+        "Upon successful verification, an OTP challenge is generated.",
+        "User enters the OTP using the keypad.",
+        "System validates the OTP.",
+        "Locker unlocks if both authentication stages succeed.",
+        "Telegram notification is sent to authorized users.",
+        "Access event is recorded in centralized logs.",
+        "Locker automatically relocks after access is completed."
+      ]
+    },
+
+    {
+      "type": "text",
+      "title": "Outcomes",
+      "content": "The project successfully demonstrated a secure multi-factor authentication solution for smart locker applications. By combining RFID verification, OTP authentication, wireless alerts, and centralized logging, the system significantly improved access security while providing complete visibility into locker usage activities."
+    },
+
+    {
+      "type": "list",
+      "title": "Technical Summary",
+      "items": [
+        "Programming Language: Embedded C++",
+        "Controller: Microcontroller Platform",
+        "Wireless Communication: ESP8266 Wi-Fi Module",
+        "Authentication: RFID + OTP",
+        "Input Devices: RFID Reader, Keypad",
+        "Notification Service: Telegram Bot API",
+        "Security Feature: Multi-Factor Authentication",
+        "Data Logging: Centralized Activity Logs",
+        "Application Domain: Smart Security & Access Control"
+      ]
+    }
+  ]
+},
+{
+  "id": "smart-city-design",
+  "title": "Smart Safety Vest — IoT-Based Construction Worker Monitoring System",
+  "year": "2026",
+  "role": "IoT Developer | Smart City & Design Project",
+  "tags": [
+    "IoT",
+    "Smart City",
+    "Worker Safety",
+    "Sensors & Actuators",
+    "Data Analytics",
+    "Academic Project – Singapore Polytechnic"
+  ],
+
+  "heroImage": "./images/SmartVest.jpg",
+  "heroAlt": "IoT Smart Safety Vest for Construction Workers",
+
+  "sections": [
+    {
+      "type": "text",
+      "title": "Project Background",
+      "content": "The Smart Safety Vest was designed to improve occupational safety for construction workers operating in physically demanding and potentially hazardous environments. Construction personnel are frequently exposed to heat stress, excessive noise levels, poor visibility conditions, and workplace accidents. This project combines IoT sensors, real-time monitoring, automated alerts, and cloud analytics to provide proactive worker safety management."
+    },
+
+    {
+      "type": "text",
+      "title": "Problem",
+      "content": "Construction workers face various occupational risks including heat exhaustion, excessive noise exposure, falls, and environmental hazards. Traditional safety equipment provides passive protection but lacks the ability to continuously monitor worker conditions or generate real-time alerts when dangerous situations occur."
+    },
+
+    {
+      "type": "text",
+      "title": "Solution",
+      "content": "A smart safety vest was developed using multiple environmental and motion sensors to continuously monitor worker conditions. Temperature sensors track heat stress, acoustic sensors measure noise exposure, accelerometers detect falls or sudden impacts, and light sensors monitor environmental visibility. Sensor data is transmitted to a cloud dashboard where automated analysis triggers email alerts and activates warning devices such as LEDs and cooling mechanisms when safety thresholds are exceeded."
+    },
+
+    {
+      "type": "list",
+      "title": "My Role",
+      "items": [
+        "Designed the IoT monitoring architecture.",
+        "Integrated environmental and motion sensors.",
+        "Developed sensor data collection workflows.",
+        "Configured cloud dashboard monitoring.",
+        "Implemented automated alert mechanisms.",
+        "Designed worker safety response logic.",
+        "Conducted system testing and validation."
+      ]
+    },
+
+    {
+      "type": "list",
+      "title": "System Flow & Operation",
+      "items": [
+        "Sensors continuously collect worker and environmental data.",
+        "Temperature sensor monitors heat exposure.",
+        "Acoustic sensor measures surrounding noise levels.",
+        "Accelerometer detects falls and abnormal movements.",
+        "Light sensor monitors visibility conditions.",
+        "Sensor data is transmitted to the cloud platform.",
+        "Safety thresholds are continuously evaluated.",
+        "Email notifications are automatically triggered when risks are detected.",
+        "LED indicators provide visual warnings.",
+        "Cooling mechanisms are activated during heat stress conditions."
+      ]
+    },
+
+    {
+      "type": "text",
+      "title": "Outcomes",
+      "content": "The project successfully demonstrated how IoT technologies can enhance worker safety through real-time monitoring and automated intervention. The smart vest provided continuous environmental awareness, rapid incident detection, and proactive alerting mechanisms, supporting safer working conditions in construction and industrial environments."
+    },
+
+    {
+      "type": "list",
+      "title": "Technical Summary",
+      "items": [
+        "Platform: Conprosys IoT Platform",
+        "Sensors: Temperature, Accelerometer, Acoustic, Light",
+        "Actuators: LED Indicators, Stepper Motor Cooling System",
+        "Communication: Cloud Dashboard Integration",
+        "Alerting: Automated Email Notifications",
+        "Analytics: Real-Time Monitoring & Threshold Detection",
+        "Application Domain: Worker Safety & Smart City Solutions",
+        "Technology Category: IoT Monitoring System"
+      ]
+    }
+  ]
+}
 ]

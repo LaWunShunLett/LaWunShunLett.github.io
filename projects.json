@@ -24,6 +24,30 @@
   "tags": ["IoT", "DevOps", "CI/CD" , "Web App", "Containerization"]
 },
 {
+    "id": "5g-aiot-face-recognition",
+    "title": "5G AIoT Face Recognition Application — Smart Access Control",
+    "year": "2026",
+    "role": "AIoT Systems Developer | Computer Vision & Network Integration",
+    "desc": "Developed a high-performance, multi-threaded AI door-access system operating over Singtel's 5G broadband network. The system leverages multi-face recognition across live RTSP camera streams to deliver low-latency smart access control at over 30 FPS, while automatically recording access history into localized logs.",
+    "tech": "Python, OpenCV, CodeProject.AI, RTSP Streaming, Multi-threading, 5G Network Concepts, Openpyxl (Excel Logging)",
+    "image": "./images/FaceRecognition.png",
+    "imageAlt": "Live RTSP video feed with multi-face recognition bounding boxes and 5G low-latency overlay",
+    "filter": ["iot"],
+    "tags": ["AIoT", "Computer Vision", "5G Network", "Smart Security", "Python Development"]
+  },
+  {
+    "id": "iot-secured-locker",
+    "title": "IoT Secured School Locker — Multi-Factor Authentication System",
+    "year": "2026",
+    "role": "Embedded C++ Firmware Developer | End-to-End Hardware Integration",
+    "desc": "Developed embedded C++ firmware for an IoT locker system featuring a secure dual-layer authentication flow. The system requires a successful RFID card scan before prompting for an OTP-based PIN entry, utilizes real-time Telegram alerts for instant security updates, and maintains centralized activity logging for complete tracking.",
+    "tech": "Embedded C++, ESP8266 Wi-Fi Module, RFID Module, Keypad, OTP Logic, Telegram Bot API, Centralized Activity Logging, Circuit Design",
+    "image": "./images/SecureLocker.jpg",
+    "imageAlt": "IoT school locker   prototype with RFID scanner, keypad, and active ESP8266 controller",
+    "filter": ["iot", "microcontroller"],
+    "tags": ["Embedded Systems", "IoT Security", "Hardware Integration", "Microcontroller", "Wireless Alerts"]
+  },
+{
   "id" : "soil-tiller-checkout",
   "title": "Self-Navigating Soil Tiller Robot — Arduino-Based Field Prototype",
   "year": "2024",
@@ -81,5 +105,18 @@
   "imageAlt": "SP Pal social media app interface for Singapore Polytechnic students",
   "filter": ["mobile"],
   "tags": ["Android Mobile App", "Social Media", "UI/UX", "Front-End", "Java"]
+},
+{
+  "id": "smart-city-design",
+  "title": "Smart Safety Vest — IoT-Based Construction Worker Monitoring System",
+  "year": "2026",
+  "role": "IoT Developer | Smart City & Design Project",
+  "desc": "A smart safety vest for Singapore construction workers featuring real-time monitoring of heat stress, noise exposure, and fall detection. Integrates temperature, light, accelerometer, and acoustic sensors with automated alerts via email and active cooling/LED responses.",
+  "tech": "Conprosys IoT Platform, Temperature Sensor, Accelerometer, Acoustic Sensor, Light Sensor, Stepper Motor, LED, Cloud Dashboard, Automated Email Alerts, PLC Logic",
+  "image": "./images/SmartVest.jpg",
+  "imageAlt": "Smart safety vest prototype with IoT sensors for construction worker monitoring",
+  "filter": ["iot"],
+  "tags": ["IoT", "Smart City", "Worker Safety", "Sensors & Actuators", "Data Analytics", "Bosch XDK Sensors (8-in-1)"]
 }
+
 ]
