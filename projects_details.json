@@ -816,14 +816,13 @@
     {
       "type": "text",
       "title": "Project Overview",
-      "content": "This project explores how 5G connectivity, Edge Computing (MEC), and Artificial Intelligence can be integrated to create a secure smart access control solution. A Raspberry Pi equipped with a Pi Camera captures live video and transmits it over a 5G Standalone (SA) network to a MEC laptop where facial recognition is performed in real time using CodeProject.AI. The system demonstrates low-latency video transmission, AI-powered identity verification, and automated access control for smart building environments."
-    },
+      "content": "This project explores how [[5G Connectivity]], [[Edge Computing (MEC)]], and [[Artificial Intelligence]] can be integrated to create a secure [[Smart Access Control System]]. A [[Raspberry Pi]] equipped with a [[Pi Camera]] captures live video and transmits it over a [[5G Standalone (SA) Network]] to a [[MEC Laptop]] where facial recognition is performed in real time using [[CodeProject.AI]]. The system demonstrates [[Low-Latency Video Transmission]], [[AI-Powered Identity Verification]], and [[Automated Access Control]] for smart building environments."
+   },
 
     {
       "type": "text",
       "title": "Problem Statement",
-      "content": "Traditional access control systems rely on physical keys, access cards, or PIN codes that can be lost, stolen, duplicated, or shared with unauthorized individuals. These methods also require physical interaction and often lack intelligent identity verification. The project addresses these limitations by developing a contactless facial recognition system that leverages 5G communication and edge intelligence to provide secure, real-time authentication."
-    },
+      "content": "Traditional access control systems rely on [[Physical Keys]], [[Access Cards]], or [[PIN Codes]] that can be lost, stolen, duplicated, or shared with unauthorized individuals. These methods also require physical interaction and often lack intelligent identity verification. The project addresses these limitations by developing a [[Contactless Facial Recognition System]] that leverages [[5G Communication]] and [[Edge Intelligence]] to provide secure, real-time authentication."    },
 
     {
       "type": "image",
@@ -834,14 +833,12 @@
     {
       "type": "text",
       "title": "System Architecture",
-      "content": "The system consists of a Raspberry Pi transmitter equipped with a Pi Camera and RM502Q-AE 5G HAT module, a 5G network infrastructure, and a MEC laptop acting as the receiver and AI processing platform. Live video is streamed through RTSP over the 5G network, allowing the MEC device to perform face detection and recognition with minimal latency while maintaining high video quality."
-    },
+"content": "The system consists of a [[Raspberry Pi Transmitter]] equipped with a [[Pi Camera]] and [[RM502Q-AE 5G HAT Module]], a [[5G Network Infrastructure]], and a [[MEC Laptop]] acting as the receiver and AI processing platform. Live video is streamed through [[RTSP]] over the [[5G Network]], allowing the MEC device to perform [[Face Detection]] and [[Facial Recognition]] with minimal latency while maintaining high video quality."    },
 
     {
       "type": "text",
       "title": "5G Connectivity",
-      "content": "To establish end-to-end 5G communication, RM502Q-AE 5G HAT modules were configured on both the transmitter and receiver sides. The Raspberry Pi transmitter streamed data through the 5G network while the MEC laptop accessed the network through a USB-connected 5G HAT. MBIM mode was selected for improved stability and PySerial scripts were developed to automate modem initialization, network registration, public IP acquisition, and connectivity verification."
-    },
+"content": "To establish end-to-end [[5G Communication]], [[RM502Q-AE 5G HAT Modules]] were configured on both the transmitter and receiver sides. The Raspberry Pi transmitter streamed data through the [[5G Network]] while the MEC laptop accessed the network through a USB-connected [[5G HAT]]. [[MBIM Mode]] was selected for improved stability and [[PySerial Scripts]] were developed to automate modem initialization, network registration, public IP acquisition, and connectivity verification."    },
 
     {
       "type": "image",
@@ -852,8 +849,7 @@
     {
       "type": "text",
       "title": "Video Streaming Over 5G",
-      "content": "Live video captured by the Raspberry Pi Camera was encoded using H.264 through FFmpeg and published through a MediaMTX RTSP server. The receiver connected to the RTSP stream over the 5G network and continuously displayed incoming video frames. Frame skipping and timestamp overlays were implemented to reduce processing overhead while ensuring the displayed feed remained live and synchronized."
-    },
+"content": "Live video captured by the [[Raspberry Pi Camera]] was encoded using [[H.264]] through [[FFmpeg]] and published through a [[MediaMTX RTSP Server]]. The receiver connected to the [[RTSP Stream]] over the [[5G Network]] and continuously displayed incoming video frames. [[Frame Skipping]] and [[Timestamp Overlays]] were implemented to reduce processing overhead while ensuring the displayed feed remained live and synchronized."    },
 
     {
       "type": "image",
@@ -864,8 +860,7 @@
     {
       "type": "text",
       "title": "Face Recognition & Access Control",
-      "content": "Facial recognition was implemented using CodeProject.AI. Authorized users were registered into the facial recognition database before deployment. During operation, video frames were processed using AI-based face detection and recognition APIs. Detected faces were compared against registered identities, and confidence thresholds were applied to ensure reliable authentication. Recognition results were linked to LED actuation logic, where authorized users triggered an access indicator while unrecognized individuals were denied access."
-    },
+"content": "Facial recognition was implemented using [[CodeProject.AI]]. Authorized users were registered into the [[Facial Recognition Database]] before deployment. During operation, video frames were processed using [[AI-Based Face Detection]] and [[Facial Recognition APIs]]. Detected faces were compared against registered identities, and [[Confidence Thresholds]] were applied to ensure reliable authentication. Recognition results were linked to [[LED-Based Access Control Logic]], where authorized users triggered an access indicator while unrecognized individuals were denied access."    },
 
     {
       "type": "image",
@@ -876,8 +871,7 @@
     {
       "type": "text",
       "title": "Performance Optimization",
-      "content": "The initial implementation used a single-threaded architecture, causing the video display to freeze while waiting for AI processing responses. To improve responsiveness, the system was redesigned using a multi-threaded non-blocking architecture. Video rendering and AI processing were separated into independent workflows, frame resizing and JPEG compression were optimized, persistent HTTP connection pooling was introduced, and disk I/O operations were eliminated. These improvements increased performance from approximately 3–5 FPS to over 30 FPS while maintaining smooth video playback and significantly reducing latency."
-    },
+"content": "The initial implementation used a [[Single-Threaded Architecture]], causing the video display to freeze while waiting for AI processing responses. To improve responsiveness, the system was redesigned using a [[Multi-Threaded Non-Blocking Architecture]]. [[Video Rendering]] and [[AI Processing]] were separated into independent workflows, [[Frame Resizing]] and [[JPEG Compression]] were optimized, [[Persistent HTTP Connection Pooling]] was introduced, and [[Disk I/O Operations]] were eliminated. These improvements increased performance from approximately [[3–5 FPS]] to over [[30 FPS]] while maintaining smooth video playback and significantly reducing latency."    },
 
     {
       "type": "image",
@@ -888,8 +882,7 @@
     {
       "type": "text",
       "title": "Multiple Face Detection & Activity Logging",
-      "content": "The system was further enhanced to support multiple-face detection, allowing several individuals to be recognized simultaneously within a single frame. Each detected face was bounded and labeled with its corresponding identity and confidence score. An automated Excel-based logging system was developed to create a real-time audit trail containing timestamps, recognized usernames, and confidence values. Background-thread logging with cooldown mechanisms prevented duplicate entries while maintaining system performance."
-    },
+"content": "The system was further enhanced to support [[Multiple-Face Detection]], allowing several individuals to be recognized simultaneously within a single frame. Each detected face was bounded and labeled with its corresponding identity and [[Confidence Score]]. An automated [[Excel-Based Logging System]] was developed to create a real-time [[Audit Trail]] containing timestamps, recognized usernames, and confidence values. [[Background-Thread Logging]] with cooldown mechanisms prevented duplicate entries while maintaining system performance."    },
 
     {
       "type": "image",
@@ -905,65 +898,62 @@
 {
   "type": "text",
   "title": "Project Demonstration",
-  "content": "The following demonstration showcases the complete end-to-end workflow of the system, including 5G connectivity establishment, RTSP video streaming, AI-powered facial recognition, LED-based access control, multiple-face detection, and automated activity logging."
-},
+"content": "The following demonstration showcases the complete end-to-end workflow of the system, including [[5G Connectivity Establishment]], [[RTSP Video Streaming]], [[AI-Powered Facial Recognition]], [[LED-Based Access Control]], [[Multiple-Face Detection]], and [[Automated Activity Logging]]."},
 {
   "type": "youtube",
   "title": "5G AIoT Facial Recognition Door Access System Demonstration",
   "id": "smlk5ebVEmk"
 },
-    {
-      "type": "list",
-      "title": "My Contributions",
-      "items": [
-        "Configured 5G SA connectivity using RM502Q-AE 5G HAT modules.",
-        "Developed Python scripts for modem control using PySerial.",
-        "Implemented RTSP video streaming using FFmpeg and MediaMTX.",
-        "Integrated CodeProject.AI facial recognition APIs.",
-        "Developed multi-threaded video processing architecture.",
-        "Implemented LED-based access control actuation.",
-        "Developed automated Excel logging functionality.",
-        "Optimized video processing performance and reduced latency.",
-        "Tested end-to-end communication across Raspberry Pi, 5G network, and MEC platforms."
-      ]
-    },
-
-    {
-      "type": "list",
-      "title": "Technologies Used",
-      "items": [
-        "Python",
-        "Raspberry Pi",
-        "Pi Camera",
-        "RM502Q-AE 5G HAT",
-        "5G Standalone (SA)",
-        "OpenCV",
-        "CodeProject.AI",
-        "FFmpeg",
-        "MediaMTX",
-        "RTSP",
-        "PySerial",
-        "MBIM",
-        "Paramiko SSH",
-        "OpenPyXL",
-        "Multi-threading"
-      ]
-    },
-
-    {
-      "type": "list",
-      "title": "Key Achievements",
-      "items": [
-        "Established end-to-end 5G video streaming architecture.",
-        "Implemented real-time AI facial recognition over a 5G network.",
-        "Integrated edge computing through MEC deployment.",
-        "Implemented LED-based access control actuation.",
-        "Improved frame rate from approximately 3–5 FPS to over 30 FPS.",
-        "Implemented multiple-face detection capabilities.",
-        "Developed automated timestamp-based activity logging.",
-        "Demonstrated practical AIoT deployment for smart building security."
-      ]
-    }
+{
+  "type": "list",
+  "title": "My Contributions",
+  "items": [
+    "Configured [[5G Standalone (SA) Connectivity]] using [[RM502Q-AE 5G HAT Modules]]",
+    "Developed [[PySerial Automation Scripts]] for modem control and initialization",
+    "Implemented [[RTSP Video Streaming]] using [[FFmpeg]] and [[MediaMTX]]",
+    "Integrated [[CodeProject.AI Facial Recognition APIs]]",
+    "Developed [[Multi-Threaded Video Processing Architecture]]",
+    "Implemented [[LED-Based Access Control Actuation]]",
+    "Developed [[Automated Excel Logging Functionality]]",
+    "Optimized [[Video Processing Performance]] and reduced latency",
+    "Tested end-to-end communication across [[Raspberry Pi]], [[5G Network]], and [[MEC Platforms]]"
+  ]
+},
+{
+  "type": "list",
+  "title": "Technologies Used",
+  "items": [
+    "[[Python]]",
+    "[[Raspberry Pi]]",
+    "[[Pi Camera]]",
+    "[[RM502Q-AE 5G HAT]]",
+    "[[5G Standalone (SA)]]",
+    "[[OpenCV]]",
+    "[[CodeProject.AI]]",
+    "[[FFmpeg]]",
+    "[[MediaMTX]]",
+    "[[RTSP]]",
+    "[[PySerial]]",
+    "[[MBIM]]",
+    "[[Paramiko SSH]]",
+    "[[OpenPyXL]]",
+    "[[Multi-Threading]]"
+  ]
+},
+{
+  "type": "list",
+  "title": "Key Achievements",
+  "items": [
+    "Established [[End-to-End 5G Video Streaming Architecture]]",
+    "Implemented [[Real-Time AI Facial Recognition]] over a [[5G Network]]",
+    "Integrated [[Edge Computing]] through [[MEC Deployment]]",
+    "Implemented [[LED-Based Access Control]] actuation",
+    "Improved frame rate from approximately [[3–5 FPS]] to over [[30 FPS]]",
+    "Implemented [[Multiple-Face Detection]] capabilities",
+    "Developed [[Automated Timestamp-Based Activity Logging]]",
+    "Demonstrated practical [[AIoT Deployment]] for [[Smart Building Security]]"
+  ]
+}
   ]
 },
 {
