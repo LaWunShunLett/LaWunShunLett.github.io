@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // your JSON can be array OR {projects:[...]}
   const list = Array.isArray(projects) ? projects : (projects.projects || []);
-  const featured = list.slice(0, 8);
+  const featured = list;
 
   track.innerHTML = "";
   featured.forEach((p) => {

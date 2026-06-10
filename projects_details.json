@@ -980,169 +980,320 @@
     "Academic Project – Singapore Polytechnic"
   ],
 
-  "heroImage": "./images/SecureLocker.jpg",
+  "heroImage": "./images/CoverPic.png",
   "heroAlt": "IoT secured school locker system",
 
   "sections": [
-    {
-      "type": "text",
-      "title": "Project Background",
-      "content": "The IoT Secured School Locker was developed to improve the security of personal storage systems in educational environments. Traditional lockers rely on physical keys or simple PIN codes, which can be lost, duplicated, or shared. This project introduces a multi-factor authentication system that combines RFID verification, OTP-based PIN authentication, wireless notifications, and centralized activity logging to provide enhanced locker security."
-    },
+{
+"type": "text",
+"title": "Project Overview",
+"content": "The [[IoT Secured School Locker]] is a smart access control system designed to improve the security, accessibility, and management of student lockers within educational institutions. Traditional locker systems rely heavily on physical keys, making them vulnerable to [[Key Loss]], [[Unauthorized Duplication]], and administrative challenges. This project introduces a secure and intelligent alternative by integrating [[Multi-Factor Authentication]], [[IoT Connectivity]], [[Cloud-Based Monitoring]], and [[Real-Time Security Notifications]]. The system combines [[RFID Authentication]], [[PIN Verification]], [[OTP Recovery]], [[ThingSpeak Cloud Logging]], and [[Telegram Alert Services]] to provide a secure, reliable, and user-friendly locker management solution."
+},
 
+{
+"type": "text",
+"title": "Problem Statement",
+"content": "Conventional school locker systems depend on physical keys and manual supervision, making them susceptible to [[Lost Keys]], [[Unauthorized Access]], and inefficient locker management. When keys are misplaced, administrators often need to replace locks or issue new keys, increasing maintenance costs and administrative effort. Traditional lockers also provide limited visibility into access activities, making it difficult to investigate security incidents and monitor unauthorized access attempts. Educational institutions require a smarter solution capable of providing [[Stronger Authentication]], [[Centralized Monitoring]], [[Security Auditing]], and [[Real-Time Security Alerts]] while maintaining convenience for students."
+},
+{ "type": "image", "src": "./images/LockerProblemStatement.png", "caption": "Challenges of Traditional Key-Based Locker Systems" },
+{
+"type": "text",
+"title": "Conceive Idea",
+"content": "The idea behind the [[IoT Secured School Locker]] was to replace traditional key-based locker systems with a digital access control solution that combines [[Security]], [[Convenience]], and [[Accountability]]. Instead of relying on a single authentication method, the system adopts a [[Multi-Factor Authentication]] approach using [[RFID Credentials]], [[PIN Verification]], and an [[OTP Recovery System]]. Every access attempt is recorded and transmitted to the cloud through [[ThingSpeak Cloud Logging]], allowing administrators to monitor locker activities remotely. [[Telegram Security Alerts]] provide immediate awareness of suspicious behaviour, while cloud logging creates a complete [[Security Audit Trail]] for incident investigations. The solution leverages affordable IoT technologies while maintaining scalability for deployment across schools, libraries, laboratories, and other shared-access environments."
+},
+{ "type": "image", "src": "./images/SecureLocker.jpg", "caption": "IoT Secured School Locker Solution Overview" },
+{
+"type": "text",
+"title": "System Workflow",
+"content": "The locker system begins by initializing the [[ESP8266]], [[RFID Reader]], [[LCD Touchscreen]], [[ThingSpeak Cloud Platform]], and [[Telegram Alert System]]. Users authenticate using [[RFID Authentication]] or [[PIN Verification]]. Successful authentication unlocks the locker through the [[MG90S Servo Motor]] while recording the access event to the cloud. Failed authentication attempts trigger [[Security Logging]], [[Alert Generation]], and [[Account Lockout Protection]]. If a user forgets their PIN, the [[OTP Recovery System]] provides a secure credential reset process while maintaining access control integrity. All authentication events, access records, failed login attempts, and security incidents are continuously monitored and stored for future auditing and analysis."
+},
+{ "type": "image", "src": "./images/LockerConceptDesign.jpeg", "caption": "System Authentication and Access Workflow" },
+{
+"type": "text",
+"title": "System Architecture",
+"content": "The [[IoT Secured School Locker]] integrates authentication, monitoring, logging, and security services into a unified [[Access Control Platform]]. The architecture consists of [[Multi-Factor Authentication]], [[Security Monitoring & Data Logging]], and [[IoT Hardware Components]] working together to provide secure and reliable locker access."
+},
+{
+"type": "text",
+"title": "Multi-Factor Authentication",
+"content": "The locker system implements multiple authentication mechanisms to strengthen access security and reduce unauthorized entry risks. Instead of relying solely on physical keys, users are verified through [[RFID Access]], [[PIN Authentication]], and an [[OTP Recovery System]]. [[RFID Authentication]] serves as the primary access method by validating unique RFID credentials assigned to authorized users. [[PIN Authentication]] provides an additional layer of protection and serves as a backup authentication method when required. The [[OTP Recovery System]] enables users to securely reset forgotten credentials through identity verification. These authentication layers provide stronger protection against [[Credential Theft]], [[Lost Cards]], [[Unauthorized Access]], and [[Brute-Force Attacks]] while improving overall system security."
+},
+{
+  "type": "gallery",
+  "title": "Demonstration Videos",
+  "items": [
     {
-      "type": "text",
-      "title": "Problem",
-      "content": "Conventional school lockers are vulnerable to unauthorized access due to lost keys, shared credentials, and weak authentication methods. In addition, users and administrators have limited visibility into locker access activities, making it difficult to detect suspicious behavior or maintain security records."
-    },
+      "type": "youtube",
+      "id": "2FLwRATTIOk",
+          "caption": "RFID Access Authentication"
+        }
+        ,
+    {
+      "type": "youtube",
+      "id": "VBqNcTDyKrw",
+          "caption": "PIN Authentication Interface"
+        },
+    {
+      "type": "youtube",
+      "id": "RfdR-bSgjGc",
+        "caption": "OTP Recovery System"
+        }
+  ]
+},
+{
+"type": "text",
+"title": "Security Monitoring & Data Logging",
+"content": "The locker system continuously monitors authentication activities and security events through [[ThingSpeak Cloud Logging]] and the [[Telegram Alert System]]. Authentication records, access timestamps, failed login attempts, account lockouts, and administrative actions are securely stored for [[Security Auditing]] and [[Incident Analysis]]. [[ThingSpeak]] serves as the centralized cloud logging platform, allowing administrators to review historical records and identify suspicious behaviour patterns. The [[Telegram Alert System]] provides real-time notifications whenever critical security incidents occur, enabling rapid incident response without requiring continuous manual supervision."
+},
+{ "type": "gallery", "items": [     {
+      "type": "youtube",
+      "id": "iVm-YOFJud4",
+          "caption": "ThingSpeak Cloud Logging Dashboard"
+        }
+        , 
+        { "src": "./images/Telegram1.png", "caption": "Telegram Security Alert Notifications" }, 
+        { "src": "./images/Telegram2.png", "caption": "Telegram Security OTP" } ] },
+{
+"type": "text",
+"title": "Security Testing",
+"content": "Comprehensive [[Security Testing]] was conducted to evaluate the resilience of the locker system against [[Unauthorized Access Attempts]], [[Brute-Force Attacks]], [[RFID Misuse]], [[Credential Recovery Abuse]], and [[Cloud Communication Vulnerabilities]]. Testing scenarios included invalid RFID credentials, repeated PIN guessing attempts, unauthorized password recovery requests, and simulated attack conditions. The results demonstrated that the implemented security controls successfully protected the system while maintaining usability and accessibility for legitimate users."
+},
+{ "type": "image", "src": "./images/SecurityTesting.jpg", "caption": "Security Testing and Attack Simulation Results" },
+{
+"type": "text",
+"title": "TR64-2018 Compliance",
+"content": "The project was evaluated against the [[TR64-2018 IoT Cybersecurity Standard]] to ensure secure design and implementation practices. The assessment covered [[Cryptographic Support]], [[Identification & Authentication]], [[Network Protection]], [[Function & Data Protection]], [[Access Protection & Resiliency Support]], and [[Security Audit]] requirements. Compliance evaluation ensured that the system followed cybersecurity best practices for IoT deployments while maintaining confidentiality, integrity, availability, and accountability across all system components."
+},
+{ "type": "gallery", "items": [ { "src": "./images/CryptographicSupport.jpg", "caption": "Cryptographic Support" }, { "src": "./images/IdentificationAuthentication.jpg", "caption": "Identification & Authentication" }, { "src": "./images/NetworkProtection.jpg", "caption": "Network Protection" }, { "src": "./images/FunctionDataProtection.jpg", "caption": "Function & Data Protection" }, { "src": "./images/AccessProtectionResiliency.jpg", "caption": "Access Protection & Resiliency Support" }, { "src": "./images/SecurityAudit.jpg", "caption": "Security Audit" } ] },
+{
+"type": "text",
+"title": "Project Outcomes",
+"content": "The [[IoT Secured School Locker]] was successfully implemented as a secure access control solution that combines [[Multi-Factor Authentication]], [[Cloud Monitoring]], [[Real-Time Security Alerts]], and [[IoT Connectivity]]. Functional testing validated reliable authentication workflows, centralized monitoring, security auditing capabilities, and effective physical access control. The project successfully demonstrated how [[IoT Security]], [[Cloud Technologies]], and [[Cybersecurity Principles]] can be applied within a smart campus environment to improve locker security, reduce administrative workload, and provide enhanced visibility into access activities."
+},
+{
+  "type": "text",
+  "title": "More Details",
+  "content": "For additional technical documentation and implementation details, {link:https://mmyathet93.wixsite.com/secure-locker|Click Here}"
+},{
+  "type": "list",
+  "title": "Key Functional Features",
+  "items": [
+    "Secure [[RFID Authentication]] for locker access",
+    "[[PIN Authentication]] as an additional verification layer",
+    "[[OTP Recovery System]] for forgotten credentials",
+    "[[Multi-Factor Authentication (MFA)]] implementation",
+    "[[ThingSpeak Cloud Logging]] for centralized activity tracking",
+    "[[Telegram Alert System]] for real-time security notifications",
+    "[[Real-Time Access Monitoring]] and event recording",
+    "[[Account Lockout Protection]] against brute-force attacks",
+    "[[Security Audit Trail]] generation for incident investigation",
+    "[[Servo-Controlled Locking Mechanism]] for physical access control",
+    "[[Touchscreen User Interface]] for authentication and account recovery",
+    "[[Wi-Fi Connectivity]] for cloud communication and remote monitoring",
+    "[[TR64-2018 IoT Cybersecurity Compliance]] implementation",
+    "[[Smart Campus Security]] and access management capabilities"
+  ]
+},
 
-    {
-      "type": "text",
-      "title": "Solution",
-      "content": "A secure IoT locker system was developed using a dual-layer authentication mechanism. Users must first authenticate using a registered RFID card before entering a One-Time Password (OTP) through a keypad. The system validates both authentication stages before unlocking the locker. Real-time Telegram notifications are sent whenever access events occur, while centralized activity logs maintain a complete history of locker usage for monitoring and auditing."
-    },
+{
+  "type": "list",
+  "title": "Technical Summary",
+  "items": [
+    "Microcontroller: [[ESP8266 Wi-Fi Microcontroller]]",
+    "Authentication: [[RFID Authentication]], [[PIN Authentication]], [[OTP Recovery System]]",
+    "User Interface: [[LCD Touchscreen]]",
+    "Cloud Platform: [[ThingSpeak Cloud Platform]]",
+    "Notification Service: [[Telegram Bot API]]",
+    "Locking Mechanism: [[MG90S Servo Motor]]",
+    "Connectivity: [[Wi-Fi]]",
+    "Security Standard: [[TR64-2018 IoT Cybersecurity Standard]]",
+    "Security Features: [[Multi-Factor Authentication]], [[Cloud Logging]], [[Real-Time Alerts]], [[Account Lockout Protection]]",
+    "Application Area: [[Smart Campus Security]], [[IoT Access Control Systems]], [[Educational Institution Security Management]]"
+  ]
+}
+]
 
-    {
-      "type": "list",
-      "title": "My Role",
-      "items": [
-        "Developed embedded C++ firmware for locker control logic.",
-        "Integrated RFID authentication and OTP verification workflows.",
-        "Configured ESP8266 Wi-Fi communication.",
-        "Implemented Telegram Bot API notifications.",
-        "Designed centralized activity logging functions.",
-        "Integrated keypad, RFID reader, and locking mechanisms.",
-        "Performed firmware debugging and hardware troubleshooting."
-      ]
-    },
+},
+{
+  "id":"smart-city-design",
+  "title":"Smart Safety Vest — IoT-Based Construction Worker Monitoring System",
+  "year":"2026",
+  "role":"IoT Developer | Smart City & Design Project",
+  "desc":"An IoT-enabled wearable safety system designed to improve construction worker safety through real-time monitoring of environmental hazards, fall detection, automated alerts, cloud-based supervision, and predictive safety analytics.",
+  "tech":"Conprosys, IoT Sensors, Accelerometer, Temperature Sensor, Noise Sensor, Light Sensor, Cooling Fan, LED Indicators, Data Analytics",
+  "image":"./images/SmartVest.jpg",
+  "imageAlt":"IoT Smart Safety Vest for Construction Workers",
+  "filter":["iot"],
+  "tags":[
+    "IoT",
+    "Smart City",
+    "Worker Safety",
+    "Construction Monitoring",
+    "Cloud Dashboard",
+    "Data Analytics"
+  ],
 
-    {
-      "type": "list",
-      "title": "System Flow & Operation",
-      "items": [
-        "System initializes RFID reader, keypad, ESP8266, and lock controller.",
-        "User scans a registered RFID card.",
-        "System verifies card identity.",
-        "Upon successful verification, an OTP challenge is generated.",
-        "User enters the OTP using the keypad.",
-        "System validates the OTP.",
-        "Locker unlocks if both authentication stages succeed.",
-        "Telegram notification is sent to authorized users.",
-        "Access event is recorded in centralized logs.",
-        "Locker automatically relocks after access is completed."
-      ]
-    },
+"heroImage": "./images/SmartVest.jpg",
+"heroAlt": "IoT Smart Safety Vest for Construction Workers",
 
-    {
-      "type": "text",
-      "title": "Outcomes",
-      "content": "The project successfully demonstrated a secure multi-factor authentication solution for smart locker applications. By combining RFID verification, OTP authentication, wireless alerts, and centralized logging, the system significantly improved access security while providing complete visibility into locker usage activities."
-    },
+"sections": [
+{
+  "type": "text",
+  "title": "Project Overview",
+  "content": "The [[IoT Smart Safety Vest]] was developed as part of a [[Smart City]] initiative to improve [[workplace safety]] within the [[construction industry]]. Construction workers are frequently exposed to hazards such as [[falls from height]], [[excessive noise exposure]], [[prolonged heat stress]], and [[poor visibility conditions]]. The proposed solution integrates [[wearable IoT technologies]], [[automated safety responses]], [[cloud monitoring]], and [[data analytics]] into a single smart vest platform. By continuously monitoring worker conditions and environmental factors, the system enables [[proactive accident prevention]], [[faster emergency response]], and improved [[workplace safety management]]."
+},
 
+{
+  "type": "text",
+  "title": "Problem Statement",
+  "content": "According to [[workplace safety statistics]], the [[construction sector]] remains one of the most injury-prone industries due to the combination of physically demanding tasks and hazardous working environments. Workers frequently operate at [[elevated heights]], under [[extreme temperatures]], near heavy machinery generating [[high noise levels]], and in poorly illuminated locations. Traditional safety measures often depend heavily on [[manual supervision]] and periodic inspections, making it difficult to continuously monitor workers and identify dangerous situations before accidents occur. A more intelligent and automated approach is required to provide [[continuous monitoring]], [[immediate intervention]], and [[data-driven safety management]]."
+},
+
+{
+  "type": "image",
+  "src": "./images/ProblemStatement.jpg",
+  "caption": "Construction Industry Workplace Safety Challenges"
+},
+{
+  "type": "text",
+  "title": "Conceive Idea",
+  "content": "The Smart Safety Vest was selected as the foundation of the project because safety vests are mandatory personal protective equipment (PPE) on construction sites, making them an ideal platform for integrating smart monitoring capabilities without changing existing work practices. By embedding sensors directly into the vest, environmental and worker-related conditions can be monitored continuously and in real time. The system combines a [[Temperature Sensor]], [[Noise Sensor]], [[Light Sensor]], and [[Accelerometer Sensor]] to detect common workplace hazards including [[Heat Stress]], [[Excessive Noise Exposure]], [[Low Visibility Conditions]], and potential [[Fall Incidents]]. To improve worker safety, the vest incorporates active response mechanisms such as a [[Cooling Fan]] for heat mitigation, an [[LED Visibility System]] for low-light environments, and an [[Email Notification System]] that alerts supervisors when dangerous conditions are detected. Through the integration of sensing, automated responses, and cloud-based monitoring, the Smart Safety Vest provides a proactive approach to accident prevention while enabling supervisors to make informed safety decisions based on real-time data."
+},
+{
+  "type": "gallery",
+  "items": [
     {
-      "type": "list",
-      "title": "Technical Summary",
-      "items": [
-        "Programming Language: Embedded C++",
-        "Controller: Microcontroller Platform",
-        "Wireless Communication: ESP8266 Wi-Fi Module",
-        "Authentication: RFID + OTP",
-        "Input Devices: RFID Reader, Keypad",
-        "Notification Service: Telegram Bot API",
-        "Security Feature: Multi-Factor Authentication",
-        "Data Logging: Centralized Activity Logs",
-        "Application Domain: Smart Security & Access Control"
-      ]
+      "src": "./images/Light.jpg",
+      "caption": "Low Visibility Detection and Automatic LED Activation"
+    },
+    {
+      "src": "./images/Noise.jpg",
+      "caption": "Noise Exposure Monitoring and Supervisor Alert Workflow"
+    },
+    {
+      "src": "./images/Cooling.jpg",
+"caption": "Heat Stress Monitoring and Automatic Cooling Fan Activation"
     }
   ]
 },
 {
-  "id": "smart-city-design",
-  "title": "Smart Safety Vest — IoT-Based Construction Worker Monitoring System",
-  "year": "2026",
-  "role": "IoT Developer | Smart City & Design Project",
-  "tags": [
-    "IoT",
-    "Smart City",
-    "Worker Safety",
-    "Sensors & Actuators",
-    "Data Analytics",
-    "Academic Project – Singapore Polytechnic"
-  ],
+  "type": "text",
+  "title": "System Architecture",
+  "content": "The [[Smart Safety Vest]] integrates multiple sensing, monitoring, and response mechanisms into a unified [[IoT Safety Platform]]. An [[Accelerometer Sensor]] continuously monitors worker movement and orientation for [[Fall Detection with Height Verification]]. A [[Light Sensor]] measures ambient brightness to identify [[Low Visibility Detection]] conditions, while a [[Noise Sensor]] monitors workplace sound exposure levels for [[Noise Exposure Monitoring]]. A [[Temperature Sensor]] tracks environmental conditions to identify [[Heat Stress Monitoring]] risks. The system utilizes a [[Cooling Fan]] and [[LED Visibility System]] as active safety mechanisms, automatically responding when hazardous conditions are detected. The [[Email Notification System]] provides real-time alerts to supervisors for critical incidents such as high-risk falls, prolonged heat exposure, and excessive noise levels. Sensor readings are transmitted to the [[Conprosys Cloud Platform]], where supervisors can monitor worker conditions through a centralized dashboard and perform safety analysis using collected data."
+},
 
-  "heroImage": "./images/SmartVest.jpg",
-  "heroAlt": "IoT Smart Safety Vest for Construction Workers",
-
-  "sections": [
+{
+  "type": "gallery",
+  "items": [
     {
-      "type": "text",
-      "title": "Project Background",
-      "content": "The Smart Safety Vest was designed to improve occupational safety for construction workers operating in physically demanding and potentially hazardous environments. Construction personnel are frequently exposed to heat stress, excessive noise levels, poor visibility conditions, and workplace accidents. This project combines IoT sensors, real-time monitoring, automated alerts, and cloud analytics to provide proactive worker safety management."
+      "src": "./images/SystemArchitecture.jpg",
+      "caption": "Smart Safety Vest System Architecture"
     },
-
     {
-      "type": "text",
-      "title": "Problem",
-      "content": "Construction workers face various occupational risks including heat exhaustion, excessive noise exposure, falls, and environmental hazards. Traditional safety equipment provides passive protection but lacks the ability to continuously monitor worker conditions or generate real-time alerts when dangerous situations occur."
-    },
-
-    {
-      "type": "text",
-      "title": "Solution",
-      "content": "A smart safety vest was developed using multiple environmental and motion sensors to continuously monitor worker conditions. Temperature sensors track heat stress, acoustic sensors measure noise exposure, accelerometers detect falls or sudden impacts, and light sensors monitor environmental visibility. Sensor data is transmitted to a cloud dashboard where automated analysis triggers email alerts and activates warning devices such as LEDs and cooling mechanisms when safety thresholds are exceeded."
-    },
-
-    {
-      "type": "list",
-      "title": "My Role",
-      "items": [
-        "Designed the IoT monitoring architecture.",
-        "Integrated environmental and motion sensors.",
-        "Developed sensor data collection workflows.",
-        "Configured cloud dashboard monitoring.",
-        "Implemented automated alert mechanisms.",
-        "Designed worker safety response logic.",
-        "Conducted system testing and validation."
-      ]
-    },
-
-    {
-      "type": "list",
-      "title": "System Flow & Operation",
-      "items": [
-        "Sensors continuously collect worker and environmental data.",
-        "Temperature sensor monitors heat exposure.",
-        "Acoustic sensor measures surrounding noise levels.",
-        "Accelerometer detects falls and abnormal movements.",
-        "Light sensor monitors visibility conditions.",
-        "Sensor data is transmitted to the cloud platform.",
-        "Safety thresholds are continuously evaluated.",
-        "Email notifications are automatically triggered when risks are detected.",
-        "LED indicators provide visual warnings.",
-        "Cooling mechanisms are activated during heat stress conditions."
-      ]
-    },
-
-    {
-      "type": "text",
-      "title": "Outcomes",
-      "content": "The project successfully demonstrated how IoT technologies can enhance worker safety through real-time monitoring and automated intervention. The smart vest provided continuous environmental awareness, rapid incident detection, and proactive alerting mechanisms, supporting safer working conditions in construction and industrial environments."
-    },
-
-    {
-      "type": "list",
-      "title": "Technical Summary",
-      "items": [
-        "Platform: Conprosys IoT Platform",
-        "Sensors: Temperature, Accelerometer, Acoustic, Light",
-        "Actuators: LED Indicators, Stepper Motor Cooling System",
-        "Communication: Cloud Dashboard Integration",
-        "Alerting: Automated Email Notifications",
-        "Analytics: Real-Time Monitoring & Threshold Detection",
-        "Application Domain: Worker Safety & Smart City Solutions",
-        "Technology Category: IoT Monitoring System"
-      ]
+      "src": "./images/EmailAlerts.png",
+      "caption": "Real Time Email Notifications System"
     }
   ]
+},
+{
+  "type": "text",
+  "title": "Conprosys Dashboard",
+  "content": "The [[Conprosys Dashboard]] serves as the centralized [[cloud monitoring platform]] for the [[Smart Safety Vest System]]. Sensor data collected from workers is continuously transmitted to the dashboard, allowing supervisors to monitor [[environmental conditions]], [[worker status]], and active [[safety events]] in real time. The dashboard provides visualization of [[temperature readings]], [[noise exposure levels]], [[visibility conditions]], [[fall incidents]], and generated [[email alerts]]. Historical records can also be reviewed to identify recurring safety issues, evaluate worker exposure patterns, and support [[data-driven workplace safety improvements]]."
+},
+
+{
+  "type": "image",
+  "src": "./images/GUI.jpg",
+  "caption": "Real-Time Conprosys Monitoring Dashboard"
+},
+
+{
+  "type": "text",
+  "title": "Data Analytics",
+  "content": "Beyond real-time monitoring, the [[Smart Safety Vest]] incorporates [[Data Analytics]] to evaluate workplace safety performance and identify long-term risk patterns across construction sites. [[Fall Incident Analysis]] revealed that approximately 80% of fall incidents occur at relatively low heights between 1–10 metres, highlighting the importance of ladder and scaffold safety despite higher elevations traditionally being perceived as more dangerous. [[Noise Incident Analysis]] identified multiple high-risk sites where workers are frequently exposed to sound levels exceeding 85 dB, supporting targeted hearing protection and noise mitigation strategies. [[Heat Incident Analysis]] demonstrated the effectiveness of the automated cooling system in reducing worker exposure to extreme heat conditions while maintaining high compliance with rest-break protocols. [[Incident Email Analytics]] provided insights into the frequency, distribution, and severity of safety violations requiring supervisor intervention. [[Highest Risk Site Analysis]] compared environmental factors such as noise levels, working height, and heat index across multiple construction locations to identify the most critical sites. [[Risk Trend Analysis]] tracked safety conditions over a 30-day period, revealing consistently elevated risk levels at several locations. Finally, [[Improvement Insights]] generated data-driven recommendations for reducing workplace hazards through enhanced fall protection, heat management, and noise control measures. These findings enable supervisors to allocate resources more effectively and implement preventive safety measures proactively."
+},
+{
+  "type": "gallery",
+  "items": [
+    {
+      "src": "./images/FallIncidentAnalysis.jpg",
+      "caption": "Fall Incident Analysis and Automated Fall Alert Performance"
+    },
+    {
+      "src": "./images/NoiseIncidentAnalysis.jpg",
+      "caption": "Noise Incident Analysis and Hearing Protection Alert System"
+    },
+    {
+      "src": "./images/HeatIncidentAnalysis.jpg",
+      "caption": "Heat Incident Analysis and Automated Cooling System Performance"
+    },
+    {
+      "src": "./images/HighestRiskSiteAnalysis.jpg",
+      "caption": "Highest Risk Site Analysis Based on Noise, Height, and Heat Index"
+    },
+    {
+      "src": "./images/RiskTrends.jpg",
+      "caption": "30-Day Risk Trend Monitoring Across Critical Construction Sites"
+    },
+    {
+      "src": "./images/ImprovementInsights.jpg",
+      "caption": "Data-Driven Safety Improvement Recommendations"
+    }
+  ]
+},
+{
+  "type": "youtube",
+  "title": "End-to-End Demonstration of the Smart Safety Vest Monitoring System",
+  "id": "QRZLmv1ys4"
+},
+{
+  "type": "text",
+  "content": "The following demonstration showcases the complete Smart Safety Vest workflow, including fall detection, heat stress monitoring, noise exposure monitoring, low visibility detection, cloud dashboard integration, automated email alerts, and workplace safety analytics."
+},
+{
+  "type": "text",
+  "title": "Outcomes",
+  "content": "The [[Smart Safety Vest]] was successfully developed as an [[IoT-Based Construction Worker Monitoring System]] capable of improving [[Construction Worker Safety]] through [[Real-Time Monitoring]], [[Automated Hazard Detection]], and [[Cloud-Based Supervision]]. The system continuously monitors environmental and worker-related conditions including [[Fall Detection]], [[Heat Stress Monitoring]], [[Noise Exposure Monitoring]], and [[Low Visibility Detection]]. Through integration with the [[Conprosys Dashboard]], supervisors can remotely monitor worker conditions, receive automated alerts, analyse workplace safety trends, and implement preventive actions based on [[Predictive Risk Analysis]]. The project demonstrates how [[Smart City Technologies]] and [[IoT Solutions]] can be applied to enhance workplace safety while reducing reliance on manual monitoring."
+},
+{
+  "type": "list",
+  "title": "Key Functional Features",
+  "items": [
+    "Real-time worker monitoring using [[Bosch XDK Sensors]]",
+    "Automatic [[Fall Detection]] using accelerometer-based motion analysis",
+    "[[Height Verification]] to reduce false fall alerts",
+    "Automated supervisor notifications for high-risk fall incidents",
+    "[[Low Visibility Detection]] using ambient light sensing",
+    "Automatic [[LED Visibility System]] activation in dark environments",
+    "[[Noise Exposure Monitoring]] with configurable safety thresholds",
+    "Automated alerts when noise exceeds [[85 dB]] for prolonged periods",
+    "[[Heat Stress Monitoring]] using environmental temperature sensing",
+    "Automatic [[Cooling Fan Activation]] during prolonged heat exposure",
+    "Worker rest-break compliance monitoring using temperature and light sensors",
+    "Cloud-based monitoring through [[Conprosys Dashboard]]",
+    "[[Fall Incident Analysis]], [[Noise Incident Analysis]], and [[Heat Incident Analysis]]",
+    "[[Highest Risk Site Analysis]] and [[Risk Trend Monitoring]]",
+    "[[30-Day Predictive Safety Analysis]] for preventive workplace safety planning"
+  ]
+},
+{
+  "type": "list",
+  "title": "Technical Summary",
+  "items": [
+    "Controller: [[Bosch XDK]]",
+    "Platform: [[Conprosys IoT Platform]]",
+    "Motion Sensor: [[Accelerometer Sensor]]",
+    "Temperature Monitoring: [[Temperature Sensor]]",
+    "Noise Monitoring: [[Noise Sensor]]",
+    "Visibility Monitoring: [[Light Sensor]]",
+    "Cooling System: [[Cooling Fan]]",
+    "Safety Indicator: [[LED Visibility System]]",
+    "Alert System: [[Email Notification System]]",
+    "Cloud Monitoring: [[Conprosys Dashboard]]",
+    "Analytics: [[Predictive Risk Assessment]]",
+    "Application Area: [[Smart City]] & [[Construction Worker Safety]]"
+  ]
+}
+]
 }
 ]

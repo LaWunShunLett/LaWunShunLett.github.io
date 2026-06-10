@@ -13,9 +13,17 @@ function escapeHTML(str = "") {
 // Convert [[text]] → <span class="hl">text</span>
 function renderWithHighlight(str = "") {
   const safe = escapeHTML(str);
-  return safe.replace(/\[\[(.+?)\]\]/g, `<span class="hl">$1</span>`);
-}
 
+  const withHighlights = safe.replace(
+    /\[\[(.+?)\]\]/g,
+    `<span class="hl">$1</span>`
+  );
+
+  return withHighlights.replace(
+    /\{link:(.*?)\|(.*?)\}/g,
+    `<a href="$1" target="_blank" rel="noopener noreferrer">$2</a>`
+  );
+}
 (async function () {
   const qs = new URLSearchParams(location.search);
   const id = qs.get("id");
