@@ -383,7 +383,46 @@ html { overflow-y: scroll; }
   background: rgba(37,99,235,.10);
   box-shadow: 0 4px 10px rgba(148,163,184,.35);
 }
+/* Featured projects horizontal carousel */
+#featuredGrid {
+  display: flex;
+  flex-wrap: nowrap;
 
+  gap: 24px;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
+}
+
+#featuredGrid::-webkit-scrollbar {
+  display: none;
+}
+#featuredGrid {
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#featuredGrid.is-dragging {
+  cursor: grabbing;
+}
+
+#featuredGrid img {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+/* Prevent cards from shrinking */
+#featuredGrid .project-card {
+  flex: 0 0 380px; /* adjust width if needed */
+  scroll-snap-align: start;
+}
 /* Mobile: show hamburger and dropdown menu */
 @media (max-width: 980px){
   .projects-grid{ grid-template-columns: 1fr 1fr; }
