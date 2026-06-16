@@ -42,7 +42,7 @@
     "role": "Embedded C++ Firmware Developer | End-to-End Hardware Integration",
     "desc": "Developed embedded C++ firmware for an IoT locker system featuring a secure dual-layer authentication flow. The system requires a successful RFID card scan before prompting for an OTP-based PIN entry, utilizes real-time Telegram alerts for instant security updates, and maintains centralized activity logging for complete tracking.",
     "tech": "Embedded C++, ESP8266 Wi-Fi Module, RFID Module, Keypad, OTP Logic, Telegram Bot API, Centralized Activity Logging, Circuit Design",
-    "image": "./images/SecureLocker.jpg",
+    "image": "./images/CoverPic.png",
     "imageAlt": "IoT school locker   prototype with RFID scanner, keypad, and active ESP8266 controller",
     "filter": ["iot", "microcontroller"],
     "tags": ["Embedded Systems", "IoT Security", "Hardware Integration", "Microcontroller", "Wireless Alerts"]

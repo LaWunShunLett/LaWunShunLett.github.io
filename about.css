@@ -85,7 +85,23 @@
 .about-side{
   align-self: start;
 }
+.site-footer {
+  margin-top: 80px;
+  padding: 24px 20px;
 
+  text-align: center;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  color: rgba(17, 24, 39, 0.6);
+
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.site-footer p {
+  margin: 0;
+}
 /* IMPORTANT: Work should NOT stick */
 @media (min-width: 921px){
   .about-side{
